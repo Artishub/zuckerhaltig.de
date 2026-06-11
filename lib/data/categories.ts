@@ -59,6 +59,10 @@ const categoryMeta: Record<string, Pick<DrinkCategory, "description" | "color">>
   "juice-drink": {
     "description": "Fruchtsaftgetränke und Trinkpäckchen.",
     "color": "#b18a44"
+  },
+  "milk-drink": {
+    "description": "Milchmischgetränke, Kakao und trinkfertige Kaffeevarianten.",
+    "color": "#8f8f8f"
   }
 };
 

@@ -75,6 +75,70 @@
     {
       "id": "valensina",
       "name": "Valensina"
+    },
+    {
+      "id": "rockstar",
+      "name": "Rockstar"
+    },
+    {
+      "id": "mio-mio",
+      "name": "Mio Mio"
+    },
+    {
+      "id": "almdudler",
+      "name": "Almdudler"
+    },
+    {
+      "id": "lipton",
+      "name": "Lipton"
+    },
+    {
+      "id": "pfanner",
+      "name": "Pfanner"
+    },
+    {
+      "id": "arizona",
+      "name": "AriZona"
+    },
+    {
+      "id": "durstloescher",
+      "name": "Durstlöscher"
+    },
+    {
+      "id": "orangina",
+      "name": "Orangina"
+    },
+    {
+      "id": "chocomel",
+      "name": "Chocomel"
+    },
+    {
+      "id": "mueller",
+      "name": "Müller"
+    },
+    {
+      "id": "freeway",
+      "name": "Freeway"
+    },
+    {
+      "id": "ja",
+      "name": "ja!"
+    },
+    {
+      "id": "river",
+      "name": "River"
+    },
+    {
+      "id": "paulaner",
+      "name": "Paulaner"
+    },
+    {
+      "id": "goenrgy",
+      "name": "Gönrgy"
+    },
+    {
+      "id": "afri",
+      "name": "afri"
     }
   ],
   "categories": [
@@ -129,6 +193,10 @@
     {
       "id": "juice-drink",
       "name": "Fruchtsaftgetränk"
+    },
+    {
+      "id": "milk-drink",
+      "name": "Milchgetränk"
     }
   ],
   "drinks": [
@@ -7167,6 +7235,2168 @@
         {
           "question": "Wie viel Energie hat Valensina Frühstücks-Orange pro 1,0 l?",
           "answer": "Rechnerisch enthält 1,0 l etwa 430,0 kcal. Die Basisangabe liegt bei 43 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "monster-mango-loco-500",
+      "name": "Monster Mango Loco",
+      "brandId": "monster",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 12.0,
+      "source": "Dosenmatrosen Produktseite / Monster DE bestätigt 56 g Zucker pro 500 ml Dose",
+      "note": "Beliebte Monster-Juiced-Sorte; hoher Zuckerwert.",
+      "sourceUrl": "https://www.dosenmatrosen.de/monster-juiced-mango-loco-12er-pack",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 211,
+        "energyKcal": 49,
+        "carbohydrates": 12.0,
+        "sugar": 12.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.0
+      },
+      "computed": {
+        "sugarPerPackage": 60.0,
+        "sugarCubesPerPackage": 20.0,
+        "energyKcalPerPackage": 245.0,
+        "formula": "12.0 g × 500 ml / 100 = 60.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Monster Mango Loco in 500 ml?",
+          "answer": "Monster Mango Loco enthält rechnerisch etwa 60.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 12.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Monster Mango Loco pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 12.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Monster Mango Loco?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Monster Mango Loco ungefähr 20.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Monster Mango Loco pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 245.0 kcal. Die Basisangabe liegt bei 49 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "monster-pacific-punch-500",
+      "name": "Monster Pacific Punch",
+      "brandId": "monster",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 11.0,
+      "source": "Dosenmatrosen Produktseite",
+      "note": "Punch-Energydrink mit Zucker.",
+      "sourceUrl": "https://www.dosenmatrosen.de/monster-pacific-punch-12er-pack",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 195,
+        "energyKcal": 46,
+        "carbohydrates": 12.0,
+        "sugar": 11.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.0
+      },
+      "computed": {
+        "sugarPerPackage": 55.0,
+        "sugarCubesPerPackage": 18.3,
+        "energyKcalPerPackage": 230.0,
+        "formula": "11.0 g × 500 ml / 100 = 55.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Monster Pacific Punch in 500 ml?",
+          "answer": "Monster Pacific Punch enthält rechnerisch etwa 55.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 11.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Monster Pacific Punch pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 11.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Monster Pacific Punch?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Monster Pacific Punch ungefähr 18.3 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Monster Pacific Punch pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 230.0 kcal. Die Basisangabe liegt bei 46 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "monster-ultra-white-500",
+      "name": "Monster Ultra White",
+      "brandId": "monster",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0.0,
+      "source": "Monster Deutschland / Knuspr Produktseite",
+      "note": "Zuckerfreie Monster-Ultra-Sorte.",
+      "sourceUrl": "https://www.monsterenergy.com/de-de/energy-drinks/zero-zucker/ultra/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 10,
+        "energyKcal": 2,
+        "carbohydrates": 0.9,
+        "sugar": 0.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.2
+      },
+      "computed": {
+        "sugarPerPackage": 0.0,
+        "sugarCubesPerPackage": 0.0,
+        "energyKcalPerPackage": 10.0,
+        "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Monster Ultra White in 500 ml?",
+          "answer": "Monster Ultra White enthält rechnerisch etwa 0.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Monster Ultra White pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Monster Ultra White?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Monster Ultra White ungefähr 0.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Monster Ultra White pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 10.0 kcal. Die Basisangabe liegt bei 2 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "monster-energy-zero-sugar-500",
+      "name": "Monster Energy Zero Sugar",
+      "brandId": "monster",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0.0,
+      "source": "Dosenmatrosen Produktseite",
+      "note": "Zuckerfreie Variante des klassischen Monster-Profils.",
+      "sourceUrl": "https://www.dosenmatrosen.de/monster-energy-green-zero-sugar-12er-pack",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 15,
+        "energyKcal": 3,
+        "carbohydrates": 1.0,
+        "sugar": 0.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.2
+      },
+      "computed": {
+        "sugarPerPackage": 0.0,
+        "sugarCubesPerPackage": 0.0,
+        "energyKcalPerPackage": 15.0,
+        "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Monster Energy Zero Sugar in 500 ml?",
+          "answer": "Monster Energy Zero Sugar enthält rechnerisch etwa 0.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Monster Energy Zero Sugar pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Monster Energy Zero Sugar?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Monster Energy Zero Sugar ungefähr 0.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Monster Energy Zero Sugar pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 15.0 kcal. Die Basisangabe liegt bei 3 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "rockstar-original-neue-rezeptur-500",
+      "name": "Rockstar Energy Original Neue Rezeptur",
+      "brandId": "rockstar",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 4.2,
+      "source": "Dosenmatrosen Produktseite / Rockstar DE Produktseite",
+      "note": "Neue Rezeptur mit reduziertem Zucker; Packung prüfen.",
+      "sourceUrl": "https://www.dosenmatrosen.de/rockstar-energy-drink-original-12er-pack",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 222,
+        "energyKcal": 52,
+        "carbohydrates": 4.3,
+        "sugar": 4.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.2
+      },
+      "computed": {
+        "sugarPerPackage": 21.0,
+        "sugarCubesPerPackage": 7.0,
+        "energyKcalPerPackage": 260.0,
+        "formula": "4.2 g × 500 ml / 100 = 21.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Rockstar Energy Original Neue Rezeptur in 500 ml?",
+          "answer": "Rockstar Energy Original Neue Rezeptur enthält rechnerisch etwa 21.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 4.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Rockstar Energy Original Neue Rezeptur pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 4.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Rockstar Energy Original Neue Rezeptur?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Rockstar Energy Original Neue Rezeptur ungefähr 7.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Rockstar Energy Original Neue Rezeptur pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 260.0 kcal. Die Basisangabe liegt bei 52 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "mio-mio-mate-original-500",
+      "name": "Mio Mio Mate Original",
+      "brandId": "mio-mio",
+      "categoryId": "mate",
+      "sizeMl": 500,
+      "sugarPer100Ml": 5.7,
+      "source": "Getränke-City Produktseite",
+      "note": "Sehr relevante Mate-Alternative zu Club-Mate.",
+      "sourceUrl": "https://www.getraenke-city.de/mio-mio-mate",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 102,
+        "energyKcal": 24,
+        "carbohydrates": 5.7,
+        "sugar": 5.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      },
+      "computed": {
+        "sugarPerPackage": 28.5,
+        "sugarCubesPerPackage": 9.5,
+        "energyKcalPerPackage": 120.0,
+        "formula": "5.7 g × 500 ml / 100 = 28.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Mio Mio Mate Original in 500 ml?",
+          "answer": "Mio Mio Mate Original enthält rechnerisch etwa 28.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 5.7 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Mio Mio Mate Original pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 5.7 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Mio Mio Mate Original?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Mio Mio Mate Original ungefähr 9.5 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Mio Mio Mate Original pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 120.0 kcal. Die Basisangabe liegt bei 24 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "mio-mio-mate-zero-500",
+      "name": "Mio Mio Mate Zero",
+      "brandId": "mio-mio",
+      "categoryId": "mate",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0.0,
+      "source": "Mio Mio Shop / Mio Mio Produktseite",
+      "note": "Zuckerfreie Mate-Variante.",
+      "sourceUrl": "https://www.shop.miomio.com/miomio/mio-mio-mate-zero",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 7,
+        "energyKcal": 2,
+        "carbohydrates": 0.0,
+        "sugar": 0.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      },
+      "computed": {
+        "sugarPerPackage": 0.0,
+        "sugarCubesPerPackage": 0.0,
+        "energyKcalPerPackage": 10.0,
+        "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Mio Mio Mate Zero in 500 ml?",
+          "answer": "Mio Mio Mate Zero enthält rechnerisch etwa 0.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Mio Mio Mate Zero pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Mio Mio Mate Zero?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Mio Mio Mate Zero ungefähr 0.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Mio Mio Mate Zero pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 10.0 kcal. Die Basisangabe liegt bei 2 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "almdudler-original-350",
+      "name": "Almdudler Original",
+      "brandId": "almdudler",
+      "categoryId": "softdrink",
+      "sizeMl": 350,
+      "sugarPer100Ml": 7.9,
+      "source": "Gurkerl Produktseite",
+      "note": "Österreichischer Kräuterlimonaden-Klassiker, auch in Deutschland erhältlich.",
+      "sourceUrl": "https://www.gurkerl.at/7159-almdudler-350ml-mehrweg",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 141,
+        "energyKcal": 33,
+        "carbohydrates": 7.9,
+        "sugar": 7.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.1
+      },
+      "computed": {
+        "sugarPerPackage": 27.6,
+        "sugarCubesPerPackage": 9.2,
+        "energyKcalPerPackage": 115.5,
+        "formula": "7.9 g × 350 ml / 100 = 27.6 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Almdudler Original in 350 ml?",
+          "answer": "Almdudler Original enthält rechnerisch etwa 27.6 g Zucker pro 350 ml. Grundlage ist der deklarierte Wert von 7.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Almdudler Original pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 7.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Almdudler Original?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 350 ml Almdudler Original ungefähr 9.2 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Almdudler Original pro 350 ml?",
+          "answer": "Rechnerisch enthält 350 ml etwa 115.5 kcal. Die Basisangabe liegt bei 33 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "almdudler-original-500",
+      "name": "Almdudler Original",
+      "brandId": "almdudler",
+      "categoryId": "softdrink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 7.9,
+      "source": "Gurkerl Produktseite",
+      "note": "Größere Flasche, gleiche Rezeptur pro 100 ml.",
+      "sourceUrl": "https://www.gurkerl.at/7159-almdudler-350ml-mehrweg",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 141,
+        "energyKcal": 33,
+        "carbohydrates": 7.9,
+        "sugar": 7.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.1
+      },
+      "computed": {
+        "sugarPerPackage": 39.5,
+        "sugarCubesPerPackage": 13.2,
+        "energyKcalPerPackage": 165.0,
+        "formula": "7.9 g × 500 ml / 100 = 39.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Almdudler Original in 500 ml?",
+          "answer": "Almdudler Original enthält rechnerisch etwa 39.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 7.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Almdudler Original pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 7.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Almdudler Original?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Almdudler Original ungefähr 13.2 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Almdudler Original pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 165.0 kcal. Die Basisangabe liegt bei 33 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "almdudler-zero-500",
+      "name": "Almdudler Zuckerfrei",
+      "brandId": "almdudler",
+      "categoryId": "softdrink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0.0,
+      "source": "FDDB Produktseite",
+      "note": "Zuckerfreie Kräuterlimonade; vor Livegang Etikett prüfen.",
+      "sourceUrl": "https://fddb.mobi/de/almdudler_almdudler_zuckerfrei_kraeuter_limonade.html",
+      "verificationStatus": "open_database_import",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 6,
+        "energyKcal": 1,
+        "carbohydrates": 0.0,
+        "sugar": 0.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.1
+      },
+      "computed": {
+        "sugarPerPackage": 0.0,
+        "sugarCubesPerPackage": 0.0,
+        "energyKcalPerPackage": 5.0,
+        "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Almdudler Zuckerfrei in 500 ml?",
+          "answer": "Almdudler Zuckerfrei enthält rechnerisch etwa 0.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Almdudler Zuckerfrei pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Almdudler Zuckerfrei?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Almdudler Zuckerfrei ungefähr 0.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Almdudler Zuckerfrei pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 5.0 kcal. Die Basisangabe liegt bei 1 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "lipton-ice-tea-pfirsich-500",
+      "name": "Lipton Ice Tea Pfirsich",
+      "brandId": "lipton",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 3.0,
+      "source": "Lipton Deutschland Produktseite",
+      "note": "Mainstream-Eistee mit reduzierter Süße.",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-pfirsich-geschmack",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 56,
+        "energyKcal": 13,
+        "carbohydrates": 3.1,
+        "sugar": 3.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      },
+      "computed": {
+        "sugarPerPackage": 15.0,
+        "sugarCubesPerPackage": 5.0,
+        "energyKcalPerPackage": 65.0,
+        "formula": "3.0 g × 500 ml / 100 = 15.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Pfirsich in 500 ml?",
+          "answer": "Lipton Ice Tea Pfirsich enthält rechnerisch etwa 15.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Pfirsich pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Lipton Ice Tea Pfirsich?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Lipton Ice Tea Pfirsich ungefähr 5.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Lipton Ice Tea Pfirsich pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 65.0 kcal. Die Basisangabe liegt bei 13 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "lipton-ice-tea-pfirsich-1500",
+      "name": "Lipton Ice Tea Pfirsich",
+      "brandId": "lipton",
+      "categoryId": "iced-tea",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 3.0,
+      "source": "Lipton Deutschland Produktseite",
+      "note": "1,5-l-Flasche, gleiche Rezeptur pro 100 ml.",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-pfirsich-geschmack",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 56,
+        "energyKcal": 13,
+        "carbohydrates": 3.1,
+        "sugar": 3.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      },
+      "computed": {
+        "sugarPerPackage": 45.0,
+        "sugarCubesPerPackage": 15.0,
+        "energyKcalPerPackage": 195.0,
+        "formula": "3.0 g × 1500 ml / 100 = 45.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Pfirsich in 1500 ml?",
+          "answer": "Lipton Ice Tea Pfirsich enthält rechnerisch etwa 45.0 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Pfirsich pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Lipton Ice Tea Pfirsich?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml Lipton Ice Tea Pfirsich ungefähr 15.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Lipton Ice Tea Pfirsich pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 195.0 kcal. Die Basisangabe liegt bei 13 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "lipton-ice-tea-zitrone-500",
+      "name": "Lipton Ice Tea Zitrone",
+      "brandId": "lipton",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 3.0,
+      "source": "Lipton Deutschland Produktseite",
+      "note": "Mainstream-Zitroneneistee.",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-zitrone-geschmack",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 55,
+        "energyKcal": 13,
+        "carbohydrates": 3.1,
+        "sugar": 3.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      },
+      "computed": {
+        "sugarPerPackage": 15.0,
+        "sugarCubesPerPackage": 5.0,
+        "energyKcalPerPackage": 65.0,
+        "formula": "3.0 g × 500 ml / 100 = 15.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Zitrone in 500 ml?",
+          "answer": "Lipton Ice Tea Zitrone enthält rechnerisch etwa 15.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Zitrone pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Lipton Ice Tea Zitrone?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Lipton Ice Tea Zitrone ungefähr 5.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Lipton Ice Tea Zitrone pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 65.0 kcal. Die Basisangabe liegt bei 13 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "lipton-ice-tea-zitrone-1500",
+      "name": "Lipton Ice Tea Zitrone",
+      "brandId": "lipton",
+      "categoryId": "iced-tea",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 3.0,
+      "source": "Lipton Deutschland Produktseite",
+      "note": "1,5-l-Flasche, gleiche Rezeptur pro 100 ml.",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-zitrone-geschmack",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 55,
+        "energyKcal": 13,
+        "carbohydrates": 3.1,
+        "sugar": 3.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      },
+      "computed": {
+        "sugarPerPackage": 45.0,
+        "sugarCubesPerPackage": 15.0,
+        "energyKcalPerPackage": 195.0,
+        "formula": "3.0 g × 1500 ml / 100 = 45.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Zitrone in 1500 ml?",
+          "answer": "Lipton Ice Tea Zitrone enthält rechnerisch etwa 45.0 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Lipton Ice Tea Zitrone pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 3.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Lipton Ice Tea Zitrone?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml Lipton Ice Tea Zitrone ungefähr 15.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Lipton Ice Tea Zitrone pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 195.0 kcal. Die Basisangabe liegt bei 13 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "pfanner-ice-tea-pfirsich-2000",
+      "name": "Pfanner Ice Tea Pfirsich",
+      "brandId": "pfanner",
+      "categoryId": "iced-tea",
+      "sizeMl": 2000,
+      "sugarPer100Ml": 6.2,
+      "source": "Lebensmittel-Versand / Pfanner Produktdaten",
+      "note": "Große 2-l-Eistee-Packung; hoher Gesamtzucker durch Portionsgröße.",
+      "sourceUrl": "https://lebensmittel-versand.eu/Pfanner-Eistee-Pfirsich-2l",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 108,
+        "energyKcal": 25,
+        "carbohydrates": 6.2,
+        "sugar": 6.2,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      },
+      "computed": {
+        "sugarPerPackage": 124.0,
+        "sugarCubesPerPackage": 41.3,
+        "energyKcalPerPackage": 500.0,
+        "formula": "6.2 g × 2000 ml / 100 = 124.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Pfanner Ice Tea Pfirsich in 2000 ml?",
+          "answer": "Pfanner Ice Tea Pfirsich enthält rechnerisch etwa 124.0 g Zucker pro 2000 ml. Grundlage ist der deklarierte Wert von 6.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Pfanner Ice Tea Pfirsich pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 6.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Pfanner Ice Tea Pfirsich?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 2000 ml Pfanner Ice Tea Pfirsich ungefähr 41.3 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Pfanner Ice Tea Pfirsich pro 2000 ml?",
+          "answer": "Rechnerisch enthält 2000 ml etwa 500.0 kcal. Die Basisangabe liegt bei 25 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "arizona-iced-tea-peach-500",
+      "name": "AriZona Iced Tea Peach",
+      "brandId": "arizona",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 8.0,
+      "source": "Lebensmittel-Versand / Crunchy Snacks Produktseite",
+      "note": "Sehr süßer Eistee; Import-/EU-Rezepturen können abweichen.",
+      "sourceUrl": "https://lebensmittel-versand.eu/Arizona-Ice-Tea-Peach-15l-DPG",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 116,
+        "energyKcal": 28,
+        "carbohydrates": 8.3,
+        "sugar": 8.0,
+        "fat": 0,
+        "protein": 0.01,
+        "salt": 0.01
+      },
+      "computed": {
+        "sugarPerPackage": 40.0,
+        "sugarCubesPerPackage": 13.3,
+        "energyKcalPerPackage": 140.0,
+        "formula": "8.0 g × 500 ml / 100 = 40.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat AriZona Iced Tea Peach in 500 ml?",
+          "answer": "AriZona Iced Tea Peach enthält rechnerisch etwa 40.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 8.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat AriZona Iced Tea Peach pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei AriZona Iced Tea Peach?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml AriZona Iced Tea Peach ungefähr 13.3 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat AriZona Iced Tea Peach pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 140.0 kcal. Die Basisangabe liegt bei 28 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "arizona-iced-tea-peach-1500",
+      "name": "AriZona Iced Tea Peach",
+      "brandId": "arizona",
+      "categoryId": "iced-tea",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 8.0,
+      "source": "Lebensmittel-Versand Produktseite",
+      "note": "Großflasche; Packungsgröße macht Gesamtzucker sichtbar.",
+      "sourceUrl": "https://lebensmittel-versand.eu/Arizona-Ice-Tea-Peach-15l-DPG",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 116,
+        "energyKcal": 28,
+        "carbohydrates": 8.3,
+        "sugar": 8.0,
+        "fat": 0,
+        "protein": 0.01,
+        "salt": 0.01
+      },
+      "computed": {
+        "sugarPerPackage": 120.0,
+        "sugarCubesPerPackage": 40.0,
+        "energyKcalPerPackage": 420.0,
+        "formula": "8.0 g × 1500 ml / 100 = 120.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat AriZona Iced Tea Peach in 1500 ml?",
+          "answer": "AriZona Iced Tea Peach enthält rechnerisch etwa 120.0 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 8.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat AriZona Iced Tea Peach pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei AriZona Iced Tea Peach?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml AriZona Iced Tea Peach ungefähr 40.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat AriZona Iced Tea Peach pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 420.0 kcal. Die Basisangabe liegt bei 28 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "durstloescher-eistee-pfirsich-500",
+      "name": "Durstlöscher Eistee Pfirsich",
+      "brandId": "durstloescher",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 8.8,
+      "source": "myTime Produktseite",
+      "note": "Relevanter Schul-/Kiosk-Eistee im 500-ml-Karton.",
+      "sourceUrl": "https://www.mytime.de/durstloescher_eistee_pfirsich_4504030847.html",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 155,
+        "energyKcal": 36,
+        "carbohydrates": 8.8,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.08
+      },
+      "computed": {
+        "sugarPerPackage": 44.0,
+        "sugarCubesPerPackage": 14.7,
+        "energyKcalPerPackage": 180.0,
+        "formula": "8.8 g × 500 ml / 100 = 44.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Durstlöscher Eistee Pfirsich in 500 ml?",
+          "answer": "Durstlöscher Eistee Pfirsich enthält rechnerisch etwa 44.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 8.8 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Durstlöscher Eistee Pfirsich pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.8 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Durstlöscher Eistee Pfirsich?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Durstlöscher Eistee Pfirsich ungefähr 14.7 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Durstlöscher Eistee Pfirsich pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 180.0 kcal. Die Basisangabe liegt bei 36 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "orangina-original-330",
+      "name": "Orangina Original",
+      "brandId": "orangina",
+      "categoryId": "orange-limo",
+      "sizeMl": 330,
+      "sugarPer100Ml": 8.9,
+      "source": "Hopfenkurier Produktseite / Orangina DE Zutaten",
+      "note": "Orangenlimonade mit Fruchtfleisch.",
+      "sourceUrl": "https://www.orangina.de/orangina-original",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 165,
+        "energyKcal": 39,
+        "carbohydrates": 9.4,
+        "sugar": 8.9,
+        "fat": 0,
+        "protein": 0.1,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 29.4,
+        "sugarCubesPerPackage": 9.8,
+        "energyKcalPerPackage": 128.7,
+        "formula": "8.9 g × 330 ml / 100 = 29.4 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Orangina Original in 330 ml?",
+          "answer": "Orangina Original enthält rechnerisch etwa 29.4 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 8.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Orangina Original pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Orangina Original?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Orangina Original ungefähr 9.8 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Orangina Original pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 128.7 kcal. Die Basisangabe liegt bei 39 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "orangina-original-500",
+      "name": "Orangina Original",
+      "brandId": "orangina",
+      "categoryId": "orange-limo",
+      "sizeMl": 500,
+      "sugarPer100Ml": 8.9,
+      "source": "Hopfenkurier Produktseite / Orangina DE Zutaten",
+      "note": "500-ml-Flasche, gleiche Rezeptur pro 100 ml.",
+      "sourceUrl": "https://www.orangina.de/orangina-original",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 165,
+        "energyKcal": 39,
+        "carbohydrates": 9.4,
+        "sugar": 8.9,
+        "fat": 0,
+        "protein": 0.1,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 44.5,
+        "sugarCubesPerPackage": 14.8,
+        "energyKcalPerPackage": 195.0,
+        "formula": "8.9 g × 500 ml / 100 = 44.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Orangina Original in 500 ml?",
+          "answer": "Orangina Original enthält rechnerisch etwa 44.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 8.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Orangina Original pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Orangina Original?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Orangina Original ungefähr 14.8 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Orangina Original pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 195.0 kcal. Die Basisangabe liegt bei 39 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "orangina-original-1500",
+      "name": "Orangina Original",
+      "brandId": "orangina",
+      "categoryId": "orange-limo",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 8.9,
+      "source": "Hopfenkurier Produktseite",
+      "note": "1,5-l-Flasche für Familien-/Party-Kontext.",
+      "sourceUrl": "https://www.hopfenkurier.com/orangina-original-6x1500ml.html",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 165,
+        "energyKcal": 39,
+        "carbohydrates": 9.4,
+        "sugar": 8.9,
+        "fat": 0,
+        "protein": 0.1,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 133.5,
+        "sugarCubesPerPackage": 44.5,
+        "energyKcalPerPackage": 585.0,
+        "formula": "8.9 g × 1500 ml / 100 = 133.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Orangina Original in 1500 ml?",
+          "answer": "Orangina Original enthält rechnerisch etwa 133.5 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 8.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Orangina Original pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Orangina Original?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml Orangina Original ungefähr 44.5 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Orangina Original pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 585.0 kcal. Die Basisangabe liegt bei 39 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "chocomel-original-dose-250",
+      "name": "Chocomel Original Dose",
+      "brandId": "chocomel",
+      "categoryId": "milk-drink",
+      "sizeMl": 250,
+      "sugarPer100Ml": 9.8,
+      "source": "Chocomel Deutschland Produktseite",
+      "note": "Schokomilch in der Dose; Zuckerwert pro 100 ml.",
+      "sourceUrl": "https://www.chocomel.de/produkte/chocomel-dose-250-ml/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 292,
+        "energyKcal": 69,
+        "carbohydrates": 10.0,
+        "sugar": 9.8,
+        "fat": 1.6,
+        "protein": 3.4,
+        "salt": 0.13
+      },
+      "computed": {
+        "sugarPerPackage": 24.5,
+        "sugarCubesPerPackage": 8.2,
+        "energyKcalPerPackage": 172.5,
+        "formula": "9.8 g × 250 ml / 100 = 24.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Chocomel Original Dose in 250 ml?",
+          "answer": "Chocomel Original Dose enthält rechnerisch etwa 24.5 g Zucker pro 250 ml. Grundlage ist der deklarierte Wert von 9.8 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Chocomel Original Dose pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.8 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Chocomel Original Dose?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 250 ml Chocomel Original Dose ungefähr 8.2 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Chocomel Original Dose pro 250 ml?",
+          "answer": "Rechnerisch enthält 250 ml etwa 172.5 kcal. Die Basisangabe liegt bei 69 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "chocomel-original-tetrapak-1000",
+      "name": "Chocomel Original Tetra Pak",
+      "brandId": "chocomel",
+      "categoryId": "milk-drink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 9.8,
+      "source": "Chocomel Deutschland Produktseite",
+      "note": "1-l-Schokomilch; wichtig für Gesamtzucker-Vergleich.",
+      "sourceUrl": "https://www.chocomel.de/produkte/chocomel-tetrapak-1-l/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 294,
+        "energyKcal": 70,
+        "carbohydrates": 10.0,
+        "sugar": 9.8,
+        "fat": 1.6,
+        "protein": 3.3,
+        "salt": 0.12
+      },
+      "computed": {
+        "sugarPerPackage": 98.0,
+        "sugarCubesPerPackage": 32.7,
+        "energyKcalPerPackage": 700.0,
+        "formula": "9.8 g × 1000 ml / 100 = 98.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Chocomel Original Tetra Pak in 1000 ml?",
+          "answer": "Chocomel Original Tetra Pak enthält rechnerisch etwa 98.0 g Zucker pro 1000 ml. Grundlage ist der deklarierte Wert von 9.8 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Chocomel Original Tetra Pak pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.8 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Chocomel Original Tetra Pak?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1000 ml Chocomel Original Tetra Pak ungefähr 32.7 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Chocomel Original Tetra Pak pro 1000 ml?",
+          "answer": "Rechnerisch enthält 1000 ml etwa 700.0 kcal. Die Basisangabe liegt bei 70 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "muellermilch-schoko-400",
+      "name": "Müllermilch Schoko",
+      "brandId": "mueller",
+      "categoryId": "milk-drink",
+      "sizeMl": 400,
+      "sugarPer100Ml": 10.2,
+      "source": "Müller Produktseite",
+      "note": "Beliebtes Milchmischgetränk.",
+      "sourceUrl": "https://allesmuelleroderwas.de/produkte/muellermilch/muellermilch-original-in-der-flasche/schoko-geschmack",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 301,
+        "energyKcal": 71,
+        "carbohydrates": 10.7,
+        "sugar": 10.2,
+        "fat": 1.6,
+        "protein": 3.4,
+        "salt": 0.15
+      },
+      "computed": {
+        "sugarPerPackage": 40.8,
+        "sugarCubesPerPackage": 13.6,
+        "energyKcalPerPackage": 284.0,
+        "formula": "10.2 g × 400 ml / 100 = 40.8 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Müllermilch Schoko in 400 ml?",
+          "answer": "Müllermilch Schoko enthält rechnerisch etwa 40.8 g Zucker pro 400 ml. Grundlage ist der deklarierte Wert von 10.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Müllermilch Schoko pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 10.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Müllermilch Schoko?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 400 ml Müllermilch Schoko ungefähr 13.6 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Müllermilch Schoko pro 400 ml?",
+          "answer": "Rechnerisch enthält 400 ml etwa 284.0 kcal. Die Basisangabe liegt bei 71 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "muellermilch-schoko-zero-zusatz-400",
+      "name": "Müllermilch Schoko 0% Zuckerzusatz",
+      "brandId": "mueller",
+      "categoryId": "milk-drink",
+      "sizeMl": 400,
+      "sugarPer100Ml": 4.6,
+      "source": "Globus Produktseite",
+      "note": "Keine Zuckerzusatz-Variante; enthält natürlich vorkommenden Milchzucker.",
+      "sourceUrl": "https://produkte.globus.de/frische-produkte/milch-milchprodukte/kakao-shakes-kaffee/42454267/muellermilch-schoko-geschmack-0-zuckerzusatz",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 211,
+        "energyKcal": 50,
+        "carbohydrates": 5.1,
+        "sugar": 4.6,
+        "fat": 1.7,
+        "protein": 3.5,
+        "salt": 0.14
+      },
+      "computed": {
+        "sugarPerPackage": 18.4,
+        "sugarCubesPerPackage": 6.1,
+        "energyKcalPerPackage": 200.0,
+        "formula": "4.6 g × 400 ml / 100 = 18.4 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Müllermilch Schoko 0% Zuckerzusatz in 400 ml?",
+          "answer": "Müllermilch Schoko 0% Zuckerzusatz enthält rechnerisch etwa 18.4 g Zucker pro 400 ml. Grundlage ist der deklarierte Wert von 4.6 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Müllermilch Schoko 0% Zuckerzusatz pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 4.6 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Müllermilch Schoko 0% Zuckerzusatz?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 400 ml Müllermilch Schoko 0% Zuckerzusatz ungefähr 6.1 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Müllermilch Schoko 0% Zuckerzusatz pro 400 ml?",
+          "answer": "Rechnerisch enthält 400 ml etwa 200.0 kcal. Die Basisangabe liegt bei 50 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "freeway-cola-1500",
+      "name": "Freeway Cola",
+      "brandId": "freeway",
+      "categoryId": "cola",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 10.4,
+      "source": "Stiftung Warentest Cola-Test 2016",
+      "note": "Lidl-Eigenmarke; ältere Testdaten, Etikett vor Livegang prüfen.",
+      "sourceUrl": "https://www.test.de/Cola-Nur-4-von-30-Getraenken-sind-gut-5018232-5020408/detail/2016312000%2116/",
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 177,
+        "energyKcal": 42,
+        "carbohydrates": 10.5,
+        "sugar": 10.4,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 156.0,
+        "sugarCubesPerPackage": 52.0,
+        "energyKcalPerPackage": 630.0,
+        "formula": "10.4 g × 1500 ml / 100 = 156.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Freeway Cola in 1500 ml?",
+          "answer": "Freeway Cola enthält rechnerisch etwa 156.0 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 10.4 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Freeway Cola pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 10.4 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Freeway Cola?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml Freeway Cola ungefähr 52.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Freeway Cola pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 630.0 kcal. Die Basisangabe liegt bei 42 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "ja-cola-1500",
+      "name": "ja! Cola",
+      "brandId": "ja",
+      "categoryId": "cola",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 9.0,
+      "source": "Stiftung Warentest Cola-Test 2016",
+      "note": "REWE-Eigenmarke; ältere Testdaten, aktuelles Etikett prüfen.",
+      "sourceUrl": "https://www.test.de/Cola-Nur-4-von-30-Getraenken-sind-gut-5018232-5020408/detail/2016312000%2127/",
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 153,
+        "energyKcal": 36,
+        "carbohydrates": 9.0,
+        "sugar": 9.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 135.0,
+        "sugarCubesPerPackage": 45.0,
+        "energyKcalPerPackage": 540.0,
+        "formula": "9.0 g × 1500 ml / 100 = 135.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat ja! Cola in 1500 ml?",
+          "answer": "ja! Cola enthält rechnerisch etwa 135.0 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 9.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat ja! Cola pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei ja! Cola?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml ja! Cola ungefähr 45.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat ja! Cola pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 540.0 kcal. Die Basisangabe liegt bei 36 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "river-cola-classic-1500",
+      "name": "River Cola Classic",
+      "brandId": "river",
+      "categoryId": "cola",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 10.5,
+      "source": "Supermarktcheck Produktseite",
+      "note": "Aldi-Eigenmarke; aktuelles Etikett vor Veröffentlichung prüfen.",
+      "sourceUrl": "https://www.supermarktcheck.de/product/32266-river-cola-aldi-",
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 179,
+        "energyKcal": 42,
+        "carbohydrates": 10.5,
+        "sugar": 10.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 157.5,
+        "sugarCubesPerPackage": 52.5,
+        "energyKcalPerPackage": 630.0,
+        "formula": "10.5 g × 1500 ml / 100 = 157.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat River Cola Classic in 1500 ml?",
+          "answer": "River Cola Classic enthält rechnerisch etwa 157.5 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 10.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat River Cola Classic pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 10.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei River Cola Classic?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml River Cola Classic ungefähr 52.5 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat River Cola Classic pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 630.0 kcal. Die Basisangabe liegt bei 42 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "ja-cola-zero-1500",
+      "name": "ja! Cola ohne Zucker",
+      "brandId": "ja",
+      "categoryId": "cola",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 0.0,
+      "source": "REWE Produktseite",
+      "note": "REWE-Eigenmarke ohne Zucker.",
+      "sourceUrl": "https://www.rewe.de/shop/p/ja-cola-ohne-zucker-6x1-5l/905749",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 0,
+        "energyKcal": 0,
+        "carbohydrates": 0,
+        "sugar": 0.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      },
+      "computed": {
+        "sugarPerPackage": 0.0,
+        "sugarCubesPerPackage": 0.0,
+        "energyKcalPerPackage": 0.0,
+        "formula": "0.0 g × 1500 ml / 100 = 0.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat ja! Cola ohne Zucker in 1500 ml?",
+          "answer": "ja! Cola ohne Zucker enthält rechnerisch etwa 0.0 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat ja! Cola ohne Zucker pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei ja! Cola ohne Zucker?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml ja! Cola ohne Zucker ungefähr 0.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat ja! Cola ohne Zucker pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 0.0 kcal. Die Basisangabe liegt bei 0 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "freeway-cola-zero-1500",
+      "name": "Freeway Cola Zero",
+      "brandId": "freeway",
+      "categoryId": "cola",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 0.0,
+      "source": "Supermarktcheck / Lidl Eigenmarke",
+      "note": "Lidl-Eigenmarke ohne Zucker; Etikett prüfen.",
+      "sourceUrl": "https://www.supermarktcheck.de/product/84169-freeway-cola-zero-sugar",
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 4,
+        "energyKcal": 1,
+        "carbohydrates": 0,
+        "sugar": 0.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 0.0,
+        "sugarCubesPerPackage": 0.0,
+        "energyKcalPerPackage": 15.0,
+        "formula": "0.0 g × 1500 ml / 100 = 0.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Freeway Cola Zero in 1500 ml?",
+          "answer": "Freeway Cola Zero enthält rechnerisch etwa 0.0 g Zucker pro 1500 ml. Grundlage ist der deklarierte Wert von 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Freeway Cola Zero pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 0.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Freeway Cola Zero?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1500 ml Freeway Cola Zero ungefähr 0.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Freeway Cola Zero pro 1500 ml?",
+          "answer": "Rechnerisch enthält 1500 ml etwa 15.0 kcal. Die Basisangabe liegt bei 1 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "paulaner-spezi-500",
+      "name": "Paulaner Spezi",
+      "brandId": "paulaner",
+      "categoryId": "cola-mix",
+      "sizeMl": 500,
+      "sugarPer100Ml": 9.2,
+      "source": "Paulaner Produktseite",
+      "note": "Sehr relevante Spezi-Marke in deutschen Supermärkten.",
+      "sourceUrl": "https://www.paulaner.de/produkte/spezi/spezi/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 158,
+        "energyKcal": 37,
+        "carbohydrates": 9.2,
+        "sugar": 9.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.04
+      },
+      "computed": {
+        "sugarPerPackage": 46.0,
+        "sugarCubesPerPackage": 15.3,
+        "energyKcalPerPackage": 185.0,
+        "formula": "9.2 g × 500 ml / 100 = 46.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Paulaner Spezi in 500 ml?",
+          "answer": "Paulaner Spezi enthält rechnerisch etwa 46.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 9.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Paulaner Spezi pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Paulaner Spezi?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Paulaner Spezi ungefähr 15.3 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Paulaner Spezi pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 185.0 kcal. Die Basisangabe liegt bei 37 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "paulaner-spezi-330",
+      "name": "Paulaner Spezi",
+      "brandId": "paulaner",
+      "categoryId": "cola-mix",
+      "sizeMl": 330,
+      "sugarPer100Ml": 9.2,
+      "source": "Paulaner Produktseite",
+      "note": "0,33-l-Variante.",
+      "sourceUrl": "https://www.paulaner.de/produkte/spezi/spezi/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 158,
+        "energyKcal": 37,
+        "carbohydrates": 9.2,
+        "sugar": 9.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.04
+      },
+      "computed": {
+        "sugarPerPackage": 30.4,
+        "sugarCubesPerPackage": 10.1,
+        "energyKcalPerPackage": 122.1,
+        "formula": "9.2 g × 330 ml / 100 = 30.4 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Paulaner Spezi in 330 ml?",
+          "answer": "Paulaner Spezi enthält rechnerisch etwa 30.4 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 9.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Paulaner Spezi pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Paulaner Spezi?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Paulaner Spezi ungefähr 10.1 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Paulaner Spezi pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 122.1 kcal. Die Basisangabe liegt bei 37 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "paulaner-spezi-zero-500",
+      "name": "Paulaner Spezi Zero",
+      "brandId": "paulaner",
+      "categoryId": "cola-mix",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0.5,
+      "source": "Paulaner Produktseite",
+      "note": "Zuckerfreie Spezi-Variante; Werte <0,5 g als 0,5 gespeichert.",
+      "sourceUrl": "https://www.paulaner.de/produkte/spezi/spezi-zero",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 6,
+        "energyKcal": 1,
+        "carbohydrates": 0.5,
+        "sugar": 0.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.04
+      },
+      "computed": {
+        "sugarPerPackage": 2.5,
+        "sugarCubesPerPackage": 0.8,
+        "energyKcalPerPackage": 5.0,
+        "formula": "0.5 g × 500 ml / 100 = 2.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Paulaner Spezi Zero in 500 ml?",
+          "answer": "Paulaner Spezi Zero enthält rechnerisch etwa 2.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 0.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Paulaner Spezi Zero pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 0.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Paulaner Spezi Zero?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Paulaner Spezi Zero ungefähr 0.8 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Paulaner Spezi Zero pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 5.0 kcal. Die Basisangabe liegt bei 1 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "paulaner-limo-orange-500",
+      "name": "Paulaner Limo Orange",
+      "brandId": "paulaner",
+      "categoryId": "orange-limo",
+      "sizeMl": 500,
+      "sugarPer100Ml": 9.1,
+      "source": "Paulaner Produktseite",
+      "note": "Orangenlimonade von Paulaner.",
+      "sourceUrl": "https://www.paulaner.de/produkte/limo/limo",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 159,
+        "energyKcal": 37,
+        "carbohydrates": 9.1,
+        "sugar": 9.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      },
+      "computed": {
+        "sugarPerPackage": 45.5,
+        "sugarCubesPerPackage": 15.2,
+        "energyKcalPerPackage": 185.0,
+        "formula": "9.1 g × 500 ml / 100 = 45.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Paulaner Limo Orange in 500 ml?",
+          "answer": "Paulaner Limo Orange enthält rechnerisch etwa 45.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 9.1 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Paulaner Limo Orange pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.1 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Paulaner Limo Orange?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Paulaner Limo Orange ungefähr 15.2 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Paulaner Limo Orange pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 185.0 kcal. Die Basisangabe liegt bei 37 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "paulaner-limo-zitrone-500",
+      "name": "Paulaner Limo Zitrone",
+      "brandId": "paulaner",
+      "categoryId": "lemon-lime",
+      "sizeMl": 500,
+      "sugarPer100Ml": 8.3,
+      "source": "Paulaner Produktseite",
+      "note": "Zitronenlimonade von Paulaner.",
+      "sourceUrl": "https://www.paulaner.de/produkte/limo/paulaner-limo-zitrone",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 146,
+        "energyKcal": 34,
+        "carbohydrates": 8.3,
+        "sugar": 8.3,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 41.5,
+        "sugarCubesPerPackage": 13.8,
+        "energyKcalPerPackage": 170.0,
+        "formula": "8.3 g × 500 ml / 100 = 41.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Paulaner Limo Zitrone in 500 ml?",
+          "answer": "Paulaner Limo Zitrone enthält rechnerisch etwa 41.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 8.3 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Paulaner Limo Zitrone pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.3 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Paulaner Limo Zitrone?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Paulaner Limo Zitrone ungefähr 13.8 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Paulaner Limo Zitrone pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 170.0 kcal. Die Basisangabe liegt bei 34 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "paulaner-cola-330",
+      "name": "Paulaner Cola",
+      "brandId": "paulaner",
+      "categoryId": "cola",
+      "sizeMl": 330,
+      "sugarPer100Ml": 9.5,
+      "source": "Paulaner Produktseite",
+      "note": "Paulaner Cola aus Dose/Glas.",
+      "sourceUrl": "https://www.paulaner.de/produkte/cola/cola",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 160,
+        "energyKcal": 38,
+        "carbohydrates": 9.5,
+        "sugar": 9.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 31.4,
+        "sugarCubesPerPackage": 10.5,
+        "energyKcalPerPackage": 125.4,
+        "formula": "9.5 g × 330 ml / 100 = 31.4 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Paulaner Cola in 330 ml?",
+          "answer": "Paulaner Cola enthält rechnerisch etwa 31.4 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 9.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Paulaner Cola pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Paulaner Cola?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Paulaner Cola ungefähr 10.5 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Paulaner Cola pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 125.4 kcal. Die Basisangabe liegt bei 38 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "goenrgy-paradise-punch-500",
+      "name": "Gönrgy Paradise Punch",
+      "brandId": "goenrgy",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 13.0,
+      "source": "Sweets.ch Produktseite",
+      "note": "Sehr hoher Zuckerwert; prominente Energy-Marke.",
+      "sourceUrl": "https://www.sweets.ch/produkt/getraenke/goenrgy-paradise-punch-dose-500ml/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 237,
+        "energyKcal": 56,
+        "carbohydrates": 13.0,
+        "sugar": 13.0,
+        "fat": 0,
+        "protein": 0.5,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 65.0,
+        "sugarCubesPerPackage": 21.7,
+        "energyKcalPerPackage": 280.0,
+        "formula": "13.0 g × 500 ml / 100 = 65.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Gönrgy Paradise Punch in 500 ml?",
+          "answer": "Gönrgy Paradise Punch enthält rechnerisch etwa 65.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 13.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Gönrgy Paradise Punch pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 13.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Gönrgy Paradise Punch?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Gönrgy Paradise Punch ungefähr 21.7 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Gönrgy Paradise Punch pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 280.0 kcal. Die Basisangabe liegt bei 56 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "afri-cola-classic-330",
+      "name": "afri cola classic",
+      "brandId": "afri",
+      "categoryId": "cola",
+      "sizeMl": 330,
+      "sugarPer100Ml": 9.0,
+      "source": "afri Produktseite",
+      "note": "Klassische afri Cola; Hersteller nennt Rezepturumstellung.",
+      "sourceUrl": "https://afri.de/produkte/afri-cola/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 181,
+        "energyKcal": 43,
+        "carbohydrates": 9.0,
+        "sugar": 9.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 29.7,
+        "sugarCubesPerPackage": 9.9,
+        "energyKcalPerPackage": 141.9,
+        "formula": "9.0 g × 330 ml / 100 = 29.7 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat afri cola classic in 330 ml?",
+          "answer": "afri cola classic enthält rechnerisch etwa 29.7 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 9.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat afri cola classic pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei afri cola classic?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml afri cola classic ungefähr 9.9 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat afri cola classic pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 141.9 kcal. Die Basisangabe liegt bei 43 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "afri-cola-energy-500",
+      "name": "afri cola energy",
+      "brandId": "afri",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 12.0,
+      "source": "afri Produktseite",
+      "note": "Energy-Cola mit 12 g Zucker pro 100 ml.",
+      "sourceUrl": "https://afri.de/produkte/afri-cola-energy/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 215,
+        "energyKcal": 51,
+        "carbohydrates": 13.0,
+        "sugar": 12.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.02
+      },
+      "computed": {
+        "sugarPerPackage": 60.0,
+        "sugarCubesPerPackage": 20.0,
+        "energyKcalPerPackage": 255.0,
+        "formula": "12.0 g × 500 ml / 100 = 60.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat afri cola energy in 500 ml?",
+          "answer": "afri cola energy enthält rechnerisch etwa 60.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 12.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat afri cola energy pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 12.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei afri cola energy?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml afri cola energy ungefähr 20.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat afri cola energy pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 255.0 kcal. Die Basisangabe liegt bei 51 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "afri-cola-mix-500",
+      "name": "afri cola mix",
+      "brandId": "afri",
+      "categoryId": "cola-mix",
+      "sizeMl": 500,
+      "sugarPer100Ml": 9.9,
+      "source": "afri Produktseite",
+      "note": "Cola-Orangenmix von afri.",
+      "sourceUrl": "https://afri.de/produkte/afri-cola-mix/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 171,
+        "energyKcal": 40,
+        "carbohydrates": 9.9,
+        "sugar": 9.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 49.5,
+        "sugarCubesPerPackage": 16.5,
+        "energyKcalPerPackage": 200.0,
+        "formula": "9.9 g × 500 ml / 100 = 49.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat afri cola mix in 500 ml?",
+          "answer": "afri cola mix enthält rechnerisch etwa 49.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 9.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat afri cola mix pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 9.9 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei afri cola mix?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml afri cola mix ungefähr 16.5 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat afri cola mix pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 200.0 kcal. Die Basisangabe liegt bei 40 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "afri-cola-extra-330",
+      "name": "afri cola extra Koffein",
+      "brandId": "afri",
+      "categoryId": "cola",
+      "sizeMl": 330,
+      "sugarPer100Ml": 10.6,
+      "source": "afri Produktseite",
+      "note": "Extra-Koffein-Variante.",
+      "sourceUrl": "https://afri.de/produkte/afri-cola-extra-koffein/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 181,
+        "energyKcal": 42,
+        "carbohydrates": 10.6,
+        "sugar": 10.6,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.02
+      },
+      "computed": {
+        "sugarPerPackage": 35.0,
+        "sugarCubesPerPackage": 11.7,
+        "energyKcalPerPackage": 138.6,
+        "formula": "10.6 g × 330 ml / 100 = 35.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat afri cola extra Koffein in 330 ml?",
+          "answer": "afri cola extra Koffein enthält rechnerisch etwa 35.0 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 10.6 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat afri cola extra Koffein pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 10.6 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei afri cola extra Koffein?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml afri cola extra Koffein ungefähr 11.7 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat afri cola extra Koffein pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 138.6 kcal. Die Basisangabe liegt bei 42 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "fritz-limo-orange-330",
+      "name": "fritz-limo orange",
+      "brandId": "fritz-kola",
+      "categoryId": "orange-limo",
+      "sizeMl": 330,
+      "sugarPer100Ml": 8.7,
+      "source": "fritz-kola Lebensmittelkennzeichnung",
+      "note": "Fritz-Orangenlimonade.",
+      "sourceUrl": "https://fritz-kola-shop.com/pages/informationen-zur-lebensmittelkennzeichnung",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 156,
+        "energyKcal": 37,
+        "carbohydrates": 8.7,
+        "sugar": 8.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 28.7,
+        "sugarCubesPerPackage": 9.6,
+        "energyKcalPerPackage": 122.1,
+        "formula": "8.7 g × 330 ml / 100 = 28.7 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat fritz-limo orange in 330 ml?",
+          "answer": "fritz-limo orange enthält rechnerisch etwa 28.7 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 8.7 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat fritz-limo orange pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.7 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei fritz-limo orange?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml fritz-limo orange ungefähr 9.6 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat fritz-limo orange pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 122.1 kcal. Die Basisangabe liegt bei 37 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "fritz-limo-zitrone-330",
+      "name": "fritz-limo zitrone",
+      "brandId": "fritz-kola",
+      "categoryId": "lemon-lime",
+      "sizeMl": 330,
+      "sugarPer100Ml": 8.2,
+      "source": "fritz-kola Lebensmittelkennzeichnung",
+      "note": "Fritz-Zitronenlimonade.",
+      "sourceUrl": "https://fritz-kola-shop.com/pages/informationen-zur-lebensmittelkennzeichnung",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 146,
+        "energyKcal": 34,
+        "carbohydrates": 8.2,
+        "sugar": 8.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 27.1,
+        "sugarCubesPerPackage": 9.0,
+        "energyKcalPerPackage": 112.2,
+        "formula": "8.2 g × 330 ml / 100 = 27.1 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat fritz-limo zitrone in 330 ml?",
+          "answer": "fritz-limo zitrone enthält rechnerisch etwa 27.1 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 8.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat fritz-limo zitrone pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 8.2 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei fritz-limo zitrone?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml fritz-limo zitrone ungefähr 9.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat fritz-limo zitrone pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 112.2 kcal. Die Basisangabe liegt bei 34 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "fritz-limo-ingwer-limette-330",
+      "name": "fritz-limo ingwer-limette",
+      "brandId": "fritz-kola",
+      "categoryId": "lemon-lime",
+      "sizeMl": 330,
+      "sugarPer100Ml": 7.3,
+      "source": "fritz-kola Lebensmittelkennzeichnung",
+      "note": "Ingwer-Limettenlimonade.",
+      "sourceUrl": "https://fritz-kola-shop.com/pages/informationen-zur-lebensmittelkennzeichnung",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 134,
+        "energyKcal": 32,
+        "carbohydrates": 7.3,
+        "sugar": 7.3,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 24.1,
+        "sugarCubesPerPackage": 8.0,
+        "energyKcalPerPackage": 105.6,
+        "formula": "7.3 g × 330 ml / 100 = 24.1 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat fritz-limo ingwer-limette in 330 ml?",
+          "answer": "fritz-limo ingwer-limette enthält rechnerisch etwa 24.1 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 7.3 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat fritz-limo ingwer-limette pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 7.3 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei fritz-limo ingwer-limette?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml fritz-limo ingwer-limette ungefähr 8.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat fritz-limo ingwer-limette pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 105.6 kcal. Die Basisangabe liegt bei 32 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "club-mate-cola-330",
+      "name": "Club-Mate Cola",
+      "brandId": "club-mate",
+      "categoryId": "cola",
+      "sizeMl": 330,
+      "sugarPer100Ml": 10.0,
+      "source": "Brauerei Loscher Produktseite",
+      "note": "Cola mit Mate-Komponente.",
+      "sourceUrl": "https://brauerei-loscher.de/produkt/club-mate-cola-033l/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 167,
+        "energyKcal": 40,
+        "carbohydrates": 10.0,
+        "sugar": 10.0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 33.0,
+        "sugarCubesPerPackage": 11.0,
+        "energyKcalPerPackage": 132.0,
+        "formula": "10.0 g × 330 ml / 100 = 33.0 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Club-Mate Cola in 330 ml?",
+          "answer": "Club-Mate Cola enthält rechnerisch etwa 33.0 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 10.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Club-Mate Cola pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 10.0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Club-Mate Cola?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Club-Mate Cola ungefähr 11.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Club-Mate Cola pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 132.0 kcal. Die Basisangabe liegt bei 40 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "club-mate-beere-500",
+      "name": "Club-Mate Beere",
+      "brandId": "club-mate",
+      "categoryId": "mate",
+      "sizeMl": 500,
+      "sugarPer100Ml": 5.1,
+      "source": "Brauerei Loscher Produktseite",
+      "note": "Mate mit Beerengeschmack.",
+      "sourceUrl": "https://brauerei-loscher.de/produkt/club-mate-beere-05l/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 89,
+        "energyKcal": 21,
+        "carbohydrates": 5.1,
+        "sugar": 5.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      },
+      "computed": {
+        "sugarPerPackage": 25.5,
+        "sugarCubesPerPackage": 8.5,
+        "energyKcalPerPackage": 105.0,
+        "formula": "5.1 g × 500 ml / 100 = 25.5 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Club-Mate Beere in 500 ml?",
+          "answer": "Club-Mate Beere enthält rechnerisch etwa 25.5 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 5.1 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Club-Mate Beere pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 5.1 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Club-Mate Beere?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Club-Mate Beere ungefähr 8.5 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Club-Mate Beere pro 500 ml?",
+          "answer": "Rechnerisch enthält 500 ml etwa 105.0 kcal. Die Basisangabe liegt bei 21 kcal pro 100 ml."
+        }
+      ]
+    },
+    {
+      "id": "bionade-naturtrueb-orange-330",
+      "name": "Bionade Naturtrübe Orange",
+      "brandId": "bionade",
+      "categoryId": "bio-limo",
+      "sizeMl": 330,
+      "sugarPer100Ml": 5.5,
+      "source": "Bionade Produktseite",
+      "note": "Naturtrübe Bio-Orangenlimonade.",
+      "sourceUrl": "https://www.bionade.de/sorte/naturtruebe-orange/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-06-11",
+      "nutritionPer100Ml": {
+        "energyKj": 103,
+        "energyKcal": 24,
+        "carbohydrates": 5.7,
+        "sugar": 5.5,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.09
+      },
+      "computed": {
+        "sugarPerPackage": 18.1,
+        "sugarCubesPerPackage": 6.0,
+        "energyKcalPerPackage": 79.2,
+        "formula": "5.5 g × 330 ml / 100 = 18.1 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Bionade Naturtrübe Orange in 330 ml?",
+          "answer": "Bionade Naturtrübe Orange enthält rechnerisch etwa 18.1 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 5.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Bionade Naturtrübe Orange pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 5.5 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Bionade Naturtrübe Orange?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Bionade Naturtrübe Orange ungefähr 6.0 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Bionade Naturtrübe Orange pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 79.2 kcal. Die Basisangabe liegt bei 24 kcal pro 100 ml."
         }
       ]
     }

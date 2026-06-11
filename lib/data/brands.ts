@@ -83,6 +83,70 @@ const brandMeta: Record<string, Pick<Brand, "note" | "logoUrl">> = {
   "valensina": {
     "note": "Säfte",
     "logoUrl": "https://www.google.com/s2/favicons?domain=valensina.de&sz=128"
+  },
+  "rockstar": {
+    "note": "Energy Drinks",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=rockstarenergy.com&sz=128"
+  },
+  "mio-mio": {
+    "note": "Mate und Limonaden",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=mio-mio.com&sz=128"
+  },
+  "almdudler": {
+    "note": "Kraeuterlimonaden",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=almdudler.com&sz=128"
+  },
+  "lipton": {
+    "note": "Eistees",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=lipton.com&sz=128"
+  },
+  "pfanner": {
+    "note": "Eistees und Saefte",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=pfanner.com&sz=128"
+  },
+  "arizona": {
+    "note": "Eistees",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=drinkarizona.com&sz=128"
+  },
+  "durstloescher": {
+    "note": "Fruchtsaftgetraenke",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=durstloescher.de&sz=128"
+  },
+  "orangina": {
+    "note": "Orangenlimonaden",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=orangina.eu&sz=128"
+  },
+  "chocomel": {
+    "note": "Milchgetraenke",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=chocomel.com&sz=128"
+  },
+  "mueller": {
+    "note": "Milchgetraenke",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=muellermilch.de&sz=128"
+  },
+  "freeway": {
+    "note": "Softdrinks",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=lidl.de&sz=128"
+  },
+  "ja": {
+    "note": "Handelsmarke",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=rewe.de&sz=128"
+  },
+  "river": {
+    "note": "Softdrinks",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=aldi-sued.de&sz=128"
+  },
+  "paulaner": {
+    "note": "Spezi und Limonaden",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=paulaner.de&sz=128"
+  },
+  "goenrgy": {
+    "note": "Energy Drinks",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=goenrgy.de&sz=128"
+  },
+  "afri": {
+    "note": "Cola",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=afri.de&sz=128"
   }
 };
 
