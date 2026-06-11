@@ -185,19 +185,19 @@ export function DrinkExplorer() {
               >
                 <button
                   onClick={() => setOpenId(isOpen ? null : item.id)}
-                  className="focus-ring grid w-full gap-3 p-4 text-left md:grid-cols-[1fr_120px_120px_36px] md:items-center"
+                  className="focus-ring grid w-full grid-cols-[1fr_auto_auto] gap-x-3 gap-y-2 p-3 text-left md:grid-cols-[1fr_120px_120px_36px] md:items-center md:p-4"
                 >
-                  <div>
+                  <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="h-2 w-2 rounded-full" style={{ background: categoryData?.color ?? "#838383" }} />
                       <span className="text-xs font-medium uppercase tracking-wide text-slate">{categoryData?.name}</span>
                     </div>
-                    <h3 className="mt-2 text-lg font-semibold tracking-tight">{title}</h3>
+                    <h3 className="mt-2 text-base font-semibold leading-tight tracking-tight md:text-lg">{title}</h3>
                     <p className="mt-1 text-sm text-slate">{subtitle}</p>
                   </div>
                   <Metric label="pro 100 ml" value={`${formatNumber(per100)} g`} />
                   <Metric label="gesamt" value={`${formatNumber(total)} g`} strong />
-                  <ChevronDown className={`justify-self-end transition ${isOpen ? "rotate-180" : ""}`} size={18} />
+                  <ChevronDown className={`col-start-3 justify-self-end self-end transition md:col-start-auto md:self-center ${isOpen ? "rotate-180" : ""}`} size={18} />
                 </button>
                 {isOpen && (
                   <div className="grid gap-4 border-t border-ash px-4 py-4 text-sm text-slate md:grid-cols-[1.4fr_0.8fr]">
@@ -342,9 +342,9 @@ function Range({ label, value, max, step, unit, onChange }: { label: string; val
 
 function Metric({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) {
   return (
-    <div>
+    <div className="text-right">
       <p className="text-xs uppercase tracking-wide text-slate">{label}</p>
-      <p className={`mt-1 tabular-nums ${strong ? "text-xl font-semibold" : "font-medium"}`}>{value}</p>
+      <p className={`mt-1 tabular-nums ${strong ? "text-lg font-semibold md:text-xl" : "font-medium"}`}>{value}</p>
     </div>
   );
 }

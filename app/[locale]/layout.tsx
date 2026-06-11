@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Database } from "lucide-react";
 import { HeaderSearch } from "@/components/header-search";
+import { MobileNav } from "@/components/mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const nav = [
@@ -21,7 +22,7 @@ export default function LocaleLayout({ children }: { children: React.ReactNode }
   return (
     <div className="min-h-screen bg-paper text-ink">
       <header className="sticky top-0 z-30 bg-paper/80 px-3 py-3 backdrop-blur">
-        <div className="mx-auto flex h-12 max-w-page items-center justify-between gap-3 rounded-lg bg-paper px-3">
+        <div className="mx-auto flex min-h-12 max-w-page items-center justify-between gap-3 rounded-lg bg-paper px-3 py-1">
           <Link href="/de" className="focus-ring flex shrink-0 items-center gap-2 rounded-md font-semibold tracking-tight">
             <Database size={18} strokeWidth={1.8} />
             zuckerhaltig.de
@@ -40,6 +41,7 @@ export default function LocaleLayout({ children }: { children: React.ReactNode }
           <div className="flex items-center gap-2">
             <HeaderSearch />
             <ThemeToggle />
+            <MobileNav items={nav} />
           </div>
         </div>
       </header>

@@ -15,7 +15,7 @@ export default function BrandsPage() {
       <p className="mt-4 max-w-2xl leading-7 text-slate">
         Vergleiche Getränkemarken nach Zuckerwerten, Produktvarianten und Packungsgrößen. Jede Marke führt direkt zur gefilterten Getränkesuche.
       </p>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
         {brands.map((brand) => (
           <Link key={brand.id} href={`/de/getraenke?brand=${brand.id}`} className="group rounded-lg border border-ash p-4 hover:border-marigold">
             <div className="mb-5 flex h-12 items-center justify-between gap-3">

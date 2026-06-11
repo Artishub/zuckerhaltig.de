@@ -27,7 +27,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">{homeContent.intro}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/de/getraenke" className="focus-ring inline-flex h-11 items-center gap-2 rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white">
+              <Link href="/de/getraenke" className="focus-ring inline-flex h-11 items-center gap-2 rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white dark:text-black">
                 Datenbank öffnen <ArrowRight size={16} />
               </Link>
             </div>

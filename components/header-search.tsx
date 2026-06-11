@@ -36,8 +36,8 @@ export function HeaderSearch() {
   };
 
   return (
-    <div className="relative">
-      <form onSubmit={submit} className="flex h-9 w-[190px] items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-marigold sm:w-[220px]">
+    <div className="relative min-w-0">
+      <form onSubmit={submit} className="flex h-9 w-[42vw] max-w-[220px] items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-marigold sm:w-[220px]">
         <Search size={15} />
         <input
           value={query}
@@ -48,7 +48,7 @@ export function HeaderSearch() {
           onFocus={() => setOpen(true)}
           placeholder="Getränk suchen"
           aria-label="Getränk suchen"
-          className="w-full bg-transparent text-sm outline-none placeholder:text-slate"
+          className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-slate"
         />
       </form>
       {open && query.trim() && (
