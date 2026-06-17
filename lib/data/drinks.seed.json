@@ -7244,7 +7244,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 11.2,
       "source": "Dosenmatrosen Produktseite / Monster DE bestätigt 56 g Zucker pro 500 ml Dose",
       "note": "Beliebte Monster-Juiced-Sorte; hoher Zuckerwert.",
       "sourceUrl": "https://www.dosenmatrosen.de/monster-juiced-mango-loco-12er-pack",
@@ -7254,29 +7254,29 @@
         "energyKj": 211,
         "energyKcal": 49,
         "carbohydrates": 12.0,
-        "sugar": 12.0,
+        "sugar": 11.2,
         "fat": 0,
         "protein": 0,
         "salt": 0.0
       },
       "computed": {
-        "sugarPerPackage": 60.0,
-        "sugarCubesPerPackage": 20.0,
+        "sugarPerPackage": 56.0,
+        "sugarCubesPerPackage": 18.7,
         "energyKcalPerPackage": 245.0,
-        "formula": "12.0 g × 500 ml / 100 = 60.0 g Zucker"
+        "formula": "11.2 g × 500 ml / 100 = 56.0 g Zucker"
       },
       "faq": [
         {
           "question": "Wie viel Zucker hat Monster Mango Loco in 500 ml?",
-          "answer": "Monster Mango Loco enthält rechnerisch etwa 60.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 12.0 g Zucker pro 100 ml."
+          "answer": "Monster Mango Loco enthält rechnerisch etwa 56.0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 11.2 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viel Zucker hat Monster Mango Loco pro 100 ml?",
-          "answer": "Der gespeicherte Wert liegt bei 12.0 g Zucker pro 100 ml."
+          "answer": "Der gespeicherte Wert liegt bei 11.2 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viele Zuckerwürfel sind das bei Monster Mango Loco?",
-          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Monster Mango Loco ungefähr 20.0 Zuckerwürfeln."
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Monster Mango Loco ungefähr 18.7 Zuckerwürfeln."
         },
         {
           "question": "Wie viel Energie hat Monster Mango Loco pro 500 ml?",
@@ -7582,15 +7582,15 @@
         "salt": 0.1
       },
       "computed": {
-        "sugarPerPackage": 27.6,
+        "sugarPerPackage": 27.7,
         "sugarCubesPerPackage": 9.2,
         "energyKcalPerPackage": 115.5,
-        "formula": "7.9 g × 350 ml / 100 = 27.6 g Zucker"
+        "formula": "7.9 g × 350 ml / 100 = 27.7 g Zucker"
       },
       "faq": [
         {
           "question": "Wie viel Zucker hat Almdudler Original in 350 ml?",
-          "answer": "Almdudler Original enthält rechnerisch etwa 27.6 g Zucker pro 350 ml. Grundlage ist der deklarierte Wert von 7.9 g Zucker pro 100 ml."
+          "answer": "Almdudler Original enthält rechnerisch etwa 27.7 g Zucker pro 350 ml. Grundlage ist der deklarierte Wert von 7.9 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viel Zucker hat Almdudler Original pro 100 ml?",
@@ -9376,15 +9376,15 @@
         "salt": 0.09
       },
       "computed": {
-        "sugarPerPackage": 18.1,
-        "sugarCubesPerPackage": 6.0,
+        "sugarPerPackage": 18.2,
+        "sugarCubesPerPackage": 6.1,
         "energyKcalPerPackage": 79.2,
-        "formula": "5.5 g × 330 ml / 100 = 18.1 g Zucker"
+        "formula": "5.5 g × 330 ml / 100 = 18.2 g Zucker"
       },
       "faq": [
         {
           "question": "Wie viel Zucker hat Bionade Naturtrübe Orange in 330 ml?",
-          "answer": "Bionade Naturtrübe Orange enthält rechnerisch etwa 18.1 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 5.5 g Zucker pro 100 ml."
+          "answer": "Bionade Naturtrübe Orange enthält rechnerisch etwa 18.2 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 5.5 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viel Zucker hat Bionade Naturtrübe Orange pro 100 ml?",
@@ -9392,7 +9392,7 @@
         },
         {
           "question": "Wie viele Zuckerwürfel sind das bei Bionade Naturtrübe Orange?",
-          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Bionade Naturtrübe Orange ungefähr 6.0 Zuckerwürfeln."
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Bionade Naturtrübe Orange ungefähr 6.1 Zuckerwürfeln."
         },
         {
           "question": "Wie viel Energie hat Bionade Naturtrübe Orange pro 330 ml?",

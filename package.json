@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run validate:data && next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "npm run validate:data && tsc --noEmit",
+    "validate:data": "node scripts/validate-drinks-data.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.18.1",

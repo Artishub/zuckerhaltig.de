@@ -44,7 +44,7 @@ export default function HomePage() {
                 const categoryName = categoryById[drink.categoryId]?.name ?? "";
                 const title = item.type === "group" ? `${brandName} - Mehrere` : drink.name;
                 const subtitle = item.type === "group" ? `${categoryName} · ${item.drinks.length} Produkte` : `${brandName} · ${categoryName} · ${drink.sizeMl} ml`;
-                const href = item.type === "group" ? `/de/getraenke?brand=${drink.brandId}&category=${drink.categoryId}` : `/de/getraenke?q=${encodeURIComponent(drink.name)}`;
+                const href = item.type === "group" ? `/de/getraenke?brand=${drink.brandId}&category=${drink.categoryId}` : `/de/getraenke/${drink.id}`;
 
                 return (
                 <Link key={item.id} href={href} className="grid grid-cols-[1fr_auto] gap-3 px-4 py-4 hover:bg-mist">

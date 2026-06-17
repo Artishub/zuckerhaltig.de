@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { ChevronDown, ChevronLeft, ChevronRight, Layers2, Search, SlidersHorizontal, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Search, SlidersHorizontal, X } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { categories, categoryById } from "@/lib/data/categories";
 import { Drink, DrinkDisplayItem, drinks, groupedDrinkFamilies, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
@@ -121,6 +122,15 @@ export function DrinkExplorer() {
           <Select label="Marke" value={brand} onChange={setBrand} options={[{ label: "Alle Marken", value: "all" }, ...brands.map((item) => ({ label: item.name, value: item.id }))]} />
           <Select label="Kategorie" value={category} onChange={setCategory} options={[{ label: "Alle Kategorien", value: "all" }, ...categories.map((item) => ({ label: item.name, value: item.id }))]} />
           <Select label="Gebinde" value={size} onChange={setSize} options={sizes} />
+          <Select
+            label="Varianten zusammenfassen"
+            value={compactGroups ? "yes" : "no"}
+            onChange={(value) => setCompactGroups(value === "yes")}
+            options={[
+              { label: "Nein", value: "no" },
+              { label: "Ja", value: "yes" },
+            ]}
+          />
           <Range label="Max. Zucker pro 100 ml" value={maxPer100} max={12} step={0.5} unit="g" onChange={setMaxPer100} />
           <Range label="Max. Gesamtzucker" value={maxTotal} max={110} step={5} unit="g" onChange={setMaxTotal} />
           <button onClick={reset} className="focus-ring inline-flex h-9 w-full items-center justify-center gap-2 rounded-md border border-ash text-sm hover:border-marigold">
@@ -136,18 +146,6 @@ export function DrinkExplorer() {
             <strong className="text-ink">{displayItems.length}</strong> {compactGroups ? "Einträge" : "Getränke"} gefunden
           </p>
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setCompactGroups((value) => !value)}
-              className={`focus-ring inline-flex h-10 w-10 items-center justify-center rounded-md border text-sm ${
-                compactGroups ? "border-marigold bg-cream text-ink" : "border-ash bg-paper text-slate hover:border-marigold hover:text-ink"
-              }`}
-              aria-pressed={compactGroups}
-              aria-label="Varianten zusammenfassen"
-              title="Varianten zusammenfassen"
-            >
-              <Layers2 size={16} />
-            </button>
             <Select
               label="Sortierung"
               compact
@@ -205,9 +203,9 @@ export function DrinkExplorer() {
                       {item.type === "group" && (
                         <div className="mb-4 flex flex-wrap gap-2">
                           {item.drinks.map((groupDrink) => (
-                            <span key={groupDrink.id} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate">
+                            <Link key={groupDrink.id} href={`/de/getraenke/${groupDrink.id}`} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate hover:border-marigold hover:text-ink">
                               {groupDrink.name}
-                            </span>
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -230,6 +228,9 @@ export function DrinkExplorer() {
                           drink.source
                         )}
                       </p>
+                      <Link href={`/de/getraenke/${drink.id}`} className="focus-ring mt-4 inline-flex rounded-md text-sm font-medium text-ink underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                        Detailseite öffnen
+                      </Link>
                     </div>
                   </div>
                 )}

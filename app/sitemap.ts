@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/content/articles";
+import { drinks } from "@/lib/data/drinks";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://zuckerhaltig.de";
@@ -22,6 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...articles.map((article) => ({
       url: `${base}/de/wissen/${article.slug}`,
+      lastModified: new Date(),
+    })),
+    ...drinks.map((drink) => ({
+      url: `${base}/de/getraenke/${drink.id}`,
       lastModified: new Date(),
     })),
   ];

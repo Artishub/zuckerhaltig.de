@@ -3,8 +3,8 @@ import { FaqNav } from "@/components/faq-nav";
 import { faq, faqCategories } from "@/lib/content/faq";
 
 export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Antworten zu Berechnung, Daten und Einordnung.",
+  title: "FAQ: Zucker in Getränken berechnen",
+  description: "Antworten auf häufige Fragen zu Zucker pro 100 ml, Zucker pro Flasche, Zuckerwürfeln, Cola, Eistee, Energy Drinks, Saft und Nährwertangaben.",
 };
 
 export default function FaqPage() {
@@ -24,9 +24,9 @@ export default function FaqPage() {
       <div className="grid gap-10 lg:grid-cols-[240px_1fr]">
         <FaqNav categories={faqCategories} />
         <div>
-          <h1 className="text-4xl font-semibold tracking-tight">FAQ</h1>
+          <h1 className="text-4xl font-semibold tracking-tight">FAQ: Zucker in Getränken</h1>
           <p className="mt-4 max-w-2xl leading-7 text-slate">
-            Antworten zu Zuckerwerten, Berechnung, Datenquellen und Nutzung der Getränkedatenbank.
+            Antworten auf häufige Suchfragen zu Zuckerwerten, Zucker pro 100 ml, Gesamtzucker, Zuckerwürfeln, Datenquellen und Nutzung der Getränkedatenbank.
           </p>
           <div className="mt-8 space-y-12">
             {faqCategories.map((category) => (
