@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { ChevronDown, ChevronLeft, ChevronRight, Search, SlidersHorizontal, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, LinkIcon, Search, SlidersHorizontal, X } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { categories, categoryById } from "@/lib/data/categories";
 import { Drink, DrinkDisplayItem, drinks, groupedDrinkFamilies, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
 
-type SortKey = "total-desc" | "per100-desc" | "name-asc";
+type SortKey = "total-desc" | "total-asc" | "per100-desc" | "per100-asc" | "name-asc" | "name-desc";
 
 const sizes = [
   { label: "Alle Größen", value: "all" },
@@ -66,11 +66,14 @@ export function DrinkExplorer() {
         );
       });
 
-    const sortedItems = sort === "per100-desc" ? uniqueProductRepresentatives(matching) : matching;
+    const sortedItems = sort.startsWith("per100") ? uniqueProductRepresentatives(matching) : matching;
 
     return sortedItems.sort((a, b) => {
       if (sort === "per100-desc") return b.sugarPer100Ml - a.sugarPer100Ml;
+      if (sort === "per100-asc") return a.sugarPer100Ml - b.sugarPer100Ml;
       if (sort === "name-asc") return a.name.localeCompare(b.name, "de");
+      if (sort === "name-desc") return b.name.localeCompare(a.name, "de");
+      if (sort === "total-asc") return totalSugarGrams(a) - totalSugarGrams(b);
       return totalSugarGrams(b) - totalSugarGrams(a);
     });
   }, [brand, category, maxPer100, maxTotal, query, size, sort]);
@@ -153,8 +156,11 @@ export function DrinkExplorer() {
               onChange={(value) => setSort(value as SortKey)}
               options={[
                 { label: "pro 100 ml absteigend", value: "per100-desc" },
+                { label: "pro 100 ml aufsteigend", value: "per100-asc" },
                 { label: "Gesamtzucker absteigend", value: "total-desc" },
+                { label: "Gesamtzucker aufsteigend", value: "total-asc" },
                 { label: "Name A-Z", value: "name-asc" },
+                { label: "Name Z-A", value: "name-desc" },
               ]}
             />
           </div>
@@ -209,28 +215,28 @@ export function DrinkExplorer() {
                           ))}
                         </div>
                       )}
-                      <p className="leading-7">
+                      <p className="leading-6">
                         {item.type === "group"
                           ? groupSentence(item.drinks, brandName, categoryData?.name ?? "Getränk")
                           : productSentence(drink, brandName, categoryData?.name ?? "Getränk")}
                       </p>
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 leading-6">
                       <p><span className="text-ink">{formatNumber(item.type === "group" ? Math.max(...item.drinks.map(sugarCubes)) : sugarCubes(drink))} Zuckerwürfel</span> bei 3 g pro Würfel.</p>
-                      <p>{item.type === "group" ? `Spanne: ${formatNumber(Math.min(...item.drinks.map((groupDrink) => groupDrink.sugarPer100Ml)))} bis ${formatNumber(per100)} g Zucker pro 100 ml.` : drink.computed?.formula ?? `${drink.sugarPer100Ml} g × ${drink.sizeMl} ml / 100 = ${totalSugarGrams(drink)} g Zucker`}</p>
-                      <p>
-                        Quelle:{" "}
+                      <p>{item.type === "group" ? `Spanne: ${formatNumber(Math.min(...item.drinks.map((groupDrink) => groupDrink.sugarPer100Ml)))} bis ${formatNumber(per100)} g Zucker pro 100 ml.` : `${formatNumber(drink.sugarPer100Ml)} g × ${drink.sizeMl} ml / 100 = ${formatNumber(totalSugarGrams(drink))} g Zucker`}</p>
+                      <div className="mt-7 flex flex-col items-start gap-2">
+                        <Link href={`/de/getraenke/${drink.id}`} className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
+                          Zur Detailseite
+                        </Link>
                         {drink.sourceUrl ? (
-                          <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="text-ink underline decoration-ash underline-offset-4 hover:decoration-marigold">
-                            {drink.source}
+                          <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm text-ink underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                            <LinkIcon size={14} />
+                            Quelle öffnen
                           </a>
                         ) : (
-                          drink.source
+                          <p className="text-sm text-slate">{drink.source}</p>
                         )}
-                      </p>
-                      <Link href={`/de/getraenke/${drink.id}`} className="focus-ring mt-4 inline-flex rounded-md text-sm font-medium text-ink underline decoration-ash underline-offset-4 hover:decoration-marigold">
-                        Detailseite öffnen
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 )}

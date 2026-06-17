@@ -37,7 +37,7 @@ export function HeaderSearch() {
 
   return (
     <div className="relative min-w-0">
-      <form onSubmit={submit} className="flex h-9 w-[42vw] max-w-[220px] items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-marigold sm:w-[220px]">
+      <form onSubmit={submit} className="flex h-9 w-[34vw] max-w-[170px] items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-marigold sm:w-[220px] sm:max-w-[220px]">
         <Search size={15} />
         <input
           value={query}
@@ -52,7 +52,7 @@ export function HeaderSearch() {
         />
       </form>
       {open && query.trim() && (
-        <div className="absolute right-0 top-11 z-40 w-[280px] overflow-hidden rounded-lg border border-ash bg-paper text-sm">
+        <div className="absolute right-0 top-11 z-40 w-[min(84vw,280px)] overflow-hidden rounded-lg border border-ash bg-paper text-sm">
           {results.length ? (
             results.map((drink) => {
               const brand = brands.find((item) => item.id === drink.brandId)?.name ?? "";

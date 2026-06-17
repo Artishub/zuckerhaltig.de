@@ -21,10 +21,10 @@ export function generateStaticParams() {
 export default function LocaleLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <header className="sticky top-0 z-30 bg-paper/80 px-3 py-3 backdrop-blur">
-        <div className="mx-auto flex min-h-12 max-w-page items-center justify-between gap-3 rounded-lg bg-paper px-3 py-1">
-          <Link href="/de" className="focus-ring flex shrink-0 items-center gap-2 rounded-md font-semibold tracking-tight">
-            <Database size={18} strokeWidth={1.8} />
+      <header className="sticky top-0 z-30 bg-paper/80 px-2 py-2 backdrop-blur sm:px-3 sm:py-3">
+        <div className="mx-auto flex min-h-12 max-w-page items-center justify-between gap-2 rounded-lg bg-paper px-2 py-1 sm:gap-3 sm:px-3">
+          <Link href="/de" className="focus-ring flex shrink-0 items-center gap-1.5 rounded-md text-sm font-semibold tracking-tight sm:gap-2 sm:text-base">
+            <Database size={17} strokeWidth={1.8} />
             zuckerhaltig.de
           </Link>
           <nav className="hidden items-center gap-2 text-sm text-slate lg:flex" aria-label="Hauptnavigation">
@@ -38,7 +38,7 @@ export default function LocaleLayout({ children }: { children: React.ReactNode }
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
             <HeaderSearch />
             <ThemeToggle />
             <MobileNav items={nav} />
