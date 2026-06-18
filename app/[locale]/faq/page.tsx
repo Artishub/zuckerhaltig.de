@@ -5,6 +5,9 @@ import { faq, faqCategories } from "@/lib/content/faq";
 export const metadata: Metadata = {
   title: "FAQ: Zucker in Getränken berechnen",
   description: "Antworten auf häufige Fragen zu Zucker pro 100 ml, Zucker pro Flasche, Zuckerwürfeln, Cola, Eistee, Energy Drinks, Saft und Nährwertangaben.",
+  alternates: {
+    canonical: "/de/faq",
+  },
 };
 
 export default function FaqPage() {

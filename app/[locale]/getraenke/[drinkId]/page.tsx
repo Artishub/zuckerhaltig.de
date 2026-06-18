@@ -24,10 +24,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const brandName = brandById[drink.brandId]?.name ?? "Unbekannte Marke";
   const categoryName = categoryById[drink.categoryId]?.name ?? "Getränk";
+  const description = `${drink.name} von ${brandName}: ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml, ${formatNumber(totalSugarGrams(drink))} g pro ${drink.sizeMl} ml, Nährwerte und Quelle.`;
 
   return {
-    title: `${drink.name}: Zucker und Nährwerte`,
-    description: `${drink.name} von ${brandName}: ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml, ${formatNumber(totalSugarGrams(drink))} g Zucker pro ${drink.sizeMl} ml. Kategorie: ${categoryName}.`,
+    title: metaTitle(drink),
+    description,
+    alternates: {
+      canonical: `/de/getraenke/${drink.id}`,
+    },
+    openGraph: {
+      title: metaTitle(drink),
+      description,
+      url: `https://zuckerhaltig.de/de/getraenke/${drink.id}`,
+      type: "article",
+    },
   };
 }
 
@@ -60,9 +70,20 @@ export default async function DrinkDetailPage({ params }: PageProps) {
             {brandName} · {drink.sizeMl} ml · {formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml
           </p>
           <p className="mt-6 max-w-2xl leading-7 text-slate">
-            {drink.name} ist in der Datenbank als {categoryName} von {brandName} gespeichert. Für das {drink.sizeMl}-ml-Gebinde ergeben sich rechnerisch {formatNumber(totalSugar)} g Zucker pro Packung. Das entspricht ungefähr {formatNumber(cubes)} Zuckerwürfeln bei 3 g pro Würfel.
+            {introText(drink, brandName, categoryName)}
           </p>
           {drink.note && <p className="mt-4 max-w-2xl leading-7 text-slate">{drink.note}</p>}
+          <div className="mt-6 flex flex-wrap gap-2 text-sm">
+            <Link href={`/de/getraenke?brand=${drink.brandId}`} className="focus-ring rounded-md border border-ash bg-mist px-3 py-2 hover:border-marigold">
+              Mehr von {brandName}
+            </Link>
+            <Link href={`/de/getraenke?category=${drink.categoryId}`} className="focus-ring rounded-md border border-ash bg-mist px-3 py-2 hover:border-marigold">
+              Kategorie {categoryName}
+            </Link>
+            <Link href={knowledgeLink(drink)} className="focus-ring rounded-md border border-ash bg-mist px-3 py-2 hover:border-marigold">
+              Passendes Wissen lesen
+            </Link>
+          </div>
         </div>
 
         <section className="rounded-lg border border-ash bg-mist p-5">
@@ -135,7 +156,8 @@ export default async function DrinkDetailPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: JSON.stringify([
+            {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: faqs.map((item) => ({
@@ -146,7 +168,9 @@ export default async function DrinkDetailPage({ params }: PageProps) {
                 text: item.answer,
               },
             })),
-          }),
+            },
+            breadcrumbJsonLd(drink),
+          ]),
         }}
       />
     </main>
@@ -190,6 +214,87 @@ function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
       answer: `Die gespeicherten Werte basieren auf der hinterlegten Quelle: ${drink.source}. Produktwerte können sich ändern und sollten bei Bedarf auf der Verpackung geprüft werden.`,
     },
   ];
+}
+
+function metaTitle(drink: Drink) {
+  if (drink.brandId === "red-bull") return `${drink.name}: Zucker, Kalorien und Dose im Vergleich`;
+  if (drink.brandId === "monster") return `${drink.name}: Zucker pro 100 ml und Dose`;
+  return `${drink.name}: Zucker pro 100 ml und Nährwerte`;
+}
+
+function introText(drink: Drink, brandName: string, categoryName: string) {
+  const totalSugar = totalSugarGrams(drink);
+  const cubes = sugarCubes(drink);
+  const base = `Für das ${drink.sizeMl}-ml-Gebinde ergeben sich rechnerisch ${formatNumber(totalSugar)} g Zucker. Das entspricht ungefähr ${formatNumber(cubes)} Zuckerwürfeln bei 3 g pro Würfel.`;
+
+  if (drink.brandId === "coca-cola" && drink.name.includes("Classic")) {
+    return `Coca-Cola Classic ist einer der bekanntesten Cola-Vergleiche in der Datenbank. Der Wert von ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml zeigt die Rezeptur, während die Packungsgröße den Gesamtzucker bestimmt. ${base}`;
+  }
+  if (drink.brandId === "red-bull") {
+    return `${drink.name} ist als Energy Drink besonders gut über die Dose vergleichbar. Der 100-ml-Wert zeigt die Süße der Rezeptur, der Gesamtwert macht die komplette Portion sichtbar. ${base}`;
+  }
+  if (drink.id === "monster-mango-loco-500") {
+    return `Monster Mango Loco wird hier als 500-ml-Dose eingeordnet. Gerade bei großen Energy-Drink-Dosen ist der Gesamtzucker wichtiger als der erste Blick auf 100 ml vermuten lässt. ${base}`;
+  }
+  if (drink.brandId === "fanta") {
+    return `${drink.name} steht für fruchtige Limonade, bei der sich klassische und zuckerarme Varianten deutlich unterscheiden können. ${base}`;
+  }
+  if (drink.brandId === "sprite") {
+    return `${drink.name} lässt sich gut mit anderen Zitronen-Limetten-Limonaden und Zero-Varianten vergleichen. ${base}`;
+  }
+  if (drink.brandId === "club-mate") {
+    return `${drink.name} ist ein Mate-Getränk, bei dem Zuckerwert und Koffeinwahrnehmung oft gemeinsam betrachtet werden. Diese Seite konzentriert sich auf die Nährwertdaten. ${base}`;
+  }
+  if (drink.brandId === "capri-sun") {
+    return `${drink.name} ist ein kleines Trinkpäckchen. Die Portion ist kleiner als bei vielen Flaschen, trotzdem lohnt sich der Blick auf Zucker pro 100 ml. ${base}`;
+  }
+  if (drink.brandId === "granini") {
+    return `${drink.name} zeigt, dass Saft und Nektar trotz Fruchtbezug relevante Zuckerwerte haben können. Entscheidend bleibt die Nährwerttabelle. ${base}`;
+  }
+  if (drink.brandId === "mueller") {
+    return `${drink.name} ist ein Milchmischgetränk. Neben Zucker sind hier auch Energie und Kohlenhydrate pro 100 ml hilfreich für den Vergleich. ${base}`;
+  }
+  if (drink.brandId === "fritz-kola") {
+    return `${drink.name} gehört zu den fritz-Getränken, bei denen Cola, Limo und Schorle sehr unterschiedliche Zuckerwerte haben können. ${base}`;
+  }
+
+  return `${drink.name} ist in der Datenbank als ${categoryName} von ${brandName} gespeichert. ${base}`;
+}
+
+function knowledgeLink(drink: Drink) {
+  if (drink.categoryId === "energy") return "/de/wissen/energy-drinks-zucker-vergleichen";
+  if (drink.categoryId === "cola" || drink.categoryId === "cola-mix") return "/de/wissen/cola-zero-light-und-klassisch";
+  if (drink.categoryId === "juice") return "/de/wissen/saft-ist-nicht-automatisch-zuckerarm";
+  if (drink.categoryId === "iced-tea") return "/de/wissen/eistee-zucker-im-alltag";
+  if (drink.sugarPer100Ml <= 1) return "/de/wissen/zuckerfreie-getraenke-in-der-datenbank";
+  return "/de/wissen/zucker-pro-100ml-verstehen";
+}
+
+function breadcrumbJsonLd(drink: Drink) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Startseite",
+        item: "https://zuckerhaltig.de/de",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Getränke",
+        item: "https://zuckerhaltig.de/de/getraenke",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: drink.name,
+        item: `https://zuckerhaltig.de/de/getraenke/${drink.id}`,
+      },
+    ],
+  };
 }
 
 function formatNumber(value: number) {

@@ -8,9 +8,10 @@ import type { Brand } from "@/lib/data/brands";
 type BrandSearchGridProps = {
   brands: Brand[];
   counts: Record<string, number>;
+  topDrinks: Record<string, { id: string; name: string; sugar: number }[]>;
 };
 
-export function BrandSearchGrid({ brands, counts }: BrandSearchGridProps) {
+export function BrandSearchGrid({ brands, counts, topDrinks }: BrandSearchGridProps) {
   const [query, setQuery] = useState("");
   const filteredBrands = useMemo(() => {
     const value = query.trim().toLowerCase();
@@ -34,14 +35,27 @@ export function BrandSearchGrid({ brands, counts }: BrandSearchGridProps) {
 
       <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
         {filteredBrands.map((brand) => (
-          <Link key={brand.id} href={`/de/getraenke?brand=${brand.id}`} className="group rounded-lg border border-ash p-4 hover:border-marigold">
+          <article key={brand.id} className="rounded-lg border border-ash p-4">
             <div className="mb-5 flex h-6 items-start justify-end">
-              <span className="text-xs text-slate opacity-0 transition group-hover:opacity-100">Filtern</span>
+              <Link href={`/de/getraenke?brand=${brand.id}`} className="focus-ring rounded-md text-xs text-slate underline decoration-ash underline-offset-4 hover:text-ink hover:decoration-marigold">
+                Filtern
+              </Link>
             </div>
             <h2 className="font-semibold">{brand.name}</h2>
             <p className="mt-1 text-sm text-slate">{brand.note}</p>
             <p className="mt-4 text-sm tabular-nums">{counts[brand.id] ?? 0} Einträge</p>
-          </Link>
+            {!!topDrinks[brand.id]?.length && (
+              <div className="mt-4 space-y-2 border-t border-ash pt-3">
+                <p className="text-xs font-medium uppercase tracking-wide text-slate">Top Produkte</p>
+                {topDrinks[brand.id].map((drink) => (
+                  <Link key={drink.id} href={`/de/getraenke/${drink.id}`} className="focus-ring block rounded-md text-sm leading-5 hover:text-marigold">
+                    {drink.name}
+                    <span className="block text-xs text-slate">{formatNumber(drink.sugar)} g gesamt</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </article>
         ))}
       </div>
 
@@ -52,4 +66,8 @@ export function BrandSearchGrid({ brands, counts }: BrandSearchGridProps) {
       )}
     </section>
   );
+}
+
+function formatNumber(value: number) {
+  return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
 }

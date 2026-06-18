@@ -5,6 +5,9 @@ import { DrinkExplorer } from "@/components/drink-explorer";
 export const metadata: Metadata = {
   title: "Getränke-Datenbank",
   description: "Suche und filtere Getränke nach Marke, Kategorie, Gebindegröße und Zuckerwerten.",
+  alternates: {
+    canonical: "/de/getraenke",
+  },
 };
 
 export default function DrinksPage() {

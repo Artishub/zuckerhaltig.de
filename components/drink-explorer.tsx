@@ -17,6 +17,7 @@ const sizes = [
   { label: "331-500 ml", value: "medium" },
   { label: "über 500 ml", value: "large" },
 ];
+const minSugarWhenExcludingZero = 1;
 
 function matchesSize(drink: Drink, size: string) {
   if (size === "small") return drink.sizeMl <= 330;
@@ -62,7 +63,7 @@ export function DrinkExplorer() {
           (brand === "all" || drink.brandId === brand) &&
           (category === "all" || drink.categoryId === category) &&
           matchesSize(drink, size) &&
-          (!excludeZeroSugar || drink.sugarPer100Ml > 0) &&
+          (!excludeZeroSugar || drink.sugarPer100Ml > minSugarWhenExcludingZero) &&
           drink.sugarPer100Ml <= maxPer100 &&
           totalSugarGrams(drink) <= maxTotal
         );

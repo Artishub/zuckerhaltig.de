@@ -6,6 +6,9 @@ import { articles } from "@/lib/content/articles";
 export const metadata: Metadata = {
   title: "Wie viel Zucker ist in Getränken?",
   description: "Wissenswertes zu Zucker in Cola, Eistee, Saft, Energy Drinks und Limonade: Zucker pro 100 ml, Zuckerwürfel und Gesamtzucker einfach erklärt.",
+  alternates: {
+    canonical: "/de/wissen",
+  },
 };
 
 export default function KnowledgePage() {

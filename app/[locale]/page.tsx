@@ -9,6 +9,9 @@ import { categoryById } from "@/lib/data/categories";
 export const metadata: Metadata = {
   title: "Zucker in Getränken vergleichen",
   description: "Durchsuche eine deutsche Getränkedatenbank und vergleiche Zucker pro 100 ml und pro Gebinde.",
+  alternates: {
+    canonical: "/de",
+  },
 };
 
 export default function HomePage() {
