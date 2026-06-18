@@ -35,6 +35,7 @@ export function DrinkExplorer() {
   const [maxTotal, setMaxTotal] = useState(110);
   const [sort, setSort] = useState<SortKey>("per100-desc");
   const [compactGroups, setCompactGroups] = useState(false);
+  const [excludeZeroSugar, setExcludeZeroSugar] = useState(false);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(15);
   const [openId, setOpenId] = useState<string | null>(drinks[0]?.id ?? null);
@@ -61,6 +62,7 @@ export function DrinkExplorer() {
           (brand === "all" || drink.brandId === brand) &&
           (category === "all" || drink.categoryId === category) &&
           matchesSize(drink, size) &&
+          (!excludeZeroSugar || drink.sugarPer100Ml > 0) &&
           drink.sugarPer100Ml <= maxPer100 &&
           totalSugarGrams(drink) <= maxTotal
         );
@@ -76,7 +78,7 @@ export function DrinkExplorer() {
       if (sort === "total-asc") return totalSugarGrams(a) - totalSugarGrams(b);
       return totalSugarGrams(b) - totalSugarGrams(a);
     });
-  }, [brand, category, maxPer100, maxTotal, query, size, sort]);
+  }, [brand, category, excludeZeroSugar, maxPer100, maxTotal, query, size, sort]);
 
   const reset = () => {
     setQuery("");
@@ -86,13 +88,14 @@ export function DrinkExplorer() {
     setMaxPer100(12);
     setMaxTotal(110);
     setSort("per100-desc");
+    setExcludeZeroSugar(false);
     setPage(1);
     window.history.replaceState(null, "", window.location.pathname);
   };
 
   useEffect(() => {
     setPage(1);
-  }, [brand, category, compactGroups, maxPer100, maxTotal, query, size, sort, pageSize]);
+  }, [brand, category, compactGroups, excludeZeroSugar, maxPer100, maxTotal, query, size, sort, pageSize]);
 
   const displayItems = useMemo(
     () => (compactGroups ? groupedDrinkFamilies(filtered) : filtered.map((drink) => ({ type: "drink", id: drink.id, drink }) as DrinkDisplayItem)),
@@ -129,6 +132,15 @@ export function DrinkExplorer() {
             label="Varianten zusammenfassen"
             value={compactGroups ? "yes" : "no"}
             onChange={(value) => setCompactGroups(value === "yes")}
+            options={[
+              { label: "Nein", value: "no" },
+              { label: "Ja", value: "yes" },
+            ]}
+          />
+          <Select
+            label="Zuckerfreie ausschließen"
+            value={excludeZeroSugar ? "yes" : "no"}
+            onChange={(value) => setExcludeZeroSugar(value === "yes")}
             options={[
               { label: "Nein", value: "no" },
               { label: "Ja", value: "yes" },
