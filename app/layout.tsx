@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const description =
   "Vergleiche Zucker in Getränken aus Deutschland: pro 100 ml, pro Flasche oder Dose, mit Quellen, Nährwerten und verständlichen Zuckerwürfeln.";
+const googleAnalyticsId = "G-4W55FH97DW";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zuckerhaltig.de"),
@@ -42,7 +44,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
