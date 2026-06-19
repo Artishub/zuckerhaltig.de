@@ -34,29 +34,36 @@ export function BrandSearchGrid({ brands, counts, topDrinks }: BrandSearchGridPr
       </label>
 
       <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
-        {filteredBrands.map((brand) => (
-          <article key={brand.id} className="rounded-lg border border-ash p-4">
-            <div className="mb-5 flex h-6 items-start justify-end">
-              <Link href={`/de/getraenke?brand=${brand.id}`} className="focus-ring rounded-md text-xs text-slate underline decoration-ash underline-offset-4 hover:text-ink hover:decoration-marigold">
-                Filtern
-              </Link>
+        {filteredBrands.map((brand) => {
+          const count = counts[brand.id] ?? 0;
+          const products = topDrinks[brand.id] ?? [];
+          const remaining = Math.max(0, count - products.length);
+          const actionLabel = remaining > 0 ? `${remaining} weitere` : "Getränke ansehen";
+
+          return (
+          <article key={brand.id} className="flex min-h-[236px] flex-col rounded-lg border border-ash p-4">
+            <div>
+              <h2 className="font-semibold">{brand.name}</h2>
+              <p className="mt-1 text-sm text-slate">{brand.note}</p>
             </div>
-            <h2 className="font-semibold">{brand.name}</h2>
-            <p className="mt-1 text-sm text-slate">{brand.note}</p>
-            <p className="mt-4 text-sm tabular-nums">{counts[brand.id] ?? 0} Einträge</p>
-            {!!topDrinks[brand.id]?.length && (
-              <div className="mt-4 space-y-2 border-t border-ash pt-3">
-                <p className="text-xs font-medium uppercase tracking-wide text-slate">Top Produkte</p>
-                {topDrinks[brand.id].map((drink) => (
-                  <Link key={drink.id} href={`/de/getraenke/${drink.id}`} className="focus-ring block rounded-md text-sm leading-5 hover:text-marigold">
+            {!!products.length && (
+              <div className="mt-4 flex flex-1 flex-col border-t border-ash pt-3">
+                <p className="text-xs font-medium uppercase tracking-wide text-slate">Produkte</p>
+                <div className="mb-5 mt-2 flex flex-col items-start gap-2">
+                {products.map((drink) => (
+                  <Link key={drink.id} href={`/de/getraenke/${drink.id}`} className="focus-ring max-w-full truncate rounded-md bg-mist px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
                     {drink.name}
-                    <span className="block text-xs text-slate">{formatNumber(drink.sugar)} g gesamt</span>
                   </Link>
                 ))}
+                </div>
+                <Link href={`/de/getraenke?brand=${brand.id}`} className="focus-ring mt-auto inline-flex w-fit rounded-md border border-ink bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-ink hover:text-white dark:hover:text-black">
+                  {actionLabel}
+                </Link>
               </div>
             )}
           </article>
-        ))}
+          );
+        })}
       </div>
 
       {!filteredBrands.length && (
@@ -66,8 +73,4 @@ export function BrandSearchGrid({ brands, counts, topDrinks }: BrandSearchGridPr
       )}
     </section>
   );
-}
-
-function formatNumber(value: number) {
-  return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
 }

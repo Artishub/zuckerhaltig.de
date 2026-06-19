@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Calculator, ListFilter } from "lucide-react";
 import { homeContent } from "@/lib/content/home";
+import { articles } from "@/lib/content/articles";
 import { drinks, groupedDrinkFamilies } from "@/lib/data/drinks";
 import { brandById } from "@/lib/data/brands";
-import { categoryById } from "@/lib/data/categories";
+import { categories, categoryById } from "@/lib/data/categories";
 
 export const metadata: Metadata = {
   title: "Zucker in Getränken vergleichen",
@@ -18,6 +19,22 @@ export default function HomePage() {
   const highest = groupedDrinkFamilies(drinks)
     .sort((a, b) => highestPer100(b) - highestPer100(a))
     .slice(0, 4);
+  const popularDrinkIds = [
+    "coca-cola-classic-500",
+    "red-bull-energy-drink-250",
+    "monster-mango-loco-500",
+    "fanta-orange-500",
+    "club-mate-500",
+  ];
+  const popularDrinks = popularDrinkIds
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink) => Boolean(drink));
+  const categoryLinks = ["cola", "energy", "iced-tea", "juice", "orange-limo"]
+    .map((id) => categories.find((category) => category.id === id))
+    .filter((category) => Boolean(category));
+  const featuredArticles = ["zucker-pro-100ml-verstehen", "energy-drinks-zucker-vergleichen", "cola-zero-light-und-klassisch"]
+    .map((slug) => articles.find((article) => article.slug === slug))
+    .filter((article) => Boolean(article));
 
   return (
     <main>
@@ -76,6 +93,64 @@ export default function HomePage() {
         <p className="mt-4 text-sm text-slate">
           Hinweis: Produktwerte können sich ändern. Maßgeblich bleibt immer die aktuelle Verpackung.
         </p>
+      </section>
+      <section className="mx-auto max-w-page px-4 py-10">
+        <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">Beliebte Vergleiche</h2>
+            <p className="mt-3 leading-7 text-slate">Direkte Einstiege zu häufig gesuchten Getränken und Marken.</p>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {popularDrinks.map((drink) => {
+              if (!drink) return null;
+              const brandName = brandById[drink.brandId]?.name ?? "";
+              return (
+                <Link key={drink.id} href={`/de/getraenke/${drink.id}`} className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
+                  <p className="font-semibold">{drink.name}</p>
+                  <p className="mt-1 text-sm text-slate">{brandName} · {drink.sizeMl} ml</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      <section className="border-y border-ash bg-mist">
+        <div className="mx-auto max-w-page px-4 py-10">
+          <h2 className="text-2xl font-semibold tracking-tight">Nach Kategorie entdecken</h2>
+          <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+            {categoryLinks.map((category) => {
+              if (!category) return null;
+              return (
+                <Link key={category.id} href={`/de/getraenke?category=${category.id}`} className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
+                  <p className="font-semibold">{category.name}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate">{category.description}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      <section className="mx-auto max-w-page px-4 py-10">
+        <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">Wissenswertes</h2>
+            <p className="mt-3 leading-7 text-slate">Kurze Erklärungen zu Zuckerwerten, Packungsgrößen und typischen Getränken.</p>
+          </div>
+          <div className="grid gap-2">
+            {featuredArticles.map((article) => {
+              if (!article) return null;
+              return (
+                <Link key={article.slug} href={`/de/wissen/${article.slug}`} className="grid gap-3 rounded-lg border border-ash bg-paper p-4 hover:border-marigold sm:grid-cols-[1fr_auto]">
+                  <div>
+                    <p className="font-semibold">{article.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-slate">{article.description}</p>
+                  </div>
+                  <span className="text-sm text-slate">{article.minutes} Min.</span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </section>
       <section className="border-y border-ash bg-mist">
         <div className="mx-auto grid max-w-page gap-8 px-4 py-12 md:grid-cols-[0.8fr_1.2fr]">

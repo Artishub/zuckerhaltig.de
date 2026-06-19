@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BrandSearchGrid } from "@/components/brand-search-grid";
 import { brands } from "@/lib/data/brands";
-import { drinks, totalSugarGrams } from "@/lib/data/drinks";
+import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
 
 export const metadata: Metadata = {
   title: "Marken",
@@ -12,14 +12,16 @@ export const metadata: Metadata = {
 };
 
 export default function BrandsPage() {
+  const uniqueByBrand = Object.fromEntries(
+    brands.map((brand) => [brand.id, uniqueProductRepresentatives(drinks.filter((drink) => drink.brandId === brand.id))]),
+  );
   const counts = Object.fromEntries(
-    brands.map((brand) => [brand.id, drinks.filter((drink) => drink.brandId === brand.id).length]),
+    brands.map((brand) => [brand.id, uniqueByBrand[brand.id].length]),
   );
   const topDrinks = Object.fromEntries(
     brands.map((brand) => [
       brand.id,
-      drinks
-        .filter((drink) => drink.brandId === brand.id)
+      uniqueByBrand[brand.id]
         .sort((a, b) => totalSugarGrams(b) - totalSugarGrams(a))
         .slice(0, 3)
         .map((drink) => ({ id: drink.id, name: drink.name, sugar: totalSugarGrams(drink) })),
