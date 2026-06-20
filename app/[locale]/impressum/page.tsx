@@ -17,6 +17,21 @@ export default function ImpressumPage() {
             35392 Gießen
           </p>
         </div>
+        <div>
+          <h2 className="text-lg font-semibold text-ink">Kontakt</h2>
+          <p className="mt-2">
+            E-Mail:{" "}
+            <a className="underline decoration-ash underline-offset-4 hover:decoration-marigold" href="mailto:artjomgasarov@gmail.com">
+              artjomgasarov@gmail.com
+            </a>
+          </p>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold text-ink">Haftung für Inhalte</h2>
+          <p className="mt-2">
+            Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Angaben übernehmen wir jedoch keine Gewähr.
+          </p>
+        </div>
       </section>
     </main>
   );
