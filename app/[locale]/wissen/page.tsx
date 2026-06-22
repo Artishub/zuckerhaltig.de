@@ -31,6 +31,22 @@ export default function KnowledgePage() {
           </p>
         </div>
       </div>
+      <section className="mt-10 rounded-lg border border-ash bg-mist p-5">
+        <h2 className="text-2xl font-semibold tracking-tight">Häufig gesucht</h2>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {[
+            { href: "/de/wissen/cola-zucker-pro-100ml", label: "Cola Zucker pro 100 ml" },
+            { href: "/de/wissen/cola-zucker-pro-100ml", label: "Wie viel Zucker hat Cola?" },
+            { href: "/de/wissen/cola-zucker-pro-100ml", label: "Zuckerwürfel in Cola" },
+            { href: "/de/getraenke?category=cola", label: "Cola-Produkte vergleichen" },
+            { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola Zucker" },
+          ].map((item) => (
+            <Link key={item.label} href={item.href} className="focus-ring rounded-md border border-ash bg-paper px-3 py-2 text-sm hover:border-marigold">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </section>
       <h2 className="mt-10 text-2xl font-semibold tracking-tight">Weiter informieren</h2>
       <div className="mt-4 divide-y divide-ash border-y border-ash">
         {articles.map((article) => (

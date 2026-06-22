@@ -38,6 +38,23 @@ export const articles: Article[] = [
     ],
   },
   {
+    slug: "cola-zucker-pro-100ml",
+    title: "Cola Zucker pro 100 ml: wie viel steckt drin?",
+    description: "Cola-Zuckerwerte konkret einordnen: Zucker pro 100 ml, Gesamtzucker pro Flasche und Zuckerwürfel bei Coca-Cola, afri cola und Cola-Mix.",
+    minutes: 4,
+    body: [
+      "Suchanfragen wie „cola zucker pro 100ml“, „zucker in cola 100ml“ oder „zuckergehalt cola“ meinen fast immer dieselbe Frage: Wie süß ist Cola wirklich, wenn man verschiedene Marken und Packungsgrößen fair vergleicht? Der wichtigste Wert dafür ist Zucker pro 100 ml.",
+      "In unserer Datenbank liegt Coca-Cola Classic bei 10,6 g Zucker pro 100 ml. Bei einer 500-ml-Flasche ergibt das rechnerisch 53 g Zucker. Coca-Cola Vanilla liegt in der 500-ml-Flasche bei 11,1 g Zucker pro 100 ml und damit bei 55,5 g Gesamtzucker.",
+      "Auch andere Cola-Produkte unterscheiden sich. afri cola classic ist in der hinterlegten 330-ml-Dose mit 9 g Zucker pro 100 ml erfasst, also 29,7 g pro Dose. afri cola extra Koffein liegt in unserer Datenbank bei 10,6 g pro 100 ml und 35 g Gesamtzucker pro 330 ml.",
+      "Wer nach „wieviel zucker hat cola“ sucht, sollte deshalb immer die konkrete Sorte und die Packungsgröße prüfen. Eine 330-ml-Dose, eine 500-ml-Flasche und eine 1-Liter-Flasche können denselben 100-ml-Wert haben, aber sehr unterschiedliche Gesamtmengen liefern.",
+      "Für Zuckerwürfel nutzen wir 3 g Zucker pro Würfel als einfache Orientierung. Eine 500-ml-Flasche Coca-Cola Classic mit 53 g Zucker entspricht rechnerisch etwa 17,7 Zuckerwürfeln. Coca-Cola Vanilla mit 55,5 g liegt bei etwa 18,5 Zuckerwürfeln.",
+      "Cola-Mix-Getränke gehören in eine eigene Betrachtung. Paulaner Spezi ist in unserer Datenbank mit 9,2 g Zucker pro 100 ml erfasst, Mezzo Mix Original mit 7,9 g pro 100 ml. Beide können pro Flasche trotzdem relevante Mengen Zucker enthalten, weil die Gebindegröße den Gesamtzucker bestimmt.",
+      "Der faire Vergleich läuft deshalb in drei Schritten: Erst Zucker pro 100 ml ansehen, dann Packungsgröße prüfen, danach Gesamtzucker und Zuckerwürfel einordnen. So wird schnell sichtbar, ob eine Cola-Variante nur pro 100 ml süßer ist oder ob vor allem die Flaschengröße den Unterschied macht.",
+      "Zero- und Light-Varianten sollten separat geprüft werden. Sie enthalten meist deutlich weniger oder keinen Zucker, nutzen dafür aber Süßstoffe. Für die reine Zuckerfrage ist der Unterschied zu Classic-Cola groß; für Geschmack, Koffein und Gewohnheit sind weitere Faktoren relevant.",
+      "Die wichtigsten Einstiege sind die Cola-Kategorie, die Detailseite zu Coca-Cola Classic und der Vergleich einzelner Produkte in der Getränkedatenbank. Dort kannst du direkt nach Zucker pro 100 ml sortieren und ähnliche Cola-Produkte nebeneinander betrachten.",
+    ],
+  },
+  {
     slug: "saft-ist-nicht-automatisch-zuckerarm",
     title: "Wie viel Zucker hat Saft wirklich?",
     description: "Warum Orangensaft, Multivitaminsaft und Nektar trotz Fruchtzucker viel Zucker enthalten können.",

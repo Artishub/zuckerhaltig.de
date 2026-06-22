@@ -32,7 +32,7 @@ export default function HomePage() {
   const categoryLinks = ["cola", "energy", "iced-tea", "juice", "orange-limo"]
     .map((id) => categories.find((category) => category.id === id))
     .filter((category) => Boolean(category));
-  const featuredArticles = ["zucker-pro-100ml-verstehen", "energy-drinks-zucker-vergleichen", "cola-zero-light-und-klassisch"]
+  const featuredArticles = ["cola-zucker-pro-100ml", "zucker-pro-100ml-verstehen", "energy-drinks-zucker-vergleichen", "cola-zero-light-und-klassisch"]
     .map((slug) => articles.find((article) => article.slug === slug))
     .filter((article) => Boolean(article));
 

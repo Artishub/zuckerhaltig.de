@@ -68,6 +68,12 @@ function relatedLinks(slug: string) {
       { href: "/de/getraenke?category=cola", label: "Cola vergleichen", description: "Classic, Zero und Varianten in der Getränkesuche filtern." },
       { href: "/de/getraenke/coca-cola-classic-500", label: "Coca-Cola Classic", description: "Zuckerwerte der 500-ml-Flasche im Detail." },
     ],
+    "cola-zucker-pro-100ml": [
+      { href: "/de/getraenke?category=cola", label: "Cola nach Zucker sortieren", description: "Coca-Cola, afri cola und weitere Cola-Produkte nach Zucker pro 100 ml vergleichen." },
+      { href: "/de/getraenke/coca-cola-classic-500", label: "Coca-Cola Classic 500 ml", description: "53 g Zucker pro 500 ml aus dem 100-ml-Wert berechnen." },
+      { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola classic", description: "afri cola nach Zucker pro 100 ml und pro Dose einordnen." },
+      { href: "/de/wissen/cola-zero-light-und-klassisch", label: "Cola, Zero und Light", description: "Classic-Cola mit Zero- und Light-Varianten vergleichen." },
+    ],
     "saft-ist-nicht-automatisch-zuckerarm": [
       { href: "/de/getraenke?category=juice", label: "Säfte vergleichen", description: "Saft, Nektar und Fruchtsaftgetränke nach Zucker einordnen." },
       { href: "/de/getraenke/granini-trinkgenuss-orange-1000", label: "granini Trinkgenuss Orange", description: "Ein Beispiel für Zuckerwerte in Saftprodukten." },
