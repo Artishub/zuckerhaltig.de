@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const description =
@@ -7,7 +8,7 @@ const description =
 const googleAnalyticsId = "G-4W55FH97DW";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zuckerhaltig.de"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Zuckerhaltig.de",
     template: "%s | Zuckerhaltig.de",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zuckerhaltig.de",
     description,
-    url: "https://zuckerhaltig.de/de",
+    url: `${siteUrl}/de`,
     siteName: "Zuckerhaltig.de",
     images: [
       {

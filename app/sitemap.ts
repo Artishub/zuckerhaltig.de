@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/content/articles";
 import { drinks } from "@/lib/data/drinks";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://zuckerhaltig.de";
   const staticRoutes = [
     "/de",
     "/de/getraenke",
@@ -18,15 +18,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes.map((route) => ({
-      url: `${base}${route}`,
+      url: `${siteUrl}${route}`,
       lastModified: new Date(),
     })),
     ...articles.map((article) => ({
-      url: `${base}/de/wissen/${article.slug}`,
+      url: `${siteUrl}/de/wissen/${article.slug}`,
       lastModified: new Date(),
     })),
     ...drinks.map((drink) => ({
-      url: `${base}/de/getraenke/${drink.id}`,
+      url: `${siteUrl}/de/getraenke/${drink.id}`,
       lastModified: new Date(),
     })),
   ];

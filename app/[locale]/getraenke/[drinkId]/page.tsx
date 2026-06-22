@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
 import { drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink, type DrinkFaq } from "@/lib/data/drinks";
+import { siteUrl } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ drinkId: string; locale: string }>;
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: metaTitle(drink),
       description,
-      url: `https://zuckerhaltig.de/de/getraenke/${drink.id}`,
+      url: `${siteUrl}/de/getraenke/${drink.id}`,
       type: "article",
     },
   };
@@ -279,19 +280,19 @@ function breadcrumbJsonLd(drink: Drink) {
         "@type": "ListItem",
         position: 1,
         name: "Startseite",
-        item: "https://zuckerhaltig.de/de",
+        item: `${siteUrl}/de`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Getränke",
-        item: "https://zuckerhaltig.de/de/getraenke",
+        item: `${siteUrl}/de/getraenke`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: drink.name,
-        item: `https://zuckerhaltig.de/de/getraenke/${drink.id}`,
+        item: `${siteUrl}/de/getraenke/${drink.id}`,
       },
     ],
   };
