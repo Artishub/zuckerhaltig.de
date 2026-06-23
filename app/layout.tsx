@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     template: "%s | Zuckerhaltig.de",
   },
   description,
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     title: "Zuckerhaltig.de",
     description,
