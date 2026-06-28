@@ -4,7 +4,7 @@ import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const description =
-  "Vergleiche Zucker in Getränken aus Deutschland: pro 100 ml, pro Flasche oder Dose, mit Quellen, Nährwerten und verständlichen Zuckerwürfeln.";
+  "Vergleiche Zucker in Getränken aus Deutschland: pro 100 ml, pro Packung, mit Quellen, Nährwerten und Zuckerwürfeln.";
 const googleAnalyticsId = "G-4W55FH97DW";
 
 export const metadata: Metadata = {

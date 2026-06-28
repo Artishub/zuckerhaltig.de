@@ -25,7 +25,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const brandName = brandById[drink.brandId]?.name ?? "Unbekannte Marke";
   const categoryName = categoryById[drink.categoryId]?.name ?? "Getränk";
-  const description = `${drink.name} von ${brandName}: ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml, ${formatNumber(totalSugarGrams(drink))} g pro ${drink.sizeMl} ml, Nährwerte und Quelle.`;
+  const totalSugar = totalSugarGrams(drink);
+  const packagePart = drink.sizeMl && totalSugar !== null ? `, ${formatNumber(totalSugar)} g pro ${drink.sizeMl} ml` : "";
+  const description = `${drink.name} von ${brandName}: ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml${packagePart}, Nährwerte und Quelle.`;
 
   return {
     title: metaTitle(drink),
@@ -68,7 +70,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <p className="text-sm font-medium text-slate">{categoryName}</p>
           <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">{drink.name}</h1>
           <p className="mt-4 text-lg leading-8 text-slate">
-            {brandName} · {drink.sizeMl} ml · {formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml
+            {brandName} · {sizeLabel(drink)} · {formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml
           </p>
           <p className="mt-6 max-w-2xl leading-7 text-slate">
             {introText(drink, brandName, categoryName)}
@@ -91,15 +93,15 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <h2 className="text-xl font-semibold tracking-tight">Nährwerte</h2>
           <div className="mt-5 grid grid-cols-2 gap-3">
             <Nutrient label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} highlight />
-            <Nutrient label="Zucker pro Gebinde" value={`${formatNumber(totalSugar)} g`} highlight />
-            <Nutrient label="Zuckerwürfel" value={formatNumber(cubes)} />
-            <Nutrient label="Energie pro Gebinde" value={energy === null ? "k. A." : `${formatNumber(energy)} kcal`} />
-            <Nutrient label="Energie pro 100 ml" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.energyKcal)} kcal / ${formatNumber(drink.nutritionPer100Ml.energyKj)} kJ` : "k. A."} />
-            <Nutrient label="Kohlenhydrate" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.carbohydrates)} g` : "k. A."} />
-            <Nutrient label="Fett" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.fat)} g` : "k. A."} />
-            <Nutrient label="Eiweiss" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.protein)} g` : "k. A."} />
-            <Nutrient label="Salz" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.salt)} g` : "k. A."} />
-            <Nutrient label="Gebinde" value={`${drink.sizeMl} ml`} />
+            <Nutrient label="Zucker pro Gebinde" value={formatOptionalGrams(totalSugar)} highlight />
+            <Nutrient label="Zuckerwürfel" value={formatOptionalNumber(cubes)} />
+            <Nutrient label="Energie pro Gebinde" value={energy === null ? "/" : `${formatNumber(energy)} kcal`} />
+            <Nutrient label="Energie pro 100 ml" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.energyKcal)} kcal / ${formatNumber(drink.nutritionPer100Ml.energyKj)} kJ` : "/"} />
+            <Nutrient label="Kohlenhydrate" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.carbohydrates)} g` : "/"} />
+            <Nutrient label="Fett" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.fat)} g` : "/"} />
+            <Nutrient label="Eiweiss" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.protein)} g` : "/"} />
+            <Nutrient label="Salz" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.salt)} g` : "/"} />
+            <Nutrient label="Gebinde" value={sizeLabel(drink)} />
           </div>
           <p className="mt-4 text-xs leading-5 text-slate">Alle Angaben beziehen sich auf die hinterlegten Produktdaten und können sich durch Rezeptur- oder Verpackungsänderungen unterscheiden.</p>
         </section>
@@ -146,7 +148,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
             return (
               <Link key={item.id} href={`/de/getraenke/${item.id}`} className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
                 <p className="font-semibold">{item.name}</p>
-                <p className="mt-1 text-sm text-slate">{similarBrand} · {item.sizeMl} ml</p>
+                <p className="mt-1 text-sm text-slate">{similarBrand} · {sizeLabel(item)}</p>
                 <p className="mt-4 text-sm tabular-nums">{formatNumber(item.sugarPer100Ml)} g / 100 ml</p>
               </Link>
             );
@@ -200,11 +202,15 @@ function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
   return [
     {
       question: `Wie viel Zucker hat ${drink.name}?`,
-      answer: `${drink.name} von ${brandName} enthaelt ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml. Bei ${drink.sizeMl} ml ergibt das rechnerisch ${formatNumber(totalSugar)} g Zucker pro Gebinde.`,
+      answer: totalSugar === null || !drink.sizeMl
+        ? `${drink.name} von ${brandName} enthaelt ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml. Eine Packungsgröße ist noch nicht hinterlegt.`
+        : `${drink.name} von ${brandName} enthaelt ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml. Bei ${drink.sizeMl} ml ergibt das rechnerisch ${formatNumber(totalSugar)} g Zucker pro Gebinde.`,
     },
     {
       question: `Wie viele Zuckerwürfel stecken in ${drink.name}?`,
-      answer: `Bei 3 g pro Zuckerwürfel entspricht das ungefähr ${formatNumber(sugarCubes(drink))} Zuckerwürfeln pro ${drink.sizeMl}-ml-Gebinde.`,
+      answer: cubes === null || !drink.sizeMl
+        ? `Die Zuckerwürfel pro Gebinde werden ergänzt, sobald eine Packungsgröße hinterlegt ist.`
+        : `Bei 3 g pro Zuckerwürfel entspricht das ungefähr ${formatNumber(cubes)} Zuckerwürfeln pro ${drink.sizeMl}-ml-Gebinde.`,
     },
     {
       question: `Warum ist der Wert pro 100 ml wichtig?`,
@@ -226,7 +232,9 @@ function metaTitle(drink: Drink) {
 function introText(drink: Drink, brandName: string, categoryName: string) {
   const totalSugar = totalSugarGrams(drink);
   const cubes = sugarCubes(drink);
-  const base = `Für das ${drink.sizeMl}-ml-Gebinde ergeben sich rechnerisch ${formatNumber(totalSugar)} g Zucker. Das entspricht ungefähr ${formatNumber(cubes)} Zuckerwürfeln bei 3 g pro Würfel.`;
+  const base = totalSugar === null || cubes === null || !drink.sizeMl
+    ? "Eine Packungsgröße ist noch nicht hinterlegt; Gesamtzucker und Zuckerwürfel werden deshalb als / angezeigt."
+    : `Für das ${drink.sizeMl}-ml-Gebinde ergeben sich rechnerisch ${formatNumber(totalSugar)} g Zucker. Das entspricht ungefähr ${formatNumber(cubes)} Zuckerwürfeln bei 3 g pro Würfel.`;
 
   if (drink.brandId === "coca-cola" && drink.name.includes("Classic")) {
     return `Coca-Cola Classic ist einer der bekanntesten Cola-Vergleiche in der Datenbank. Der Wert von ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml zeigt die Rezeptur, während die Packungsgröße den Gesamtzucker bestimmt. ${base}`;
@@ -300,6 +308,18 @@ function breadcrumbJsonLd(drink: Drink) {
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
+}
+
+function formatOptionalNumber(value: number | null) {
+  return value === null ? "/" : formatNumber(value);
+}
+
+function formatOptionalGrams(value: number | null) {
+  return value === null ? "/" : `${formatNumber(value)} g`;
+}
+
+function sizeLabel(drink: Drink) {
+  return drink.sizeMl ? `${drink.sizeMl} ml` : "/";
 }
 
 function formatDate(value: string) {

@@ -42,6 +42,8 @@ const brandNotes: Record<string, string> = {
   "paulaner": "Spezi und Limonaden",
   "goenrgy": "Energy Drinks",
   "afri": "Cola",
+  "sinalco": "Limonaden",
+  "7up": "Zitrone/Limette",
 };
 
 export const brands: Brand[] = seed.brands.map((brand) => ({

@@ -4,8 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { articles } from "@/lib/content/articles";
 
 export const metadata: Metadata = {
-  title: "Wie viel Zucker ist in Getränken?",
-  description: "Wissenswertes zu Zucker in Cola, Eistee, Saft, Energy Drinks und Limonade: Zucker pro 100 ml, Zuckerwürfel und Gesamtzucker einfach erklärt.",
+  title: "Wie viel Zucker ist in Cola, Eistee und Energy Drinks?",
+  description: "Zucker in Getränken nachschlagen: Cola Zucker pro 100 ml, Zuckerwürfel, Energy Drink Zucker pro Dose, Eistee Zucker und Saft im Vergleich.",
   alternates: {
     canonical: "/de/wissen",
   },
@@ -17,17 +17,17 @@ export default function KnowledgePage() {
       <h1 className="text-4xl font-semibold tracking-tight">Wie viel Zucker ist in Getränken?</h1>
       <div className="mt-6 grid gap-8 border-y border-ash py-8 md:grid-cols-[0.9fr_1.1fr]">
         <p className="text-2xl font-semibold leading-9 tracking-tight">
-          Zucker in Cola, Eistee, Saft und Energy Drinks ist schnell getrunken, aber oft schwer einzuschätzen.
+          Cola, Eistee, Saft und Energy Drinks sind schnell getrunken. Der Zuckerwert bleibt oft hängen, wenn die Flasche längst leer ist.
         </p>
         <div className="space-y-4 leading-7 text-slate">
           <p>
-            Viele Menschen suchen nach Fragen wie „Wie viel Zucker hat Cola?“, „Wie viele Zuckerwürfel hat Red Bull?“ oder „Wie viel Zucker steckt in Eistee?“. Viele Getränke wirken im Alltag harmlos: Eistee, Saft, Milchkaffee, Sportdrink oder aromatisiertes Wasser. Trotzdem können sie relevante Mengen Zucker enthalten.
+            Viele Suchanfragen klingen sehr konkret: „Wie viel Zucker hat Cola?“, „Wie viele Zuckerwürfel hat Red Bull?“ oder „Monster Zucker 500 ml“. Genau deshalb trennt Zuckerhaltig.de den Wert pro 100 ml vom Zucker pro Packung.
           </p>
           <p>
-            Ein dauerhaft hoher Konsum von zuckerhaltigen Getränken kann laut öffentlichen Gesundheitsstellen unter anderem die Energieaufnahme erhöhen und steht mit Risiken wie Gewichtszunahme, Karies und Stoffwechselproblemen in Verbindung. Entscheidend ist nicht ein einzelnes Getränk, sondern Menge, Häufigkeit und der gesamte Ernährungsstil.
+            Ein einzelnes Getränk entscheidet nicht über Gesundheit. Aber wer regelmäßig süße Getränke trinkt, sollte die Menge kennen: Zucker pro 100 ml, Gesamtzucker und Zuckerwürfel.
           </p>
           <p>
-            Zuckerhaltig.de hilft dabei, Verpackungsangaben nüchtern zu lesen: Zucker pro 100 ml, Zucker pro Flasche oder Dose und Zuckerwürfel als Orientierung. So werden Produkte vergleichbar, ohne sie pauschal als gut oder schlecht einzuordnen.
+            Die Seite liest keine Absicht in Produkte hinein. Sie rechnet Verpackungsangaben um und macht Cola, Eistee, Energy Drinks, Saft und Zero-Varianten vergleichbar.
           </p>
         </div>
       </div>
@@ -38,6 +38,9 @@ export default function KnowledgePage() {
             { href: "/de/wissen/cola-zucker-pro-100ml", label: "Cola Zucker pro 100 ml" },
             { href: "/de/wissen/cola-zucker-pro-100ml", label: "Wie viel Zucker hat Cola?" },
             { href: "/de/wissen/cola-zucker-pro-100ml", label: "Zuckerwürfel in Cola" },
+            { href: "/de/wissen/energy-drinks-zucker-vergleichen", label: "Red Bull Zucker pro Dose" },
+            { href: "/de/wissen/energy-drinks-zucker-vergleichen", label: "Monster Energy Zucker 500 ml" },
+            { href: "/de/wissen/eistee-zucker-im-alltag", label: "Eistee Pfirsich Zucker" },
             { href: "/de/getraenke?category=cola", label: "Cola-Produkte vergleichen" },
             { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola Zucker" },
           ].map((item) => (

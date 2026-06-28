@@ -41,9 +41,9 @@ export default function Image() {
           zuckerhaltig.de
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ color: "#6f6f6f", fontSize: 28, marginBottom: 24 }}>Getränke-Zucker schnell vergleichen</div>
+          <div style={{ color: "#6f6f6f", fontSize: 28, marginBottom: 24 }}>Zuckerwerte aus Getränken nachschlagen</div>
           <h1 style={{ fontSize: 82, lineHeight: 0.98, letterSpacing: -3, margin: 0, maxWidth: 920 }}>
-            Wie viel Zucker steckt in unseren Getränken?
+            Wie viel Zucker trinkst du wirklich?
           </h1>
         </div>
         <div style={{ display: "flex", gap: 18, color: "#1a1a1a", fontSize: 25 }}>

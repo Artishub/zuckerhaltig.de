@@ -3,8 +3,8 @@ import { FaqNav } from "@/components/faq-nav";
 import { faq, faqCategories } from "@/lib/content/faq";
 
 export const metadata: Metadata = {
-  title: "FAQ: Zucker in Getränken berechnen",
-  description: "Antworten auf häufige Fragen zu Zucker pro 100 ml, Zucker pro Flasche, Zuckerwürfeln, Cola, Eistee, Energy Drinks, Saft und Nährwertangaben.",
+  title: "FAQ: Zucker in Getränken, Cola und Energy Drinks",
+  description: "Antworten zu Zucker pro 100 ml, Zucker pro Flasche, Zuckerwürfeln, Cola, Eistee, Energy Drinks, Saft, Zero und Light.",
   alternates: {
     canonical: "/de/faq",
   },
@@ -29,7 +29,7 @@ export default function FaqPage() {
         <div>
           <h1 className="text-4xl font-semibold tracking-tight">FAQ: Zucker in Getränken</h1>
           <p className="mt-4 max-w-2xl leading-7 text-slate">
-            Antworten auf häufige Suchfragen zu Zuckerwerten, Zucker pro 100 ml, Gesamtzucker, Zuckerwürfeln, Datenquellen und Nutzung der Getränkedatenbank.
+            Antworten auf Suchfragen wie „Wie viel Zucker hat Cola?“, „Wie viele Zuckerwürfel hat Red Bull?“ und „Wie berechnet man Zucker pro Flasche?“.
           </p>
           <div className="mt-8 space-y-12">
             {faqCategories.map((category) => (

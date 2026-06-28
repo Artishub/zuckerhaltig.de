@@ -22,7 +22,7 @@ export default function CategoriesPage() {
         {categories.map((category) => {
           const categoryDrinks = drinks.filter((drink) => drink.categoryId === category.id);
           const topDrinks = uniqueProductRepresentatives(categoryDrinks)
-            .sort((a, b) => totalSugarGrams(b) - totalSugarGrams(a))
+            .sort((a, b) => (totalSugarGrams(b) ?? -1) - (totalSugarGrams(a) ?? -1))
             .slice(0, 2);
 
           return (

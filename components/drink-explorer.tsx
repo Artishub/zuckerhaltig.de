@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { BarChart3, ChevronDown, ChevronLeft, ChevronRight, LinkIcon, Search, SlidersHorizontal, X } from "lucide-react";
+import { BarChart3, ChevronDown, ChevronLeft, ChevronRight, LinkIcon, Search, X } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { categories, categoryById } from "@/lib/data/categories";
 import { Drink, DrinkDisplayItem, drinks, groupedDrinkFamilies, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
@@ -20,6 +20,7 @@ const sizes = [
 const minSugarWhenExcludingZero = 1;
 
 function matchesSize(drink: Drink, size: string) {
+  if (!drink.sizeMl) return size === "all";
   if (size === "small") return drink.sizeMl <= 330;
   if (size === "medium") return drink.sizeMl > 330 && drink.sizeMl <= 500;
   if (size === "large") return drink.sizeMl > 500;
@@ -41,6 +42,7 @@ export function DrinkExplorer() {
   const [pageSize, setPageSize] = useState(15);
   const [openId, setOpenId] = useState<string | null>(drinks[0]?.id ?? null);
   const [compareIds, setCompareIds] = useState(["", "", ""]);
+  const [compareOpen, setCompareOpen] = useState(false);
 
   useEffect(() => {
     const nextQuery = searchParams.get("q") ?? "";
@@ -66,7 +68,7 @@ export function DrinkExplorer() {
           matchesSize(drink, size) &&
           (!excludeZeroSugar || drink.sugarPer100Ml > minSugarWhenExcludingZero) &&
           drink.sugarPer100Ml <= maxPer100 &&
-          totalSugarGrams(drink) <= maxTotal
+          (totalSugarGrams(drink) ?? 0) <= maxTotal
         );
       });
 
@@ -77,8 +79,8 @@ export function DrinkExplorer() {
       if (sort === "per100-asc") return a.sugarPer100Ml - b.sugarPer100Ml;
       if (sort === "name-asc") return a.name.localeCompare(b.name, "de");
       if (sort === "name-desc") return b.name.localeCompare(a.name, "de");
-      if (sort === "total-asc") return totalSugarGrams(a) - totalSugarGrams(b);
-      return totalSugarGrams(b) - totalSugarGrams(a);
+      if (sort === "total-asc") return compareNullable(totalSugarGrams(a), totalSugarGrams(b), "asc");
+      return compareNullable(totalSugarGrams(a), totalSugarGrams(b), "desc");
     });
   }, [brand, category, excludeZeroSugar, maxPer100, maxTotal, query, size, sort]);
 
@@ -126,11 +128,10 @@ export function DrinkExplorer() {
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
-      <aside className="h-fit border border-ash bg-paper lg:sticky lg:top-20">
+    <div className="grid min-w-0 gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
+      <aside className="h-fit w-full min-w-0 border border-ash bg-paper lg:sticky lg:top-20">
         <div className="flex items-center justify-between border-b border-ash px-4 py-3">
           <h2 className="text-sm font-semibold">Filter</h2>
-          <SlidersHorizontal size={16} />
         </div>
         <div className="space-y-4 p-4">
           <label className="block">
@@ -141,7 +142,7 @@ export function DrinkExplorer() {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Name oder Marke"
-                className="w-full bg-transparent text-sm outline-none"
+                className="min-w-0 flex-1 bg-transparent text-sm outline-none"
               />
             </div>
           </label>
@@ -175,8 +176,10 @@ export function DrinkExplorer() {
         </div>
       </aside>
 
-      <section>
+      <section className="min-w-0">
         <ComparePanel
+          open={compareOpen}
+          onToggle={() => setCompareOpen((value) => !value)}
           compareIds={compareIds}
           compareDrinks={compareDrinks}
           options={compareDrinkOptions}
@@ -187,7 +190,7 @@ export function DrinkExplorer() {
           <p className="text-sm text-slate">
             <strong className="text-ink">{displayItems.length}</strong> {compactGroups ? "Einträge" : "Getränke"} gefunden
           </p>
-          <div className="flex items-center gap-2">
+          <div className="flex min-w-0 items-center gap-2">
             <Select
               label="Sortierung"
               compact
@@ -214,9 +217,9 @@ export function DrinkExplorer() {
             const subtitle =
               item.type === "group"
                 ? `${categoryData?.name ?? "Getränk"} · ${item.drinks.length} Produkte`
-                : `${brandName} · ${drink.sizeMl} ml`;
+                : `${brandName} · ${sizeLabel(drink)}`;
             const per100 = item.type === "group" ? Math.max(...item.drinks.map((groupDrink) => groupDrink.sugarPer100Ml)) : drink.sugarPer100Ml;
-            const total = item.type === "group" ? Math.max(...item.drinks.map(totalSugarGrams)) : totalSugarGrams(drink);
+            const total = item.type === "group" ? maxNullable(item.drinks.map(totalSugarGrams)) : totalSugarGrams(drink);
 
             return (
               <motion.article
@@ -239,7 +242,7 @@ export function DrinkExplorer() {
                     <p className="mt-1 text-sm text-slate">{subtitle}</p>
                   </div>
                   <Metric label="pro 100 ml" value={`${formatNumber(per100)} g`} />
-                  <Metric label="gesamt" value={`${formatNumber(total)} g`} strong />
+                  <Metric label="gesamt" value={formatOptionalGrams(total)} strong />
                   <ChevronDown className={`col-start-3 justify-self-end self-end transition md:col-start-auto md:self-center ${isOpen ? "rotate-180" : ""}`} size={18} />
                 </button>
                 {isOpen && (
@@ -261,8 +264,8 @@ export function DrinkExplorer() {
                       </p>
                     </div>
                     <div className="space-y-2 leading-6">
-                      <p><span className="text-ink">{formatNumber(item.type === "group" ? Math.max(...item.drinks.map(sugarCubes)) : sugarCubes(drink))} Zuckerwürfel</span> bei 3 g pro Würfel.</p>
-                      <p>{item.type === "group" ? `Spanne: ${formatNumber(Math.min(...item.drinks.map((groupDrink) => groupDrink.sugarPer100Ml)))} bis ${formatNumber(per100)} g Zucker pro 100 ml.` : `${formatNumber(drink.sugarPer100Ml)} g × ${drink.sizeMl} ml / 100 = ${formatNumber(totalSugarGrams(drink))} g Zucker`}</p>
+                      <p><span className="text-ink">{formatOptionalNumber(item.type === "group" ? maxNullable(item.drinks.map(sugarCubes)) : sugarCubes(drink))} Zuckerwürfel</span> bei 3 g pro Würfel.</p>
+                      <p>{item.type === "group" ? `Spanne: ${formatNumber(Math.min(...item.drinks.map((groupDrink) => groupDrink.sugarPer100Ml)))} bis ${formatNumber(per100)} g Zucker pro 100 ml.` : calculationLine(drink)}</p>
                       <div className="mt-7 flex flex-col items-start gap-2">
                         <button
                           type="button"
@@ -333,12 +336,16 @@ export function DrinkExplorer() {
 }
 
 function ComparePanel({
+  open,
+  onToggle,
   compareIds,
   compareDrinks,
   options,
   onSelect,
   onClear,
 }: {
+  open: boolean;
+  onToggle: () => void;
   compareIds: string[];
   compareDrinks: Drink[];
   options: Drink[];
@@ -346,11 +353,16 @@ function ComparePanel({
   onClear: (index: number) => void;
 }) {
   const maxPer100 = Math.max(...compareDrinks.map((drink) => drink.sugarPer100Ml), 1);
-  const maxTotal = Math.max(...compareDrinks.map(totalSugarGrams), 1);
+  const maxTotal = Math.max(...compareDrinks.map((drink) => totalSugarGrams(drink) ?? 0), 1);
 
   return (
-    <section className="mb-6 rounded-lg border border-ash bg-paper p-4">
-      <div className="flex flex-col gap-3 border-b border-ash pb-4 sm:flex-row sm:items-center sm:justify-between">
+    <section className="mb-6 rounded-lg border border-ash bg-paper">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="focus-ring flex w-full flex-col gap-3 px-4 py-4 text-left sm:flex-row sm:items-center sm:justify-between"
+        aria-expanded={open}
+      >
         <div>
           <div className="flex items-center gap-2">
             <BarChart3 size={18} />
@@ -358,26 +370,25 @@ function ComparePanel({
           </div>
           <p className="mt-2 text-sm leading-6 text-slate">Wähle bis zu drei Getränke und vergleiche Zucker, Kalorien und Nährwerte nebeneinander.</p>
         </div>
-        <p className="text-sm text-slate">{compareDrinks.length}/3 ausgewählt</p>
-      </div>
+        <span className="flex items-center gap-3 text-sm text-slate">
+          {compareDrinks.length}/3 ausgewählt
+          <ChevronDown className={`transition ${open ? "rotate-180" : ""}`} size={18} />
+        </span>
+      </button>
 
-      <div className="mt-4 grid gap-3 md:grid-cols-3">
+      {open && (
+        <div className="border-t border-ash p-4">
+      <div className="grid gap-3 md:grid-cols-3">
         {compareIds.map((selectedId, index) => (
           <label key={index} className="block">
             <span className="text-xs font-medium uppercase tracking-wide text-slate">Getränk {index + 1}</span>
             <div className="mt-2 flex gap-2">
-              <select
+              <DrinkCombobox
                 value={selectedId}
-                onChange={(event) => onSelect(index, event.target.value)}
-                className="focus-ring h-10 min-w-0 flex-1 rounded-md border border-ash bg-mist px-3 text-sm outline-none hover:border-smoke"
-              >
-                <option value="">Auswählen</option>
-                {options.map((drink) => (
-                  <option key={drink.id} value={drink.id} disabled={compareIds.includes(drink.id) && selectedId !== drink.id}>
-                    {drink.name} · {drink.sizeMl} ml
-                  </option>
-                ))}
-              </select>
+                options={options}
+                disabledIds={compareIds.filter((id) => id && id !== selectedId)}
+                onChange={(id) => onSelect(index, id)}
+              />
               {selectedId && (
                 <button
                   type="button"
@@ -405,16 +416,16 @@ function ComparePanel({
                 <article key={drink.id} className="rounded-lg border border-ash bg-mist p-4">
                   <p className="text-xs font-medium uppercase tracking-wide text-slate">{categoryName}</p>
                   <h3 className="mt-2 text-base font-semibold leading-tight">{drink.name}</h3>
-                  <p className="mt-1 text-sm text-slate">{brandName} · {drink.sizeMl} ml</p>
+                  <p className="mt-1 text-sm text-slate">{brandName} · {sizeLabel(drink)}</p>
                   <dl className="mt-4 space-y-2 text-sm">
                     <CompareValue label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} strong />
-                    <CompareValue label="Zucker gesamt" value={`${formatNumber(totalSugarGrams(drink))} g`} strong />
-                    <CompareValue label="Zuckerwürfel" value={formatNumber(sugarCubes(drink))} />
-                    <CompareValue label="Energie pro 100 ml" value={nutrition ? `${formatNumber(nutrition.energyKcal)} kcal` : "k. A."} />
-                    <CompareValue label="Kohlenhydrate" value={nutrition ? `${formatNumber(nutrition.carbohydrates)} g` : "k. A."} />
-                    <CompareValue label="Fett" value={nutrition ? `${formatNumber(nutrition.fat)} g` : "k. A."} />
-                    <CompareValue label="Eiweiß" value={nutrition ? `${formatNumber(nutrition.protein)} g` : "k. A."} />
-                    <CompareValue label="Salz" value={nutrition ? `${formatNumber(nutrition.salt)} g` : "k. A."} />
+                    <CompareValue label="Zucker gesamt" value={formatOptionalGrams(totalSugarGrams(drink))} strong />
+                    <CompareValue label="Zuckerwürfel" value={formatOptionalNumber(sugarCubes(drink))} />
+                    <CompareValue label="Energie pro 100 ml" value={nutrition ? `${formatNumber(nutrition.energyKcal)} kcal` : "/"} />
+                    <CompareValue label="Kohlenhydrate" value={nutrition ? `${formatNumber(nutrition.carbohydrates)} g` : "/"} />
+                    <CompareValue label="Fett" value={nutrition ? `${formatNumber(nutrition.fat)} g` : "/"} />
+                    <CompareValue label="Eiweiß" value={nutrition ? `${formatNumber(nutrition.protein)} g` : "/"} />
+                    <CompareValue label="Salz" value={nutrition ? `${formatNumber(nutrition.salt)} g` : "/"} />
                   </dl>
                   <Link href={`/de/getraenke/${drink.id}`} className="focus-ring mt-4 inline-flex rounded-md text-sm underline decoration-ash underline-offset-4 hover:decoration-marigold">
                     Detailseite öffnen
@@ -437,7 +448,111 @@ function ComparePanel({
           Starte mit einem Getränk. Du kannst weitere Produkte über die Auswahlfelder oder über „Zum Vergleich“ in geöffneten Karten hinzufügen.
         </div>
       )}
+        </div>
+      )}
     </section>
+  );
+}
+
+function DrinkCombobox({
+  value,
+  options,
+  disabledIds,
+  onChange,
+}: {
+  value: string;
+  options: Drink[];
+  disabledIds: string[];
+  onChange: (id: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const selected = options.find((drink) => drink.id === value);
+  const filtered = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    return options
+      .filter((drink) => {
+        const brandName = brands.find((brand) => brand.id === drink.brandId)?.name ?? "";
+        const haystack = `${drink.name} ${brandName} ${sizeLabel(drink)}`.toLowerCase();
+        return !normalized || haystack.includes(normalized);
+      })
+      .slice(0, 40);
+  }, [options, query]);
+
+  useEffect(() => {
+    if (!open) return;
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [open]);
+
+  return (
+    <div ref={containerRef} className="relative min-w-0 flex-1">
+      <button
+        type="button"
+        onClick={() => setOpen((current) => !current)}
+        className="focus-ring flex h-10 w-full items-center justify-between gap-2 rounded-md border border-ash bg-mist px-3 text-left text-sm outline-none hover:border-smoke"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span className="min-w-0 truncate">{selected ? `${selected.name} · ${sizeLabel(selected)}` : "Auswählen"}</span>
+        <ChevronDown className={`shrink-0 transition ${open ? "rotate-180" : ""}`} size={16} />
+      </button>
+      {open && (
+        <div className="absolute left-0 right-0 top-12 z-30 rounded-md border border-ash bg-paper p-2 shadow-[0_18px_60px_rgba(26,26,26,0.12)]">
+          <div className="flex h-9 items-center gap-2 rounded-md border border-ash px-2">
+            <Search size={15} />
+            <input
+              autoFocus
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Getränk suchen"
+              className="min-w-0 flex-1 bg-transparent text-sm outline-none"
+            />
+          </div>
+          <div className="mt-2 max-h-64 overflow-y-auto" role="listbox">
+            <button
+              type="button"
+              onClick={() => {
+                onChange("");
+                setQuery("");
+                setOpen(false);
+              }}
+              className="block w-full rounded px-2 py-2 text-left text-sm hover:bg-mist"
+            >
+              Auswählen
+            </button>
+            {filtered.map((drink) => {
+              const disabled = disabledIds.includes(drink.id);
+              return (
+                <button
+                  key={drink.id}
+                  type="button"
+                  disabled={disabled}
+                  onClick={() => {
+                    onChange(drink.id);
+                    setQuery("");
+                    setOpen(false);
+                  }}
+                  className="block w-full rounded px-2 py-2 text-left text-sm hover:bg-mist disabled:cursor-not-allowed disabled:opacity-40"
+                  role="option"
+                  aria-selected={drink.id === value}
+                >
+                  <span className="block truncate font-medium">{drink.name}</span>
+                  <span className="block truncate text-xs text-slate">
+                    {brands.find((brand) => brand.id === drink.brandId)?.name} · {sizeLabel(drink)}
+                  </span>
+                </button>
+              );
+            })}
+            {!filtered.length && <p className="px-2 py-3 text-sm text-slate">Kein Getränk gefunden.</p>}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -450,20 +565,21 @@ function CompareValue({ label, value, strong = false }: { label: string; value: 
   );
 }
 
-function SugarBars({ label, drinks, max, value, suffix }: { label: string; drinks: Drink[]; max: number; value: (drink: Drink) => number; suffix: string }) {
+function SugarBars({ label, drinks, max, value, suffix }: { label: string; drinks: Drink[]; max: number; value: (drink: Drink) => number | null; suffix: string }) {
   return (
     <div>
       <p className="text-xs font-medium uppercase tracking-wide text-slate">{label}</p>
       <div className="mt-2 space-y-2">
         {drinks.map((drink) => {
           const drinkValue = value(drink);
+          const width = drinkValue === null ? 0 : Math.max(3, (drinkValue / max) * 100);
           return (
             <div key={drink.id} className="grid gap-2 sm:grid-cols-[160px_1fr_64px] sm:items-center">
               <p className="truncate text-sm font-medium">{drink.name}</p>
               <div className="h-3 overflow-hidden rounded-full bg-paper">
-                <div className="h-full rounded-full bg-marigold" style={{ width: `${Math.max(3, (drinkValue / max) * 100)}%` }} />
+                <div className="h-full rounded-full bg-marigold" style={{ width: `${width}%` }} />
               </div>
-              <p className="text-sm tabular-nums text-slate sm:text-right">{formatNumber(drinkValue)} {suffix}</p>
+              <p className="text-sm tabular-nums text-slate sm:text-right">{drinkValue === null ? "/" : `${formatNumber(drinkValue)} ${suffix}`}</p>
             </div>
           );
         })}
@@ -480,14 +596,16 @@ function productSentence(drink: Drink, brandName: string, categoryName: string) 
   const energy = packageEnergyKcal(drink);
   const checked = drink.lastCheckedAt ? ` zuletzt geprüft am ${formatDate(drink.lastCheckedAt)}` : "";
   const energyPart = energy === null ? "" : ` und rechnerisch etwa ${formatNumber(energy)} kcal`;
+  const total = totalSugarGrams(drink);
+  const packagePart = drink.sizeMl && total !== null ? `; daraus ergeben sich ${formatNumber(total)} g Zucker pro Packung${energyPart}` : ". Die Packungsgröße ist noch nicht hinterlegt";
 
-  return `${drink.name} von ${brandName} ist ein Getränk aus der Kategorie ${categoryName} im ${drink.sizeMl}-ml-Gebinde. Laut hinterlegter Quelle enthält es ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml; daraus ergeben sich ${formatNumber(totalSugarGrams(drink))} g Zucker pro Packung${energyPart}. Die Angabe basiert auf „${drink.source}“${checked}. ${drink.note}`;
+  return `${drink.name} von ${brandName} ist ein Getränk aus der Kategorie ${categoryName} im ${sizeLabel(drink)}. Laut hinterlegter Quelle enthält es ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml${packagePart}. Die Angabe basiert auf „${drink.source}“${checked}. ${drink.note}`;
 }
 
 function groupSentence(groupDrinks: Drink[], brandName: string, categoryName: string) {
   const minSugar = Math.min(...groupDrinks.map((drink) => drink.sugarPer100Ml));
   const maxSugar = Math.max(...groupDrinks.map((drink) => drink.sugarPer100Ml));
-  const sizes = Array.from(new Set(groupDrinks.map((drink) => `${drink.sizeMl} ml`))).join(", ");
+  const sizes = Array.from(new Set(groupDrinks.map(sizeLabel))).join(", ");
   const products = groupDrinks.length;
 
   return `${brandName} - Mehrere fasst ${products} Produkte aus der Kategorie ${categoryName} zusammen. Die hinterlegten Varianten liegen zwischen ${formatNumber(minSugar)} und ${formatNumber(maxSugar)} g Zucker pro 100 ml; gespeicherte Gebinde in dieser Gruppe sind ${sizes}. Öffne die einzelnen Varianten über die Suche oder deaktiviere die Zusammenfassung, wenn du Packungsgrößen und Produktdetails separat vergleichen möchtest.`;
@@ -495,6 +613,36 @@ function groupSentence(groupDrinks: Drink[], brandName: string, categoryName: st
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
+}
+
+function formatOptionalNumber(value: number | null) {
+  return value === null ? "/" : formatNumber(value);
+}
+
+function formatOptionalGrams(value: number | null) {
+  return value === null ? "/" : `${formatNumber(value)} g`;
+}
+
+function sizeLabel(drink: Drink) {
+  return drink.sizeMl ? `${drink.sizeMl} ml` : "/";
+}
+
+function calculationLine(drink: Drink) {
+  const total = totalSugarGrams(drink);
+  if (!drink.sizeMl || total === null) return "Packungsgröße noch nicht hinterlegt; Gesamtzucker wird nachgetragen.";
+  return `${formatNumber(drink.sugarPer100Ml)} g × ${drink.sizeMl} ml / 100 = ${formatNumber(total)} g Zucker`;
+}
+
+function maxNullable(values: Array<number | null>) {
+  const numbers = values.filter((value): value is number => value !== null);
+  return numbers.length ? Math.max(...numbers) : null;
+}
+
+function compareNullable(a: number | null, b: number | null, direction: "asc" | "desc") {
+  if (a === null && b === null) return 0;
+  if (a === null) return 1;
+  if (b === null) return -1;
+  return direction === "asc" ? a - b : b - a;
 }
 
 function formatDate(value: string) {
@@ -515,13 +663,16 @@ function Select({
   compact?: boolean;
 }) {
   return (
-    <label className={compact ? "flex items-center gap-2" : "block"}>
-      <span className={compact ? "text-sm text-slate" : "text-xs font-medium uppercase tracking-wide text-slate"}>{label}</span>
-      <select value={value} onChange={(event) => onChange(event.target.value)} className="focus-ring mt-2 h-10 w-full rounded-md border border-ash bg-paper px-3 text-sm outline-none hover:border-smoke">
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>{option.label}</option>
-        ))}
-      </select>
+    <label className={compact ? "flex min-w-0 items-center gap-2" : "block"}>
+      <span className={compact ? "whitespace-nowrap text-sm text-slate" : "text-xs font-medium uppercase tracking-wide text-slate"}>{label}</span>
+      <div className={`relative min-w-0 ${compact ? "w-auto" : "mt-2 w-full"}`}>
+        <select value={value} onChange={(event) => onChange(event.target.value)} className="focus-ring h-10 w-full appearance-none rounded-md border border-ash bg-paper px-3 pr-10 text-sm outline-none hover:border-smoke">
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+        <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink" size={16} />
+      </div>
     </label>
   );
 }

@@ -1,20 +1,20 @@
 export const homeContent = {
-  eyebrow: "Öffentliche Getränkedatenbank",
-  title: "Wie viel Zucker steckt in unseren Getränken?",
+  eyebrow: "Getränkedatenbank für in Deutschland erhältliche Getränke",
+  title: "Wie viel Zucker trinkst du wirklich?",
   intro:
-    "Zuckerhaltig.de macht Nährwerte schnell vergleichbar: pro 100 ml, pro Flasche oder Dose und als einfache Orientierung in Zuckerwürfeln.",
+    "Zuckerhaltig.de zeigt für über 250 Getränke die Zuckerwerte aus hinterlegten Quellen: pro 100 ml, pro Flasche oder Dose und umgerechnet in Zuckerwürfel.",
   guide: [
     {
-      title: "Pro 100 ml vergleichen",
-      text: "Der normierte Wert zeigt, welches Getränk unabhängig von Dose oder Flasche besonders süß ist.",
+      title: "Zuckergehalt pro 100 ml prüfen",
+      text: "Dieser Wert zeigt, wie süß die Rezeptur ist, egal ob Dose, Flasche oder Trinkpäckchen.",
     },
     {
-      title: "Gebindegröße prüfen",
-      text: "Eine große Flasche kann trotz mittlerem 100-ml-Wert sehr viel Gesamtzucker enthalten.",
+      title: "Dann die Größe prüfen",
+      text: "Aus 8 g pro 100 ml werden bei einem Liter 80 g Zucker. Die Packung entscheidet mit.",
     },
     {
-      title: "Zuckerwürfel einordnen",
-      text: "Die Umrechnung mit 3 g pro Würfel macht abstrakte Grammzahlen schneller greifbar.",
+      title: "In Würfeln denken",
+      text: "Ein Zuckerwürfel zählt hier als 3 g. Das macht Grammangaben schneller greifbar.",
     },
   ],
 };

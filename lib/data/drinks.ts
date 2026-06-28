@@ -17,7 +17,7 @@ export type Drink = {
   name: string;
   brandId: string;
   categoryId: string;
-  sizeMl: number;
+  sizeMl: number | null;
   sugarPer100Ml: number;
   source: string;
   note: string;
@@ -49,15 +49,17 @@ export type DrinkDisplayItem =
   | { type: "group"; id: string; brandId: string; categoryId: string; drinks: Drink[]; representative: Drink };
 
 export function totalSugarGrams(drink: Drink) {
+  if (!drink.sizeMl) return null;
   return Math.round(drink.sugarPer100Ml * (drink.sizeMl / 100) * 10) / 10;
 }
 
 export function sugarCubes(drink: Drink) {
-  return Math.round((totalSugarGrams(drink) / 3) * 10) / 10;
+  const total = totalSugarGrams(drink);
+  return total === null ? null : Math.round((total / 3) * 10) / 10;
 }
 
 export function packageEnergyKcal(drink: Drink) {
-  return drink.nutritionPer100Ml ? Math.round(drink.nutritionPer100Ml.energyKcal * (drink.sizeMl / 100) * 10) / 10 : null;
+  return drink.nutritionPer100Ml && drink.sizeMl ? Math.round(drink.nutritionPer100Ml.energyKcal * (drink.sizeMl / 100) * 10) / 10 : null;
 }
 
 export function productKey(drink: Drink) {
@@ -105,5 +107,6 @@ export function groupedDrinkFamilies(items: Drink[]): DrinkDisplayItem[] {
 }
 
 function representativeScore(drink: Drink) {
+  if (!drink.sizeMl) return 999;
   return Math.abs(drink.sizeMl - 500);
 }

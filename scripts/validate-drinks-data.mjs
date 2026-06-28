@@ -15,15 +15,16 @@ for (const drink of data.drinks) {
   if (!brandIds.has(drink.brandId)) errors.push(`${drink.id}: unknown brandId ${drink.brandId}`);
   if (!categoryIds.has(drink.categoryId)) errors.push(`${drink.id}: unknown categoryId ${drink.categoryId}`);
 
-  const calculatedSugar = round1(drink.sugarPer100Ml * (drink.sizeMl / 100));
-  const calculatedCubes = round1(calculatedSugar / 3);
-  const calculatedEnergy = drink.nutritionPer100Ml ? round1(drink.nutritionPer100Ml.energyKcal * (drink.sizeMl / 100)) : null;
+  const hasSize = typeof drink.sizeMl === "number";
+  const calculatedSugar = hasSize ? round1(drink.sugarPer100Ml * (drink.sizeMl / 100)) : null;
+  const calculatedCubes = calculatedSugar === null ? null : round1(calculatedSugar / 3);
+  const calculatedEnergy = drink.nutritionPer100Ml && hasSize ? round1(drink.nutritionPer100Ml.energyKcal * (drink.sizeMl / 100)) : null;
 
   if (drink.nutritionPer100Ml && !close(drink.nutritionPer100Ml.sugar, drink.sugarPer100Ml)) {
     errors.push(`${drink.id}: nutritionPer100Ml.sugar ${drink.nutritionPer100Ml.sugar} != sugarPer100Ml ${drink.sugarPer100Ml}`);
   }
 
-  if (drink.computed) {
+  if (drink.computed && calculatedSugar !== null && calculatedCubes !== null) {
     if (!close(drink.computed.sugarPerPackage, calculatedSugar)) {
       errors.push(`${drink.id}: computed.sugarPerPackage ${drink.computed.sugarPerPackage} != calculated ${calculatedSugar}`);
     }
@@ -39,7 +40,7 @@ for (const drink of data.drinks) {
   for (const match of sourceText.matchAll(sourceSugarPattern)) {
     const sourceSugar = Number(match[1].replace(",", "."));
     const sourceMl = Number(match[2]);
-    if (sourceMl === drink.sizeMl && !close(sourceSugar, calculatedSugar)) {
+    if (hasSize && sourceMl === drink.sizeMl && !close(sourceSugar, calculatedSugar)) {
       errors.push(`${drink.id}: source says ${sourceSugar} g sugar per ${sourceMl} ml, calculated ${calculatedSugar} g`);
     }
   }

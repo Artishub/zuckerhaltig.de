@@ -1,37 +1,69 @@
 "use client";
 
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { Brand } from "@/lib/data/brands";
+import type { DrinkCategory } from "@/lib/data/categories";
 
 type BrandSearchGridProps = {
   brands: Brand[];
   counts: Record<string, number>;
-  topDrinks: Record<string, { id: string; name: string; sugar: number }[]>;
+  topDrinks: Record<string, { id: string; name: string; sugar: number | null }[]>;
+  searchData: Record<string, { categories: string[]; text: string }>;
+  categories: DrinkCategory[];
 };
 
-export function BrandSearchGrid({ brands, counts, topDrinks }: BrandSearchGridProps) {
+export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categories }: BrandSearchGridProps) {
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("all");
   const filteredBrands = useMemo(() => {
     const value = query.trim().toLowerCase();
-    if (!value) return brands;
 
-    return brands.filter((brand) => `${brand.name} ${brand.note}`.toLowerCase().includes(value));
-  }, [brands, query]);
+    return brands.filter((brand) => {
+      const data = searchData[brand.id];
+      const matchesQuery = !value || `${brand.name} ${brand.note} ${data?.text ?? ""}`.toLowerCase().includes(value);
+      const matchesCategory = category === "all" || data?.categories.includes(category);
+      return matchesQuery && matchesCategory;
+    });
+  }, [brands, category, query, searchData]);
+
+  const categoryOptions = useMemo(
+    () => categories.filter((item) => brands.some((brand) => searchData[brand.id]?.categories.includes(item.id))),
+    [brands, categories, searchData],
+  );
 
   return (
     <section className="mt-8">
-      <label className="flex h-11 max-w-md items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-marigold">
-        <Search size={16} />
-        <input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Marke suchen"
-          aria-label="Marke suchen"
-          className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-slate"
-        />
-      </label>
+      <div className="grid gap-3 rounded-lg border border-ash bg-mist p-3 md:grid-cols-[1fr_260px_auto]">
+        <label className="flex h-11 min-w-0 items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-marigold">
+          <Search size={16} />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Marke oder Produkt suchen"
+            aria-label="Marke oder Produkt suchen"
+            className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-slate"
+          />
+        </label>
+        <label className="relative flex min-w-0 items-center">
+          <span className="sr-only">Kategorie filtern</span>
+          <select
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+            className="focus-ring h-11 w-full appearance-none rounded-md border border-ash bg-paper px-3 pr-9 text-sm"
+          >
+            <option value="all">Alle Kategorien</option>
+            {categoryOptions.map((item) => (
+              <option key={item.id} value={item.id}>{item.name}</option>
+            ))}
+          </select>
+          <ChevronDown size={16} className="pointer-events-none absolute right-3 text-slate" />
+        </label>
+        <p className="flex h-11 items-center rounded-md border border-ash bg-paper px-3 text-sm text-slate">
+          {filteredBrands.length} Marken
+        </p>
+      </div>
 
       <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
         {filteredBrands.map((brand) => {

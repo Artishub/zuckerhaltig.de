@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BrandSearchGrid } from "@/components/brand-search-grid";
 import { brands } from "@/lib/data/brands";
+import { categories } from "@/lib/data/categories";
 import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
 
 export const metadata: Metadata = {
@@ -22,10 +23,22 @@ export default function BrandsPage() {
     brands.map((brand) => [
       brand.id,
       uniqueByBrand[brand.id]
-        .sort((a, b) => totalSugarGrams(b) - totalSugarGrams(a))
+        .sort((a, b) => (totalSugarGrams(b) ?? -1) - (totalSugarGrams(a) ?? -1))
         .slice(0, 3)
         .map((drink) => ({ id: drink.id, name: drink.name, sugar: totalSugarGrams(drink) })),
     ]),
+  );
+  const brandSearchData = Object.fromEntries(
+    brands.map((brand) => {
+      const brandDrinks = uniqueByBrand[brand.id];
+      return [
+        brand.id,
+        {
+          categories: Array.from(new Set(brandDrinks.map((drink) => drink.categoryId))),
+          text: brandDrinks.map((drink) => drink.name).join(" "),
+        },
+      ];
+    }),
   );
 
   return (
@@ -34,7 +47,7 @@ export default function BrandsPage() {
       <p className="mt-4 max-w-2xl leading-7 text-slate">
         Vergleiche Getränkemarken nach Zuckerwerten, Produktvarianten und Packungsgrößen. Jede Marke führt direkt zur gefilterten Getränkesuche.
       </p>
-      <BrandSearchGrid brands={brands} counts={counts} topDrinks={topDrinks} />
+      <BrandSearchGrid brands={brands} counts={counts} topDrinks={topDrinks} searchData={brandSearchData} categories={categories} />
     </main>
   );
 }
