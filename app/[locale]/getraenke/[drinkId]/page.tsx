@@ -198,6 +198,7 @@ function similarDrinks(drink: Drink) {
 
 function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
   const totalSugar = totalSugarGrams(drink);
+  const cubes = sugarCubes(drink);
 
   return [
     {
