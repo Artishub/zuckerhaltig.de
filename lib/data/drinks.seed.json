@@ -199,6 +199,94 @@
     {
       "id": "schwip-schwap",
       "name": "Schwip Schwap"
+    },
+    {
+      "id": "thomas-henry",
+      "name": "Thomas Henry"
+    },
+    {
+      "id": "vita-cola",
+      "name": "VITA COLA"
+    },
+    {
+      "id": "gerolsteiner",
+      "name": "Gerolsteiner"
+    },
+    {
+      "id": "deit",
+      "name": "DEIT"
+    },
+    {
+      "id": "lemonaid",
+      "name": "Lemonaid"
+    },
+    {
+      "id": "charitea",
+      "name": "ChariTea"
+    },
+    {
+      "id": "biozisch",
+      "name": "BioZisch"
+    },
+    {
+      "id": "proviant",
+      "name": "Proviant"
+    },
+    {
+      "id": "schweppes",
+      "name": "Schweppes"
+    },
+    {
+      "id": "spezi",
+      "name": "Spezi"
+    },
+    {
+      "id": "riegele",
+      "name": "Riegele"
+    },
+    {
+      "id": "krombacher",
+      "name": "Krombacher"
+    },
+    {
+      "id": "karamalz",
+      "name": "Karamalz"
+    },
+    {
+      "id": "vitamalz",
+      "name": "Vitamalz"
+    },
+    {
+      "id": "powerade",
+      "name": "Powerade"
+    },
+    {
+      "id": "active-o2",
+      "name": "Active O2"
+    },
+    {
+      "id": "volvic",
+      "name": "Volvic"
+    },
+    {
+      "id": "rauch",
+      "name": "Rauch"
+    },
+    {
+      "id": "punica",
+      "name": "Punica"
+    },
+    {
+      "id": "adelholzener",
+      "name": "Adelholzener"
+    },
+    {
+      "id": "28-black",
+      "name": "28 Black"
+    },
+    {
+      "id": "booster",
+      "name": "Booster"
     }
   ],
   "categories": [
@@ -284,7 +372,7 @@
       "computed": {
         "sugarPerPackage": 21.2,
         "sugarCubesPerPackage": 7.1,
-        "energyKcalPerPackage": 84.0,
+        "energyKcalPerPackage": 84,
         "formula": "10.6 g × 200 ml / 100 = 21.2 g Zucker"
       },
       "faq": [
@@ -328,7 +416,7 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 35.0,
+        "sugarPerPackage": 35,
         "sugarCubesPerPackage": 11.7,
         "energyKcalPerPackage": 138.6,
         "formula": "10.6 g × 330 ml / 100 = 35.0 g Zucker"
@@ -376,7 +464,7 @@
       "computed": {
         "sugarPerPackage": 42.4,
         "sugarCubesPerPackage": 14.1,
-        "energyKcalPerPackage": 168.0,
+        "energyKcalPerPackage": 168,
         "formula": "10.6 g × 400 ml / 100 = 42.4 g Zucker"
       },
       "faq": [
@@ -420,9 +508,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 53.0,
+        "sugarPerPackage": 53,
         "sugarCubesPerPackage": 17.7,
-        "energyKcalPerPackage": 210.0,
+        "energyKcalPerPackage": 210,
         "formula": "10.6 g × 500 ml / 100 = 53.0 g Zucker"
       },
       "faq": [
@@ -466,9 +554,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 106.0,
+        "sugarPerPackage": 106,
         "sugarCubesPerPackage": 35.3,
-        "energyKcalPerPackage": 420.0,
+        "energyKcalPerPackage": 420,
         "formula": "10.6 g × 1000 ml / 100 = 106.0 g Zucker"
       },
       "faq": [
@@ -514,7 +602,7 @@
       "computed": {
         "sugarPerPackage": 26.5,
         "sugarCubesPerPackage": 8.8,
-        "energyKcalPerPackage": 105.0,
+        "energyKcalPerPackage": 105,
         "formula": "10.6 g × 250 ml / 100 = 26.5 g Zucker"
       },
       "faq": [
@@ -558,7 +646,7 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 35.0,
+        "sugarPerPackage": 35,
         "sugarCubesPerPackage": 11.7,
         "energyKcalPerPackage": 138.6,
         "formula": "10.6 g × 330 ml / 100 = 35.0 g Zucker"
@@ -604,9 +692,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 53.0,
+        "sugarPerPackage": 53,
         "sugarCubesPerPackage": 17.7,
-        "energyKcalPerPackage": 210.0,
+        "energyKcalPerPackage": 210,
         "formula": "10.6 g × 500 ml / 100 = 53.0 g Zucker"
       },
       "faq": [
@@ -650,7 +738,7 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 35.0,
+        "sugarPerPackage": 35,
         "sugarCubesPerPackage": 11.7,
         "energyKcalPerPackage": 138.6,
         "formula": "10.6 g × 330 ml / 100 = 35.0 g Zucker"
@@ -696,9 +784,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 53.0,
+        "sugarPerPackage": 53,
         "sugarCubesPerPackage": 17.7,
-        "energyKcalPerPackage": 210.0,
+        "energyKcalPerPackage": 210,
         "formula": "10.6 g × 500 ml / 100 = 53.0 g Zucker"
       },
       "faq": [
@@ -743,8 +831,8 @@
       },
       "computed": {
         "sugarPerPackage": 90.1,
-        "sugarCubesPerPackage": 30.0,
-        "energyKcalPerPackage": 357.0,
+        "sugarCubesPerPackage": 30,
+        "energyKcalPerPackage": 357,
         "formula": "10.6 g × 850 ml / 100 = 90.1 g Zucker"
       },
       "faq": [
@@ -790,7 +878,7 @@
       "computed": {
         "sugarPerPackage": 132.5,
         "sugarCubesPerPackage": 44.2,
-        "energyKcalPerPackage": 525.0,
+        "energyKcalPerPackage": 525,
         "formula": "10.6 g × 1250 ml / 100 = 132.5 g Zucker"
       },
       "faq": [
@@ -834,9 +922,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 159.0,
-        "sugarCubesPerPackage": 53.0,
-        "energyKcalPerPackage": 630.0,
+        "sugarPerPackage": 159,
+        "sugarCubesPerPackage": 53,
+        "energyKcalPerPackage": 630,
         "formula": "10.6 g × 1500 ml / 100 = 159.0 g Zucker"
       },
       "faq": [
@@ -880,9 +968,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 212.0,
+        "sugarPerPackage": 212,
         "sugarCubesPerPackage": 70.7,
-        "energyKcalPerPackage": 840.0,
+        "energyKcalPerPackage": 840,
         "formula": "10.6 g × 2000 ml / 100 = 212.0 g Zucker"
       },
       "faq": [
@@ -926,7 +1014,7 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 34.0,
+        "sugarPerPackage": 34,
         "sugarCubesPerPackage": 11.3,
         "energyKcalPerPackage": 138.6,
         "formula": "10.3 g × 330 ml / 100 = 34.0 g Zucker"
@@ -972,7 +1060,7 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 34.0,
+        "sugarPerPackage": 34,
         "sugarCubesPerPackage": 11.3,
         "energyKcalPerPackage": 138.6,
         "formula": "10.3 g × 330 ml / 100 = 34.0 g Zucker"
@@ -1018,9 +1106,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 103.0,
+        "sugarPerPackage": 103,
         "sugarCubesPerPackage": 34.3,
-        "energyKcalPerPackage": 420.0,
+        "energyKcalPerPackage": 420,
         "formula": "10.3 g × 1000 ml / 100 = 103.0 g Zucker"
       },
       "faq": [
@@ -1066,7 +1154,7 @@
       "computed": {
         "sugarPerPackage": 51.5,
         "sugarCubesPerPackage": 17.2,
-        "energyKcalPerPackage": 210.0,
+        "energyKcalPerPackage": 210,
         "formula": "10.3 g × 500 ml / 100 = 51.5 g Zucker"
       },
       "faq": [
@@ -1112,7 +1200,7 @@
       "computed": {
         "sugarPerPackage": 128.8,
         "sugarCubesPerPackage": 42.9,
-        "energyKcalPerPackage": 525.0,
+        "energyKcalPerPackage": 525,
         "formula": "10.3 g × 1250 ml / 100 = 128.8 g Zucker"
       },
       "faq": [
@@ -1202,9 +1290,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 111.0,
-        "sugarCubesPerPackage": 37.0,
-        "energyKcalPerPackage": 450.0,
+        "sugarPerPackage": 111,
+        "sugarCubesPerPackage": 37,
+        "energyKcalPerPackage": 450,
         "formula": "11.1 g × 1000 ml / 100 = 111.0 g Zucker"
       },
       "faq": [
@@ -1250,7 +1338,7 @@
       "computed": {
         "sugarPerPackage": 55.5,
         "sugarCubesPerPackage": 18.5,
-        "energyKcalPerPackage": 225.0,
+        "energyKcalPerPackage": 225,
         "formula": "11.1 g × 500 ml / 100 = 55.5 g Zucker"
       },
       "faq": [
@@ -1340,7 +1428,7 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 35.0,
+        "sugarPerPackage": 35,
         "sugarCubesPerPackage": 11.7,
         "energyKcalPerPackage": 141.9,
         "formula": "10.6 g × 330 ml / 100 = 35.0 g Zucker"
@@ -1386,9 +1474,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 106.0,
+        "sugarPerPackage": 106,
         "sugarCubesPerPackage": 35.3,
-        "energyKcalPerPackage": 430.0,
+        "energyKcalPerPackage": 430,
         "formula": "10.6 g × 1000 ml / 100 = 106.0 g Zucker"
       },
       "faq": [
@@ -1432,8 +1520,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.4,
         "formula": "0 g × 200 ml / 100 = 0.0 g Zucker"
       },
@@ -1478,8 +1566,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.7,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -1524,8 +1612,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.8,
         "formula": "0 g × 400 ml / 100 = 0.0 g Zucker"
       },
@@ -1570,9 +1658,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 1.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 1,
         "formula": "0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -1616,9 +1704,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 2.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 2,
         "formula": "0 g × 1000 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -1662,8 +1750,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.5,
         "formula": "0 g × 250 ml / 100 = 0.0 g Zucker"
       },
@@ -1708,8 +1796,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.7,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -1754,9 +1842,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 1.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 1,
         "formula": "0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -1800,8 +1888,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.7,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -1846,9 +1934,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 1.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 1,
         "formula": "0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -1892,8 +1980,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 1.7,
         "formula": "0 g × 850 ml / 100 = 0.0 g Zucker"
       },
@@ -1938,8 +2026,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 2.5,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
@@ -1984,9 +2072,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 3.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 3,
         "formula": "0 g × 1500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -2030,9 +2118,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 4.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 4,
         "formula": "0 g × 2000 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -2076,8 +2164,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.7,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -2122,8 +2210,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 2.5,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
@@ -2168,9 +2256,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 3.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 3,
         "formula": "0 g × 1500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -2214,9 +2302,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 2.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 2,
         "formula": "0 g × 1000 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -2260,8 +2348,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 3.8,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
@@ -2306,8 +2394,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 4.5,
         "formula": "0 g × 1500 ml / 100 = 0.0 g Zucker"
       },
@@ -2352,8 +2440,8 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 3.8,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
@@ -2398,8 +2486,8 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 4.5,
         "formula": "0 g × 1500 ml / 100 = 0.0 g Zucker"
       },
@@ -2444,8 +2532,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 0.7,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -2490,9 +2578,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 1.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 1,
         "formula": "0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -2536,9 +2624,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 2.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 2,
         "formula": "0 g × 1000 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -2582,8 +2670,8 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 2.5,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
@@ -2628,9 +2716,9 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 3.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 3,
         "formula": "0 g × 1500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -2722,7 +2810,7 @@
       "computed": {
         "sugarPerPackage": 39.5,
         "sugarCubesPerPackage": 13.2,
-        "energyKcalPerPackage": 160.0,
+        "energyKcalPerPackage": 160,
         "formula": "7.9 g × 500 ml / 100 = 39.5 g Zucker"
       },
       "faq": [
@@ -2814,7 +2902,7 @@
       "computed": {
         "sugarPerPackage": 39.5,
         "sugarCubesPerPackage": 13.2,
-        "energyKcalPerPackage": 160.0,
+        "energyKcalPerPackage": 160,
         "formula": "7.9 g × 500 ml / 100 = 39.5 g Zucker"
       },
       "faq": [
@@ -2860,7 +2948,7 @@
       "computed": {
         "sugarPerPackage": 67.2,
         "sugarCubesPerPackage": 22.4,
-        "energyKcalPerPackage": 272.0,
+        "energyKcalPerPackage": 272,
         "formula": "7.9 g × 850 ml / 100 = 67.2 g Zucker"
       },
       "faq": [
@@ -2906,7 +2994,7 @@
       "computed": {
         "sugarPerPackage": 98.8,
         "sugarCubesPerPackage": 32.9,
-        "energyKcalPerPackage": 400.0,
+        "energyKcalPerPackage": 400,
         "formula": "7.9 g × 1250 ml / 100 = 98.8 g Zucker"
       },
       "faq": [
@@ -2952,7 +3040,7 @@
       "computed": {
         "sugarPerPackage": 118.5,
         "sugarCubesPerPackage": 39.5,
-        "energyKcalPerPackage": 480.0,
+        "energyKcalPerPackage": 480,
         "formula": "7.9 g × 1500 ml / 100 = 118.5 g Zucker"
       },
       "faq": [
@@ -2996,9 +3084,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 158.0,
+        "sugarPerPackage": 158,
         "sugarCubesPerPackage": 52.7,
-        "energyKcalPerPackage": 640.0,
+        "energyKcalPerPackage": 640,
         "formula": "7.9 g × 2000 ml / 100 = 158.0 g Zucker"
       },
       "faq": [
@@ -3044,7 +3132,7 @@
       "computed": {
         "sugarPerPackage": 15.8,
         "sugarCubesPerPackage": 5.3,
-        "energyKcalPerPackage": 64.0,
+        "energyKcalPerPackage": 64,
         "formula": "7.9 g × 200 ml / 100 = 15.8 g Zucker"
       },
       "faq": [
@@ -3136,7 +3224,7 @@
       "computed": {
         "sugarPerPackage": 31.6,
         "sugarCubesPerPackage": 10.5,
-        "energyKcalPerPackage": 128.0,
+        "energyKcalPerPackage": 128,
         "formula": "7.9 g × 400 ml / 100 = 31.6 g Zucker"
       },
       "faq": [
@@ -3182,7 +3270,7 @@
       "computed": {
         "sugarPerPackage": 39.5,
         "sugarCubesPerPackage": 13.2,
-        "energyKcalPerPackage": 160.0,
+        "energyKcalPerPackage": 160,
         "formula": "7.9 g × 500 ml / 100 = 39.5 g Zucker"
       },
       "faq": [
@@ -3226,9 +3314,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 79.0,
+        "sugarPerPackage": 79,
         "sugarCubesPerPackage": 26.3,
-        "energyKcalPerPackage": 320.0,
+        "energyKcalPerPackage": 320,
         "formula": "7.9 g × 1000 ml / 100 = 79.0 g Zucker"
       },
       "faq": [
@@ -3272,9 +3360,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 79.0,
+        "sugarPerPackage": 79,
         "sugarCubesPerPackage": 26.3,
-        "energyKcalPerPackage": 320.0,
+        "energyKcalPerPackage": 320,
         "formula": "7.9 g × 1000 ml / 100 = 79.0 g Zucker"
       },
       "faq": [
@@ -3364,9 +3452,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 3.0,
-        "sugarCubesPerPackage": 1.0,
-        "energyKcalPerPackage": 15.0,
+        "sugarPerPackage": 3,
+        "sugarCubesPerPackage": 1,
+        "energyKcalPerPackage": 15,
         "formula": "0.2 g × 1500 ml / 100 = 3.0 g Zucker"
       },
       "faq": [
@@ -3410,9 +3498,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 2.0,
+        "sugarPerPackage": 2,
         "sugarCubesPerPackage": 0.7,
-        "energyKcalPerPackage": 10.0,
+        "energyKcalPerPackage": 10,
         "formula": "0.2 g × 1000 ml / 100 = 2.0 g Zucker"
       },
       "faq": [
@@ -3504,7 +3592,7 @@
       "computed": {
         "sugarPerPackage": 39.5,
         "sugarCubesPerPackage": 13.2,
-        "energyKcalPerPackage": 165.0,
+        "energyKcalPerPackage": 165,
         "formula": "7.9 g × 500 ml / 100 = 39.5 g Zucker"
       },
       "faq": [
@@ -3594,8 +3682,8 @@
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 3.3,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -3640,8 +3728,8 @@
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 12.5,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
@@ -3686,8 +3774,8 @@
         "salt": 0.04
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 3.3,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -3732,8 +3820,8 @@
         "salt": 0.04
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 12.5,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
@@ -3824,9 +3912,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 38.0,
+        "sugarPerPackage": 38,
         "sugarCubesPerPackage": 12.7,
-        "energyKcalPerPackage": 160.0,
+        "energyKcalPerPackage": 160,
         "formula": "7.6 g × 500 ml / 100 = 38.0 g Zucker"
       },
       "faq": [
@@ -3870,9 +3958,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 95.0,
+        "sugarPerPackage": 95,
         "sugarCubesPerPackage": 31.7,
-        "energyKcalPerPackage": 400.0,
+        "energyKcalPerPackage": 400,
         "formula": "7.6 g × 1250 ml / 100 = 95.0 g Zucker"
       },
       "faq": [
@@ -3916,9 +4004,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 114.0,
-        "sugarCubesPerPackage": 38.0,
-        "energyKcalPerPackage": 480.0,
+        "sugarPerPackage": 114,
+        "sugarCubesPerPackage": 38,
+        "energyKcalPerPackage": 480,
         "formula": "7.6 g × 1500 ml / 100 = 114.0 g Zucker"
       },
       "faq": [
@@ -3962,7 +4050,7 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 1.0,
+        "sugarPerPackage": 1,
         "sugarCubesPerPackage": 0.3,
         "energyKcalPerPackage": 9.9,
         "formula": "0.3 g × 330 ml / 100 = 1.0 g Zucker"
@@ -4010,7 +4098,7 @@
       "computed": {
         "sugarPerPackage": 1.5,
         "sugarCubesPerPackage": 0.5,
-        "energyKcalPerPackage": 15.0,
+        "energyKcalPerPackage": 15,
         "formula": "0.3 g × 500 ml / 100 = 1.5 g Zucker"
       },
       "faq": [
@@ -4100,7 +4188,7 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 1.0,
+        "sugarPerPackage": 1,
         "sugarCubesPerPackage": 0.3,
         "energyKcalPerPackage": 9.9,
         "formula": "0.3 g × 330 ml / 100 = 1.0 g Zucker"
@@ -4148,7 +4236,7 @@
       "computed": {
         "sugarPerPackage": 1.5,
         "sugarCubesPerPackage": 0.5,
-        "energyKcalPerPackage": 15.0,
+        "energyKcalPerPackage": 15,
         "formula": "0.3 g × 500 ml / 100 = 1.5 g Zucker"
       },
       "faq": [
@@ -4238,8 +4326,8 @@
         "salt": 0.06
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
         "energyKcalPerPackage": 6.6,
         "formula": "0 g × 330 ml / 100 = 0.0 g Zucker"
       },
@@ -4284,9 +4372,9 @@
         "salt": 0.06
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 10.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 10,
         "formula": "0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -4330,9 +4418,9 @@
         "salt": 0.06
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 25.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 25,
         "formula": "0 g × 1250 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -4424,7 +4512,7 @@
       "computed": {
         "sugarPerPackage": 2.5,
         "sugarCubesPerPackage": 0.8,
-        "energyKcalPerPackage": 15.0,
+        "energyKcalPerPackage": 15,
         "formula": "0.5 g × 500 ml / 100 = 2.5 g Zucker"
       },
       "faq": [
@@ -4516,7 +4604,7 @@
       "computed": {
         "sugarPerPackage": 27.6,
         "sugarCubesPerPackage": 9.2,
-        "energyKcalPerPackage": 116.0,
+        "energyKcalPerPackage": 116,
         "formula": "6.9 g × 400 ml / 100 = 27.6 g Zucker"
       },
       "faq": [
@@ -4608,7 +4696,7 @@
       "computed": {
         "sugarPerPackage": 21.6,
         "sugarCubesPerPackage": 7.2,
-        "energyKcalPerPackage": 90.0,
+        "energyKcalPerPackage": 90,
         "formula": "7.2 g × 300 ml / 100 = 21.6 g Zucker"
       },
       "faq": [
@@ -4654,7 +4742,7 @@
       "computed": {
         "sugarPerPackage": 23.8,
         "sugarCubesPerPackage": 7.9,
-        "energyKcalPerPackage": 99.0,
+        "energyKcalPerPackage": 99,
         "formula": "7.2 g × 330 ml / 100 = 23.8 g Zucker"
       },
       "faq": [
@@ -4698,9 +4786,9 @@
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 72.0,
-        "sugarCubesPerPackage": 24.0,
-        "energyKcalPerPackage": 300.0,
+        "sugarPerPackage": 72,
+        "sugarCubesPerPackage": 24,
+        "energyKcalPerPackage": 300,
         "formula": "7.2 g × 1000 ml / 100 = 72.0 g Zucker"
       },
       "faq": [
@@ -4744,9 +4832,9 @@
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 90.0,
-        "sugarCubesPerPackage": 30.0,
-        "energyKcalPerPackage": 375.0,
+        "sugarPerPackage": 90,
+        "sugarCubesPerPackage": 30,
+        "energyKcalPerPackage": 375,
         "formula": "7.2 g × 1250 ml / 100 = 90.0 g Zucker"
       },
       "faq": [
@@ -4792,7 +4880,7 @@
       "computed": {
         "sugarPerPackage": 28.4,
         "sugarCubesPerPackage": 9.5,
-        "energyKcalPerPackage": 120.0,
+        "energyKcalPerPackage": 120,
         "formula": "7.1 g × 400 ml / 100 = 28.4 g Zucker"
       },
       "faq": [
@@ -4838,7 +4926,7 @@
       "computed": {
         "sugarPerPackage": 17.2,
         "sugarCubesPerPackage": 5.7,
-        "energyKcalPerPackage": 76.0,
+        "energyKcalPerPackage": 76,
         "formula": "4.3 g × 400 ml / 100 = 17.2 g Zucker"
       },
       "faq": [
@@ -4930,7 +5018,7 @@
       "computed": {
         "sugarPerPackage": 17.2,
         "sugarCubesPerPackage": 5.7,
-        "energyKcalPerPackage": 76.0,
+        "energyKcalPerPackage": 76,
         "formula": "4.3 g × 400 ml / 100 = 17.2 g Zucker"
       },
       "faq": [
@@ -4976,7 +5064,7 @@
       "computed": {
         "sugarPerPackage": 17.6,
         "sugarCubesPerPackage": 5.9,
-        "energyKcalPerPackage": 76.0,
+        "energyKcalPerPackage": 76,
         "formula": "4.4 g × 400 ml / 100 = 17.6 g Zucker"
       },
       "faq": [
@@ -5020,9 +5108,9 @@
         "salt": 0.05
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 8.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 8,
         "formula": "0 g × 400 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -5068,7 +5156,7 @@
       "computed": {
         "sugarPerPackage": 0.8,
         "sugarCubesPerPackage": 0.3,
-        "energyKcalPerPackage": 8.0,
+        "energyKcalPerPackage": 8,
         "formula": "0.2 g × 400 ml / 100 = 0.8 g Zucker"
       },
       "faq": [
@@ -5105,7 +5193,7 @@
       "nutritionPer100Ml": {
         "energyKj": 157,
         "energyKcal": 37,
-        "carbohydrates": 9.0,
+        "carbohydrates": 9,
         "sugar": 8.9,
         "fat": 0,
         "protein": 0,
@@ -5151,7 +5239,7 @@
       "nutritionPer100Ml": {
         "energyKj": 157,
         "energyKcal": 37,
-        "carbohydrates": 9.0,
+        "carbohydrates": 9,
         "sugar": 8.9,
         "fat": 0,
         "protein": 0,
@@ -5160,7 +5248,7 @@
       "computed": {
         "sugarPerPackage": 44.5,
         "sugarCubesPerPackage": 14.8,
-        "energyKcalPerPackage": 185.0,
+        "energyKcalPerPackage": 185,
         "formula": "8.9 g × 500 ml / 100 = 44.5 g Zucker"
       },
       "faq": [
@@ -5197,16 +5285,16 @@
       "nutritionPer100Ml": {
         "energyKj": 157,
         "energyKcal": 37,
-        "carbohydrates": 9.0,
+        "carbohydrates": 9,
         "sugar": 8.9,
         "fat": 0,
         "protein": 0,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 89.0,
+        "sugarPerPackage": 89,
         "sugarCubesPerPackage": 29.7,
-        "energyKcalPerPackage": 370.0,
+        "energyKcalPerPackage": 370,
         "formula": "8.9 g × 1000 ml / 100 = 89.0 g Zucker"
       },
       "faq": [
@@ -5252,7 +5340,7 @@
       "computed": {
         "sugarPerPackage": 29.1,
         "sugarCubesPerPackage": 9.7,
-        "energyKcalPerPackage": 123.0,
+        "energyKcalPerPackage": 123,
         "formula": "9.7 g × 300 ml / 100 = 29.1 g Zucker"
       },
       "faq": [
@@ -5298,7 +5386,7 @@
       "computed": {
         "sugarPerPackage": 48.5,
         "sugarCubesPerPackage": 16.2,
-        "energyKcalPerPackage": 205.0,
+        "energyKcalPerPackage": 205,
         "formula": "9.7 g × 500 ml / 100 = 48.5 g Zucker"
       },
       "faq": [
@@ -5342,9 +5430,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 97.0,
+        "sugarPerPackage": 97,
         "sugarCubesPerPackage": 32.3,
-        "energyKcalPerPackage": 410.0,
+        "energyKcalPerPackage": 410,
         "formula": "9.7 g × 1000 ml / 100 = 97.0 g Zucker"
       },
       "faq": [
@@ -5390,7 +5478,7 @@
       "computed": {
         "sugarPerPackage": 37.5,
         "sugarCubesPerPackage": 12.5,
-        "energyKcalPerPackage": 160.0,
+        "energyKcalPerPackage": 160,
         "formula": "7.5 g × 500 ml / 100 = 37.5 g Zucker"
       },
       "faq": [
@@ -5434,9 +5522,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 75.0,
-        "sugarCubesPerPackage": 25.0,
-        "energyKcalPerPackage": 320.0,
+        "sugarPerPackage": 75,
+        "sugarCubesPerPackage": 25,
+        "energyKcalPerPackage": 320,
         "formula": "7.5 g × 1000 ml / 100 = 75.0 g Zucker"
       },
       "faq": [
@@ -5480,9 +5568,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 75.0,
-        "sugarCubesPerPackage": 25.0,
-        "energyKcalPerPackage": 320.0,
+        "sugarPerPackage": 75,
+        "sugarCubesPerPackage": 25,
+        "energyKcalPerPackage": 320,
         "formula": "7.5 g × 1000 ml / 100 = 75.0 g Zucker"
       },
       "faq": [
@@ -5528,7 +5616,7 @@
       "computed": {
         "sugarPerPackage": 18.8,
         "sugarCubesPerPackage": 6.3,
-        "energyKcalPerPackage": 80.0,
+        "energyKcalPerPackage": 80,
         "formula": "7.5 g × 250 ml / 100 = 18.8 g Zucker"
       },
       "faq": [
@@ -5657,16 +5745,16 @@
       "nutritionPer100Ml": {
         "energyKj": 105,
         "energyKcal": 25,
-        "carbohydrates": 6.0,
+        "carbohydrates": 6,
         "sugar": 5.8,
         "fat": 0,
         "protein": 0,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 29.0,
+        "sugarPerPackage": 29,
         "sugarCubesPerPackage": 9.7,
-        "energyKcalPerPackage": 125.0,
+        "energyKcalPerPackage": 125,
         "formula": "5.8 g × 500 ml / 100 = 29.0 g Zucker"
       },
       "faq": [
@@ -5703,16 +5791,16 @@
       "nutritionPer100Ml": {
         "energyKj": 105,
         "energyKcal": 25,
-        "carbohydrates": 6.0,
+        "carbohydrates": 6,
         "sugar": 5.8,
         "fat": 0,
         "protein": 0,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 58.0,
+        "sugarPerPackage": 58,
         "sugarCubesPerPackage": 19.3,
-        "energyKcalPerPackage": 250.0,
+        "energyKcalPerPackage": 250,
         "formula": "5.8 g × 1000 ml / 100 = 58.0 g Zucker"
       },
       "faq": [
@@ -5749,7 +5837,7 @@
       "nutritionPer100Ml": {
         "energyKj": 105,
         "energyKcal": 25,
-        "carbohydrates": 6.0,
+        "carbohydrates": 6,
         "sugar": 5.8,
         "fat": 0,
         "protein": 0,
@@ -5804,7 +5892,7 @@
       "computed": {
         "sugarPerPackage": 9.5,
         "sugarCubesPerPackage": 3.2,
-        "energyKcalPerPackage": 45.0,
+        "energyKcalPerPackage": 45,
         "formula": "1.9 g × 500 ml / 100 = 9.5 g Zucker"
       },
       "faq": [
@@ -5850,7 +5938,7 @@
       "computed": {
         "sugarPerPackage": 27.5,
         "sugarCubesPerPackage": 9.2,
-        "energyKcalPerPackage": 115.0,
+        "energyKcalPerPackage": 115,
         "formula": "11 g × 250 ml / 100 = 27.5 g Zucker"
       },
       "faq": [
@@ -5895,7 +5983,7 @@
       },
       "computed": {
         "sugarPerPackage": 39.1,
-        "sugarCubesPerPackage": 13.0,
+        "sugarCubesPerPackage": 13,
         "energyKcalPerPackage": 163.3,
         "formula": "11 g × 355 ml / 100 = 39.1 g Zucker"
       },
@@ -5940,7 +6028,7 @@
         "salt": 0.1
       },
       "computed": {
-        "sugarPerPackage": 52.0,
+        "sugarPerPackage": 52,
         "sugarCubesPerPackage": 17.3,
         "energyKcalPerPackage": 217.6,
         "formula": "11 g × 473 ml / 100 = 52.0 g Zucker"
@@ -6430,7 +6518,7 @@
       "brandId": "fritz-kola",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 7.0,
+      "sugarPer100Ml": 7,
       "source": "fritz-kola Lebensmittelkennzeichnung",
       "note": "fritz-limo apfel-kirsch-holunder in 330 ml. Nährwerte pro 100 ml; Gesamtzucker rechnerisch aus Packungsgröße berechnet.",
       "sourceUrl": "https://fritz-kola-shop.com/pages/informationen-zur-lebensmittelkennzeichnung",
@@ -6440,7 +6528,7 @@
         "energyKj": 127,
         "energyKcal": 30,
         "carbohydrates": 7.2,
-        "sugar": 7.0,
+        "sugar": 7,
         "fat": 0,
         "protein": 0,
         "salt": 0
@@ -6448,7 +6536,7 @@
       "computed": {
         "sugarPerPackage": 23.1,
         "sugarCubesPerPackage": 7.7,
-        "energyKcalPerPackage": 99.0,
+        "energyKcalPerPackage": 99,
         "formula": "7.0 g × 330 ml / 100 = 23.1 g Zucker"
       },
       "faq": [
@@ -6568,7 +6656,7 @@
       "brandId": "bionade",
       "categoryId": "bio-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Bionade Produktseite",
       "note": "Quelle deklariert Fett/Eiweiß/Salz als Kleiner-als-Werte; gespeichert als Obergrenzen.",
       "sourceUrl": "https://www.bionade.de/sorte/holunder/",
@@ -6577,8 +6665,8 @@
       "nutritionPer100Ml": {
         "energyKj": 95,
         "energyKcal": 22,
-        "carbohydrates": 5.0,
-        "sugar": 5.0,
+        "carbohydrates": 5,
+        "sugar": 5,
         "fat": 0.5,
         "protein": 0.5,
         "salt": 0.01
@@ -6631,7 +6719,7 @@
       },
       "computed": {
         "sugarPerPackage": 14.9,
-        "sugarCubesPerPackage": 5.0,
+        "sugarCubesPerPackage": 5,
         "energyKcalPerPackage": 85.8,
         "formula": "4.5 g × 330 ml / 100 = 14.9 g Zucker"
       },
@@ -6660,7 +6748,7 @@
       "brandId": "club-mate",
       "categoryId": "mate",
       "sizeMl": 500,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Club-Mate Produktdatenblatt",
       "note": "Club-Mate in 500 ml. Nährwerte pro 100 ml; Gesamtzucker rechnerisch aus Packungsgröße berechnet.",
       "sourceUrl": "https://cdn.cinemaxx.de/-/media/files/snack-kompass/softdrinks/club-mate-05.pdf",
@@ -6669,16 +6757,16 @@
       "nutritionPer100Ml": {
         "energyKj": 84,
         "energyKcal": 20,
-        "carbohydrates": 5.0,
-        "sugar": 5.0,
+        "carbohydrates": 5,
+        "sugar": 5,
         "fat": 0,
         "protein": 0,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 25.0,
+        "sugarPerPackage": 25,
         "sugarCubesPerPackage": 8.3,
-        "energyKcalPerPackage": 100.0,
+        "energyKcalPerPackage": 100,
         "formula": "5.0 g × 500 ml / 100 = 25.0 g Zucker"
       },
       "faq": [
@@ -6768,9 +6856,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 23.0,
+        "sugarPerPackage": 23,
         "sugarCubesPerPackage": 7.7,
-        "energyKcalPerPackage": 90.0,
+        "energyKcalPerPackage": 90,
         "formula": "4.6 g × 500 ml / 100 = 23.0 g Zucker"
       },
       "faq": [
@@ -6814,9 +6902,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 69.0,
-        "sugarCubesPerPackage": 23.0,
-        "energyKcalPerPackage": 270.0,
+        "sugarPerPackage": 69,
+        "sugarCubesPerPackage": 23,
+        "energyKcalPerPackage": 270,
         "formula": "4.6 g × 1500 ml / 100 = 69.0 g Zucker"
       },
       "faq": [
@@ -6862,7 +6950,7 @@
       "computed": {
         "sugarPerPackage": 48.5,
         "sugarCubesPerPackage": 16.2,
-        "energyKcalPerPackage": 195.0,
+        "energyKcalPerPackage": 195,
         "formula": "9.7 g × 500 ml / 100 = 48.5 g Zucker"
       },
       "faq": [
@@ -6906,9 +6994,9 @@
         "salt": 0.19
       },
       "computed": {
-        "sugarPerPackage": 55.0,
+        "sugarPerPackage": 55,
         "sugarCubesPerPackage": 18.3,
-        "energyKcalPerPackage": 235.0,
+        "energyKcalPerPackage": 235,
         "formula": "11 g × 500 ml / 100 = 55.0 g Zucker"
       },
       "faq": [
@@ -6954,7 +7042,7 @@
       "computed": {
         "sugarPerPackage": 27.5,
         "sugarCubesPerPackage": 9.2,
-        "energyKcalPerPackage": 115.0,
+        "energyKcalPerPackage": 115,
         "formula": "11 g × 250 ml / 100 = 27.5 g Zucker"
       },
       "faq": [
@@ -7028,7 +7116,7 @@
       "brandId": "capri-sun",
       "categoryId": "juice-drink",
       "sizeMl": 200,
-      "sugarPer100Ml": 8.0,
+      "sugarPer100Ml": 8,
       "source": "Capri-Sun Produktseite",
       "note": "Quelle deklariert Fett/Eiweiß/Salz als Kleiner-als-Werte; gespeichert als Obergrenzen.",
       "sourceUrl": "https://www.capri-sun.com/de-de/produkte/das-original/",
@@ -7037,16 +7125,16 @@
       "nutritionPer100Ml": {
         "energyKj": 142,
         "energyKcal": 33,
-        "carbohydrates": 8.0,
-        "sugar": 8.0,
+        "carbohydrates": 8,
+        "sugar": 8,
         "fat": 0.5,
         "protein": 0.5,
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 16.0,
+        "sugarPerPackage": 16,
         "sugarCubesPerPackage": 5.3,
-        "energyKcalPerPackage": 66.0,
+        "energyKcalPerPackage": 66,
         "formula": "8.0 g × 200 ml / 100 = 16.0 g Zucker"
       },
       "faq": [
@@ -7092,7 +7180,7 @@
       "computed": {
         "sugarPerPackage": 16.4,
         "sugarCubesPerPackage": 5.5,
-        "energyKcalPerPackage": 68.0,
+        "energyKcalPerPackage": 68,
         "formula": "8.2 g × 200 ml / 100 = 16.4 g Zucker"
       },
       "faq": [
@@ -7138,7 +7226,7 @@
       "computed": {
         "sugarPerPackage": 15.6,
         "sugarCubesPerPackage": 5.2,
-        "energyKcalPerPackage": 64.0,
+        "energyKcalPerPackage": 64,
         "formula": "7.8 g × 200 ml / 100 = 15.6 g Zucker"
       },
       "faq": [
@@ -7182,9 +7270,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 88.0,
+        "sugarPerPackage": 88,
         "sugarCubesPerPackage": 29.3,
-        "energyKcalPerPackage": 430.0,
+        "energyKcalPerPackage": 430,
         "formula": "8.8 g × 1000 ml / 100 = 88.0 g Zucker"
       },
       "faq": [
@@ -7212,7 +7300,7 @@
       "brandId": "granini",
       "categoryId": "juice",
       "sizeMl": 1000,
-      "sugarPer100Ml": 9.0,
+      "sugarPer100Ml": 9,
       "source": "granini / FDDB Produktangabe",
       "note": "Produktrezeptur hat sich laut Verbraucherberichten geändert; vor Livegang Etikett prüfen.",
       "sourceUrl": "https://fddb.mobi/de/eckes-granini_granini_trinkgenuss_orange__fruchtgehalt_100prozent_orange.html",
@@ -7221,16 +7309,16 @@
       "nutritionPer100Ml": {
         "energyKj": 185,
         "energyKcal": 43,
-        "carbohydrates": 9.0,
-        "sugar": 9.0,
+        "carbohydrates": 9,
+        "sugar": 9,
         "fat": 0.5,
-        "protein": 1.0,
+        "protein": 1,
         "salt": 0.003
       },
       "computed": {
-        "sugarPerPackage": 90.0,
-        "sugarCubesPerPackage": 30.0,
-        "energyKcalPerPackage": 430.0,
+        "sugarPerPackage": 90,
+        "sugarCubesPerPackage": 30,
+        "energyKcalPerPackage": 430,
         "formula": "9.0 g × 1000 ml / 100 = 90.0 g Zucker"
       },
       "faq": [
@@ -7258,7 +7346,7 @@
       "brandId": "valensina",
       "categoryId": "juice",
       "sizeMl": 1000,
-      "sugarPer100Ml": 9.0,
+      "sugarPer100Ml": 9,
       "source": "FDDB Produktangabe",
       "note": "Nicht Herstellerquelle; vor Livegang per Etikett prüfen.",
       "sourceUrl": "https://fddb.mobi/de/valensina_fruehstuecks-orange_orange.html",
@@ -7267,16 +7355,16 @@
       "nutritionPer100Ml": {
         "energyKj": 180,
         "energyKcal": 43,
-        "carbohydrates": 9.0,
-        "sugar": 9.0,
+        "carbohydrates": 9,
+        "sugar": 9,
         "fat": 0.2,
         "protein": 0.7,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 90.0,
-        "sugarCubesPerPackage": 30.0,
-        "energyKcalPerPackage": 430.0,
+        "sugarPerPackage": 90,
+        "sugarCubesPerPackage": 30,
+        "energyKcalPerPackage": 430,
         "formula": "9.0 g × 1000 ml / 100 = 90.0 g Zucker"
       },
       "faq": [
@@ -7313,16 +7401,16 @@
       "nutritionPer100Ml": {
         "energyKj": 211,
         "energyKcal": 49,
-        "carbohydrates": 12.0,
+        "carbohydrates": 12,
         "sugar": 11.2,
         "fat": 0,
         "protein": 0,
-        "salt": 0.0
+        "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 56.0,
+        "sugarPerPackage": 56,
         "sugarCubesPerPackage": 18.7,
-        "energyKcalPerPackage": 245.0,
+        "energyKcalPerPackage": 245,
         "formula": "11.2 g × 500 ml / 100 = 56.0 g Zucker"
       },
       "faq": [
@@ -7350,7 +7438,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Dosenmatrosen Produktseite",
       "note": "Punch-Energydrink mit Zucker.",
       "sourceUrl": "https://www.dosenmatrosen.de/monster-pacific-punch-12er-pack",
@@ -7359,16 +7447,16 @@
       "nutritionPer100Ml": {
         "energyKj": 195,
         "energyKcal": 46,
-        "carbohydrates": 12.0,
-        "sugar": 11.0,
+        "carbohydrates": 12,
+        "sugar": 11,
         "fat": 0,
         "protein": 0,
-        "salt": 0.0
+        "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 55.0,
+        "sugarPerPackage": 55,
         "sugarCubesPerPackage": 18.3,
-        "energyKcalPerPackage": 230.0,
+        "energyKcalPerPackage": 230,
         "formula": "11.0 g × 500 ml / 100 = 55.0 g Zucker"
       },
       "faq": [
@@ -7396,7 +7484,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Monster Deutschland / Knuspr Produktseite",
       "note": "Zuckerfreie Monster-Ultra-Sorte.",
       "sourceUrl": "https://www.monsterenergy.com/de-de/energy-drinks/zero-zucker/ultra/",
@@ -7406,15 +7494,15 @@
         "energyKj": 10,
         "energyKcal": 2,
         "carbohydrates": 0.9,
-        "sugar": 0.0,
+        "sugar": 0,
         "fat": 0,
         "protein": 0,
         "salt": 0.2
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 10.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 10,
         "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -7442,7 +7530,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Dosenmatrosen Produktseite",
       "note": "Zuckerfreie Variante des klassischen Monster-Profils.",
       "sourceUrl": "https://www.dosenmatrosen.de/monster-energy-green-zero-sugar-12er-pack",
@@ -7451,16 +7539,16 @@
       "nutritionPer100Ml": {
         "energyKj": 15,
         "energyKcal": 3,
-        "carbohydrates": 1.0,
-        "sugar": 0.0,
+        "carbohydrates": 1,
+        "sugar": 0,
         "fat": 0,
         "protein": 0,
         "salt": 0.2
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 15.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 15,
         "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -7504,9 +7592,9 @@
         "salt": 0.2
       },
       "computed": {
-        "sugarPerPackage": 21.0,
-        "sugarCubesPerPackage": 7.0,
-        "energyKcalPerPackage": 260.0,
+        "sugarPerPackage": 21,
+        "sugarCubesPerPackage": 7,
+        "energyKcalPerPackage": 260,
         "formula": "4.2 g × 500 ml / 100 = 21.0 g Zucker"
       },
       "faq": [
@@ -7552,7 +7640,7 @@
       "computed": {
         "sugarPerPackage": 28.5,
         "sugarCubesPerPackage": 9.5,
-        "energyKcalPerPackage": 120.0,
+        "energyKcalPerPackage": 120,
         "formula": "5.7 g × 500 ml / 100 = 28.5 g Zucker"
       },
       "faq": [
@@ -7580,7 +7668,7 @@
       "brandId": "mio-mio",
       "categoryId": "mate",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Mio Mio Shop / Mio Mio Produktseite",
       "note": "Zuckerfreie Mate-Variante.",
       "sourceUrl": "https://www.shop.miomio.com/miomio/mio-mio-mate-zero",
@@ -7589,16 +7677,16 @@
       "nutritionPer100Ml": {
         "energyKj": 7,
         "energyKcal": 2,
-        "carbohydrates": 0.0,
-        "sugar": 0.0,
+        "carbohydrates": 0,
+        "sugar": 0,
         "fat": 0,
         "protein": 0,
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 10.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 10,
         "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -7690,7 +7778,7 @@
       "computed": {
         "sugarPerPackage": 39.5,
         "sugarCubesPerPackage": 13.2,
-        "energyKcalPerPackage": 165.0,
+        "energyKcalPerPackage": 165,
         "formula": "7.9 g × 500 ml / 100 = 39.5 g Zucker"
       },
       "faq": [
@@ -7718,7 +7806,7 @@
       "brandId": "almdudler",
       "categoryId": "softdrink",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "FDDB Produktseite",
       "note": "Zuckerfreie Kräuterlimonade; vor Livegang Etikett prüfen.",
       "sourceUrl": "https://fddb.mobi/de/almdudler_almdudler_zuckerfrei_kraeuter_limonade.html",
@@ -7727,16 +7815,16 @@
       "nutritionPer100Ml": {
         "energyKj": 6,
         "energyKcal": 1,
-        "carbohydrates": 0.0,
-        "sugar": 0.0,
+        "carbohydrates": 0,
+        "sugar": 0,
         "fat": 0,
         "protein": 0,
         "salt": 0.1
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 5.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 5,
         "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -7764,7 +7852,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 500,
-      "sugarPer100Ml": 3.0,
+      "sugarPer100Ml": 3,
       "source": "Lipton Deutschland Produktseite",
       "note": "Mainstream-Eistee mit reduzierter Süße.",
       "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-pfirsich-geschmack",
@@ -7774,15 +7862,15 @@
         "energyKj": 56,
         "energyKcal": 13,
         "carbohydrates": 3.1,
-        "sugar": 3.0,
+        "sugar": 3,
         "fat": 0,
         "protein": 0,
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 15.0,
-        "sugarCubesPerPackage": 5.0,
-        "energyKcalPerPackage": 65.0,
+        "sugarPerPackage": 15,
+        "sugarCubesPerPackage": 5,
+        "energyKcalPerPackage": 65,
         "formula": "3.0 g × 500 ml / 100 = 15.0 g Zucker"
       },
       "faq": [
@@ -7810,7 +7898,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 1500,
-      "sugarPer100Ml": 3.0,
+      "sugarPer100Ml": 3,
       "source": "Lipton Deutschland Produktseite",
       "note": "1,5-l-Flasche, gleiche Rezeptur pro 100 ml.",
       "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-pfirsich-geschmack",
@@ -7820,15 +7908,15 @@
         "energyKj": 56,
         "energyKcal": 13,
         "carbohydrates": 3.1,
-        "sugar": 3.0,
+        "sugar": 3,
         "fat": 0,
         "protein": 0,
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 45.0,
-        "sugarCubesPerPackage": 15.0,
-        "energyKcalPerPackage": 195.0,
+        "sugarPerPackage": 45,
+        "sugarCubesPerPackage": 15,
+        "energyKcalPerPackage": 195,
         "formula": "3.0 g × 1500 ml / 100 = 45.0 g Zucker"
       },
       "faq": [
@@ -7856,7 +7944,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 500,
-      "sugarPer100Ml": 3.0,
+      "sugarPer100Ml": 3,
       "source": "Lipton Deutschland Produktseite",
       "note": "Mainstream-Zitroneneistee.",
       "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-zitrone-geschmack",
@@ -7866,15 +7954,15 @@
         "energyKj": 55,
         "energyKcal": 13,
         "carbohydrates": 3.1,
-        "sugar": 3.0,
+        "sugar": 3,
         "fat": 0,
         "protein": 0,
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 15.0,
-        "sugarCubesPerPackage": 5.0,
-        "energyKcalPerPackage": 65.0,
+        "sugarPerPackage": 15,
+        "sugarCubesPerPackage": 5,
+        "energyKcalPerPackage": 65,
         "formula": "3.0 g × 500 ml / 100 = 15.0 g Zucker"
       },
       "faq": [
@@ -7902,7 +7990,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 1500,
-      "sugarPer100Ml": 3.0,
+      "sugarPer100Ml": 3,
       "source": "Lipton Deutschland Produktseite",
       "note": "1,5-l-Flasche, gleiche Rezeptur pro 100 ml.",
       "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-zitrone-geschmack",
@@ -7912,15 +8000,15 @@
         "energyKj": 55,
         "energyKcal": 13,
         "carbohydrates": 3.1,
-        "sugar": 3.0,
+        "sugar": 3,
         "fat": 0,
         "protein": 0,
         "salt": 0.03
       },
       "computed": {
-        "sugarPerPackage": 45.0,
-        "sugarCubesPerPackage": 15.0,
-        "energyKcalPerPackage": 195.0,
+        "sugarPerPackage": 45,
+        "sugarCubesPerPackage": 15,
+        "energyKcalPerPackage": 195,
         "formula": "3.0 g × 1500 ml / 100 = 45.0 g Zucker"
       },
       "faq": [
@@ -7964,9 +8052,9 @@
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 124.0,
+        "sugarPerPackage": 124,
         "sugarCubesPerPackage": 41.3,
-        "energyKcalPerPackage": 500.0,
+        "energyKcalPerPackage": 500,
         "formula": "6.2 g × 2000 ml / 100 = 124.0 g Zucker"
       },
       "faq": [
@@ -7994,7 +8082,7 @@
       "brandId": "arizona",
       "categoryId": "iced-tea",
       "sizeMl": 500,
-      "sugarPer100Ml": 8.0,
+      "sugarPer100Ml": 8,
       "source": "Lebensmittel-Versand / Crunchy Snacks Produktseite",
       "note": "Sehr süßer Eistee; Import-/EU-Rezepturen können abweichen.",
       "sourceUrl": "https://lebensmittel-versand.eu/Arizona-Ice-Tea-Peach-15l-DPG",
@@ -8004,15 +8092,15 @@
         "energyKj": 116,
         "energyKcal": 28,
         "carbohydrates": 8.3,
-        "sugar": 8.0,
+        "sugar": 8,
         "fat": 0,
         "protein": 0.01,
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 40.0,
+        "sugarPerPackage": 40,
         "sugarCubesPerPackage": 13.3,
-        "energyKcalPerPackage": 140.0,
+        "energyKcalPerPackage": 140,
         "formula": "8.0 g × 500 ml / 100 = 40.0 g Zucker"
       },
       "faq": [
@@ -8040,7 +8128,7 @@
       "brandId": "arizona",
       "categoryId": "iced-tea",
       "sizeMl": 1500,
-      "sugarPer100Ml": 8.0,
+      "sugarPer100Ml": 8,
       "source": "Lebensmittel-Versand Produktseite",
       "note": "Großflasche; Packungsgröße macht Gesamtzucker sichtbar.",
       "sourceUrl": "https://lebensmittel-versand.eu/Arizona-Ice-Tea-Peach-15l-DPG",
@@ -8050,15 +8138,15 @@
         "energyKj": 116,
         "energyKcal": 28,
         "carbohydrates": 8.3,
-        "sugar": 8.0,
+        "sugar": 8,
         "fat": 0,
         "protein": 0.01,
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 120.0,
-        "sugarCubesPerPackage": 40.0,
-        "energyKcalPerPackage": 420.0,
+        "sugarPerPackage": 120,
+        "sugarCubesPerPackage": 40,
+        "energyKcalPerPackage": 420,
         "formula": "8.0 g × 1500 ml / 100 = 120.0 g Zucker"
       },
       "faq": [
@@ -8102,9 +8190,9 @@
         "salt": 0.08
       },
       "computed": {
-        "sugarPerPackage": 44.0,
+        "sugarPerPackage": 44,
         "sugarCubesPerPackage": 14.7,
-        "energyKcalPerPackage": 180.0,
+        "energyKcalPerPackage": 180,
         "formula": "8.8 g × 500 ml / 100 = 44.0 g Zucker"
       },
       "faq": [
@@ -8196,7 +8284,7 @@
       "computed": {
         "sugarPerPackage": 44.5,
         "sugarCubesPerPackage": 14.8,
-        "energyKcalPerPackage": 195.0,
+        "energyKcalPerPackage": 195,
         "formula": "8.9 g × 500 ml / 100 = 44.5 g Zucker"
       },
       "faq": [
@@ -8242,7 +8330,7 @@
       "computed": {
         "sugarPerPackage": 133.5,
         "sugarCubesPerPackage": 44.5,
-        "energyKcalPerPackage": 585.0,
+        "energyKcalPerPackage": 585,
         "formula": "8.9 g × 1500 ml / 100 = 133.5 g Zucker"
       },
       "faq": [
@@ -8279,7 +8367,7 @@
       "nutritionPer100Ml": {
         "energyKj": 292,
         "energyKcal": 69,
-        "carbohydrates": 10.0,
+        "carbohydrates": 10,
         "sugar": 9.8,
         "fat": 1.6,
         "protein": 3.4,
@@ -8325,16 +8413,16 @@
       "nutritionPer100Ml": {
         "energyKj": 294,
         "energyKcal": 70,
-        "carbohydrates": 10.0,
+        "carbohydrates": 10,
         "sugar": 9.8,
         "fat": 1.6,
         "protein": 3.3,
         "salt": 0.12
       },
       "computed": {
-        "sugarPerPackage": 98.0,
+        "sugarPerPackage": 98,
         "sugarCubesPerPackage": 32.7,
-        "energyKcalPerPackage": 700.0,
+        "energyKcalPerPackage": 700,
         "formula": "9.8 g × 1000 ml / 100 = 98.0 g Zucker"
       },
       "faq": [
@@ -8380,7 +8468,7 @@
       "computed": {
         "sugarPerPackage": 40.8,
         "sugarCubesPerPackage": 13.6,
-        "energyKcalPerPackage": 284.0,
+        "energyKcalPerPackage": 284,
         "formula": "10.2 g × 400 ml / 100 = 40.8 g Zucker"
       },
       "faq": [
@@ -8426,7 +8514,7 @@
       "computed": {
         "sugarPerPackage": 18.4,
         "sugarCubesPerPackage": 6.1,
-        "energyKcalPerPackage": 200.0,
+        "energyKcalPerPackage": 200,
         "formula": "4.6 g × 400 ml / 100 = 18.4 g Zucker"
       },
       "faq": [
@@ -8470,9 +8558,9 @@
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 156.0,
-        "sugarCubesPerPackage": 52.0,
-        "energyKcalPerPackage": 630.0,
+        "sugarPerPackage": 156,
+        "sugarCubesPerPackage": 52,
+        "energyKcalPerPackage": 630,
         "formula": "10.4 g × 1500 ml / 100 = 156.0 g Zucker"
       },
       "faq": [
@@ -8500,7 +8588,7 @@
       "brandId": "ja",
       "categoryId": "cola",
       "sizeMl": 1500,
-      "sugarPer100Ml": 9.0,
+      "sugarPer100Ml": 9,
       "source": "Stiftung Warentest Cola-Test 2016",
       "note": "REWE-Eigenmarke; ältere Testdaten, aktuelles Etikett prüfen.",
       "sourceUrl": "https://www.test.de/Cola-Nur-4-von-30-Getraenken-sind-gut-5018232-5020408/detail/2016312000%2127/",
@@ -8509,16 +8597,16 @@
       "nutritionPer100Ml": {
         "energyKj": 153,
         "energyKcal": 36,
-        "carbohydrates": 9.0,
-        "sugar": 9.0,
+        "carbohydrates": 9,
+        "sugar": 9,
         "fat": 0,
         "protein": 0,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 135.0,
-        "sugarCubesPerPackage": 45.0,
-        "energyKcalPerPackage": 540.0,
+        "sugarPerPackage": 135,
+        "sugarCubesPerPackage": 45,
+        "energyKcalPerPackage": 540,
         "formula": "9.0 g × 1500 ml / 100 = 135.0 g Zucker"
       },
       "faq": [
@@ -8564,7 +8652,7 @@
       "computed": {
         "sugarPerPackage": 157.5,
         "sugarCubesPerPackage": 52.5,
-        "energyKcalPerPackage": 630.0,
+        "energyKcalPerPackage": 630,
         "formula": "10.5 g × 1500 ml / 100 = 157.5 g Zucker"
       },
       "faq": [
@@ -8592,7 +8680,7 @@
       "brandId": "ja",
       "categoryId": "cola",
       "sizeMl": 1500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "REWE Produktseite",
       "note": "REWE-Eigenmarke ohne Zucker.",
       "sourceUrl": "https://www.rewe.de/shop/p/ja-cola-ohne-zucker-6x1-5l/905749",
@@ -8602,15 +8690,15 @@
         "energyKj": 0,
         "energyKcal": 0,
         "carbohydrates": 0,
-        "sugar": 0.0,
+        "sugar": 0,
         "fat": 0,
         "protein": 0,
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 0.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 0,
         "formula": "0.0 g × 1500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -8638,7 +8726,7 @@
       "brandId": "freeway",
       "categoryId": "cola",
       "sizeMl": 1500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Supermarktcheck / Lidl Eigenmarke",
       "note": "Lidl-Eigenmarke ohne Zucker; Etikett prüfen.",
       "sourceUrl": "https://www.supermarktcheck.de/product/84169-freeway-cola-zero-sugar",
@@ -8648,15 +8736,15 @@
         "energyKj": 4,
         "energyKcal": 1,
         "carbohydrates": 0,
-        "sugar": 0.0,
+        "sugar": 0,
         "fat": 0,
         "protein": 0,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 0.0,
-        "sugarCubesPerPackage": 0.0,
-        "energyKcalPerPackage": 15.0,
+        "sugarPerPackage": 0,
+        "sugarCubesPerPackage": 0,
+        "energyKcalPerPackage": 15,
         "formula": "0.0 g × 1500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -8700,9 +8788,9 @@
         "salt": 0.04
       },
       "computed": {
-        "sugarPerPackage": 46.0,
+        "sugarPerPackage": 46,
         "sugarCubesPerPackage": 15.3,
-        "energyKcalPerPackage": 185.0,
+        "energyKcalPerPackage": 185,
         "formula": "9.2 g × 500 ml / 100 = 46.0 g Zucker"
       },
       "faq": [
@@ -8794,7 +8882,7 @@
       "computed": {
         "sugarPerPackage": 2.5,
         "sugarCubesPerPackage": 0.8,
-        "energyKcalPerPackage": 5.0,
+        "energyKcalPerPackage": 5,
         "formula": "0.5 g × 500 ml / 100 = 2.5 g Zucker"
       },
       "faq": [
@@ -8840,7 +8928,7 @@
       "computed": {
         "sugarPerPackage": 45.5,
         "sugarCubesPerPackage": 15.2,
-        "energyKcalPerPackage": 185.0,
+        "energyKcalPerPackage": 185,
         "formula": "9.1 g × 500 ml / 100 = 45.5 g Zucker"
       },
       "faq": [
@@ -8886,7 +8974,7 @@
       "computed": {
         "sugarPerPackage": 41.5,
         "sugarCubesPerPackage": 13.8,
-        "energyKcalPerPackage": 170.0,
+        "energyKcalPerPackage": 170,
         "formula": "8.3 g × 500 ml / 100 = 41.5 g Zucker"
       },
       "faq": [
@@ -8960,7 +9048,7 @@
       "brandId": "goenrgy",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Sweets.ch Produktseite",
       "note": "Sehr hoher Zuckerwert; prominente Energy-Marke.",
       "sourceUrl": "https://www.sweets.ch/produkt/getraenke/goenrgy-paradise-punch-dose-500ml/",
@@ -8969,16 +9057,16 @@
       "nutritionPer100Ml": {
         "energyKj": 237,
         "energyKcal": 56,
-        "carbohydrates": 13.0,
-        "sugar": 13.0,
+        "carbohydrates": 13,
+        "sugar": 13,
         "fat": 0,
         "protein": 0.5,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 65.0,
+        "sugarPerPackage": 65,
         "sugarCubesPerPackage": 21.7,
-        "energyKcalPerPackage": 280.0,
+        "energyKcalPerPackage": 280,
         "formula": "13.0 g × 500 ml / 100 = 65.0 g Zucker"
       },
       "faq": [
@@ -9006,7 +9094,7 @@
       "brandId": "afri",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 9.0,
+      "sugarPer100Ml": 9,
       "source": "afri Produktseite",
       "note": "Klassische afri Cola; Hersteller nennt Rezepturumstellung.",
       "sourceUrl": "https://afri.de/produkte/afri-cola/",
@@ -9015,8 +9103,8 @@
       "nutritionPer100Ml": {
         "energyKj": 181,
         "energyKcal": 43,
-        "carbohydrates": 9.0,
-        "sugar": 9.0,
+        "carbohydrates": 9,
+        "sugar": 9,
         "fat": 0,
         "protein": 0,
         "salt": 0
@@ -9052,7 +9140,7 @@
       "brandId": "afri",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "afri Produktseite",
       "note": "Energy-Cola mit 12 g Zucker pro 100 ml.",
       "sourceUrl": "https://afri.de/produkte/afri-cola-energy/",
@@ -9061,16 +9149,16 @@
       "nutritionPer100Ml": {
         "energyKj": 215,
         "energyKcal": 51,
-        "carbohydrates": 13.0,
-        "sugar": 12.0,
+        "carbohydrates": 13,
+        "sugar": 12,
         "fat": 0,
         "protein": 0,
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 60.0,
-        "sugarCubesPerPackage": 20.0,
-        "energyKcalPerPackage": 255.0,
+        "sugarPerPackage": 60,
+        "sugarCubesPerPackage": 20,
+        "energyKcalPerPackage": 255,
         "formula": "12.0 g × 500 ml / 100 = 60.0 g Zucker"
       },
       "faq": [
@@ -9116,7 +9204,7 @@
       "computed": {
         "sugarPerPackage": 49.5,
         "sugarCubesPerPackage": 16.5,
-        "energyKcalPerPackage": 200.0,
+        "energyKcalPerPackage": 200,
         "formula": "9.9 g × 500 ml / 100 = 49.5 g Zucker"
       },
       "faq": [
@@ -9160,7 +9248,7 @@
         "salt": 0.02
       },
       "computed": {
-        "sugarPerPackage": 35.0,
+        "sugarPerPackage": 35,
         "sugarCubesPerPackage": 11.7,
         "energyKcalPerPackage": 138.6,
         "formula": "10.6 g × 330 ml / 100 = 35.0 g Zucker"
@@ -9253,7 +9341,7 @@
       },
       "computed": {
         "sugarPerPackage": 27.1,
-        "sugarCubesPerPackage": 9.0,
+        "sugarCubesPerPackage": 9,
         "energyKcalPerPackage": 112.2,
         "formula": "8.2 g × 330 ml / 100 = 27.1 g Zucker"
       },
@@ -9299,7 +9387,7 @@
       },
       "computed": {
         "sugarPerPackage": 24.1,
-        "sugarCubesPerPackage": 8.0,
+        "sugarCubesPerPackage": 8,
         "energyKcalPerPackage": 105.6,
         "formula": "7.3 g × 330 ml / 100 = 24.1 g Zucker"
       },
@@ -9328,7 +9416,7 @@
       "brandId": "club-mate",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Brauerei Loscher Produktseite",
       "note": "Cola mit Mate-Komponente.",
       "sourceUrl": "https://brauerei-loscher.de/produkt/club-mate-cola-033l/",
@@ -9337,16 +9425,16 @@
       "nutritionPer100Ml": {
         "energyKj": 167,
         "energyKcal": 40,
-        "carbohydrates": 10.0,
-        "sugar": 10.0,
+        "carbohydrates": 10,
+        "sugar": 10,
         "fat": 0,
         "protein": 0,
         "salt": 0
       },
       "computed": {
-        "sugarPerPackage": 33.0,
-        "sugarCubesPerPackage": 11.0,
-        "energyKcalPerPackage": 132.0,
+        "sugarPerPackage": 33,
+        "sugarCubesPerPackage": 11,
+        "energyKcalPerPackage": 132,
         "formula": "10.0 g × 330 ml / 100 = 33.0 g Zucker"
       },
       "faq": [
@@ -9392,7 +9480,7 @@
       "computed": {
         "sugarPerPackage": 25.5,
         "sugarCubesPerPackage": 8.5,
-        "energyKcalPerPackage": 105.0,
+        "energyKcalPerPackage": 105,
         "formula": "5.1 g × 500 ml / 100 = 25.5 g Zucker"
       },
       "faq": [
@@ -9479,7 +9567,7 @@
       "brandId": "sinalco",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Sinalco nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 178 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9557,7 +9645,7 @@
       "brandId": "bionade",
       "categoryId": "bio-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Bionade nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9765,7 +9853,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Five Star Trading page",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 14 kJ / 3 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9778,7 +9866,7 @@
       "brandId": "club-mate",
       "categoryId": "mate",
       "sizeMl": 500,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Club-Mate nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 212 kJ / 30 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9804,7 +9892,7 @@
       "brandId": "club-mate",
       "categoryId": "mate",
       "sizeMl": 500,
-      "sugarPer100Ml": 7.0,
+      "sugarPer100Ml": 7,
       "source": "Club-Mate nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 117 kJ / 28 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9830,7 +9918,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 500,
-      "sugarPer100Ml": 3.0,
+      "sugarPer100Ml": 3,
       "source": "Lipton nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 56 kJ / 13 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9869,7 +9957,7 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Pepsi DE site",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 0.7 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9908,7 +9996,7 @@
       "brandId": "effect",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Dosenmatrosen retailer",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 194 kJ / 46 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9921,7 +10009,7 @@
       "brandId": "goenrgy",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Handelshof retailer",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 227 kJ / 53 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9934,7 +10022,7 @@
       "brandId": "almdudler",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Almdudler official",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 5.9 kJ / 1.4 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9960,7 +10048,7 @@
       "brandId": "orangina",
       "categoryId": "orange-limo",
       "sizeMl": 250,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Orangina nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 183 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9973,7 +10061,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Five Star Trading page",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. Vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -9999,7 +10087,7 @@
       "brandId": "aw",
       "categoryId": "softdrink",
       "sizeMl": 355,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Five Star Trading nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 47.9 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10025,7 +10113,7 @@
       "brandId": "dr-pepper",
       "categoryId": "softdrink",
       "sizeMl": 355,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Five Star Trading nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42.2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10038,7 +10126,7 @@
       "brandId": "7up",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Five Star Trading nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 173 kJ / 41 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10051,7 +10139,7 @@
       "brandId": "aw",
       "categoryId": "softdrink",
       "sizeMl": 355,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10064,7 +10152,7 @@
       "brandId": "aw",
       "categoryId": "softdrink",
       "sizeMl": 355,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10116,7 +10204,7 @@
       "brandId": "welchs",
       "categoryId": "softdrink",
       "sizeMl": 355,
-      "sugarPer100Ml": 14.0,
+      "sugarPer100Ml": 14,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 234 kJ / 56 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10129,7 +10217,7 @@
       "brandId": "dr-pepper",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10142,7 +10230,7 @@
       "brandId": "dr-pepper",
       "categoryId": "softdrink",
       "sizeMl": 355,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10155,7 +10243,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10168,7 +10256,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10181,7 +10269,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10194,7 +10282,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10207,7 +10295,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10220,7 +10308,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10233,7 +10321,7 @@
       "brandId": "sprite",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10246,7 +10334,7 @@
       "brandId": "sprite",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10259,7 +10347,7 @@
       "brandId": "sprite",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10272,7 +10360,7 @@
       "brandId": "7up",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 173 kJ / 41 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10285,7 +10373,7 @@
       "brandId": "7up",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 173 kJ / 41 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10298,7 +10386,7 @@
       "brandId": "7up",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 173 kJ / 41 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10311,7 +10399,7 @@
       "brandId": "sunkist",
       "categoryId": "orange-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10324,7 +10412,7 @@
       "brandId": "sunkist",
       "categoryId": "orange-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10337,7 +10425,7 @@
       "brandId": "mountain-dew",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10350,7 +10438,7 @@
       "brandId": "mountain-dew",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10363,7 +10451,7 @@
       "brandId": "mountain-dew",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10376,7 +10464,7 @@
       "brandId": "mountain-dew",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10389,7 +10477,7 @@
       "brandId": "mountain-dew",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10428,7 +10516,7 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10441,7 +10529,7 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10454,7 +10542,7 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10467,7 +10555,7 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10480,7 +10568,7 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10493,7 +10581,7 @@
       "brandId": "mirinda",
       "categoryId": "orange-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Mirinda nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10506,7 +10594,7 @@
       "brandId": "mirinda",
       "categoryId": "orange-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Mirinda nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10519,7 +10607,7 @@
       "brandId": "mirinda",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Mirinda nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10532,7 +10620,7 @@
       "brandId": "sarsi",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 9.0,
+      "sugarPer100Ml": 9,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 150 kJ / 36 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10545,7 +10633,7 @@
       "brandId": "poms",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10558,7 +10646,7 @@
       "brandId": "kinnie",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 9.0,
+      "sugarPer100Ml": 9,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 150 kJ / 36 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10571,7 +10659,7 @@
       "brandId": "tahiti",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10584,7 +10672,7 @@
       "brandId": "dr-pepper",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10597,7 +10685,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Fanta nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10610,7 +10698,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Fanta nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10623,7 +10711,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Fanta nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10636,7 +10724,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Fanta nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10649,7 +10737,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Fanta nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10662,7 +10750,7 @@
       "brandId": "fanta",
       "categoryId": "softdrink",
       "sizeMl": 330,
-      "sugarPer100Ml": 12.0,
+      "sugarPer100Ml": 12,
       "source": "Fanta nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10675,7 +10763,7 @@
       "brandId": "mezzo-mix",
       "categoryId": "cola-mix",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Coca-Cola nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10688,7 +10776,7 @@
       "brandId": "schwip-schwap",
       "categoryId": "cola-mix",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Pepsi nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10714,7 +10802,7 @@
       "brandId": "club-mate",
       "categoryId": "mate",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Club Mate info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10727,7 +10815,7 @@
       "brandId": "club-mate",
       "categoryId": "mate",
       "sizeMl": 500,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Club Mate info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10740,7 +10828,7 @@
       "brandId": "bionade",
       "categoryId": "bio-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Bionade nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 89 kJ / 21 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10753,7 +10841,7 @@
       "brandId": "bionade",
       "categoryId": "bio-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 7.0,
+      "sugarPer100Ml": 7,
       "source": "Bionade nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 130 kJ / 31 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10805,7 +10893,7 @@
       "brandId": "bionade",
       "categoryId": "bio-limo",
       "sizeMl": 330,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Bionade nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10883,7 +10971,7 @@
       "brandId": "pfanner",
       "categoryId": "iced-tea",
       "sizeMl": 500,
-      "sugarPer100Ml": 6.0,
+      "sugarPer100Ml": 6,
       "source": "Generic nutritional info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 105 kJ / 25 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10896,7 +10984,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 330,
-      "sugarPer100Ml": 4.0,
+      "sugarPer100Ml": 4,
       "source": "Lipton nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 67 kJ / 16 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10909,7 +10997,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 330,
-      "sugarPer100Ml": 4.0,
+      "sugarPer100Ml": 4,
       "source": "Lipton nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 67 kJ / 16 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10922,7 +11010,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Lipton nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10935,7 +11023,7 @@
       "brandId": "lipton",
       "categoryId": "iced-tea",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Lipton nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10948,7 +11036,7 @@
       "brandId": "effect",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Effect nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10961,7 +11049,7 @@
       "brandId": "effect",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Effect nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10974,7 +11062,7 @@
       "brandId": "effect",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Effect nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -10987,7 +11075,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Monster nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11000,7 +11088,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Monster nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11013,7 +11101,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Monster nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11026,7 +11114,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Monster nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11039,7 +11127,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Monster nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11052,7 +11140,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Monster nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11065,7 +11153,7 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 9.0,
+      "sugarPer100Ml": 9,
       "source": "Monster nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 150 kJ / 36 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11078,7 +11166,7 @@
       "brandId": "rockstar",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Rockstar nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11091,7 +11179,7 @@
       "brandId": "rockstar",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Rockstar nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11104,7 +11192,7 @@
       "brandId": "rockstar",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Rockstar nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11117,7 +11205,7 @@
       "brandId": "rockstar",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Rockstar nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11130,7 +11218,7 @@
       "brandId": "goenrgy",
       "categoryId": "energy",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Gönrgy nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11143,7 +11231,7 @@
       "brandId": "goenrgy",
       "categoryId": "energy",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Gönrgy nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11156,7 +11244,7 @@
       "brandId": "goenrgy",
       "categoryId": "energy",
       "sizeMl": 330,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Gönrgy nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11169,7 +11257,7 @@
       "brandId": "red-bull",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11182,7 +11270,7 @@
       "brandId": "red-bull",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11195,7 +11283,7 @@
       "brandId": "red-bull",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11208,7 +11296,7 @@
       "brandId": "red-bull",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11221,7 +11309,7 @@
       "brandId": "red-bull",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11234,7 +11322,7 @@
       "brandId": "red-bull",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11247,7 +11335,7 @@
       "brandId": "red-bull",
       "categoryId": "energy",
       "sizeMl": 250,
-      "sugarPer100Ml": 11.0,
+      "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11325,7 +11413,7 @@
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 1000,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Knuspr product page",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 196 kJ / 46 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11390,7 +11478,7 @@
       "brandId": "pfanner",
       "categoryId": "orange-limo",
       "sizeMl": 1000,
-      "sugarPer100Ml": 13.0,
+      "sugarPer100Ml": 13,
       "source": "Pfanner nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 242 kJ / 58 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11403,7 +11491,7 @@
       "brandId": "club-mate",
       "categoryId": "mate",
       "sizeMl": 500,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Club-Mate nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 83 kJ / 20 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11429,7 +11517,7 @@
       "brandId": "almdudler",
       "categoryId": "softdrink",
       "sizeMl": 350,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Almdudler nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 5.9 kJ / 1.4 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11455,7 +11543,7 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 0.0,
+      "sugarPer100Ml": 0,
       "source": "Pepsi nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 3 kJ / 0.7 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11507,7 +11595,7 @@
       "brandId": "bionade",
       "categoryId": "bio-limo",
       "sizeMl": 500,
-      "sugarPer100Ml": 5.0,
+      "sugarPer100Ml": 5,
       "source": "Bionade nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
@@ -11637,12 +11725,1784 @@
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 1500,
-      "sugarPer100Ml": 10.0,
+      "sugarPer100Ml": 10,
       "source": "Knuspr product page",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 196 kJ / 46 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29",
       "sourceUrl": "https://www.knuspr.de/p/hohes-c-milder-multivitamin-einweg"
+    },
+    {
+      "id": "thomas-henry-tonic-water-200",
+      "name": "Thomas Henry Tonic Water",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 9.3,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/tonic-water/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 164,
+        "energyKcal": 39,
+        "carbohydrates": 9.3,
+        "sugar": 9.3,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "thomas-henry-bitter-lemon-200",
+      "name": "Thomas Henry Bitter Lemon",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 9,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/bitter-lemon-2/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 160,
+        "energyKcal": 38,
+        "carbohydrates": 9,
+        "sugar": 9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "thomas-henry-spicy-ginger-beer-200",
+      "name": "Thomas Henry Spicy Ginger Beer",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 14,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/spicy-ginger-beer/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 247,
+        "energyKcal": 58,
+        "carbohydrates": 14,
+        "sugar": 14,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "thomas-henry-wild-berry-1000",
+      "name": "Thomas Henry Wild Berry",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 8.5,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/wild-berry/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 151,
+        "energyKcal": 35,
+        "carbohydrates": 8.5,
+        "sugar": 8.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "thomas-henry-ginger-ale-200",
+      "name": "Thomas Henry Ginger Ale",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 7.9,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/ginger-ale/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 141,
+        "energyKcal": 33,
+        "carbohydrates": 7.9,
+        "sugar": 7.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "thomas-henry-citrus-lemonade-200",
+      "name": "Thomas Henry Citrus Lemonade",
+      "brandId": "thomas-henry",
+      "categoryId": "lemon-lime",
+      "sizeMl": 200,
+      "sugarPer100Ml": 7.8,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/citrus-lemonade/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 142,
+        "energyKcal": 33,
+        "carbohydrates": 7.8,
+        "sugar": 7.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "thomas-henry-mojito-ginger-lime-750",
+      "name": "Thomas Henry Mojito Ginger Lime",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 750,
+      "sugarPer100Ml": 9.3,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/mojito-ginger-lime/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 164,
+        "energyKcal": 38,
+        "carbohydrates": 9.3,
+        "sugar": 9.3,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "thomas-henry-soda-water-200",
+      "name": "Thomas Henry Soda Water",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 0,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/soda-water/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 0,
+        "energyKcal": 0,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.005
+      }
+    },
+    {
+      "id": "thomas-henry-pink-grapefruit-zero-750",
+      "name": "Thomas Henry Pink Grapefruit Zero",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 750,
+      "sugarPer100Ml": 0,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/pink-grapefruit-zero/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 18,
+        "energyKcal": 4,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.11
+      }
+    },
+    {
+      "id": "thomas-henry-spicy-ginger-beer-zero-750",
+      "name": "Thomas Henry Spicy Ginger Beer Zero",
+      "brandId": "thomas-henry",
+      "categoryId": "softdrink",
+      "sizeMl": 750,
+      "sugarPer100Ml": 0,
+      "source": "Thomas Henry Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.thomas-henry.de/produkte/spicy-ginger-beer-zero/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 9,
+        "energyKcal": 2,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.02
+      }
+    },
+    {
+      "id": "vita-cola-original-1000",
+      "name": "VITA COLA Original",
+      "brandId": "vita-cola",
+      "categoryId": "cola",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 8.8,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-cola-original",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 153,
+        "energyKcal": 36,
+        "carbohydrates": 8.9,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-cola-original-zuckerfrei-1000",
+      "name": "VITA COLA Original zuckerfrei",
+      "brandId": "vita-cola",
+      "categoryId": "cola",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-cola-original-zuckerfrei",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 10,
+        "energyKcal": 2,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-cola-pur-1000",
+      "name": "VITA COLA Pur",
+      "brandId": "vita-cola",
+      "categoryId": "cola",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 11,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-cola-pur",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 196,
+        "energyKcal": 46,
+        "carbohydrates": 12,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-cola-pur-zuckerfrei-1000",
+      "name": "VITA COLA Pur zuckerfrei",
+      "brandId": "vita-cola",
+      "categoryId": "cola",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-cola-pur-zuckerfrei",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 2,
+        "energyKcal": 0,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-cola-mix-1000",
+      "name": "VITA COLA Mix",
+      "brandId": "vita-cola",
+      "categoryId": "cola-mix",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 10,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-cola-mix",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 177,
+        "energyKcal": 42,
+        "carbohydrates": 10,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-limo-orange-1000",
+      "name": "VITA LIMO Orange",
+      "brandId": "vita-cola",
+      "categoryId": "orange-limo",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 9.9,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-limo-orange",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 175,
+        "energyKcal": 41,
+        "carbohydrates": 9.9,
+        "sugar": 9.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-limo-zitrone-1000",
+      "name": "VITA LIMO Zitrone",
+      "brandId": "vita-cola",
+      "categoryId": "lemon-lime",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 9.7,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-limo-zitrone",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 171,
+        "energyKcal": 40,
+        "carbohydrates": 9.7,
+        "sugar": 9.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.07
+      }
+    },
+    {
+      "id": "vita-limo-brazil-1000",
+      "name": "VITA LIMO Brazil",
+      "brandId": "vita-cola",
+      "categoryId": "softdrink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 11,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-limo-brazil",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 187,
+        "energyKcal": 44,
+        "carbohydrates": 11,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-limo-exotic-1000",
+      "name": "VITA LIMO Exotic",
+      "brandId": "vita-cola",
+      "categoryId": "softdrink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 9.3,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-limo-exotic",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 162,
+        "energyKcal": 38,
+        "carbohydrates": 9.3,
+        "sugar": 9.3,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "vita-limo-caribic-1000",
+      "name": "VITA LIMO Caribic",
+      "brandId": "vita-cola",
+      "categoryId": "softdrink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 8.8,
+      "source": "VITA COLA Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.vita-cola.de/sortiment/vita-limo-caribic",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 153,
+        "energyKcal": 36,
+        "carbohydrates": 8.8,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-apfelschorle-750",
+      "name": "Gerolsteiner Apfelschorle",
+      "brandId": "gerolsteiner",
+      "categoryId": "schorle",
+      "sizeMl": 750,
+      "sugarPer100Ml": 5.2,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/schorlen",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 100,
+        "energyKcal": 24,
+        "carbohydrates": 5.5,
+        "sugar": 5.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-leichte-schorle-apfel-750",
+      "name": "Gerolsteiner Leichte Schorle Apfel",
+      "brandId": "gerolsteiner",
+      "categoryId": "schorle",
+      "sizeMl": 750,
+      "sugarPer100Ml": 3.1,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/schorlen",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 61,
+        "energyKcal": 14,
+        "carbohydrates": 3.2,
+        "sugar": 3.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-leichte-schorle-apfel-kirsche-750",
+      "name": "Gerolsteiner Leichte Schorle Apfel-Kirsche",
+      "brandId": "gerolsteiner",
+      "categoryId": "schorle",
+      "sizeMl": 750,
+      "sugarPer100Ml": 3.1,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/schorlen",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 61,
+        "energyKcal": 14,
+        "carbohydrates": 3.2,
+        "sugar": 3.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-leichte-schorle-apfel-johannisbeere-750",
+      "name": "Gerolsteiner Leichte Schorle Apfel-Johannisbeere",
+      "brandId": "gerolsteiner",
+      "categoryId": "schorle",
+      "sizeMl": 750,
+      "sugarPer100Ml": 2.9,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/schorlen",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 58,
+        "energyKcal": 14,
+        "carbohydrates": 3,
+        "sugar": 2.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-limonade-orange-750",
+      "name": "Gerolsteiner Limonade Orange",
+      "brandId": "gerolsteiner",
+      "categoryId": "orange-limo",
+      "sizeMl": 750,
+      "sugarPer100Ml": 7.2,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/limonaden",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 128,
+        "energyKcal": 30,
+        "carbohydrates": 7.2,
+        "sugar": 7.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-limonade-zitrone-750",
+      "name": "Gerolsteiner Limonade Zitrone",
+      "brandId": "gerolsteiner",
+      "categoryId": "lemon-lime",
+      "sizeMl": 750,
+      "sugarPer100Ml": 7.2,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/limonaden",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 128,
+        "energyKcal": 30,
+        "carbohydrates": 7.2,
+        "sugar": 7.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-leichte-limo-orange-passionsfrucht-750",
+      "name": "Gerolsteiner Leichte Limo Orange-Passionsfrucht",
+      "brandId": "gerolsteiner",
+      "categoryId": "orange-limo",
+      "sizeMl": 750,
+      "sugarPer100Ml": 4.7,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/limonaden",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 80,
+        "energyKcal": 20,
+        "carbohydrates": 4.7,
+        "sugar": 4.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-leichte-limo-citrus-minze-750",
+      "name": "Gerolsteiner Leichte Limo Citrus-Minze",
+      "brandId": "gerolsteiner",
+      "categoryId": "lemon-lime",
+      "sizeMl": 750,
+      "sugarPer100Ml": 4.7,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/limonaden",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 80,
+        "energyKcal": 20,
+        "carbohydrates": 4.7,
+        "sugar": 4.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-cola-mix-330",
+      "name": "Gerolsteiner Cola Mix",
+      "brandId": "gerolsteiner",
+      "categoryId": "cola-mix",
+      "sizeMl": 330,
+      "sugarPer100Ml": 8.2,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/vielfalt-in-der-kleinen-flasche/cola",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 142,
+        "energyKcal": 33,
+        "carbohydrates": 8.2,
+        "sugar": 8.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "gerolsteiner-plus-zitrone-750",
+      "name": "Gerolsteiner Plus Zitrone",
+      "brandId": "gerolsteiner",
+      "categoryId": "softdrink",
+      "sizeMl": 750,
+      "sugarPer100Ml": 0.7,
+      "source": "Gerolsteiner Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.gerolsteiner.de/produkte/wasser-mit-geschmack",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 21,
+        "energyKcal": 5,
+        "carbohydrates": 0.7,
+        "sugar": 0.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "deit-citro-1000",
+      "name": "DEIT Citro",
+      "brandId": "deit",
+      "categoryId": "lemon-lime",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0,
+      "source": "DEIT Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://www.deit.de/deit-sortiment/deit-citro/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 6,
+        "energyKcal": 1,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.08
+      }
+    },
+    {
+      "id": "deit-cola-mix-1000",
+      "name": "DEIT Cola-Mix",
+      "brandId": "deit",
+      "categoryId": "cola-mix",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0.3,
+      "source": "Getränkewelt Lieferdienst Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; DEIT beschreibt Sorte als zuckerfrei im lebensmittelrechtlichen Sinn.",
+      "sourceUrl": "https://getraenkewelt-lieferdienst.de/sortiment/produkt/deit-cola-mix/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 11,
+        "energyKcal": 3,
+        "carbohydrates": 0.4,
+        "sugar": 0.3,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.06
+      }
+    },
+    {
+      "id": "deit-zitrone-trueb-1000",
+      "name": "DEIT Zitrone trüb",
+      "brandId": "deit",
+      "categoryId": "lemon-lime",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0.5,
+      "source": "Getränkewelt Lieferdienst Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; DEIT beschreibt Sorte als zuckerfrei im lebensmittelrechtlichen Sinn.",
+      "sourceUrl": "https://getraenkewelt-lieferdienst.de/sortiment/produkt/deit-zitrone-trueb/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 12,
+        "energyKcal": 3,
+        "carbohydrates": 0.5,
+        "sugar": 0.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.05
+      }
+    },
+    {
+      "id": "deit-orange-1000",
+      "name": "DEIT Orange",
+      "brandId": "deit",
+      "categoryId": "orange-limo",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0.5,
+      "source": "Getränkeheimdienst Chemnitz Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; DEIT beschreibt Sorte als zuckerfrei im lebensmittelrechtlichen Sinn.",
+      "sourceUrl": "https://www.getraenke-chemnitz.de/deit/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 14,
+        "energyKcal": 3,
+        "carbohydrates": 0.5,
+        "sugar": 0.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "deit-pink-grapefruit-1000",
+      "name": "DEIT Pink Grapefruit",
+      "brandId": "deit",
+      "categoryId": "softdrink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0.5,
+      "source": "Getränkeheimdienst Chemnitz Produktseite",
+      "note": "Quelle nennt Nährwerte pro 100 ml; DEIT beschreibt Sorte als zuckerfrei im lebensmittelrechtlichen Sinn.",
+      "sourceUrl": "https://www.getraenke-chemnitz.de/deit/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 12,
+        "energyKcal": 3,
+        "carbohydrates": 0.5,
+        "sugar": 0.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "lemonaid-limette-330",
+      "name": "Lemonaid Limette",
+      "brandId": "lemonaid",
+      "categoryId": "lemon-lime",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6,
+      "source": "Lemonaid FAQ",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/faq/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 116,
+        "energyKcal": 27,
+        "carbohydrates": 6,
+        "sugar": 6,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "lemonaid-maracuja-330",
+      "name": "Lemonaid Maracuja",
+      "brandId": "lemonaid",
+      "categoryId": "softdrink",
+      "sizeMl": 330,
+      "sugarPer100Ml": 5.56,
+      "source": "Lemonaid FAQ",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/faq/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 104,
+        "energyKcal": 25,
+        "carbohydrates": 5.56,
+        "sugar": 5.56,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "lemonaid-blutorange-330",
+      "name": "Lemonaid Blutorange",
+      "brandId": "lemonaid",
+      "categoryId": "orange-limo",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.8,
+      "source": "Lemonaid FAQ",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/faq/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 125,
+        "energyKcal": 30,
+        "carbohydrates": 6.8,
+        "sugar": 6.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "lemonaid-ingwer-330",
+      "name": "Lemonaid Ingwer",
+      "brandId": "lemonaid",
+      "categoryId": "softdrink",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.1,
+      "source": "Lemonaid FAQ",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/faq/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 104,
+        "energyKcal": 24,
+        "carbohydrates": 6.1,
+        "sugar": 6.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "charitea-black-330",
+      "name": "ChariTea Black",
+      "brandId": "charitea",
+      "categoryId": "iced-tea",
+      "sizeMl": 330,
+      "sugarPer100Ml": 3.8,
+      "source": "Lemonaid ChariTea Infobroschüre",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/wp-content/uploads/2013/04/Lemonaid_ChariTea_Infobroschuere.pdf",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 70,
+        "energyKcal": 17,
+        "carbohydrates": 3.8,
+        "sugar": 3.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "charitea-green-330",
+      "name": "ChariTea Green",
+      "brandId": "charitea",
+      "categoryId": "iced-tea",
+      "sizeMl": 330,
+      "sugarPer100Ml": 3.2,
+      "source": "Lemonaid ChariTea Infobroschüre",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/wp-content/uploads/2013/04/Lemonaid_ChariTea_Infobroschuere.pdf",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 63,
+        "energyKcal": 15,
+        "carbohydrates": 3.2,
+        "sugar": 3.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "charitea-red-330",
+      "name": "ChariTea Red",
+      "brandId": "charitea",
+      "categoryId": "iced-tea",
+      "sizeMl": 330,
+      "sugarPer100Ml": 3.4,
+      "source": "Lemonaid ChariTea Infobroschüre",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/wp-content/uploads/2013/04/Lemonaid_ChariTea_Infobroschuere.pdf",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 68,
+        "energyKcal": 16,
+        "carbohydrates": 3.4,
+        "sugar": 3.4,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "charitea-mate-330",
+      "name": "ChariTea Mate",
+      "brandId": "charitea",
+      "categoryId": "mate",
+      "sizeMl": 330,
+      "sugarPer100Ml": 4,
+      "source": "Lemonaid ChariTea Infobroschüre",
+      "note": "Quelle nennt Nährwerte pro 100 ml; Gebinde als gängige gelistete Packungsgröße erfasst. Herstellerangaben können sich ändern.",
+      "sourceUrl": "https://lemon-aid.de/wp-content/uploads/2013/04/Lemonaid_ChariTea_Infobroschuere.pdf",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 71,
+        "energyKcal": 17,
+        "carbohydrates": 4,
+        "sugar": 4,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "biozisch-himbeer-cassis-330",
+      "name": "BioZisch Himbeer Cassis",
+      "brandId": "biozisch",
+      "categoryId": "bio-limo",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.6,
+      "source": "Voelkel Shop Produktseite",
+      "note": "Quelle nennt Fett/Eiweiß/Salz als kleiner-als-Werte; gespeichert als obere Deklarationsgrenze.",
+      "sourceUrl": "https://shop.voelkeljuice.de/159/biozisch-himbeer-cassis-330ml",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 109,
+        "energyKcal": 26,
+        "carbohydrates": 6.6,
+        "sugar": 6.6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
+    },
+    {
+      "id": "biozisch-rhabarber-700",
+      "name": "BioZisch Rhabarber",
+      "brandId": "biozisch",
+      "categoryId": "bio-limo",
+      "sizeMl": 700,
+      "sugarPer100Ml": 6,
+      "source": "Voelkel Shop Produktseite",
+      "note": "Quelle nennt Fett/Eiweiß/Salz als kleiner-als-Werte; gespeichert als obere Deklarationsgrenze.",
+      "sourceUrl": "https://shop.voelkeljuice.de/150/biozisch-rhabarber-700ml",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 109,
+        "energyKcal": 26,
+        "carbohydrates": 6,
+        "sugar": 6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
+    },
+    {
+      "id": "biozisch-blutorange-700",
+      "name": "BioZisch Blutorange",
+      "brandId": "biozisch",
+      "categoryId": "bio-limo",
+      "sizeMl": 700,
+      "sugarPer100Ml": 7,
+      "source": "Voelkel Shop Produktseite",
+      "note": "Quelle nennt Fett/Eiweiß/Salz als kleiner-als-Werte; gespeichert als obere Deklarationsgrenze.",
+      "sourceUrl": "https://shop.voelkeljuice.de/171/biozisch-blutorange-700ml",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 124,
+        "energyKcal": 30,
+        "carbohydrates": 7,
+        "sugar": 7,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
+    },
+    {
+      "id": "biozisch-bitter-lemon-330",
+      "name": "BioZisch Bitter Lemon",
+      "brandId": "biozisch",
+      "categoryId": "bio-limo",
+      "sizeMl": 330,
+      "sugarPer100Ml": 5.6,
+      "source": "Voelkel Shop Produktseite",
+      "note": "Quelle nennt Fett/Eiweiß/Salz als kleiner-als-Werte; gespeichert als obere Deklarationsgrenze.",
+      "sourceUrl": "https://shop.voelkel.bio/biozisch-bitter-lemon-0-33-l/6e544e6a",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 92,
+        "energyKcal": 22,
+        "carbohydrates": 5.6,
+        "sugar": 5.6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
+    },
+    {
+      "id": "proviant-zitronenlimonade-330",
+      "name": "Proviant Zitronenlimonade",
+      "brandId": "proviant",
+      "categoryId": "lemon-lime",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.9,
+      "source": "Proviant Produktseite",
+      "note": "Quelle nennt Fett/Eiweiß/Salz nur als Spuren; gespeichert mit konservativem Spurenwert.",
+      "sourceUrl": "https://www.proviant.de/Unsere%20Produkte/limo/zitrone",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 122,
+        "energyKcal": 29,
+        "carbohydrates": 6.9,
+        "sugar": 6.9,
+        "fat": 0.1,
+        "protein": 0.1,
+        "salt": 0
+      }
+    },
+    {
+      "id": "proviant-zitrone-ingwer-limo-330",
+      "name": "Proviant Zitrone-Ingwer Limo",
+      "brandId": "proviant",
+      "categoryId": "lemon-lime",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.9,
+      "source": "Proviant Produktseite",
+      "note": "Quelle nennt Fett/Eiweiß/Salz nur als Spuren; gespeichert mit konservativem Spurenwert.",
+      "sourceUrl": "https://www.proviant.de/Unsere%20Produkte/limo/zitrone-ingwer",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 122,
+        "energyKcal": 29,
+        "carbohydrates": 6.9,
+        "sugar": 6.9,
+        "fat": 0.1,
+        "protein": 0.1,
+        "salt": 0
+      }
+    },
+    {
+      "id": "proviant-rhabarberlimonade-330",
+      "name": "Proviant Rhabarberlimonade",
+      "brandId": "proviant",
+      "categoryId": "softdrink",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.9,
+      "source": "Proviant Produktseite",
+      "note": "Quelle nennt Fett/Eiweiß/Salz nur als Spuren; gespeichert mit konservativem Spurenwert.",
+      "sourceUrl": "https://www.proviant.de/Unsere%20Produkte/limo/rhabarber",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 122,
+        "energyKcal": 29,
+        "carbohydrates": 6.9,
+        "sugar": 6.9,
+        "fat": 0.1,
+        "protein": 0.1,
+        "salt": 0
+      }
+    },
+    {
+      "id": "proviant-apfelschorle-330",
+      "name": "Proviant Apfelschorle",
+      "brandId": "proviant",
+      "categoryId": "schorle",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.4,
+      "source": "Yazio Produktdaten",
+      "note": "Quelle nennt Werte für 330 ml; pro-100-ml-Wert aus Portionsangabe umgerechnet.",
+      "sourceUrl": "https://www.yazio.com/de/kalorientabelle/apfelschorle-naturtrueb-proviant.html",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-03",
+      "nutritionPer100Ml": {
+        "energyKj": 113,
+        "energyKcal": 27,
+        "carbohydrates": 6.6,
+        "sugar": 6.4,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
+    },
+    {
+      "id": "schweppes-indian-tonic-water-200",
+      "name": "Schweppes Indian Tonic Water",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 9.2,
+      "source": "Getränke BeMo Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://getraenke-express-eutin.de/de/firmen-gastro-artikel/schweppes-indian-tonic-water-24x0-2l",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "schweppes-bitter-lemon-200",
+      "name": "Schweppes Bitter Lemon",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 12.1,
+      "source": "Getränke BeMo Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://getraenke-express-eutin.de/de/firmen-gastro-artikel/schweppes-bitter-lemon-24x0-2l",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "schweppes-ginger-ale-200",
+      "name": "Schweppes Ginger Ale",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 200,
+      "sugarPer100Ml": 9.1,
+      "source": "Getränke BeMo Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://getraenke-express-eutin.de/de/firmen-gastro-artikel/schweppes-ginger-ale-24x0-2l",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "schweppes-wild-berry-1250",
+      "name": "Schweppes Wild Berry",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 1250,
+      "sugarPer100Ml": 9,
+      "source": "Liefertempel Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.liefertempel.de/product_info.php?products_id=1788",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "schweppes-white-peach-1000",
+      "name": "Schweppes White Peach",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 7.5,
+      "source": "Globus Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/cola-limonaden/4000140714818/white-peach",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "schweppes-bitter-lemon-zero-1250",
+      "name": "Schweppes Bitter Lemon Zero",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 1250,
+      "sugarPer100Ml": 0,
+      "source": "BILLA Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://shop.billa.at/produkte/schweppes-bitter-lemon-zero-00769043",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "schweppes-tonic-water-zero-1250",
+      "name": "Schweppes Tonic Water Zero",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 1250,
+      "sugarPer100Ml": 0,
+      "source": "BILLA Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://shop.billa.at/produkte/schweppes-tonic-water-zero-00769042",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "schweppes-ginger-ale-zero-1000",
+      "name": "Schweppes Ginger Ale Zero",
+      "brandId": "schweppes",
+      "categoryId": "softdrink",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 0,
+      "source": "Globus Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/cola-limonaden/4000140712135/ginger-ale-zero-ohne-zucker",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "spezi-original-500",
+      "name": "Spezi Original",
+      "brandId": "spezi",
+      "categoryId": "cola-mix",
+      "sizeMl": 500,
+      "sugarPer100Ml": 9.8,
+      "source": "REWE Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.rewe.de/shop/p/spezi-original-24x0-33l/858060",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "spezi-light-500",
+      "name": "Spezi Light",
+      "brandId": "spezi",
+      "categoryId": "cola-mix",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0,
+      "source": "Globus Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/cola-limonaden/4038449004019/spezi-cola-mix-light",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "riegele-spezi-energy-330",
+      "name": "Riegele Spezi Energy",
+      "brandId": "riegele",
+      "categoryId": "energy",
+      "sizeMl": 330,
+      "sugarPer100Ml": 12,
+      "source": "REWE Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.rewe.de/shop/p/riegele-spezi-energy-24x0-33l/3058166",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "krombacher-spezi-330",
+      "name": "Krombacher Spezi",
+      "brandId": "krombacher",
+      "categoryId": "cola-mix",
+      "sizeMl": 330,
+      "sugarPer100Ml": 9,
+      "source": "Getränke BeMo Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://getraenke-express-eutin.de/de/softdrinks/krombacher-spezi-24x-0-33l-mw",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "karamalz-classic-330",
+      "name": "Karamalz Classic",
+      "brandId": "karamalz",
+      "categoryId": "softdrink",
+      "sizeMl": 330,
+      "sugarPer100Ml": 8.9,
+      "source": "Karamalz Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.karamalz.de/produkte/karamalz-classic",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "vitamalz-original-330",
+      "name": "Vitamalz Original",
+      "brandId": "vitamalz",
+      "categoryId": "softdrink",
+      "sizeMl": 330,
+      "sugarPer100Ml": 7.9,
+      "source": "Dosenmatrosen Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.dosenmatrosen.de/vitamalz-original-72er-pack",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "powerade-mountain-blast-500",
+      "name": "Powerade Mountain Blast",
+      "brandId": "powerade",
+      "categoryId": "softdrink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 4.1,
+      "source": "Coca-Cola Schweiz Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.coca-cola.com/ch/de/brands/powerade",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "powerade-bloodorange-500",
+      "name": "Powerade Bloodorange",
+      "brandId": "powerade",
+      "categoryId": "softdrink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 3.8,
+      "source": "Coca-Cola Schweiz Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.coca-cola.com/ch/de/brands/powerade",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "powerade-mountain-blast-zero-500",
+      "name": "Powerade Mountain Blast Zero",
+      "brandId": "powerade",
+      "categoryId": "softdrink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0,
+      "source": "Wedl Produktspezifikation",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://wedl.scanner.popscan.ch/dta.php/vendfiles/wedl/prodspecs/de/073591.pdf",
+      "verificationStatus": "manufacturer_or_retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "active-o2-apfel-kiwi-750",
+      "name": "Active O2 Apfel Kiwi",
+      "brandId": "active-o2",
+      "categoryId": "softdrink",
+      "sizeMl": 750,
+      "sugarPer100Ml": 3.7,
+      "source": "Lebensmittel-Versand Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://lebensmittel-versand.eu/Active-O2-Apfel-Kiwi-075l_1",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "active-o2-cherry-750",
+      "name": "Active O2 Cherry",
+      "brandId": "active-o2",
+      "categoryId": "softdrink",
+      "sizeMl": 750,
+      "sugarPer100Ml": 3.3,
+      "source": "Liefertempel Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.liefertempel.de/product_info.php?products_id=1521",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "volvic-tee-pfirsich-1500",
+      "name": "Volvic Tee Pfirsich",
+      "brandId": "volvic",
+      "categoryId": "iced-tea",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 3.8,
+      "source": "Volvic Schweiz Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.volvic.ch/produkte/volvic-tee/pfirsich/75cl.html",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "volvic-tee-zitrone-1500",
+      "name": "Volvic Tee Zitrone",
+      "brandId": "volvic",
+      "categoryId": "iced-tea",
+      "sizeMl": 1500,
+      "sugarPer100Ml": 3.9,
+      "source": "Volvic Schweiz Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.volvic.ch/produkte/volvic-tee/zitrone/75cl.html",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "rauch-bravo-orange-mango-500",
+      "name": "Rauch Bravo Orange Mango",
+      "brandId": "rauch",
+      "categoryId": "juice-drink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 5.1,
+      "source": "SPAR Produktwelt",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.spar.at/produktwelt/rauch-bravo-orange-mango-p2020005430440",
+      "verificationStatus": "manufacturer_or_retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "rauch-eistee-pfirsich-330",
+      "name": "Rauch Eistee Pfirsich",
+      "brandId": "rauch",
+      "categoryId": "iced-tea",
+      "sizeMl": 330,
+      "sugarPer100Ml": 6.7,
+      "source": "Bring's Ma Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://bringsma.at/produkt/rauch-eistee-pfirsich-dose-033l/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "rauch-eistee-zero-peach-500",
+      "name": "Rauch Eistee Zero Peach",
+      "brandId": "rauch",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0,
+      "source": "Rauch Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.rauch.cc/de/brands/eistee/rauch-eistee-zero-peach-58050",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "punica-abenteuer-drink-apfel-maracuja-500",
+      "name": "Punica Abenteuer Drink Apfel-Maracuja",
+      "brandId": "punica",
+      "categoryId": "juice-drink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 10.4,
+      "source": "Das ist drin Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://das-ist-drin.de/Punica-Abenteuer-Drink-Apfel-Maracuja-0-5-l--419116/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "punica-abenteuer-drink-apfel-kirsche-500",
+      "name": "Punica Abenteuer Drink Apfel-Kirsche",
+      "brandId": "punica",
+      "categoryId": "juice-drink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 10.2,
+      "source": "Das ist drin Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://das-ist-drin.de/Punica-Abenteuer-Drink-Apfel-Kirsche-0-5-l--419114/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "adelholzener-apfelschorle-500",
+      "name": "Adelholzener Apfelschorle",
+      "brandId": "adelholzener",
+      "categoryId": "schorle",
+      "sizeMl": 500,
+      "sugarPer100Ml": 5.8,
+      "source": "LIEFEUROPA Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://liefeuropa.de/produkt/adelholzener-apfelschorle/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "durstloescher-eistee-zitrone-500",
+      "name": "Durstlöscher Eistee Zitrone",
+      "brandId": "durstloescher",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 8.8,
+      "source": "Globus Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/eistee/4100060007400/eistee-zitrone-geschmack",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "durstloescher-multivitamin-500",
+      "name": "Durstlöscher Multivitamin",
+      "brandId": "durstloescher",
+      "categoryId": "juice-drink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 12,
+      "source": "Riha WeserGold Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.riha-wesergold.de/de/marken/durstloescher-original/14492-multivitamin-erfrischungsgetraenk",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "durstloescher-wassermelone-500",
+      "name": "Durstlöscher Wassermelone",
+      "brandId": "durstloescher",
+      "categoryId": "juice-drink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 11,
+      "source": "A-Campo Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://a-campo.de/Durstloescher-Wassermelone",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "durstloescher-banane-sauerkirsche-500",
+      "name": "Durstlöscher Banane-Sauerkirsche",
+      "brandId": "durstloescher",
+      "categoryId": "juice-drink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 11,
+      "source": "World of Sweets Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.worldofsweets.de/Durstloescher-Banane-Sauerkirsche-500ml.328165.html",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "durstloescher-eistee-zitrone-zero-500",
+      "name": "Durstlöscher Eistee Zitrone Zero",
+      "brandId": "durstloescher",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 0,
+      "source": "Naschlando Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://naschlando.de/products/durstloscher-eistee-zitrone-zero-500ml",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "arizona-green-tea-honey-500",
+      "name": "AriZona Green Tea Honey",
+      "brandId": "arizona",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 6.7,
+      "source": "Migros Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.migros.ch/de/product/mo/142094",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "arizona-pomegranate-green-tea-500",
+      "name": "AriZona Pomegranate Green Tea",
+      "brandId": "arizona",
+      "categoryId": "iced-tea",
+      "sizeMl": 500,
+      "sugarPer100Ml": 4.9,
+      "source": "BRACK Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.brack.ch/arizona-pomegranate-6-x-0-5-l-1134272",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "arizona-mucho-mango-500",
+      "name": "AriZona Mucho Mango",
+      "brandId": "arizona",
+      "categoryId": "juice-drink",
+      "sizeMl": 500,
+      "sugarPer100Ml": 4.8,
+      "source": "Five Star Trading Holland Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://fivestartrading-holland.eu/getraenke/saefte/arizona-cowboy-cocktail-mucho-mango/?lang=de",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "arizona-watermelon-325",
+      "name": "AriZona Watermelon",
+      "brandId": "arizona",
+      "categoryId": "juice-drink",
+      "sizeMl": 325,
+      "sugarPer100Ml": 10,
+      "source": "Sweets.ch Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.sweets.ch/produkt/getraenke/arizona-watermelon-340ml/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "granini-trinkgenuss-multivitamin-1000",
+      "name": "Granini Trinkgenuss Multivitamin",
+      "brandId": "granini",
+      "categoryId": "juice",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 9.8,
+      "source": "Knuspr Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.knuspr.de/31482-granini-trinkgenuss-multivitamin-50-einweg",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "granini-trinkgenuss-apfel-kirsch-1000",
+      "name": "Granini Trinkgenuss Apfel-Kirsch",
+      "brandId": "granini",
+      "categoryId": "juice",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 8.4,
+      "source": "Knuspr Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.knuspr.de/31485-granini-trinkgenuss-apfel-kirsch-einweg",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "granini-trinkgenuss-apfel-1000",
+      "name": "Granini Trinkgenuss Apfel",
+      "brandId": "granini",
+      "categoryId": "juice",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 10,
+      "source": "EDEKA Foodservice Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://edeka-foodservice.de/eigenmarken/produkte/2863217005/granini-trinkgenuss-apfel-2x5l",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "valensina-mildes-fruehstueck-orange-1000",
+      "name": "Valensina Mildes Frühstück Orange",
+      "brandId": "valensina",
+      "categoryId": "juice",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 8.9,
+      "source": "REWE Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.rewe.de/shop/p/valensina-mildes-fruehstueck-orange-6x1l/8657095",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "valensina-mildes-fruehstueck-multivitamin-1000",
+      "name": "Valensina Mildes Frühstück Multivitamin",
+      "brandId": "valensina",
+      "categoryId": "juice",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 10.8,
+      "source": "REWE Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.rewe.de/shop/p/valensina-mildes-fruehstueck-multivitamin-6x1l/8656062",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "valensina-vitamin-fruehstueck-multivitamin-1000",
+      "name": "Valensina Vitamin-Frühstück Multivitamin",
+      "brandId": "valensina",
+      "categoryId": "juice",
+      "sizeMl": 1000,
+      "sugarPer100Ml": 10.3,
+      "source": "REWE Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.rewe.de/shop/p/valensina-multivitamin-saft-vitamin-fruehstueck-1l/7860742",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "28-black-acai-250",
+      "name": "28 Black Açaí",
+      "brandId": "28-black",
+      "categoryId": "energy",
+      "sizeMl": 250,
+      "sugarPer100Ml": 11,
+      "source": "28 Black Shop Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://28black-shop.com/products/28-black-acai",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "28-black-acai-zero-250",
+      "name": "28 Black Açaí Zero",
+      "brandId": "28-black",
+      "categoryId": "energy",
+      "sizeMl": 250,
+      "sugarPer100Ml": 0,
+      "source": "Globus Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/energydrinks-sportgetraenke/4260160952014/energy-drink-acai-zero",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "booster-energy-drink-500",
+      "name": "Booster Energy Drink",
+      "brandId": "booster",
+      "categoryId": "energy",
+      "sizeMl": 500,
+      "sugarPer100Ml": 10.4,
+      "source": "Das ist drin Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://das-ist-drin.de/Booster-Energy-Drink-500-ml--7136/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "fritz-kola-mischmasch-330",
+      "name": "fritz-kola mischmasch",
+      "brandId": "fritz-kola",
+      "categoryId": "cola-mix",
+      "sizeMl": 330,
+      "sugarPer100Ml": 8.9,
+      "source": "Getränke Kelemidis Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.kelemidis.de/de/shop/katalog/fritz-mischmasch-24x02l_3602030/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "fritz-mate-500",
+      "name": "fritz-mate",
+      "brandId": "fritz-kola",
+      "categoryId": "mate",
+      "sizeMl": 500,
+      "sugarPer100Ml": 5.2,
+      "source": "Getränkedienst Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.getraenkedienst.com/softdrinks/mate-eistee-tee/fritz-mate-10-x-0-5l",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "mio-mio-cola-500",
+      "name": "Mio Mio Cola",
+      "brandId": "mio-mio",
+      "categoryId": "cola",
+      "sizeMl": 500,
+      "sugarPer100Ml": 11,
+      "source": "Mio Mio Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.miomio.com/cola-original/",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "mio-mio-orange-500",
+      "name": "Mio Mio Orange + Koffein",
+      "brandId": "mio-mio",
+      "categoryId": "orange-limo",
+      "sizeMl": 500,
+      "sugarPer100Ml": 6.9,
+      "source": "Mio Mio Shop Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://www.shop.miomio.com/miomio/mio-mio-orange",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
+    },
+    {
+      "id": "mio-mio-cola-zero-330",
+      "name": "Mio Mio Cola Zero",
+      "brandId": "mio-mio",
+      "categoryId": "cola",
+      "sizeMl": 330,
+      "sugarPer100Ml": 0,
+      "source": "Getränke BeMo Produktseite",
+      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "sourceUrl": "https://getraenke-express-eutin.de/de/softdrinks/mio-mio-cola-zero-24x-0-33l",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-04"
     }
   ]
 }
