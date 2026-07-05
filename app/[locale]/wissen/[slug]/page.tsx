@@ -16,8 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = articleBySlug[slug];
   if (!article) return {};
   return {
-    title: article.title,
-    description: article.description,
+    title: {
+      absolute: metaTitle(article.slug, article.title),
+    },
+    description: metaDescription(article.slug, article.description),
     alternates: {
       canonical: `/de/wissen/${article.slug}`,
     },
@@ -52,6 +54,28 @@ export default async function ArticlePage({ params }: Props) {
       </section>
     </main>
   );
+}
+
+function metaTitle(slug: string, fallback: string) {
+  const titles: Record<string, string> = {
+    "getraenkeetiketten-naehrwerttabelle-verstehen": "Getränkeetiketten: Zucker richtig lesen",
+    "saft-zucker-reduzieren-schorle-sirup": "Zucker im Saft senken: Schorle und Sirup",
+    "sugar-light-weniger-zucker-natuerlicher-geschmack": "Sugar Light: weniger Zucker, echter Geschmack",
+    "nachhaltige-zuckerarme-getraenke-verpackung": "Zuckerarm trinken: Verpackung mitdenken",
+  };
+
+  return titles[slug] ?? fallback;
+}
+
+function metaDescription(slug: string, fallback: string) {
+  const descriptions: Record<string, string> = {
+    "zucker-pro-100ml-verstehen": "Zucker pro 100 ml verstehen: Cola, Eistee, Energy Drinks, Saft und Limo fair vergleichen. Mit Beispielrechnung für Packung, Portion und Zuckerwürfel.",
+    "eistee-zucker-im-alltag": "Wie viel Zucker hat Eistee? Pfirsich, Zitrone und große Flaschen nach Zucker pro 100 ml, Packungsgröße und Zuckerwürfeln im Alltag einordnen.",
+    "packungsgroesse-entscheidet": "Zucker pro Flasche berechnen: warum 250 ml, 330 ml, 500 ml und 1 Liter bei gleichem 100-ml-Wert sehr unterschiedliche Mengen ergeben.",
+    "zuckerwuerfel-als-orientierung": "Zuckerwürfel in Getränken berechnen: Gramm Zucker durch 3 teilen und Cola, Saft, Eistee oder Energy Drinks schneller einschätzen.",
+  };
+
+  return descriptions[slug] ?? fallback;
 }
 
 function relatedLinks(slug: string) {

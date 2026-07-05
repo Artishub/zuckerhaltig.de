@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink, type DrinkFaq } from "@/lib/data/drinks";
+import { canonicalDrinkId, drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink, type DrinkFaq } from "@/lib/data/drinks";
 import { siteUrl } from "@/lib/site";
 
 type PageProps = {
@@ -25,21 +25,41 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const brandName = brandById[drink.brandId]?.name ?? "Unbekannte Marke";
   const categoryName = categoryById[drink.categoryId]?.name ?? "Getränk";
+  const canonicalId = canonicalDrinkId(drink);
   const totalSugar = totalSugarGrams(drink);
-  const packagePart = drink.sizeMl && totalSugar !== null ? `, ${formatNumber(totalSugar)} g pro ${drink.sizeMl} ml` : "";
-  const description = `${drink.name} von ${brandName}: ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml${packagePart}, Nährwerte und Quelle.`;
+  const title = metaTitle(drink);
+  const description = metaDescription(drink, brandName, categoryName, totalSugar);
+  const canonicalUrl = `${siteUrl}/de/getraenke/${canonicalId}`;
 
   return {
-    title: metaTitle(drink),
+    title: {
+      absolute: title,
+    },
     description,
     alternates: {
-      canonical: `/de/getraenke/${drink.id}`,
+      canonical: `/de/getraenke/${canonicalId}`,
     },
     openGraph: {
-      title: metaTitle(drink),
+      title,
       description,
-      url: `${siteUrl}/de/getraenke/${drink.id}`,
+      url: canonicalUrl,
+      siteName: "Zuckerhaltig.de",
+      locale: "de_DE",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: `${drink.name} Zuckerwerte`,
+        },
+      ],
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -225,9 +245,30 @@ function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
 }
 
 function metaTitle(drink: Drink) {
-  if (drink.brandId === "red-bull") return `${drink.name}: Zucker, Kalorien und Dose im Vergleich`;
-  if (drink.brandId === "monster") return `${drink.name}: Zucker pro 100 ml und Dose`;
-  return `${drink.name}: Zucker pro 100 ml und Nährwerte`;
+  const size = drink.sizeMl ? ` ${drink.sizeMl} ml` : "";
+  const sugar = `${formatNumber(drink.sugarPer100Ml)} g Zucker`;
+  return `${shortenTitleName(drink.name, size)}${size}: ${sugar}`;
+}
+
+function metaDescription(drink: Drink, brandName: string, categoryName: string, totalSugar: number | null) {
+  const sugarPart = `${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml`;
+  const packagePart = drink.sizeMl && totalSugar !== null
+    ? `, ${formatNumber(totalSugar)} g pro ${drink.sizeMl}-ml-Packung`
+    : "";
+  return `${drink.name} von ${brandName}: ${sugarPart}${packagePart}. Daten zu ${categoryName}, Nährwerten, Zuckerwürfeln und Quelle.`;
+}
+
+function shortenTitleName(name: string, size: string) {
+  const normalized = name
+    .replace(/\bThe\s+/gi, "")
+    .replace(/\bEnergy Drink\b/gi, "Energy")
+    .replace(/\bohne Zucker\b/gi, "Zero")
+    .replace(/\bZero Sugar\b/gi, "Zero")
+    .replace(/\s+/g, " ")
+    .trim();
+  const maxNameLength = Math.max(22, 39 - size.length);
+  if (normalized.length <= maxNameLength) return normalized;
+  return `${normalized.slice(0, maxNameLength - 3).trim()}...`;
 }
 
 function introText(drink: Drink, brandName: string, categoryName: string) {

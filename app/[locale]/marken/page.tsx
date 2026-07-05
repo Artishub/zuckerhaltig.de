@@ -6,7 +6,7 @@ import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/dat
 
 export const metadata: Metadata = {
   title: "Marken",
-  description: "Markenübersicht der Getränkedatenbank.",
+  description: "Markenübersicht der Getränkedatenbank: Coca-Cola, Fanta, Red Bull, Monster, Eistee, Saft und weitere Getränke nach Zuckerwerten vergleichen.",
   alternates: {
     canonical: "/de/marken",
   },

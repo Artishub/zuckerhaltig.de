@@ -4,7 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { articles } from "@/lib/content/articles";
 
 export const metadata: Metadata = {
-  title: "Wie viel Zucker ist in Cola, Eistee und Energy Drinks?",
+  title: {
+    absolute: "Zucker in Getränken: Wissen und Vergleiche",
+  },
   description: "Zucker in Getränken nachschlagen: Cola Zucker pro 100 ml, Zuckerwürfel, Energy Drink Zucker pro Dose, Eistee Zucker und Saft im Vergleich.",
   alternates: {
     canonical: "/de/wissen",

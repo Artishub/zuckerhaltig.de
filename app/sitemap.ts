@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/content/articles";
-import { drinks } from "@/lib/data/drinks";
+import { canonicalDrinks, drinks } from "@/lib/data/drinks";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/de/wissen/${article.slug}`,
       lastModified: new Date(),
     })),
-    ...drinks.map((drink) => ({
+    ...canonicalDrinks(drinks).map((drink) => ({
       url: `${siteUrl}/de/getraenke/${drink.id}`,
       lastModified: new Date(),
     })),

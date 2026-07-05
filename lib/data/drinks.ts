@@ -44,6 +44,15 @@ export type Drink = {
 
 export const drinks = seed.drinks as Drink[];
 
+const canonicalDrinkIdsByExactProduct = new Map<string, string>();
+
+for (const drink of drinks) {
+  const key = exactProductKey(drink);
+  if (!canonicalDrinkIdsByExactProduct.has(key)) {
+    canonicalDrinkIdsByExactProduct.set(key, drink.id);
+  }
+}
+
 export type DrinkDisplayItem =
   | { type: "drink"; id: string; drink: Drink }
   | { type: "group"; id: string; brandId: string; categoryId: string; drinks: Drink[]; representative: Drink };
@@ -64,6 +73,14 @@ export function packageEnergyKcal(drink: Drink) {
 
 export function productKey(drink: Drink) {
   return `${drink.brandId}:${drink.name.trim().toLowerCase()}`;
+}
+
+export function canonicalDrinkId(drink: Drink) {
+  return canonicalDrinkIdsByExactProduct.get(exactProductKey(drink)) ?? drink.id;
+}
+
+export function canonicalDrinks(items: Drink[]) {
+  return items.filter((drink) => canonicalDrinkId(drink) === drink.id);
 }
 
 export function uniqueProductRepresentatives(items: Drink[]) {
@@ -109,4 +126,14 @@ export function groupedDrinkFamilies(items: Drink[]): DrinkDisplayItem[] {
 function representativeScore(drink: Drink) {
   if (!drink.sizeMl) return 999;
   return Math.abs(drink.sizeMl - 500);
+}
+
+function exactProductKey(drink: Drink) {
+  return [
+    drink.brandId,
+    drink.name.trim().toLowerCase(),
+    drink.sizeMl ?? "",
+    drink.sugarPer100Ml,
+    drink.sourceUrl ?? "",
+  ].join(":");
 }

@@ -5,7 +5,7 @@ import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/dat
 
 export const metadata: Metadata = {
   title: "Kategorien",
-  description: "Getränkekategorien von Softdrinks bis Sportdrinks.",
+  description: "Getränkekategorien von Cola bis Energy Drink: Zucker pro 100 ml, Packungszucker und Zuckerwürfel für Softdrinks, Saft, Eistee und Schorle vergleichen.",
   alternates: {
     canonical: "/de/kategorien",
   },
