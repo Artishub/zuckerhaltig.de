@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { DrinkRows, LinkCard, PageHero } from "@/components/seo-drink-list";
+import { LinkCard, PageHero } from "@/components/seo-drink-list";
+import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByCategory, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function ColaSugarPage() {
           <p className="mt-3 leading-7 text-slate">Sortiert nach Zucker pro 100 ml. Die Packung entscheidet zusätzlich, wie viel Zucker du insgesamt trinkst.</p>
           <Link href="/de/wissen/cola-zucker-pro-100ml" className="mt-5 inline-block text-sm font-medium hover:text-marigold">Cola-Artikel lesen</Link>
         </div>
-        <DrinkRows drinks={top} />
+        <SortableDrinkRows drinks={top} />
       </section>
       <section className="border-y border-ash bg-mist">
         <div className="mx-auto grid max-w-page gap-3 px-4 py-10 sm:grid-cols-3">

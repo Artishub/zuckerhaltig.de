@@ -95,7 +95,11 @@ export default function HomePage() {
         </p>
       </section>
       <section className="mx-auto max-w-page px-4 py-10">
-        <div className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-5">
+          <h2 className="text-2xl font-semibold tracking-tight">Schnell einsteigen</h2>
+          <p className="mt-3 leading-7 text-slate">Die wichtigsten Übersichten direkt öffnen.</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Link href="/de/cola-zucker" className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
             <p className="font-semibold">Cola Zucker</p>
             <p className="mt-2 text-sm leading-6 text-slate">Cola-Werte und Zero-Varianten vergleichen.</p>
@@ -113,6 +117,8 @@ export default function HomePage() {
             <p className="mt-2 text-sm leading-6 text-slate">Getränke nach Zucker pro Packung.</p>
           </Link>
         </div>
+      </section>
+      <section className="mx-auto max-w-page px-4 py-10">
         <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">Beliebte Vergleiche</h2>

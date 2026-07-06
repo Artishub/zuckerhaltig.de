@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { DrinkRows, LinkCard, PageHero } from "@/components/seo-drink-list";
+import { LinkCard, PageHero } from "@/components/seo-drink-list";
+import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByCategory, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function IcedTeaSugarPage() {
           <h2 className="text-2xl font-semibold tracking-tight">Eistee-Liste</h2>
           <p className="mt-3 leading-7 text-slate">Hier siehst du Sorten nach Zucker pro 100 ml. Große Packungen erhöhen den Gesamtzucker schnell.</p>
         </div>
-        <DrinkRows drinks={top} />
+        <SortableDrinkRows drinks={top} />
       </section>
       <section className="border-y border-ash bg-mist">
         <div className="mx-auto grid max-w-page gap-3 px-4 py-10 sm:grid-cols-3">

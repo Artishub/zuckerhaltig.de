@@ -10,6 +10,7 @@ const nav = [
   { href: "/de/kategorien", label: "Getränke nach Kategorie" },
   { href: "/de/wissen", label: "Wissenswertes" },
   { href: "/de/faq", label: "FAQ" },
+  { href: "/de/ueber", label: "Über" },
 ];
 
 export const dynamicParams = false;

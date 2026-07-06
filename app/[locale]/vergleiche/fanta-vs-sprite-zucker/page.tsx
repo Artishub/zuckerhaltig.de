@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { DrinkRows, PageHero } from "@/components/seo-drink-list";
+import { PageHero } from "@/components/seo-drink-list";
+import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByBrand, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
 
 export const metadata: Metadata = {
@@ -18,11 +19,11 @@ export default function FantaSpritePage() {
       <section className="mx-auto grid max-w-page gap-6 px-4 py-10 lg:grid-cols-2">
         <div>
           <h2 className="mb-4 text-2xl font-semibold tracking-tight">Fanta</h2>
-          <DrinkRows drinks={fanta} />
+          <SortableDrinkRows drinks={fanta} />
         </div>
         <div>
           <h2 className="mb-4 text-2xl font-semibold tracking-tight">Sprite</h2>
-          <DrinkRows drinks={sprite} />
+          <SortableDrinkRows drinks={sprite} />
         </div>
       </section>
     </main>
