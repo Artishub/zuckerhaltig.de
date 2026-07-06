@@ -49,7 +49,12 @@ export default function LocaleLayout({ children }: { children: React.ReactNode }
       <footer className="border-t border-ash">
         <div className="mx-auto grid max-w-page gap-6 px-4 py-10 text-sm text-slate md:grid-cols-[1fr_auto]">
           <p>Zuckerhaltig.de ist ein unabhängiges Informationsprojekt. Angaben ohne Gewähr.</p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
+            <Link href="/de/ueber" className="hover:text-ink">Über</Link>
+            <Link href="/de/cola-zucker" className="hover:text-ink">Cola Zucker</Link>
+            <Link href="/de/energy-drinks-zucker" className="hover:text-ink">Energy Zucker</Link>
+            <Link href="/de/eistee-zucker" className="hover:text-ink">Eistee Zucker</Link>
+            <Link href="/de/rankings/zuckerreichste-getraenke" className="hover:text-ink">Ranking</Link>
             <Link href="/de/impressum" className="hover:text-ink">Impressum</Link>
             <Link href="/de/datenschutz" className="hover:text-ink">Datenschutz</Link>
             <Link href="/de/nutzungsbedingungen" className="hover:text-ink">Nutzung</Link>

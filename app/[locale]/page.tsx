@@ -95,6 +95,24 @@ export default function HomePage() {
         </p>
       </section>
       <section className="mx-auto max-w-page px-4 py-10">
+        <div className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Link href="/de/cola-zucker" className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
+            <p className="font-semibold">Cola Zucker</p>
+            <p className="mt-2 text-sm leading-6 text-slate">Cola-Werte und Zero-Varianten vergleichen.</p>
+          </Link>
+          <Link href="/de/energy-drinks-zucker" className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
+            <p className="font-semibold">Energy Drinks Zucker</p>
+            <p className="mt-2 text-sm leading-6 text-slate">Red Bull, Monster und weitere Dosen.</p>
+          </Link>
+          <Link href="/de/eistee-zucker" className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
+            <p className="font-semibold">Eistee Zucker</p>
+            <p className="mt-2 text-sm leading-6 text-slate">Sorten nach 100-ml-Wert und Packung.</p>
+          </Link>
+          <Link href="/de/rankings/zuckerreichste-getraenke" className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
+            <p className="font-semibold">Zucker-Ranking</p>
+            <p className="mt-2 text-sm leading-6 text-slate">Getränke nach Zucker pro Packung.</p>
+          </Link>
+        </div>
         <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">Beliebte Vergleiche</h2>
