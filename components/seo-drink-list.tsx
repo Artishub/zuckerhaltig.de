@@ -31,11 +31,11 @@ export function DrinkRows({ drinks }: { drinks: Drink[] }) {
 
 export function PageHero({ kicker, title, text }: { kicker: string; title: string; text: string }) {
   return (
-    <section className="border-b border-ash">
-      <div className="mx-auto max-w-page px-4 py-14 md:py-20">
-        <p className="text-sm font-medium text-slate">{kicker}</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">{title}</h1>
-        <p className="mt-5 max-w-2xl text-lg leading-8 text-slate">{text}</p>
+    <section className="border-b border-ash bg-mist">
+      <div className="mx-auto max-w-page px-4 py-16 md:py-24">
+        <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">{kicker}</p>
+        <h1 className="mt-4 max-w-3xl text-5xl font-semibold leading-[.94] tracking-[-0.06em] md:text-6xl">{title}</h1>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">{text}</p>
       </div>
     </section>
   );

@@ -11269,8 +11269,7 @@
       "source": "Red Bull nutrition info",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.redbull.com/peach-edition"
+      "lastCheckedAt": "2026-06-29"
     },
     {
       "id": "hohes-c-milde-orange-1000",

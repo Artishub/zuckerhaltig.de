@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Info } from "lucide-react";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalDrinkId, drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink, type DrinkFaq } from "@/lib/data/drinks";
+import { canonicalDrinkId, drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
 import { siteUrl } from "@/lib/site";
+import styles from "./drink-detail.module.css";
 
 type PageProps = {
   params: Promise<{ drinkId: string; locale: string }>;
@@ -79,101 +80,73 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const faqs = generatedFaq(drink, brandName);
 
   return (
-    <main className="mx-auto max-w-page px-4 py-10">
-      <Link href="/de/getraenke" className="focus-ring inline-flex items-center gap-2 rounded-md text-sm text-slate hover:text-ink">
-        <ArrowLeft size={16} />
-        Zurück zur Suche
-      </Link>
-
-      <section className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div>
-          <p className="text-sm font-medium text-slate">{categoryName}</p>
-          <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">{drink.name}</h1>
-          <p className="mt-4 text-lg leading-8 text-slate">
-            {brandName} · {sizeLabel(drink)} · {formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml
-          </p>
-          <p className="mt-6 max-w-2xl leading-7 text-slate">
-            {introText(drink, brandName, categoryName)}
-          </p>
-          {drink.note && <p className="mt-4 max-w-2xl leading-7 text-slate">{drink.note}</p>}
-          <div className="mt-6 flex flex-wrap gap-2 text-sm">
-            <Link href={`/de/getraenke?brand=${drink.brandId}`} className="focus-ring rounded-md border border-ash bg-mist px-3 py-2 hover:border-marigold">
-              Mehr von {brandName}
-            </Link>
-            <Link href={`/de/getraenke?category=${drink.categoryId}`} className="focus-ring rounded-md border border-ash bg-mist px-3 py-2 hover:border-marigold">
-              Kategorie {categoryName}
-            </Link>
-            <Link href={knowledgeLink(drink)} className="focus-ring rounded-md border border-ash bg-mist px-3 py-2 hover:border-marigold">
-              Passendes Wissen lesen
-            </Link>
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <Link href="/de/getraenke" className={styles.back}><ArrowLeft size={16} /> Zur Getränkesuche</Link>
+        <div className={styles.heroGrid}>
+          <div>
+            <p className={styles.category}>{categoryName} · {sizeLabel(drink)}</p>
+            <h1>{drink.name}</h1>
+            <p className={styles.summary}>{introText(drink, brandName, categoryName)}</p>
+            <p className={styles.sourceLine}><Info size={15} /> Quelle: {drink.source}</p>
+          </div>
+          <div className={styles.sugarPanel}>
+            <p>{brandName}</p>
+            <div><strong>{formatOptionalNumber(totalSugar)}</strong><span>g Zucker</span></div>
+            <div className={styles.cubeSummary}>
+              <p>pro {sizeLabel(drink)} · {formatOptionalNumber(cubes)} Zuckerwürfel</p>
+              <div className={styles.cubes} aria-hidden="true">{Array.from({ length: Math.min(Math.max(Math.round(cubes ?? 0), 1), 24) }).map((_, index) => <i key={index} />)}</div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <section className="rounded-lg border border-ash bg-mist p-5">
-          <h2 className="text-xl font-semibold tracking-tight">Nährwerte</h2>
-          <div className="mt-5 grid grid-cols-2 gap-3">
-            <Nutrient label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} highlight />
-            <Nutrient label="Zucker pro Gebinde" value={formatOptionalGrams(totalSugar)} highlight />
-            <Nutrient label="Zuckerwürfel" value={formatOptionalNumber(cubes)} />
-            <Nutrient label="Energie pro Gebinde" value={energy === null ? "/" : `${formatNumber(energy)} kcal`} />
-            <Nutrient label="Energie pro 100 ml" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.energyKcal)} kcal / ${formatNumber(drink.nutritionPer100Ml.energyKj)} kJ` : "/"} />
+      <section className={styles.facts} aria-label={`Werte für ${drink.name}`}>
+        <Nutrient label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} highlight />
+        <Nutrient label={`Zucker pro ${sizeLabel(drink)}`} value={formatOptionalGrams(totalSugar)} highlight />
+        <Nutrient label="Zuckerwürfel" value={formatOptionalNumber(cubes)} />
+        <Nutrient label="Energie pro Packung" value={energy === null ? "/" : `${formatNumber(energy)} kcal`} />
+      </section>
+
+      <section className={styles.contentGrid}>
+        <div className={styles.nutrition}>
+          <p className={styles.category}>Nährwerte</p>
+          <h2>Pro 100 ml</h2>
+          <div className={styles.nutrientGrid}>
+            <Nutrient label="Energie" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.energyKcal)} kcal / ${formatNumber(drink.nutritionPer100Ml.energyKj)} kJ` : "/"} />
             <Nutrient label="Kohlenhydrate" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.carbohydrates)} g` : "/"} />
+            <Nutrient label="davon Zucker" value={`${formatNumber(drink.sugarPer100Ml)} g`} />
             <Nutrient label="Fett" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.fat)} g` : "/"} />
             <Nutrient label="Eiweiss" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.protein)} g` : "/"} />
             <Nutrient label="Salz" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.salt)} g` : "/"} />
-            <Nutrient label="Gebinde" value={sizeLabel(drink)} />
           </div>
-          <p className="mt-4 text-xs leading-5 text-slate">Alle Angaben beziehen sich auf die hinterlegten Produktdaten und können sich durch Rezeptur- oder Verpackungsänderungen unterscheiden.</p>
-        </section>
+        </div>
+        <aside className={styles.sourceCard}>
+          <p className={styles.category}>Datenquelle</p>
+          <h2>Nachprüfbar.</h2>
+          <p>{drink.note}</p>
+          {drink.lastCheckedAt && <p className={styles.checked}>Zuletzt geprüft: {formatDate(drink.lastCheckedAt)}</p>}
+          {drink.sourceUrl && <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>}
+        </aside>
       </section>
 
-      <section className="mt-10 grid gap-6 border-t border-ash pt-8 lg:grid-cols-[1fr_1fr]">
-        <div>
-          <h2 className="text-2xl font-semibold tracking-tight">Einordnung</h2>
-          <p className="mt-3 leading-7 text-slate">
-            Der Wert pro 100 ml macht {drink.name} mit anderen Getränken vergleichbar. Der Gesamtzucker zeigt dagegen, welche Menge Zucker beim Trinken des ganzen Gebindes zusammenkommt.
-          </p>
-        </div>
-        <div>
-          <h2 className="text-2xl font-semibold tracking-tight">Quelle</h2>
-          <p className="mt-3 leading-7 text-slate">{drink.source}</p>
-          {drink.sourceUrl && (
-            <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-md text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
-              Quelle öffnen <ExternalLink size={15} />
-            </a>
-          )}
-          {drink.lastCheckedAt && <p className="mt-3 text-sm text-slate">Zuletzt geprüft: {formatDate(drink.lastCheckedAt)}</p>}
-        </div>
-      </section>
-
-      <section className="mt-10 border-t border-ash pt-8">
-        <h2 className="text-2xl font-semibold tracking-tight">FAQ zu {drink.name}</h2>
-        <div className="mt-5 divide-y divide-ash">
-          {faqs.map((item) => (
-            <details key={item.question} className="group py-4">
-              <summary className="cursor-pointer list-none font-semibold">
-                {item.question}
-              </summary>
-              <p className="mt-3 max-w-3xl leading-7 text-slate">{item.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-10 border-t border-ash pt-8">
-        <h2 className="text-2xl font-semibold tracking-tight">Ähnliche Getränke</h2>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <section className={styles.compare}>
+        <div><h2>Ähnliche Getränke.</h2></div>
+        <div className={styles.related}>
           {similar.map((item) => {
             const similarBrand = brandById[item.brandId]?.name ?? "Marke";
-            return (
-              <Link key={item.id} href={`/de/getraenke/${item.id}`} className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
-                <p className="font-semibold">{item.name}</p>
-                <p className="mt-1 text-sm text-slate">{similarBrand} · {sizeLabel(item)}</p>
-                <p className="mt-4 text-sm tabular-nums">{formatNumber(item.sugarPer100Ml)} g / 100 ml</p>
-              </Link>
-            );
+            return <Link key={item.id} href={`/de/getraenke/${item.id}`}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
           })}
         </div>
+      </section>
+
+      <section className={styles.faq}>
+        <p className={styles.category}>Fragen und Antworten</p>
+        <h2>FAQ zu {drink.name}</h2>
+        <div>
+          {faqs.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
+        </div>
+        <Link href={knowledgeLink(drink)} className={styles.knowledge}>Passendes Wissen lesen <ArrowRight size={16} /></Link>
       </section>
 
       <script
@@ -210,8 +183,15 @@ function Nutrient({ label, value, highlight = false }: { label: string; value: s
 }
 
 function similarDrinks(drink: Drink) {
-  return drinks
-    .filter((item) => item.id !== drink.id && (item.categoryId === drink.categoryId || item.brandId === drink.brandId))
+  const currentCanonicalId = canonicalDrinkId(drink);
+
+  return uniqueProductRepresentatives(
+    drinks.filter((item) => (
+      item.categoryId === drink.categoryId &&
+      canonicalDrinkId(item) !== currentCanonicalId &&
+      item.name !== drink.name
+    )),
+  )
     .sort((a, b) => Math.abs(a.sugarPer100Ml - drink.sugarPer100Ml) - Math.abs(b.sugarPer100Ml - drink.sugarPer100Ml))
     .slice(0, 4);
 }
@@ -255,7 +235,7 @@ function metaDescription(drink: Drink, brandName: string, categoryName: string, 
   const packagePart = drink.sizeMl && totalSugar !== null
     ? `, ${formatNumber(totalSugar)} g pro ${drink.sizeMl}-ml-Packung`
     : "";
-  return `${drink.name} von ${brandName}: ${sugarPart}${packagePart}. Daten zu ${categoryName}, Nährwerten, Zuckerwürfeln und Quelle.`;
+  return `${drink.name} von ${brandName}: ${sugarPart}${packagePart}. Nährwerte und Quelle.`;
 }
 
 function shortenTitleName(name: string, size: string) {

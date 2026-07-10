@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zuckerhaltig.de",
     description,
-    url: `${siteUrl}/de`,
     siteName: "Zuckerhaltig.de",
     images: [
       {

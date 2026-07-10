@@ -22,10 +22,11 @@ export default function DrinksPage() {
   };
 
   return (
-    <main className="mx-auto max-w-page px-4 py-10">
+    <main className="mx-auto max-w-page px-4 py-10 md:py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="mb-8 max-w-2xl">
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Zuckerwerte vergleichen.</h1>
+      <div className="mb-10 max-w-3xl">
+        <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Getränkedatenbank</p>
+        <h1 className="mt-3 text-5xl font-semibold leading-[.94] tracking-[-0.06em] md:text-6xl">Zuckerwerte vergleichen.</h1>
         <p className="mt-4 leading-7 text-slate">
           <span className="block">Filtere nach Marke, Kategorie, Gebinde und Zucker.</span>
           <span className="block">Alle Berechnungen passieren lokal im Browser.</span>

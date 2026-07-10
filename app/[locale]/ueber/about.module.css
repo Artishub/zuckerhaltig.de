@@ -1,0 +1,15 @@
+.page { --ink:#17201d; --moss:#1f4539; --cream:#edf0e8; --lime:#d8f36a; --line:rgba(23,32,29,.14); background:var(--cream); color:var(--ink); }
+.hero,.principles,.note,.links { max-width:1280px; margin:0 auto; padding-left:1.25rem; padding-right:1.25rem; }
+.hero { padding-top:6.5rem; padding-bottom:6.5rem; background:radial-gradient(circle at 72% 18%, rgba(216,243,106,.32), transparent 20rem); }
+.kicker { margin:0 0 1rem; color:#4c695c; font-size:.7rem; font-weight:750; letter-spacing:.1em; text-transform:uppercase; }
+.hero h1,.note h2 { margin:0; font-weight:650; letter-spacing:-.07em; line-height:.96; }
+.hero h1 { max-width:11ch; font-size:clamp(3.5rem,6.2vw,6.4rem); }
+.hero > p:last-child { max-width:36rem; margin:1.7rem 0 0; color:#45584f; font-size:1.08rem; line-height:1.6; }
+.principles { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; padding-top:1rem; padding-bottom:6rem; }
+.principles article { min-height:230px; padding:1.5rem; border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.42); }
+.principles article:nth-child(2) { background:var(--moss); color:#f5f8f2; }.principles article:nth-child(2) p { color:#d5e3da; }
+.principles h2 { margin:2.6rem 0 .65rem; font-size:1.25rem; letter-spacing:-.04em; }.principles p { max-width:26rem; margin:0; color:#586a60; font-size:.92rem; line-height:1.55; }
+.note { display:grid; grid-template-columns:.92fr 1.08fr; gap:4rem; align-items:end; padding-top:4.5rem; padding-bottom:4.5rem; background:var(--ink); color:#f5f8f2; }.note .kicker { color:#b8d2c1; }.note h2 { font-size:clamp(2.7rem,4.5vw,4.8rem); }.note > p { max-width:32rem; margin:0; color:#d5e3da; font-size:1.1rem; line-height:1.6; }
+.links { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; padding-top:3rem; padding-bottom:3rem; }.links a { display:flex; align-items:center; justify-content:space-between; padding:1.1rem 1.2rem; border:1px solid var(--line); border-radius:14px; font-size:.92rem; font-weight:750; transition:transform .2s ease, background .2s ease; }.links a:hover { transform:translateY(-3px); background:#f8faf4; }.links a:active { transform:scale(.98); }
+@media (max-width:767px) { .hero { padding-top:4.5rem; padding-bottom:4.5rem; }.hero h1 { font-size:clamp(3.25rem,14vw,4.5rem); }.principles,.note,.links { grid-template-columns:1fr; }.principles { padding-bottom:4.5rem; }.principles article { min-height:0; }.note { gap:1.8rem; padding-top:3rem; padding-bottom:3rem; }.links { padding-top:1.25rem; }.links a { min-height:58px; } }
+@media (prefers-reduced-motion:reduce) { .links a { transition:none; } }
