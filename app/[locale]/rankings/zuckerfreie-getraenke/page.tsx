@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { sugarFreeDrinks } from "@/lib/seo-drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Zuckerfreie Getränke: Ranking und Liste",
-  description: "Getränke mit maximal 0,5 g Zucker pro 100 ml vergleichen: Cola Zero, Light, Energy und weitere Varianten.",
-  alternates: { canonical: "/de/rankings/zuckerfreie-getraenke" },
-};
+export const metadata = pageMetadata("Zuckerfreie Getränke: Ranking und Liste", "Getränke mit maximal 0,5 g Zucker pro 100 ml vergleichen: Cola Zero, Light, Energy Drinks und weitere Varianten mit Packungsgröße und Quellen.", "/de/rankings/zuckerfreie-getraenke");
 
 export default function SugarFreeRankingPage() {
   const drinks = sugarFreeDrinks(50);

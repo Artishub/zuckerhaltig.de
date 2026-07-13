@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { highestSugarDrinks } from "@/lib/seo-drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Zuckerreichste Getränke: Ranking nach Packung",
-  description: "Ranking der zuckerreichsten Getränke nach Zucker pro Packung mit 100-ml-Wert und Zuckerwürfeln.",
-  alternates: { canonical: "/de/rankings/zuckerreichste-getraenke" },
-};
+export const metadata = pageMetadata("Zuckerreichste Getränke: Ranking nach Packung", "Ranking der zuckerreichsten Getränke nach Zucker pro Packung. Vergleiche zusätzlich den 100-ml-Wert, Zuckerwürfel, Packungsgröße und Produktdetails.", "/de/rankings/zuckerreichste-getraenke");
 
 export default function HighestSugarRankingPage() {
   const drinks = highestSugarDrinks(50);

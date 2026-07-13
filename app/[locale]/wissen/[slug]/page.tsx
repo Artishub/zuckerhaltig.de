@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articleBySlug, articles } from "@/lib/content/articles";
+import { pageMetadata } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -15,15 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = articleBySlug[slug];
   if (!article) return {};
-  return {
-    title: {
-      absolute: metaTitle(article.slug, article.title),
-    },
-    description: metaDescription(article.slug, article.description),
-    alternates: {
-      canonical: `/de/wissen/${article.slug}`,
-    },
-  };
+  return pageMetadata(
+    metaTitle(article.slug, article.title),
+    metaDescription(article.slug, article.description),
+    `/de/wissen/${article.slug}`,
+  );
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -75,7 +72,10 @@ function metaDescription(slug: string, fallback: string) {
     "zuckerwuerfel-als-orientierung": "Zuckerwürfel in Getränken berechnen: Gramm Zucker durch 3 teilen und Cola, Saft, Eistee oder Energy Drinks schneller einschätzen.",
   };
 
-  return descriptions[slug] ?? fallback;
+  const description = descriptions[slug] ?? fallback;
+  return description.length >= 120
+    ? description
+    : `${description} Dazu findest du Rechenwege und passende Produktvergleiche.`;
 }
 
 function relatedLinks(slug: string) {

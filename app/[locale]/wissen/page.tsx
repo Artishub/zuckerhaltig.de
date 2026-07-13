@@ -1,17 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { articles } from "@/lib/content/articles";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Zucker in Getränken: Wissen und Vergleiche",
-  },
-  description: "Zucker in Getränken nachschlagen: Cola Zucker pro 100 ml, Zuckerwürfel, Energy Drink Zucker pro Dose, Eistee Zucker und Saft im Vergleich.",
-  alternates: {
-    canonical: "/de/wissen",
-  },
-};
+export const metadata = pageMetadata("Zucker in Getränken: Wissen und Vergleiche", "Zucker in Getränken nachschlagen: Cola Zucker pro 100 ml, Zuckerwürfel, Energy Drink Zucker pro Dose, Eistee Zucker und Saft im Vergleich.", "/de/wissen");
 
 export default function KnowledgePage() {
   return (

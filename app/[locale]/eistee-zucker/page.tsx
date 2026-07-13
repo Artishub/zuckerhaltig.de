@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
 import { LinkCard, PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByCategory, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Eistee Zucker: Marken und Sorten vergleichen",
-  description: "Eistee nach Zucker vergleichen: Werte pro 100 ml, pro Packung und als Zuckerwürfel.",
-  alternates: { canonical: "/de/eistee-zucker" },
-};
+export const metadata = pageMetadata("Eistee Zucker: Marken und Sorten vergleichen", "Eistee nach Zucker vergleichen: Pfirsich, Zitrone und weitere Sorten pro 100 ml, pro Packung und als Zuckerwürfel. Mit Produktdetails und Quellen.", "/de/eistee-zucker");
 
 export default function IcedTeaSugarPage() {
   const icedTea = drinksByCategory("iced-tea");

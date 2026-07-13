@@ -9,6 +9,7 @@
     "typecheck": "npm run validate:data && tsc --noEmit",
     "validate:data": "node scripts/validate-drinks-data.mjs",
     "social:generate": "tsx scripts/social-generate.ts",
+    "social:generate-info": "tsx scripts/social-info-generate.ts",
     "social:upload-r2": "tsx scripts/social-upload-r2.ts",
     "social:buffer": "tsx scripts/social-buffer.ts",
     "social:channels": "tsx scripts/social-buffer.ts --list-channels",

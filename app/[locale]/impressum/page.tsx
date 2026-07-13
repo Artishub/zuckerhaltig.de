@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Impressum" };
+export const metadata = pageMetadata("Impressum", "Impressum von Zuckerhaltig.de mit Angaben zum Betreiber, Kontaktmöglichkeit und Hinweisen zur Haftung für die veröffentlichten Inhalte.", "/de/impressum");
 
 export default function ImpressumPage() {
   return (

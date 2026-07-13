@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByBrand, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Fanta vs. Sprite: Zucker im Vergleich",
-  description: "Fanta und Sprite nach Zucker vergleichen: pro 100 ml, pro Flasche und als Zuckerwürfel.",
-  alternates: { canonical: "/de/vergleiche/fanta-vs-sprite-zucker" },
-};
+export const metadata = pageMetadata("Fanta vs. Sprite: Zucker im Vergleich", "Fanta und Sprite nach Zucker vergleichen: klassische und zuckerfreie Sorten pro 100 ml, pro Flasche und als Zuckerwürfel mit direkten Produktlinks.", "/de/vergleiche/fanta-vs-sprite-zucker");
 
 export default function FantaSpritePage() {
   const fanta = topBySugarPer100(drinksByBrand("fanta", ["orange-limo", "softdrink"]), 8);

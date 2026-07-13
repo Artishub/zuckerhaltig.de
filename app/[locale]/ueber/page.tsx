@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Calculator, Database, MessageCircle } from "lucide-react";
+import { pageMetadata } from "@/lib/site";
 import styles from "./about.module.css";
 
-export const metadata: Metadata = {
-  title: "Über Zuckerhaltig.de",
-  description: "Wie Zuckerhaltig.de Getränkedaten sammelt, Quellen nutzt und Zucker pro Packung berechnet.",
-  alternates: { canonical: "/de/ueber" },
-};
+export const metadata = pageMetadata("Über Zuckerhaltig.de", "Wie Zuckerhaltig.de Getränkedaten sammelt, Quellen nutzt und Zucker pro Packung berechnet. Erfahre, wie Quellen geprüft und Packungswerte aus Angaben pro 100 ml berechnet werden.", "/de/ueber");
 
 const principles = [
   {

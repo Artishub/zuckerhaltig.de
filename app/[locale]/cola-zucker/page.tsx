@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LinkCard, PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByCategory, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Cola Zucker: Werte pro 100 ml und Flasche",
-  description: "Cola nach Zucker vergleichen: klassische Cola, Zero-Varianten und Packungsgrößen pro 100 ml und pro Flasche.",
-  alternates: { canonical: "/de/cola-zucker" },
-};
+export const metadata = pageMetadata("Cola Zucker: Werte pro 100 ml und Flasche", "Cola nach Zucker vergleichen: klassische Cola, Zero-Varianten und Packungsgrößen pro 100 ml, pro Flasche und als Zuckerwürfel. Mit Produktdetails und Quellen.", "/de/cola-zucker");
 
 export default function ColaSugarPage() {
   const cola = [...drinksByCategory("cola"), ...drinksByCategory("cola-mix")];

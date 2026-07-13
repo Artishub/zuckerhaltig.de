@@ -235,7 +235,7 @@ function metaDescription(drink: Drink, brandName: string, categoryName: string, 
   const packagePart = drink.sizeMl && totalSugar !== null
     ? `, ${formatNumber(totalSugar)} g pro ${drink.sizeMl}-ml-Packung`
     : "";
-  return `${drink.name} von ${brandName}: ${sugarPart}${packagePart}. Nährwerte und Quelle.`;
+  return `${drink.name} von ${brandName}: ${sugarPart}${packagePart}. Vergleiche den Zuckergehalt als ${categoryName}, Nährwerte, Packungsgröße und die hinterlegte Datenquelle.`;
 }
 
 function shortenTitleName(name: string, size: string) {

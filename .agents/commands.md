@@ -7,6 +7,17 @@ Run from repo root.
 - Typecheck: `npm run typecheck`
 - Build: `npm run build`
 
+Social tooling:
+- Generate posts: `npm run social:generate`
+- Generate informational posts: `npm run social:generate-info`
+- Preview five posts: `npm run social:preview`
+- Dry-run check: `npm run social:check`
+- Upload assets to R2: `npm run social:upload-r2`
+- Publish through Buffer: `npm run social:buffer`
+- List Buffer channels: `npm run social:channels`
+
+Social commands may require service credentials. Prefer `social:preview` or `social:check` when verifying generation without publishing.
+
 Notes:
 - `typecheck` and `build` both run `validate:data`.
 - No lint or test script exists unless `package.json` changes.

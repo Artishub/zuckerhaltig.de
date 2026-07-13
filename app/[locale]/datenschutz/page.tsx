@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Datenschutz" };
+export const metadata = pageMetadata("Datenschutz", "Datenschutzhinweise von Zuckerhaltig.de zu technischen Server-Logs, eingebundenen Diensten und der Verarbeitung von Zugriffsdaten beim Besuch der Website.", "/de/datenschutz");
 
 export default function DatenschutzPage() {
   return <LegalPage title="Datenschutz" text="Dieses MVP speichert keine Nutzerkonten, setzt keine eigenen Tracking-Cookies und verarbeitet keine Formulare. Server-Logs des Hostings können technisch notwendige Zugriffsdaten enthalten." />;

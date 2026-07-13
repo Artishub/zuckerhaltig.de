@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
 import { BrandSearchGrid } from "@/components/brand-search-grid";
 import { brands } from "@/lib/data/brands";
 import { categories } from "@/lib/data/categories";
 import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Marken",
-  description: "Markenübersicht der Getränkedatenbank: Coca-Cola, Fanta, Red Bull, Monster, Eistee, Saft und weitere Getränke nach Zuckerwerten vergleichen.",
-  alternates: {
-    canonical: "/de/marken",
-  },
-};
+export const metadata = pageMetadata("Marken", "Markenübersicht der Getränkedatenbank: Coca-Cola, Fanta, Red Bull, Monster, Eistee, Saft und weitere Getränke nach Zuckerwerten vergleichen.", "/de/marken");
 
 export default function BrandsPage() {
   const uniqueByBrand = Object.fromEntries(

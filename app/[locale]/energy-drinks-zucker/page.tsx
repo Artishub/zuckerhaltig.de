@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LinkCard, PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByCategory, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Energy Drinks Zucker: Red Bull, Monster und mehr",
-  description: "Energy Drinks nach Zucker vergleichen: Werte pro 100 ml, pro Dose und als Zuckerwürfel.",
-  alternates: { canonical: "/de/energy-drinks-zucker" },
-};
+export const metadata = pageMetadata("Energy Drinks Zucker: Red Bull, Monster und mehr", "Energy Drinks nach Zucker vergleichen: Red Bull, Monster und weitere Marken pro 100 ml, pro Dose und als Zuckerwürfel. Mit Packungswerten und Quellen.", "/de/energy-drinks-zucker");
 
 export default function EnergySugarPage() {
   const energy = drinksByCategory("energy");

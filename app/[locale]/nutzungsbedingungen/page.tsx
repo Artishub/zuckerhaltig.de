@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Nutzungsbedingungen" };
+export const metadata = pageMetadata("Nutzungsbedingungen", "Nutzungsbedingungen für Zuckerhaltig.de: Hinweise zur Verwendung der Getränkedaten, zu möglichen Rezepturänderungen und zur Prüfung aktueller Verpackungsangaben.", "/de/nutzungsbedingungen");
 
 export default function TermsPage() {
   return (

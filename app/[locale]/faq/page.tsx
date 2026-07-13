@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
 import { FaqNav } from "@/components/faq-nav";
 import { faq, faqCategories } from "@/lib/content/faq";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "FAQ: Zucker in Getränken, Cola und Energy Drinks",
-  description: "Antworten zu Zucker pro 100 ml, Zucker pro Flasche, Zuckerwürfeln, Cola, Eistee, Energy Drinks, Saft, Zero und Light.",
-  alternates: {
-    canonical: "/de/faq",
-  },
-};
+export const metadata = pageMetadata("FAQ: Zucker in Getränken, Cola und Energy Drinks", "Antworten zu Zucker pro 100 ml, Zucker pro Flasche, Zuckerwürfeln, Cola, Eistee, Energy Drinks, Saft, Zero und Light. Kurz und nachvollziehbar erklärt.", "/de/faq");
 
 export default function FaqPage() {
   const jsonLd = {

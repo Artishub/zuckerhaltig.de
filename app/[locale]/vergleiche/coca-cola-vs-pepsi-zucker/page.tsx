@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { averageSugar, drinksByBrand, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Coca-Cola vs. Pepsi: Zucker im Vergleich",
-  description: "Coca-Cola und Pepsi nach Zucker vergleichen: pro 100 ml, pro Packung und als Zuckerwürfel.",
-  alternates: { canonical: "/de/vergleiche/coca-cola-vs-pepsi-zucker" },
-};
+export const metadata = pageMetadata("Coca-Cola vs. Pepsi: Zucker im Vergleich", "Coca-Cola und Pepsi nach Zucker vergleichen: klassische und zuckerfreie Sorten pro 100 ml, pro Packung und als Zuckerwürfel mit direkten Produktlinks.", "/de/vergleiche/coca-cola-vs-pepsi-zucker");
 
 export default function CokePepsiPage() {
   const coke = topBySugarPer100(drinksByBrand("coca-cola", ["cola"]), 8);

@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { categories } from "@/lib/data/categories";
 import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Kategorien",
-  description: "Getränkekategorien von Cola bis Energy Drink: Zucker pro 100 ml, Packungszucker und Zuckerwürfel für Softdrinks, Saft, Eistee und Schorle vergleichen.",
-  alternates: {
-    canonical: "/de/kategorien",
-  },
-};
+export const metadata = pageMetadata("Kategorien", "Getränkekategorien von Cola bis Energy Drink: Zucker pro 100 ml, Packungszucker und Zuckerwürfel für Softdrinks, Saft, Eistee und Schorle vergleichen.", "/de/kategorien");
 
 export default function CategoriesPage() {
   return (
