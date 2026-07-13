@@ -44,27 +44,39 @@ export type Drink = {
 
 export const drinks = seed.drinks as Drink[];
 
-const canonicalDrinkIdsByExactProduct = new Map<string, string>();
+const canonicalDrinkIdsByProductFamily = new Map<string, string>();
+const drinksByProductFamily = new Map<string, Drink[]>();
 
 for (const drink of drinks) {
-  const key = exactProductKey(drink);
-  if (!canonicalDrinkIdsByExactProduct.has(key)) {
-    canonicalDrinkIdsByExactProduct.set(key, drink.id);
-  }
+  const key = productFamilyKey(drink);
+  drinksByProductFamily.set(key, [...(drinksByProductFamily.get(key) ?? []), drink]);
+}
+
+for (const family of drinksByProductFamily.values()) {
+  const representative = family.find((drink) => drink.sizeMl === 500) ?? family[0];
+  for (const drink of family) canonicalDrinkIdsByProductFamily.set(drink.id, representative.id);
 }
 
 export type DrinkDisplayItem =
   | { type: "drink"; id: string; drink: Drink }
   | { type: "group"; id: string; brandId: string; categoryId: string; drinks: Drink[]; representative: Drink };
 
+export function calculatePackageSugar(sugarPer100Ml: number, sizeMl: number) {
+  return Math.round(sugarPer100Ml * (sizeMl / 100) * 10) / 10;
+}
+
+export function calculateSugarCubes(totalSugar: number) {
+  return Math.round((totalSugar / 3) * 10) / 10;
+}
+
 export function totalSugarGrams(drink: Drink) {
   if (!drink.sizeMl) return null;
-  return Math.round(drink.sugarPer100Ml * (drink.sizeMl / 100) * 10) / 10;
+  return calculatePackageSugar(drink.sugarPer100Ml, drink.sizeMl);
 }
 
 export function sugarCubes(drink: Drink) {
   const total = totalSugarGrams(drink);
-  return total === null ? null : Math.round((total / 3) * 10) / 10;
+  return total === null ? null : calculateSugarCubes(total);
 }
 
 export function packageEnergyKcal(drink: Drink) {
@@ -76,11 +88,21 @@ export function productKey(drink: Drink) {
 }
 
 export function canonicalDrinkId(drink: Drink) {
-  return canonicalDrinkIdsByExactProduct.get(exactProductKey(drink)) ?? drink.id;
+  return canonicalDrinkIdsByProductFamily.get(drink.id) ?? drink.id;
 }
 
 export function canonicalDrinks(items: Drink[]) {
   return items.filter((drink) => canonicalDrinkId(drink) === drink.id);
+}
+
+export function productFamilyDrinks(drink: Drink) {
+  const bySize = new Map<number | null, Drink>();
+
+  for (const item of drinksByProductFamily.get(productFamilyKey(drink)) ?? [drink]) {
+    if (!bySize.has(item.sizeMl)) bySize.set(item.sizeMl, item);
+  }
+
+  return Array.from(bySize.values()).sort((a, b) => (a.sizeMl ?? Number.MAX_SAFE_INTEGER) - (b.sizeMl ?? Number.MAX_SAFE_INTEGER));
 }
 
 export function uniqueProductRepresentatives(items: Drink[]) {
@@ -128,12 +150,10 @@ function representativeScore(drink: Drink) {
   return Math.abs(drink.sizeMl - 500);
 }
 
-function exactProductKey(drink: Drink) {
+function productFamilyKey(drink: Drink) {
   return [
     drink.brandId,
     drink.name.trim().toLowerCase(),
-    drink.sizeMl ?? "",
     drink.sugarPer100Ml,
-    drink.sourceUrl ?? "",
   ].join(":");
 }

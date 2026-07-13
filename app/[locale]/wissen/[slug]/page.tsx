@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DrinkRows } from "@/components/seo-drink-list";
 import { articleBySlug, articles } from "@/lib/content/articles";
+import { drinks, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { formatNumber } from "@/lib/seo-drinks";
 import { pageMetadata } from "@/lib/site";
 
 type Props = {
@@ -33,11 +36,27 @@ export default async function ArticlePage({ params }: Props) {
       <p className="text-sm font-medium text-slate">{article.minutes} Minuten Lesezeit</p>
       <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{article.title}</h1>
       <p className="mt-5 text-lg leading-8 text-slate">{article.description}</p>
+      {article.slug === "cola-zucker-pro-100ml" && <ColaAnswer />}
       <div className="mt-10 space-y-5 border-t border-ash pt-8 text-lg leading-8 text-ink">
         {article.body.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
       </div>
+      {article.slug === "cola-zucker-pro-100ml" && <ColaComparison />}
+      {!!article.sources?.length && (
+        <section className="mt-10 border-t border-ash pt-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Quellen</h2>
+          <ul className="mt-4 space-y-2 text-sm leading-6">
+            {article.sources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <section className="mt-10 border-t border-ash pt-8">
         <h2 className="text-2xl font-semibold tracking-tight">Passend dazu</h2>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -50,6 +69,50 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       </section>
     </main>
+  );
+}
+
+function ColaAnswer() {
+  const drink = drinks.find((item) => item.id === "coca-cola-classic-500");
+  if (!drink) return null;
+  const totalSugar = totalSugarGrams(drink);
+
+  return (
+    <section className="mt-8 rounded-lg border border-ash bg-mist p-5">
+      <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
+      <p className="mt-2 text-lg leading-8">
+        {drink.name} liegt in der Datenbank bei <strong>{formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml</strong>.
+        {drink.sizeMl && totalSugar !== null ? ` In ${drink.sizeMl} ml sind das rechnerisch ${formatNumber(totalSugar)} g.` : ""}
+      </p>
+      <Link href={`/de/getraenke/${drink.id}`} className="mt-3 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
+        Produktdaten und Quelle ansehen
+      </Link>
+    </section>
+  );
+}
+
+const colaComparisonIds = [
+  "coca-cola-classic-500",
+  "coca-cola-zero-sugar-500",
+  "pepsi-500",
+  "afri-cola-classic-330",
+  "paulaner-spezi-500",
+  "mezzo-mix-original-500",
+  "fritz-kola-original-330",
+  "vita-cola-original-1000",
+];
+
+function ColaComparison() {
+  const comparisonDrinks = colaComparisonIds
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink): drink is Drink => Boolean(drink));
+
+  return (
+    <section className="mt-12 border-t border-ash pt-8">
+      <h2 className="text-3xl font-semibold tracking-tight">Cola-Produkte vergleichen</h2>
+      <p className="mb-5 mt-3 leading-7 text-slate">Beispiele aus der Datenbank, berechnet pro 100 ml und pro Packung.</p>
+      <DrinkRows drinks={comparisonDrinks} />
+    </section>
   );
 }
 
@@ -82,7 +145,7 @@ function relatedLinks(slug: string) {
   const links: Record<string, { href: string; label: string; description: string }[]> = {
     "zucker-pro-100ml-verstehen": [
       { href: "/de/getraenke", label: "Getränke nach Zucker sortieren", description: "Vergleiche alle Produkte direkt nach Zucker pro 100 ml." },
-      { href: "/de/wissen/packungsgroesse-entscheidet", label: "Zucker pro Flasche berechnen", description: "Warum die Packungsgröße den Gesamtzucker stark verändert." },
+      { href: "/de/zuckerrechner", label: "Zucker pro Flasche berechnen", description: "Zuckerwert und Füllmenge direkt umrechnen." },
     ],
     "energy-drinks-zucker-vergleichen": [
       { href: "/de/getraenke?category=energy", label: "Energy Drinks vergleichen", description: "Red Bull, Monster und weitere Energy Drinks nach Zucker filtern." },
@@ -105,6 +168,10 @@ function relatedLinks(slug: string) {
     "eistee-zucker-im-alltag": [
       { href: "/de/getraenke?category=iced-tea", label: "Eistee vergleichen", description: "Pfirsich, Zitrone und weitere Sorten nach Zucker filtern." },
       { href: "/de/wissen/packungsgroesse-entscheidet", label: "Packungsgröße prüfen", description: "Warum große Flaschen trotz moderater 100-ml-Werte relevant sind." },
+    ],
+    "packungsgroesse-entscheidet": [
+      { href: "/de/zuckerrechner", label: "Zucker pro Flasche berechnen", description: "Zucker pro 100 ml und Packungsgröße selbst eingeben." },
+      { href: "/de/getraenke", label: "Getränke vergleichen", description: "Gesamtzucker und Packungsgrößen vorhandener Produkte ansehen." },
     ],
     "zuckerfreie-getraenke-in-der-datenbank": [
       { href: "/de/getraenke", label: "Zuckerarme Getränke finden", description: "Filtere nach niedrigen Zuckerwerten und Zero-Produkten." },

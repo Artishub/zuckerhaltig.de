@@ -51,7 +51,8 @@ export default function LocaleLayout({ children }: { children: React.ReactNode }
           <p>Zuckerhaltig.de ist ein unabhängiges Informationsprojekt.<br />Angaben ohne Gewähr.</p>
           <div className="flex flex-wrap gap-4">
             <Link href="/de/ueber" className="hover:text-ink">Über</Link>
-            <Link href="/de/cola-zucker" className="hover:text-ink">Cola Zucker</Link>
+            <Link href="/de/wissen/cola-zucker-pro-100ml" className="hover:text-ink">Cola Zucker</Link>
+            <Link href="/de/zuckerrechner" className="hover:text-ink">Zuckerrechner</Link>
             <Link href="/de/energy-drinks-zucker" className="hover:text-ink">Energy Zucker</Link>
             <Link href="/de/eistee-zucker" className="hover:text-ink">Eistee Zucker</Link>
             <Link href="/de/rankings/zuckerreichste-getraenke" className="hover:text-ink">Ranking</Link>

@@ -35,6 +35,7 @@ export default function KnowledgePage() {
             { href: "/de/wissen/energy-drinks-zucker-vergleichen", label: "Red Bull Zucker pro Dose" },
             { href: "/de/wissen/energy-drinks-zucker-vergleichen", label: "Monster Energy Zucker 500 ml" },
             { href: "/de/wissen/eistee-zucker-im-alltag", label: "Eistee Pfirsich Zucker" },
+            { href: "/de/zuckerrechner", label: "Zucker pro Flasche berechnen" },
             { href: "/de/getraenke?category=cola", label: "Cola-Produkte vergleichen" },
             { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola Zucker" },
           ].map((item) => (

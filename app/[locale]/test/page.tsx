@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { canonicalDrinkId, drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
 import styles from "./test-home.module.css";
 
 export const metadata: Metadata = {
@@ -67,7 +67,7 @@ export default function TestHomePage() {
       </section>
 
       <section className={styles.quickNav} aria-label="Schnelleinstieg">
-        <Link href="/de/cola-zucker"><span>Cola</span><ArrowRight size={18} /></Link>
+        <Link href="/de/wissen/cola-zucker-pro-100ml"><span>Cola</span><ArrowRight size={18} /></Link>
         <Link href="/de/energy-drinks-zucker"><span>Energy Drinks</span><ArrowRight size={18} /></Link>
         <Link href="/de/eistee-zucker"><span>Eistee</span><ArrowRight size={18} /></Link>
         <Link href="/de/rankings/zuckerreichste-getraenke"><span>Ranking</span><ArrowRight size={18} /></Link>
@@ -124,7 +124,7 @@ function DrinkCard({ drink, rank }: { drink: Drink; rank: number }) {
   const cubes = sugarCubes(drink);
 
   return (
-    <Link href={`/de/getraenke/${drink.id}`} className={styles.drinkCard}>
+    <Link href={`/de/getraenke/${canonicalDrinkId(drink)}`} className={styles.drinkCard}>
       <div className={styles.drinkCardTop}><span>0{rank}</span><span>{categoryById[drink.categoryId]?.name}</span></div>
       <div>
         <p className={styles.brand}>{brandById[drink.brandId]?.name}</p>

@@ -12,9 +12,10 @@ type BrandSearchGridProps = {
   topDrinks: Record<string, { id: string; name: string; sugar: number | null }[]>;
   searchData: Record<string, { categories: string[]; text: string }>;
   categories: DrinkCategory[];
+  detailBrandIds: string[];
 };
 
-export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categories }: BrandSearchGridProps) {
+export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categories, detailBrandIds }: BrandSearchGridProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const filteredBrands = useMemo(() => {
@@ -70,7 +71,9 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
           const count = counts[brand.id] ?? 0;
           const products = topDrinks[brand.id] ?? [];
           const remaining = Math.max(0, count - products.length);
-          const actionLabel = remaining > 0 ? `${remaining} weitere` : "Getränke ansehen";
+          const hasDetailPage = detailBrandIds.includes(brand.id);
+          const actionLabel = hasDetailPage ? "Markenseite" : remaining > 0 ? `${remaining} weitere` : "Getränke ansehen";
+          const actionHref = hasDetailPage ? `/de/marken/${brand.id}` : `/de/getraenke?brand=${brand.id}`;
 
           return (
           <article key={brand.id} className="flex min-h-[236px] flex-col rounded-lg border border-ash p-4">
@@ -88,7 +91,7 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
                   </Link>
                 ))}
                 </div>
-                <Link href={`/de/getraenke?brand=${brand.id}`} className="focus-ring mt-auto inline-flex w-fit rounded-md border border-ink bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-ink hover:text-white dark:hover:text-black">
+                <Link href={actionHref} className="focus-ring mt-auto inline-flex w-fit rounded-md border border-ink bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-ink hover:text-white dark:hover:text-black">
                   {actionLabel}
                 </Link>
               </div>

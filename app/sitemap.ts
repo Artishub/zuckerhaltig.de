@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/content/articles";
 import { canonicalDrinks, drinks } from "@/lib/data/drinks";
+import { featuredBrandPages } from "@/lib/featured-brand-pages";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,11 +9,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/de",
     "/de/getraenke",
     "/de/marken",
+    "/de/zuckerrechner",
     "/de/kategorien",
     "/de/wissen",
     "/de/faq",
     "/de/ueber",
-    "/de/cola-zucker",
     "/de/energy-drinks-zucker",
     "/de/eistee-zucker",
     "/de/vergleiche/coca-cola-vs-pepsi-zucker",
@@ -26,17 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return [
-    ...staticRoutes.map((route) => ({
-      url: `${siteUrl}${route}`,
-      lastModified: new Date(),
-    })),
-    ...articles.map((article) => ({
-      url: `${siteUrl}/de/wissen/${article.slug}`,
-      lastModified: new Date(),
-    })),
+    ...staticRoutes.map((route) => ({ url: `${siteUrl}${route}` })),
+    ...featuredBrandPages.map((brand) => ({ url: `${siteUrl}/de/marken/${brand.id}` })),
+    ...articles.map((article) => ({ url: `${siteUrl}/de/wissen/${article.slug}` })),
     ...canonicalDrinks(drinks).map((drink) => ({
       url: `${siteUrl}/de/getraenke/${drink.id}`,
-      lastModified: new Date(),
+      ...(drink.lastCheckedAt ? { lastModified: drink.lastCheckedAt } : {}),
     })),
   ];
 }

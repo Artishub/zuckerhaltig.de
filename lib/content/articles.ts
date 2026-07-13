@@ -4,6 +4,7 @@ export type Article = {
   description: string;
   minutes: number;
   body: string[];
+  sources?: { label: string; url: string }[];
 };
 
 export const articles: Article[] = [
@@ -13,11 +14,15 @@ export const articles: Article[] = [
     description: "Zucker pro 100 ml verstehen: Cola, Eistee, Energy Drinks, Saft und Limo fair vergleichen.",
     minutes: 3,
     body: [
-      "Auf fast jedem Etikett steht Zucker pro 100 ml. Der Wert ist praktisch, weil er Cola, Saft, Eistee, Schorle und Energy Drinks auf dieselbe Basis bringt. Eine Dose und eine Literflasche lassen sich damit erst einmal fair nebeneinanderlegen.",
-      "Viele klassische Softdrinks und Energy Drinks liegen grob bei 9 bis 12 g Zucker pro 100 ml. Das klingt klein, weil 100 ml weniger als ein normales Glas sind. Bei 500 ml wird daraus aber schnell das Fünffache.",
-      "Deshalb reicht der 100-ml-Wert allein nicht. Ein Getränk mit 8 g Zucker pro 100 ml enthält bei 250 ml etwa 20 g Zucker, bei 1 Liter etwa 80 g. Die Rezeptur ist gleich, die getrunkene Menge nicht.",
-      "Für den Alltag funktioniert diese Reihenfolge: erst Zucker pro 100 ml lesen, dann die Packungsgröße prüfen, danach Gesamtzucker und Zuckerwürfel ansehen. So fällt schneller auf, ob ein Getränk nur süß schmeckt oder auch als ganze Packung viel Zucker liefert.",
-      "Wer nach „wie viel Zucker hat Cola pro 100 ml“ oder „Zucker pro 100 ml Energy Drink“ sucht, bekommt mit dem 100-ml-Wert also den richtigen Einstieg. Für die Frage „Wie viel Zucker trinke ich wirklich?“ brauchst du zusätzlich den Gesamtwert pro Packung.",
+      "Eine allgemeine Grenze dafür, ab wann ein Getränk viel Zucker hat, gibt es nicht. Für Angaben auf Verpackungen gelten aber feste EU-Schwellen: Als zuckerarm darf ein Getränk bis 2,5 g Zucker pro 100 ml bezeichnet werden, als zuckerfrei bis 0,5 g.",
+      "Zur Einordnung nennt die Deutsche Gesellschaft für Ernährung für viele zuckergesüßte Getränke etwa 80 bis 100 g Zucker pro Liter. Das entspricht 8 bis 10 g pro 100 ml.",
+      "Der Wert pro 100 ml macht unterschiedliche Getränke vergleichbar. Die Packungsgröße zeigt anschließend, wie viel Zucker insgesamt enthalten ist. Ein Getränk mit 8 g pro 100 ml kommt bei 250 ml auf 20 g und bei 1 Liter auf 80 g.",
+      "Lies deshalb zuerst Zucker pro 100 ml und dann die Füllmenge. Aus beiden Werten lässt sich der Gesamtzucker berechnen: Zucker pro 100 ml mal Milliliter, geteilt durch 100.",
+      "Zuckerwürfel sind nur eine Rechenhilfe. Zuckerhaltig.de teilt den Gesamtzucker durch 3 g pro Würfel, damit sich Packungen leichter vergleichen lassen.",
+    ],
+    sources: [
+      { label: "EU-Verordnung zu den Angaben zuckerarm und zuckerfrei", url: "https://eur-lex.europa.eu/eli/reg/2006/1924/oj?locale=de" },
+      { label: "DGE: Getränke", url: "https://www.dge.de/gesunde-ernaehrung/gut-essen-und-trinken/dge-ernaehrungskreis/getraenke/" },
     ],
   },
   {
@@ -35,16 +40,15 @@ export const articles: Article[] = [
   },
   {
     slug: "cola-zucker-pro-100ml",
-    title: "Cola Zucker pro 100 ml: wie viel steckt drin?",
+    title: "Wie viel Zucker hat Cola pro 100 ml?",
     description: "Wie viel Zucker hat Cola? Coca-Cola, afri cola und Cola-Mix nach 100 ml, Flasche und Zuckerwürfeln vergleichen.",
     minutes: 4,
     body: [
-      "Wer „cola zucker pro 100ml“ oder „zuckergehalt cola“ sucht, will meist wissen, wie süß Cola im Vergleich wirklich ist. Dafür zählt zuerst Zucker pro 100 ml.",
-      "In der Datenbank liegt Coca-Cola Classic bei 10,6 g Zucker pro 100 ml. Bei 500 ml ergibt das 53 g Zucker. Coca-Cola Vanilla liegt in der 500-ml-Flasche bei 11,1 g pro 100 ml, also 55,5 g pro Flasche.",
-      "Andere Cola-Produkte liegen nicht automatisch gleichauf. afri cola classic ist hier mit 9 g Zucker pro 100 ml in der 330-ml-Dose erfasst, also 29,7 g pro Dose. afri cola extra Koffein liegt bei 10,6 g pro 100 ml und 35 g pro 330 ml.",
-      "Die Packung macht den Unterschied sichtbar. Eine kleine Dose und eine 1-Liter-Flasche können denselben 100-ml-Wert haben, liefern aber völlig andere Gesamtmengen.",
-      "Für Zuckerwürfel nutzt die Seite 3 g pro Würfel. Eine 500-ml-Flasche Coca-Cola Classic mit 53 g Zucker entspricht rechnerisch etwa 17,7 Würfeln. Coca-Cola Vanilla mit 55,5 g liegt bei etwa 18,5 Würfeln.",
-      "Cola-Mix gehört separat betrachtet. Paulaner Spezi ist mit 9,2 g pro 100 ml erfasst, Mezzo Mix Original mit 7,9 g pro 100 ml. Pro Flasche kann trotzdem einiges zusammenkommen.",
+      "Für einen fairen Cola-Vergleich zählt zuerst der Zuckerwert pro 100 ml. So lassen sich Dose, Flasche und verschiedene Marken auf derselben Basis lesen.",
+      "Der zweite Wert ist der Gesamtzucker pro Packung. Eine kleine Dose und eine 1-Liter-Flasche können denselben Wert pro 100 ml haben, enthalten insgesamt aber unterschiedliche Mengen.",
+      "Classic, Zero und Light sollten getrennt gelesen werden. Der genaue Produktname ist wichtiger als die Marke allein, weil die Rezepturen deutlich voneinander abweichen können.",
+      "Auch Cola-Mix ist eine eigene Gruppe. Spezi und Mezzo Mix verbinden Cola mit Orangenlimonade und müssen nicht denselben Zuckerwert wie klassische Cola haben.",
+      "Die Tabelle verwendet die hinterlegten Nährwertangaben und verlinkt jedes Produkt mit Quelle und Prüfdatum. Zuckerwürfel werden mit 3 g pro Würfel berechnet.",
     ],
   },
   {

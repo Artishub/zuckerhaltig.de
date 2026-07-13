@@ -1,7 +1,8 @@
 import { BrandSearchGrid } from "@/components/brand-search-grid";
 import { brands } from "@/lib/data/brands";
 import { categories } from "@/lib/data/categories";
-import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { canonicalDrinkId, drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { featuredBrandPages } from "@/lib/featured-brand-pages";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata("Marken", "Markenübersicht der Getränkedatenbank: Coca-Cola, Fanta, Red Bull, Monster, Eistee, Saft und weitere Getränke nach Zuckerwerten vergleichen.", "/de/marken");
@@ -19,7 +20,7 @@ export default function BrandsPage() {
       uniqueByBrand[brand.id]
         .sort((a, b) => (totalSugarGrams(b) ?? -1) - (totalSugarGrams(a) ?? -1))
         .slice(0, 3)
-        .map((drink) => ({ id: drink.id, name: drink.name, sugar: totalSugarGrams(drink) })),
+        .map((drink) => ({ id: canonicalDrinkId(drink), name: drink.name, sugar: totalSugarGrams(drink) })),
     ]),
   );
   const brandSearchData = Object.fromEntries(
@@ -41,7 +42,14 @@ export default function BrandsPage() {
       <p className="mt-4 max-w-2xl leading-7 text-slate">
         Vergleiche Getränkemarken nach Zuckerwerten, Produktvarianten und Packungsgrößen. Jede Marke führt direkt zur gefilterten Getränkesuche.
       </p>
-      <BrandSearchGrid brands={brands} counts={counts} topDrinks={topDrinks} searchData={brandSearchData} categories={categories} />
+      <BrandSearchGrid
+        brands={brands}
+        counts={counts}
+        topDrinks={topDrinks}
+        searchData={brandSearchData}
+        categories={categories}
+        detailBrandIds={featuredBrandPages.map((page) => page.id)}
+      />
     </main>
   );
 }

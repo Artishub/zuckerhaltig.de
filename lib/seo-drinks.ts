@@ -1,6 +1,6 @@
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { drinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
+import { canonicalDrinkId, drinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
 
 export function formatNumber(value: number) {
   return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
@@ -19,7 +19,7 @@ export function categoryName(drink: Drink) {
 }
 
 export function drinkHref(drink: Drink) {
-  return `/de/getraenke/${drink.id}`;
+  return `/de/getraenke/${canonicalDrinkId(drink)}`;
 }
 
 export function drinkSummary(drink: Drink) {
