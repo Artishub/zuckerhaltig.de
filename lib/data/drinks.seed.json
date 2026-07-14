@@ -7255,19 +7255,19 @@
       "categoryId": "juice",
       "sizeMl": 1000,
       "sugarPer100Ml": 8.8,
-      "source": "Knuspr Produktseite / hohes C Produktkategorie",
-      "note": "Retailerwert; vor Livegang mit aktuellem Etikett prüfen.",
-      "sourceUrl": "https://www.knuspr.de/1506-hohes-c-orange-einweg",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-06-10",
+      "source": "hohes C Produktseite",
+      "note": "1-l-Gebinde und Nährwerte laut Hersteller.",
+      "sourceUrl": "https://www.hohesc.de/products/orangensafte/klassik-orange/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
       "nutritionPer100Ml": {
-        "energyKj": 183,
+        "energyKj": 180,
         "energyKcal": 43,
         "carbohydrates": 8.8,
         "sugar": 8.8,
-        "fat": 0.5,
+        "fat": 0,
         "protein": 0.7,
-        "salt": 0.01
+        "salt": 0
       },
       "computed": {
         "sugarPerPackage": 88,
@@ -7623,11 +7623,11 @@
       "categoryId": "mate",
       "sizeMl": 500,
       "sugarPer100Ml": 5.7,
-      "source": "Getränke-City Produktseite",
-      "note": "Sehr relevante Mate-Alternative zu Club-Mate.",
-      "sourceUrl": "https://www.getraenke-city.de/mio-mio-mate",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-06-11",
+      "source": "Mio Mio Produktseite",
+      "note": "Nährwerte und 0,5-l-Mehrwegflasche vom Hersteller bestätigt.",
+      "sourceUrl": "https://www.miomio.com/mate-original/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
       "nutritionPer100Ml": {
         "energyKj": 102,
         "energyKcal": 24,
@@ -7715,11 +7715,11 @@
       "categoryId": "softdrink",
       "sizeMl": 350,
       "sugarPer100Ml": 7.9,
-      "source": "Gurkerl Produktseite",
-      "note": "Österreichischer Kräuterlimonaden-Klassiker, auch in Deutschland erhältlich.",
-      "sourceUrl": "https://www.gurkerl.at/7159-almdudler-350ml-mehrweg",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-06-11",
+      "source": "Almdudler Produktseite",
+      "note": "0,35-l-Mehrwegflasche; Salz <0,01 g als 0,01 g gespeichert.",
+      "sourceUrl": "https://almdudler.com/de/almdudler-das-original",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
       "nutritionPer100Ml": {
         "energyKj": 141,
         "energyKcal": 33,
@@ -7727,7 +7727,7 @@
         "sugar": 7.9,
         "fat": 0,
         "protein": 0,
-        "salt": 0.1
+        "salt": 0.01
       },
       "computed": {
         "sugarPerPackage": 27.7,
@@ -7761,11 +7761,11 @@
       "categoryId": "softdrink",
       "sizeMl": 500,
       "sugarPer100Ml": 7.9,
-      "source": "Gurkerl Produktseite",
-      "note": "Größere Flasche, gleiche Rezeptur pro 100 ml.",
-      "sourceUrl": "https://www.gurkerl.at/7159-almdudler-350ml-mehrweg",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-06-11",
+      "source": "Almdudler Produktseite",
+      "note": "0,5-l-PET-Flasche; Salz <0,01 g als 0,01 g gespeichert.",
+      "sourceUrl": "https://almdudler.com/de/almdudler-das-original",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
       "nutritionPer100Ml": {
         "energyKj": 141,
         "energyKcal": 33,
@@ -7773,7 +7773,7 @@
         "sugar": 7.9,
         "fat": 0,
         "protein": 0,
-        "salt": 0.1
+        "salt": 0.01
       },
       "computed": {
         "sugarPerPackage": 39.5,
@@ -7807,24 +7807,24 @@
       "categoryId": "softdrink",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "FDDB Produktseite",
-      "note": "Zuckerfreie Kräuterlimonade; vor Livegang Etikett prüfen.",
-      "sourceUrl": "https://fddb.mobi/de/almdudler_almdudler_zuckerfrei_kraeuter_limonade.html",
-      "verificationStatus": "open_database_import",
-      "lastCheckedAt": "2026-06-11",
+      "source": "Almdudler Produktseite",
+      "note": "0,5-l-PET-Flasche; Salz <0,01 g als 0,01 g gespeichert.",
+      "sourceUrl": "https://almdudler.com/at/almdudler-zero-sugar",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
       "nutritionPer100Ml": {
-        "energyKj": 6,
-        "energyKcal": 1,
+        "energyKj": 5.9,
+        "energyKcal": 1.4,
         "carbohydrates": 0,
         "sugar": 0,
         "fat": 0,
         "protein": 0,
-        "salt": 0.1
+        "salt": 0.01
       },
       "computed": {
         "sugarPerPackage": 0,
         "sugarCubesPerPackage": 0,
-        "energyKcalPerPackage": 5,
+        "energyKcalPerPackage": 7,
         "formula": "0.0 g × 500 ml / 100 = 0.0 g Zucker"
       },
       "faq": [
@@ -7842,7 +7842,7 @@
         },
         {
           "question": "Wie viel Energie hat Almdudler Zuckerfrei pro 500 ml?",
-          "answer": "Rechnerisch enthält 500 ml etwa 5.0 kcal. Die Basisangabe liegt bei 1 kcal pro 100 ml."
+          "answer": "Rechnerisch enthält 500 ml etwa 7,0 kcal. Die Basisangabe liegt bei 1,4 kcal pro 100 ml."
         }
       ]
     },
@@ -9417,9 +9417,10 @@
       "sizeMl": 330,
       "sugarPer100Ml": 10,
       "source": "Brauerei Loscher Produktseite",
-      "note": "Cola mit Mate-Komponente.",
+      "note": "Aktuelle Herstellerwerte der 0,33-l-Club-Mate-Cola.",
       "verificationStatus": "manufacturer_verified",
-      "lastCheckedAt": "2026-06-11",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://brauerei-loscher.de/getraenke/erfrischungen/",
       "nutritionPer100Ml": {
         "energyKj": 167,
         "energyKcal": 40,
@@ -9553,11 +9554,20 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 8.5,
-      "source": "Sinalco nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 150 kJ / 35 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28",
-      "sourceUrl": "https://www.sinalco.de/produkte/orange"
+      "source": "Sinalco Produktseite",
+      "note": "0,33-l-Glasflasche und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.sinalco.de/produkte/orange",
+      "nutritionPer100Ml": {
+        "energyKj": 150,
+        "energyKcal": 35,
+        "carbohydrates": 8.5,
+        "sugar": 8.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.06
+      }
     },
     {
       "id": "sinalco-cola-330",
@@ -9566,11 +9576,20 @@
       "categoryId": "cola",
       "sizeMl": 330,
       "sugarPer100Ml": 10,
-      "source": "Sinalco nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 178 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28",
-      "sourceUrl": "https://www.sinalco.de/produkte/cola"
+      "source": "Sinalco Produktseite",
+      "note": "0,33-l-Glasflasche und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.sinalco.de/produkte/cola",
+      "nutritionPer100Ml": {
+        "energyKj": 178,
+        "energyKcal": 42,
+        "carbohydrates": 10,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.05
+      }
     },
     {
       "id": "sinalco-cola-mix-330",
@@ -9578,12 +9597,21 @@
       "brandId": "sinalco",
       "categoryId": "cola-mix",
       "sizeMl": 330,
-      "sugarPer100Ml": 9.7,
-      "source": "Foerdewasser retailer",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 168 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28",
-      "sourceUrl": "https://www.sinalco.de/produkte/cola-mix"
+      "sugarPer100Ml": 8.8,
+      "source": "Sinalco Produktseite",
+      "note": "0,33-l-Glasflasche und Nährwerte laut Hersteller; veralteten CSV-Wert ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.sinalco.de/produkte/cola-mix",
+      "nutritionPer100Ml": {
+        "energyKj": 151,
+        "energyKcal": 36,
+        "carbohydrates": 8.9,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.06
+      }
     },
     {
       "id": "sinalco-cola-mix-ohne-zucker-330",
@@ -9592,11 +9620,20 @@
       "categoryId": "cola-mix",
       "sizeMl": 330,
       "sugarPer100Ml": 0.5,
-      "source": "Sinalco nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28",
-      "sourceUrl": "https://www.sinalco.de/produkte/cola-mix-ohne-zucker"
+      "source": "Sinalco Produktseite",
+      "note": "Nährwerte laut Hersteller; 0,33-l-Gebinde aktuell nicht aufgeführt. Werte <0,5 g als 0,5 gespeichert.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.sinalco.de/produkte/cola-mix-ohne-zucker",
+      "nutritionPer100Ml": {
+        "energyKj": 8,
+        "energyKcal": 2,
+        "carbohydrates": 0.5,
+        "sugar": 0.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.07
+      }
     },
     {
       "id": "7up-original-330",
@@ -9618,10 +9655,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 5.2,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 89 kJ / 21 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/zitrone-bergamotte/",
+      "nutritionPer100Ml": {
+        "energyKj": 89,
+        "energyKcal": 21,
+        "carbohydrates": 5.2,
+        "sugar": 5.2,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-ingwer-orange-330",
@@ -9630,10 +9677,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 4.3,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 82 kJ / 19 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/ingwer-orange/",
+      "nutritionPer100Ml": {
+        "energyKj": 82,
+        "energyKcal": 19,
+        "carbohydrates": 4.3,
+        "sugar": 4.3,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-kraeuter-330",
@@ -9642,10 +9699,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 5,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/kraeuter/",
+      "nutritionPer100Ml": {
+        "energyKj": 95,
+        "energyKcal": 22,
+        "carbohydrates": 5,
+        "sugar": 5,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-holunderbluete-330",
@@ -9654,11 +9721,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 4.9,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 85 kJ / 20 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/holunderbluete/"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/holunderbluete/",
+      "nutritionPer100Ml": {
+        "energyKj": 85,
+        "energyKcal": 20,
+        "carbohydrates": 5,
+        "sugar": 4.9,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-schwarze-johannisbeere-rosmarin-330",
@@ -9667,11 +9743,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 5.6,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 104 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/schwarze-johannisbeere-rosmarin/"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/schwarze-johannisbeere-rosmarin/",
+      "nutritionPer100Ml": {
+        "energyKj": 104,
+        "energyKcal": 24,
+        "carbohydrates": 5.6,
+        "sugar": 5.6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-himbeer-pflaume-330",
@@ -9680,11 +9765,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 4.6,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 80 kJ / 19 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/himbeer-pflaume/"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/himbeer-pflaume/",
+      "nutritionPer100Ml": {
+        "energyKj": 80,
+        "energyKcal": 19,
+        "carbohydrates": 4.6,
+        "sugar": 4.6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-litschi-330",
@@ -9693,10 +9787,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 4.7,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 90 kJ / 21 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/litschi/",
+      "nutritionPer100Ml": {
+        "energyKj": 90,
+        "energyKcal": 21,
+        "carbohydrates": 4.7,
+        "sugar": 4.7,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-mate-pfirsich-330",
@@ -9705,11 +9809,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 4.8,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 84 kJ / 20 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/mate-pfirsich/"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/mate-pfirsich/",
+      "nutritionPer100Ml": {
+        "energyKj": 84,
+        "energyKcal": 20,
+        "carbohydrates": 4.8,
+        "sugar": 4.8,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-mate-pur-330",
@@ -9718,11 +9831,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 4.6,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 81 kJ / 19 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/en/flavour/mate-pur/"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/mate-pur/",
+      "nutritionPer100Ml": {
+        "energyKj": 81,
+        "energyKcal": 19,
+        "carbohydrates": 4.6,
+        "sugar": 4.6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-mate-limette-330",
@@ -9731,11 +9853,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 4.5,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 79 kJ / 19 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/mate-limette/"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g bzw. <0,01 g als Grenzwerte gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/mate-limette/",
+      "nutritionPer100Ml": {
+        "energyKj": 79,
+        "energyKcal": 19,
+        "carbohydrates": 4.5,
+        "sugar": 4.5,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "fanta-fruit-twist-330",
@@ -9846,10 +9977,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "Five Star Trading page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 14 kJ / 3 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28"
+      "source": "REWE product page",
+      "note": "REWE führt die aktuelle 500-ml-Variante als Monster Energy Zero Sugar; die Produktbeschreibung ordnet sie der bisherigen Absolutely-Zero-Variante zu.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-energy-zero-sugar-0-5l/1317063",
+      "nutritionPer100Ml": {
+        "energyKj": 13,
+        "energyKcal": 3,
+        "carbohydrates": 1,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.2
+      }
     },
     {
       "id": "club-mate-cola-500",
@@ -9858,10 +9999,20 @@
       "categoryId": "mate",
       "sizeMl": 500,
       "sugarPer100Ml": 10,
-      "source": "Club-Mate nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 212 kJ / 30 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Brauerei Loscher Produktseite",
+      "note": "Aktuelle Herstellerwerte für Club-Mate Cola; die derzeitige 0,5-l-Packungsgröße ist beim Hersteller nicht belegt und muss am Etikett geprüft werden.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://brauerei-loscher.de/getraenke/erfrischungen/",
+      "nutritionPer100Ml": {
+        "energyKj": 167,
+        "energyKcal": 40,
+        "carbohydrates": 10,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "club-mate-granatapfel-500",
@@ -9870,10 +10021,20 @@
       "categoryId": "mate",
       "sizeMl": 500,
       "sugarPer100Ml": 5.3,
-      "source": "Club-Mate nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 23 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Brauerei Loscher Produktseite",
+      "note": "Aktuelle Herstellerwerte der 0,5-l-Variante Club-Mate Granat.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://brauerei-loscher.de/produkt/club-mate-granat/",
+      "nutritionPer100Ml": {
+        "energyKj": 95,
+        "energyKcal": 23,
+        "carbohydrates": 5.3,
+        "sugar": 5.3,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "club-mate-kraftstoff-500",
@@ -9882,10 +10043,20 @@
       "categoryId": "mate",
       "sizeMl": 500,
       "sugarPer100Ml": 7,
-      "source": "Club-Mate nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 117 kJ / 28 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Brauerei Loscher Produktseite",
+      "note": "Aktuelle Herstellerwerte der 0,5-l-Variante Club-Mate Ice-T Kraftstoff.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://brauerei-loscher.de/produkt/ice-t-kraftstoff/",
+      "nutritionPer100Ml": {
+        "energyKj": 117,
+        "energyKcal": 28,
+        "carbohydrates": 7,
+        "sugar": 7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "bionade-streuobst-330",
@@ -9981,11 +10152,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 11,
-      "source": "Dosenmatrosen retailer",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 194 kJ / 46 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28",
-      "sourceUrl": "https://www.effect-energy.com"
+      "source": "Steam-Time Produktseite",
+      "note": "500-ml-Dose; vollständige Nährwerte laut Händlerangabe pro 100 ml.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.steam-time.de/effect-energy-drink-maxi-0-5l-einweg",
+      "nutritionPer100Ml": {
+        "energyKj": 194,
+        "energyKcal": 46,
+        "carbohydrates": 11,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.17
+      }
     },
     {
       "id": "goenrgy-cola-cherry-500",
@@ -10007,11 +10187,20 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 0,
-      "source": "Almdudler official",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 5.9 kJ / 1.4 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28",
-      "sourceUrl": "https://www.almdudler.com/en/produkte/almdudler-zero"
+      "source": "Almdudler Produktseite",
+      "note": "0,33-l-Dose; Salz <0,01 g als 0,01 g gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://almdudler.com/at/almdudler-zero-sugar",
+      "nutritionPer100Ml": {
+        "energyKj": 5.9,
+        "energyKcal": 1.4,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      }
     },
     {
       "id": "almdudler-original-330",
@@ -10020,11 +10209,20 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 7.9,
-      "source": "Almdudler official",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 141 kJ / 33 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28",
-      "sourceUrl": "https://www.almdudler.com/en/produkte/almdudler-original"
+      "source": "Almdudler Produktseite",
+      "note": "0,33-l-Dose; Salz <0,01 g als 0,01 g gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://almdudler.com/de/almdudler-das-original",
+      "nutritionPer100Ml": {
+        "energyKj": 141,
+        "energyKcal": 33,
+        "carbohydrates": 7.9,
+        "sugar": 7.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      }
     },
     {
       "id": "orangina-original-250",
@@ -10046,10 +10244,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 11,
-      "source": "Five Star Trading page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. Vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-28"
+      "source": "REWE product page",
+      "note": "Aktuelle Nährwerte der deutschen 500-ml-Dose laut Händlerangabe.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-energy-juiced-mango-loco-0-5l/8195795",
+      "nutritionPer100Ml": {
+        "energyKj": 203,
+        "energyKcal": 48,
+        "carbohydrates": 12,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.05
+      }
     },
     {
       "id": "pepsi-original-330",
@@ -10756,11 +10964,20 @@
       "categoryId": "cola-mix",
       "sizeMl": 330,
       "sugarPer100Ml": 0.5,
-      "source": "Knuspr.de nutritional info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 6 kJ / 1 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.paulaner.de/spezi-zero"
+      "source": "Paulaner Produktseite",
+      "note": "0,33-l-Gebinde laut Hersteller; Werte <0,5 g als 0,5 gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.paulaner.de/produkte/spezi/spezi-zero/",
+      "nutritionPer100Ml": {
+        "energyKj": 6,
+        "energyKcal": 1,
+        "carbohydrates": 0.5,
+        "sugar": 0.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.04
+      }
     },
     {
       "id": "club-mate-cola-zero-330",
@@ -10781,11 +10998,20 @@
       "categoryId": "mate",
       "sizeMl": 500,
       "sugarPer100Ml": 5,
-      "source": "Club Mate info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.club-mate.de/shop/unkategorisiert-de/club-mate-winter-edition-aktionspaket/"
+      "source": "Brauerei Loscher Produktseite",
+      "note": "Der frühere CSV-Energiewert wurde durch die aktuellen Herstellerwerte der 0,5-l-Winter-Edition ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://brauerei-loscher.de/getraenke/erfrischungen/",
+      "nutritionPer100Ml": {
+        "energyKj": 84,
+        "energyKcal": 20,
+        "carbohydrates": 5,
+        "sugar": 5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "bionade-ingwer-minze-330",
@@ -11023,10 +11249,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "Monster nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "REWE product page",
+      "note": "Aktuelle Nährwerte der deutschen 500-ml-Dose laut Händlerangabe.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-energy-ultra-white-0-5l/2729422",
+      "nutritionPer100Ml": {
+        "energyKj": 10,
+        "energyKcal": 2,
+        "carbohydrates": 0.9,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.2
+      }
     },
     {
       "id": "monster-energy-ultra-watermelon-500",
@@ -11035,10 +11271,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "Monster nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "REWE product page",
+      "note": "Aktuelle Nährwerte der deutschen 500-ml-Dose laut Händlerangabe.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-energy-ultra-watermelon-0-5l/7886113",
+      "nutritionPer100Ml": {
+        "energyKj": 11,
+        "energyKcal": 3,
+        "carbohydrates": 1.3,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.1
+      }
     },
     {
       "id": "monster-energy-ultra-gold-500",
@@ -11047,10 +11293,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "Monster nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "REWE product page",
+      "note": "Aktuelle Nährwerte der deutschen 500-ml-Dose laut Händlerangabe.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-ultra-energy-ultra-gold-0-5l/8765816",
+      "nutritionPer100Ml": {
+        "energyKj": 9,
+        "energyKcal": 2,
+        "carbohydrates": 1.1,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.11
+      }
     },
     {
       "id": "monster-energy-ultra-blue-500",
@@ -11059,10 +11315,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "Monster nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Five Star Trading Holland product page",
+      "note": "Nährwerte einer importierten bulgarischen 500-ml-Dose; die deutsche Monster-Produktseite führt Ultra Blue derzeit nicht.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://fivestartrading-holland.eu/getraenke/energiegetranke/monster-energy-ultra-blue/?lang=de",
+      "nutritionPer100Ml": {
+        "energyKj": 13,
+        "energyKcal": 3,
+        "carbohydrates": 1.4,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.2
+      }
     },
     {
       "id": "monster-energy-assault-500",
@@ -11070,11 +11336,21 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 11,
-      "source": "Monster nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "sugarPer100Ml": 16,
+      "source": "REWE product page",
+      "note": "Der frühere CSV-Wert wurde durch die aktuellen Nährwerte der deutschen 500-ml-Dose ersetzt.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-energy-assault-0-5l/1236419",
+      "nutritionPer100Ml": {
+        "energyKj": 302,
+        "energyKcal": 71,
+        "carbohydrates": 18,
+        "sugar": 16,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.06
+      }
     },
     {
       "id": "monster-energy-the-doctor-500",
@@ -11083,10 +11359,20 @@
       "categoryId": "energy",
       "sizeMl": 500,
       "sugarPer100Ml": 10,
-      "source": "Monster nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 167 kJ / 40 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "REWE product page",
+      "note": "Aktuelle Nährwerte der deutschen 500-ml-Dose laut Händlerangabe.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-energy-the-doctor-0-5l/2202552",
+      "nutritionPer100Ml": {
+        "energyKj": 186,
+        "energyKcal": 44,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.2
+      }
     },
     {
       "id": "monster-energy-nitro-500",
@@ -11094,11 +11380,21 @@
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
-      "sugarPer100Ml": 9,
-      "source": "Monster nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 150 kJ / 36 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "sugarPer100Ml": 11,
+      "source": "REWE product page",
+      "note": "Der frühere CSV-Wert wurde durch die aktuellen Nährwerte der deutschen 500-ml-Dose ersetzt.",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.rewe.de/shop/p/monster-energy-nitro-0-5l/7886994",
+      "nutritionPer100Ml": {
+        "energyKj": 198,
+        "energyKcal": 47,
+        "carbohydrates": 12,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.21
+      }
     },
     {
       "id": "rockstar-energy-xdurance-blueberry-500",
@@ -11242,10 +11538,20 @@
       "categoryId": "energy",
       "sizeMl": 250,
       "sugarPer100Ml": 0,
-      "source": "Red Bull nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "REWE Produktseite",
+      "note": "Aktuelle Nährwerte und 0,25-l-Dose beim Händler geprüft.",
+      "sourceUrl": "https://www.rewe.de/shop/p/red-bull-energy-drink-zuckerfrei-0-25l/478443",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 13,
+        "energyKcal": 3,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.1
+      }
     },
     {
       "id": "red-bull-coconut-edition-250",
@@ -11254,10 +11560,20 @@
       "categoryId": "energy",
       "sizeMl": 250,
       "sugarPer100Ml": 11,
-      "source": "Red Bull nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "REWE Produktseite",
+      "note": "Importierte Peach Edition mit schwedischer Geschmacksbezeichnung; Nährwerte und 0,25-l-Dose beim Händler geprüft.",
+      "sourceUrl": "https://www.rewe.de/shop/p/red-bull-energy-drink-peach-edition-persikosmak-0-25l/9993872",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 192,
+        "energyKcal": 45,
+        "carbohydrates": 11,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.1
+      }
     },
     {
       "id": "red-bull-peach-edition-250",
@@ -11278,10 +11594,20 @@
       "categoryId": "juice",
       "sizeMl": 1000,
       "sugarPer100Ml": 8.8,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 183 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "hohes C Produktseite",
+      "note": "1-l-Gebinde und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/orangensafte/milde-orange/",
+      "nutritionPer100Ml": {
+        "energyKj": 180,
+        "energyKcal": 43,
+        "carbohydrates": 8.8,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0.7,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-milder-multivitamin-200",
@@ -11289,11 +11615,21 @@
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 200,
-      "sugarPer100Ml": 9.2,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 192 kJ / 46 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "sugarPer100Ml": 10,
+      "source": "hohes C Produktseite",
+      "note": "0,2-l-Gebinde und aktuelle Nährwerte laut Hersteller; veralteten CSV-Wert ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/milder-multivitamin/",
+      "nutritionPer100Ml": {
+        "energyKj": 197,
+        "energyKcal": 47,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-milder-apfel-200",
@@ -11302,10 +11638,20 @@
       "categoryId": "juice",
       "sizeMl": 200,
       "sugarPer100Ml": 9.6,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "hohes C Produktseite",
+      "note": "0,2-l-Gebinde und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/milder-apfel/",
+      "nutritionPer100Ml": {
+        "energyKj": 180,
+        "energyKcal": 43,
+        "carbohydrates": 10,
+        "sugar": 9.6,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-milder-apfel-1000",
@@ -11313,11 +11659,21 @@
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 1000,
-      "sugarPer100Ml": 9.9,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 187 kJ / 44 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "sugarPer100Ml": 10,
+      "source": "hohes C Produktseite",
+      "note": "1-l-Standardgebinde und aktuelle Nährwerte laut Hersteller; veralteten CSV-Wert ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/milder-apfel/",
+      "nutritionPer100Ml": {
+        "energyKj": 188,
+        "energyKcal": 45,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-multivitamin-1000",
@@ -11325,11 +11681,21 @@
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 1000,
-      "sugarPer100Ml": 9.9,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 191 kJ / 45 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "sugarPer100Ml": 10,
+      "source": "hohes C Produktseite",
+      "note": "1-l-Gebinde und aktuelle Nährwerte laut Hersteller; veralteten CSV-Wert ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/multivitamin/",
+      "nutritionPer100Ml": {
+        "energyKj": 201,
+        "energyKcal": 48,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-milder-multivitamin-1000",
@@ -11338,10 +11704,20 @@
       "categoryId": "juice",
       "sizeMl": 1000,
       "sugarPer100Ml": 10,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 196 kJ / 46 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "hohes C Produktseite",
+      "note": "1-l-Gebinde und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/milder-multivitamin/",
+      "nutritionPer100Ml": {
+        "energyKj": 197,
+        "energyKcal": 47,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "bionade-naturtruebe-orange-330",
@@ -11350,11 +11726,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 5.5,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 103 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/naturtruebe-orange/"
+      "source": "Bionade Produktseite",
+      "note": "0,33-l-Glasflasche; Werte <0,5 g als 0,5 gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/naturtruebe-orange/",
+      "nutritionPer100Ml": {
+        "energyKj": 103,
+        "energyKcal": 24,
+        "carbohydrates": 5.7,
+        "sugar": 5.5,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.09
+      }
     },
     {
       "id": "granini-trinkgenuss-orange-mango-1000",
@@ -11363,10 +11748,20 @@
       "categoryId": "orange-limo",
       "sizeMl": 1000,
       "sugarPer100Ml": 8.7,
-      "source": "Granini nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 163 kJ / 39 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Knuspr Produktseite",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.knuspr.de/31483-granini-trinkgenuss-orange-mango-einweg",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 163,
+        "energyKcal": 39,
+        "carbohydrates": 8.9,
+        "sugar": 8.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "granini-die-leichte-limo-zitrone-minze-1000",
@@ -11375,10 +11770,20 @@
       "categoryId": "softdrink",
       "sizeMl": 1000,
       "sugarPer100Ml": 5.1,
-      "source": "Granini nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 92 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Knuspr Produktseite",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.knuspr.de/14119-granini-die-leichte-limo-zitrone-minze-einweg",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 92,
+        "energyKcal": 22,
+        "carbohydrates": 5.1,
+        "sugar": 5.1,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "pfanner-icetea-zitrone-1000",
@@ -11411,11 +11816,20 @@
       "categoryId": "mate",
       "sizeMl": 500,
       "sugarPer100Ml": 5,
-      "source": "Club-Mate nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 83 kJ / 20 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.club-mate.de/club-mate/"
+      "source": "Brauerei Loscher Produktseite",
+      "note": "Der frühere CSV-Energiewert wurde durch die aktuellen Herstellerwerte der 0,5-l-Originalflasche ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://brauerei-loscher.de/getraenke/erfrischungen/",
+      "nutritionPer100Ml": {
+        "energyKj": 84,
+        "energyKcal": 20,
+        "carbohydrates": 5,
+        "sugar": 5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "almdudler-das-original-350",
@@ -11424,11 +11838,20 @@
       "categoryId": "softdrink",
       "sizeMl": 350,
       "sugarPer100Ml": 7.9,
-      "source": "Almdudler nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 141 kJ / 33 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.almdudler.com/original"
+      "source": "Almdudler Produktseite",
+      "note": "0,35-l-Mehrwegflasche; Salz <0,01 g als 0,01 g gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://almdudler.com/de/almdudler-das-original",
+      "nutritionPer100Ml": {
+        "energyKj": 141,
+        "energyKcal": 33,
+        "carbohydrates": 7.9,
+        "sugar": 7.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      }
     },
     {
       "id": "almdudler-zero-zucker-350",
@@ -11437,11 +11860,20 @@
       "categoryId": "softdrink",
       "sizeMl": 350,
       "sugarPer100Ml": 0,
-      "source": "Almdudler nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 5.9 kJ / 1.4 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.almdudler.com/zero"
+      "source": "Almdudler Produktseite",
+      "note": "0,35-l-Mehrwegflasche; Salz <0,01 g als 0,01 g gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://almdudler.com/at/almdudler-zero-sugar",
+      "nutritionPer100Ml": {
+        "energyKj": 5.9,
+        "energyKcal": 1.4,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      }
     },
     {
       "id": "schwip-schwap-original-330",
@@ -11474,11 +11906,20 @@
       "categoryId": "mate",
       "sizeMl": 500,
       "sugarPer100Ml": 5.7,
-      "source": "Mio Mio nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 102 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.mio-mio.com/produkte/mate"
+      "source": "Mio Mio Produktseite",
+      "note": "Nährwerte und 0,5-l-Mehrwegflasche vom Hersteller bestätigt; Dublette zu Mio Mio Mate Original.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.miomio.com/mate-original/",
+      "nutritionPer100Ml": {
+        "energyKj": 102,
+        "energyKcal": 24,
+        "carbohydrates": 5.7,
+        "sugar": 5.7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      }
     },
     {
       "id": "bionade-zitrone-bergamotte-500",
@@ -11487,10 +11928,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 5.2,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 89 kJ / 21 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "Nährwerte vom Hersteller; 0,5-l-Gebinde nicht mehr auf der aktuellen Produktseite aufgeführt.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/zitrone-bergamotte/",
+      "nutritionPer100Ml": {
+        "energyKj": 89,
+        "energyKcal": 21,
+        "carbohydrates": 5.2,
+        "sugar": 5.2,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-ingwer-orange-500",
@@ -11499,10 +11950,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 4.3,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 82 kJ / 19 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "Nährwerte vom Hersteller; 0,5-l-Gebinde nicht mehr auf der aktuellen Produktseite aufgeführt.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/ingwer-orange/",
+      "nutritionPer100Ml": {
+        "energyKj": 82,
+        "energyKcal": 19,
+        "carbohydrates": 4.3,
+        "sugar": 4.3,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-kraeuter-500",
@@ -11511,10 +11972,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 5,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "Nährwerte vom Hersteller; 0,5-l-Gebinde nicht mehr auf der aktuellen Produktseite aufgeführt.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/kraeuter/",
+      "nutritionPer100Ml": {
+        "energyKj": 95,
+        "energyKcal": 22,
+        "carbohydrates": 5,
+        "sugar": 5,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-holunderbluete-500",
@@ -11523,11 +11994,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 4.9,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 85 kJ / 20 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/holunderbluete/"
+      "source": "Bionade Produktseite",
+      "note": "Nährwerte vom Hersteller; 0,5-l-Gebinde nicht mehr auf der aktuellen Produktseite aufgeführt.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/holunderbluete/",
+      "nutritionPer100Ml": {
+        "energyKj": 85,
+        "energyKcal": 20,
+        "carbohydrates": 5,
+        "sugar": 4.9,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-schwarze-johannisbeere-rosmarin-500",
@@ -11536,11 +12016,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 5.6,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 104 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/schwarze-johannisbeere-rosmarin/"
+      "source": "Bionade Produktseite",
+      "note": "Nährwerte vom Hersteller; 0,5-l-Gebinde nicht mehr auf der aktuellen Produktseite aufgeführt.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/schwarze-johannisbeere-rosmarin/",
+      "nutritionPer100Ml": {
+        "energyKj": 104,
+        "energyKcal": 24,
+        "carbohydrates": 5.6,
+        "sugar": 5.6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-himbeer-pflaume-500",
@@ -11549,11 +12038,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 4.6,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 80 kJ / 19 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/himbeer-pflaume/"
+      "source": "Bionade Produktseite",
+      "note": "Nährwerte vom Hersteller; 0,5-l-Gebinde nicht mehr auf der aktuellen Produktseite aufgeführt.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/himbeer-pflaume/",
+      "nutritionPer100Ml": {
+        "energyKj": 80,
+        "energyKcal": 19,
+        "carbohydrates": 4.6,
+        "sugar": 4.6,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-litschi-500",
@@ -11562,10 +12060,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 4.7,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 90 kJ / 21 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "Bionade Produktseite",
+      "note": "Nährwerte vom Hersteller; 0,5-l-Gebinde nicht mehr auf der aktuellen Produktseite aufgeführt.",
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/litschi/",
+      "nutritionPer100Ml": {
+        "energyKj": 90,
+        "energyKcal": 21,
+        "carbohydrates": 4.7,
+        "sugar": 4.7,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.01
+      }
     },
     {
       "id": "bionade-naturtruebe-orange-500",
@@ -11574,11 +12082,20 @@
       "categoryId": "bio-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 5.5,
-      "source": "Bionade nutrition info",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 103 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29",
-      "sourceUrl": "https://www.bionade.de/sorte/naturtruebe-orange/"
+      "source": "Bionade Produktseite",
+      "note": "0,5-l-Glasflasche; Werte <0,5 g als 0,5 gespeichert.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.bionade.de/sorte/naturtruebe-orange/",
+      "nutritionPer100Ml": {
+        "energyKj": 103,
+        "energyKcal": 24,
+        "carbohydrates": 5.7,
+        "sugar": 5.5,
+        "fat": 0.5,
+        "protein": 0.5,
+        "salt": 0.09
+      }
     },
     {
       "id": "hohes-c-orange-1500",
@@ -11587,10 +12104,20 @@
       "categoryId": "juice",
       "sizeMl": 1500,
       "sugarPer100Ml": 8.8,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 183 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "hohes C Produktseite",
+      "note": "1,5-l-Gebinde und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/orangensafte/klassik-orange/",
+      "nutritionPer100Ml": {
+        "energyKj": 180,
+        "energyKcal": 43,
+        "carbohydrates": 8.8,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0.7,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-milde-orange-1500",
@@ -11599,10 +12126,20 @@
       "categoryId": "juice",
       "sizeMl": 1500,
       "sugarPer100Ml": 8.8,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 183 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "hohes C Produktseite",
+      "note": "1,5-l-Gebinde und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/orangensafte/milde-orange/",
+      "nutritionPer100Ml": {
+        "energyKj": 180,
+        "energyKcal": 43,
+        "carbohydrates": 8.8,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0.7,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-milder-apfel-1500",
@@ -11610,11 +12147,21 @@
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 1500,
-      "sugarPer100Ml": 9.9,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 187 kJ / 44 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "sugarPer100Ml": 9.6,
+      "source": "hohes C Produktseite",
+      "note": "1,5-l-Gebinde und aktuelle Nährwerte laut Hersteller; veralteten CSV-Wert ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/milder-apfel/",
+      "nutritionPer100Ml": {
+        "energyKj": 180,
+        "energyKcal": 43,
+        "carbohydrates": 10,
+        "sugar": 9.6,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-multivitamin-1500",
@@ -11622,11 +12169,21 @@
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 1500,
-      "sugarPer100Ml": 9.9,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 191 kJ / 45 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "sugarPer100Ml": 10,
+      "source": "hohes C Produktseite",
+      "note": "1,5-l-Gebinde und aktuelle Nährwerte laut Hersteller; veralteten CSV-Wert ersetzt.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/multivitamin/",
+      "nutritionPer100Ml": {
+        "energyKj": 201,
+        "energyKcal": 48,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "hohes-c-milder-multivitamin-1500",
@@ -11635,10 +12192,20 @@
       "categoryId": "juice",
       "sizeMl": 1500,
       "sugarPer100Ml": 10,
-      "source": "Knuspr product page",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 196 kJ / 46 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "source": "hohes C Produktseite",
+      "note": "1,5-l-Gebinde und Nährwerte laut Hersteller.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "sourceUrl": "https://www.hohesc.de/products/fruchtsafte/milder-multivitamin/",
+      "nutritionPer100Ml": {
+        "energyKj": 197,
+        "energyKcal": 47,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "thomas-henry-tonic-water-200",
@@ -12770,10 +13337,19 @@
       "sizeMl": 200,
       "sugarPer100Ml": 9.2,
       "source": "Getränke BeMo Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der 200-ml-Glasflasche laut Händlerangabe.",
       "sourceUrl": "https://getraenke-express-eutin.de/de/firmen-gastro-artikel/schweppes-indian-tonic-water-24x0-2l",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 163,
+        "energyKcal": 38,
+        "carbohydrates": 9.2,
+        "sugar": 9.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "schweppes-bitter-lemon-200",
@@ -12783,10 +13359,19 @@
       "sizeMl": 200,
       "sugarPer100Ml": 12.1,
       "source": "Getränke BeMo Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der 200-ml-Glasflasche laut Händlerangabe.",
       "sourceUrl": "https://getraenke-express-eutin.de/de/firmen-gastro-artikel/schweppes-bitter-lemon-24x0-2l",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 212,
+        "energyKcal": 50,
+        "carbohydrates": 12.1,
+        "sugar": 12.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "schweppes-ginger-ale-200",
@@ -12796,10 +13381,19 @@
       "sizeMl": 200,
       "sugarPer100Ml": 9.1,
       "source": "Getränke BeMo Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der 200-ml-Glasflasche laut Händlerangabe.",
       "sourceUrl": "https://getraenke-express-eutin.de/de/firmen-gastro-artikel/schweppes-ginger-ale-24x0-2l",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 158,
+        "energyKcal": 37,
+        "carbohydrates": 9.1,
+        "sugar": 9.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "schweppes-wild-berry-1250",
@@ -12809,10 +13403,19 @@
       "sizeMl": 1250,
       "sugarPer100Ml": 9,
       "source": "Liefertempel Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der deutschen 1,25-l-Flasche laut Händlerangabe.",
       "sourceUrl": "https://www.liefertempel.de/product_info.php?products_id=1788",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 160,
+        "energyKcal": 38,
+        "carbohydrates": 9,
+        "sugar": 9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "schweppes-white-peach-1000",
@@ -12822,10 +13425,19 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 7.5,
       "source": "Globus Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der 1-l-Mehrwegflasche laut Händlerangabe.",
       "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/cola-limonaden/4000140714818/white-peach",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 135,
+        "energyKcal": 32,
+        "carbohydrates": 7.5,
+        "sugar": 7.5,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      }
     },
     {
       "id": "schweppes-bitter-lemon-zero-1250",
@@ -12835,10 +13447,19 @@
       "sizeMl": 1250,
       "sugarPer100Ml": 0,
       "source": "BILLA Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der in Deutschland produzierten 1,25-l-Flasche laut Händlerangabe.",
       "sourceUrl": "https://shop.billa.at/produkte/schweppes-bitter-lemon-zero-00769043",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 8,
+        "energyKcal": 2,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      }
     },
     {
       "id": "schweppes-tonic-water-zero-1250",
@@ -12848,10 +13469,19 @@
       "sizeMl": 1250,
       "sugarPer100Ml": 0,
       "source": "BILLA Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der in Deutschland produzierten 1,25-l-Flasche laut Händlerangabe.",
       "sourceUrl": "https://shop.billa.at/produkte/schweppes-tonic-water-zero-00769042",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 11,
+        "energyKcal": 3,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "schweppes-ginger-ale-zero-1000",
@@ -12861,10 +13491,19 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 0,
       "source": "Globus Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Vollständige Nährwerte der 1-l-Mehrwegflasche laut Händlerangabe.",
       "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/cola-limonaden/4000140712135/ginger-ale-zero-ohne-zucker",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 10,
+        "energyKcal": 2,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      }
     },
     {
       "id": "spezi-original-500",
@@ -12873,11 +13512,20 @@
       "categoryId": "cola-mix",
       "sizeMl": 500,
       "sugarPer100Ml": 9.8,
-      "source": "REWE Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://www.rewe.de/shop/p/spezi-original-24x0-33l/858060",
+      "source": "Globus Produktseite",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/cola-limonaden/4038449004002/cola-mix-spezi-original",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 170,
+        "energyKcal": 40,
+        "carbohydrates": 9.9,
+        "sugar": 9.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "spezi-light-500",
@@ -12887,10 +13535,19 @@
       "sizeMl": 500,
       "sugarPer100Ml": 0,
       "source": "Globus Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/cola-limonaden/4038449004019/spezi-cola-mix-light",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 8,
+        "energyKcal": 2,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "riegele-spezi-energy-330",
@@ -12900,10 +13557,19 @@
       "sizeMl": 330,
       "sugarPer100Ml": 12,
       "source": "REWE Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,33-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.rewe.de/shop/p/riegele-spezi-energy-24x0-33l/3058166",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 197,
+        "energyKcal": 47,
+        "carbohydrates": 12,
+        "sugar": 12,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.05
+      }
     },
     {
       "id": "krombacher-spezi-330",
@@ -12912,11 +13578,20 @@
       "categoryId": "cola-mix",
       "sizeMl": 330,
       "sugarPer100Ml": 9,
-      "source": "Getränke BeMo Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://getraenke-express-eutin.de/de/softdrinks/krombacher-spezi-24x-0-33l-mw",
+      "source": "REWE Produktseite",
+      "note": "Nährwerte und 0,33-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.rewe.de/shop/p/krombacher-spezi-24x0-33l/7686186",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 156,
+        "energyKcal": 37,
+        "carbohydrates": 9,
+        "sugar": 9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.04
+      }
     },
     {
       "id": "karamalz-classic-330",
@@ -12938,11 +13613,20 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 7.9,
-      "source": "Dosenmatrosen Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://www.dosenmatrosen.de/vitamalz-original-72er-pack",
+      "source": "REWE Produktseite",
+      "note": "Nährwerte und 0,33-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.rewe.de/shop/p/vitamalz-malztrunk-0-33l/9455809",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 179,
+        "energyKcal": 42,
+        "carbohydrates": 10.2,
+        "sugar": 7.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "powerade-mountain-blast-500",
@@ -12951,11 +13635,20 @@
       "categoryId": "softdrink",
       "sizeMl": 500,
       "sugarPer100Ml": 4.1,
-      "source": "Coca-Cola Schweiz Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://www.coca-cola.com/ch/de/brands/powerade",
+      "source": "REWE Produktseite",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.rewe.de/shop/p/powerade-mountain-blast-0-5l/6652816",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 77,
+        "energyKcal": 18,
+        "carbohydrates": 4.1,
+        "sugar": 4.1,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.13
+      }
     },
     {
       "id": "powerade-bloodorange-500",
@@ -12964,11 +13657,20 @@
       "categoryId": "softdrink",
       "sizeMl": 500,
       "sugarPer100Ml": 3.8,
-      "source": "Coca-Cola Schweiz Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://www.coca-cola.com/ch/de/brands/powerade",
+      "source": "SPAR Produktwelt",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.spar.at/produktwelt/powerade-blood-orange-p2020005430327",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 72,
+        "energyKcal": 17,
+        "carbohydrates": 3.8,
+        "sugar": 3.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.13
+      }
     },
     {
       "id": "powerade-mountain-blast-zero-500",
@@ -12977,11 +13679,20 @@
       "categoryId": "softdrink",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "Wedl Produktspezifikation",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://wedl.scanner.popscan.ch/dta.php/vendfiles/wedl/prodspecs/de/073591.pdf",
-      "verificationStatus": "manufacturer_or_retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "source": "MPREIS Produktseite",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.mpreis.at/shop/p/powerade-zero-mountainblast-05-liter-106190",
+      "verificationStatus": "retailer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 6,
+        "energyKcal": 1,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.13
+      }
     },
     {
       "id": "active-o2-apfel-kiwi-750",
@@ -13017,10 +13728,10 @@
       "sizeMl": 1500,
       "sugarPer100Ml": 3.8,
       "source": "Volvic Schweiz Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Die Herstellerquelle bestätigt nur das 0,75-l-Gebinde; das gespeicherte 1,5-l-Gebinde muss am Etikett geprüft werden.",
       "sourceUrl": "https://www.volvic.ch/produkte/volvic-tee/pfirsich/75cl.html",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14"
     },
     {
       "id": "volvic-tee-zitrone-1500",
@@ -13030,10 +13741,10 @@
       "sizeMl": 1500,
       "sugarPer100Ml": 3.9,
       "source": "Volvic Schweiz Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Die Herstellerquelle bestätigt nur das 0,75-l-Gebinde; das gespeicherte 1,5-l-Gebinde muss am Etikett geprüft werden.",
       "sourceUrl": "https://www.volvic.ch/produkte/volvic-tee/zitrone/75cl.html",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14"
     },
     {
       "id": "rauch-bravo-orange-mango-500",
@@ -13043,10 +13754,10 @@
       "sizeMl": 500,
       "sugarPer100Ml": 5.1,
       "source": "SPAR Produktwelt",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Die Händlerquelle bestätigt nur das 1,5-l-Gebinde; das gespeicherte 0,5-l-Gebinde muss am Etikett geprüft werden.",
       "sourceUrl": "https://www.spar.at/produktwelt/rauch-bravo-orange-mango-p2020005430440",
-      "verificationStatus": "manufacturer_or_retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-07-14"
     },
     {
       "id": "rauch-eistee-pfirsich-330",
@@ -13069,10 +13780,19 @@
       "sizeMl": 500,
       "sugarPer100Ml": 0,
       "source": "Rauch Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,5-l-Gebinde vom Hersteller bestätigt.",
       "sourceUrl": "https://www.rauch.cc/de/brands/eistee/rauch-eistee-zero-peach-58050",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 8,
+        "energyKcal": 2,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.09
+      }
     },
     {
       "id": "punica-abenteuer-drink-apfel-maracuja-500",
@@ -13120,11 +13840,20 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 8.8,
-      "source": "Globus Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/eistee/4100060007400/eistee-zitrone-geschmack",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "source": "Riha WeserGold Produktseite",
+      "note": "Nährwerte und 0,5-l-Trinkpäckchen vom Hersteller bestätigt.",
+      "sourceUrl": "https://www.riha-wesergold.de/de/marken/durstloescher-original/14406-eistee-zitronen-geschmack",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 155,
+        "energyKcal": 37,
+        "carbohydrates": 8.8,
+        "sugar": 8.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.08
+      }
     },
     {
       "id": "durstloescher-multivitamin-500",
@@ -13134,10 +13863,19 @@
       "sizeMl": 500,
       "sugarPer100Ml": 12,
       "source": "Riha WeserGold Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,5-l-Trinkpäckchen vom Hersteller bestätigt.",
       "sourceUrl": "https://www.riha-wesergold.de/de/marken/durstloescher-original/14492-multivitamin-erfrischungsgetraenk",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 204,
+        "energyKcal": 48,
+        "carbohydrates": 12,
+        "sugar": 12,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "durstloescher-wassermelone-500",
@@ -13146,11 +13884,20 @@
       "categoryId": "juice-drink",
       "sizeMl": 500,
       "sugarPer100Ml": 11,
-      "source": "A-Campo Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://a-campo.de/Durstloescher-Wassermelone",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "source": "Riha WeserGold Produktseite",
+      "note": "Nährwerte und 0,5-l-Trinkpäckchen vom Hersteller bestätigt.",
+      "sourceUrl": "https://www.riha-wesergold.de/de/marken/durstloescher-original/14493-wassermelonen-erfrischungsgetraenk",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 184,
+        "energyKcal": 43,
+        "carbohydrates": 11,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "durstloescher-banane-sauerkirsche-500",
@@ -13159,11 +13906,20 @@
       "categoryId": "juice-drink",
       "sizeMl": 500,
       "sugarPer100Ml": 11,
-      "source": "World of Sweets Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://www.worldofsweets.de/Durstloescher-Banane-Sauerkirsche-500ml.328165.html",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "source": "Riha WeserGold Produktseite",
+      "note": "Hersteller führt die Sorte aktuell als Banane Kirsch; Sauerkirschsaft ist in den Zutaten ausgewiesen.",
+      "sourceUrl": "https://www.riha-wesergold.de/de/marken/durstloescher-original/14494-2-frucht-erfrischungsgetraenk",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 201,
+        "energyKcal": 47,
+        "carbohydrates": 11,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "durstloescher-eistee-zitrone-zero-500",
@@ -13172,11 +13928,20 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 0,
-      "source": "Naschlando Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://naschlando.de/products/durstloscher-eistee-zitrone-zero-500ml",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "source": "Riha WeserGold Produktseite",
+      "note": "Nährwerte und 0,5-l-Trinkpäckchen vom Hersteller bestätigt.",
+      "sourceUrl": "https://www.riha-wesergold.de/de/marken/durstloescher-original/14548-eistee-zitrone-zero",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 6,
+        "energyKcal": 1,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.05
+      }
     },
     {
       "id": "arizona-green-tea-honey-500",
@@ -13185,11 +13950,20 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 6.7,
-      "source": "Migros Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://www.migros.ch/de/product/mo/142094",
+      "source": "REWE Produktseite",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.rewe.de/shop/p/arizona-green-tea-and-honey-0-5l/2862308",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 96,
+        "energyKcal": 23,
+        "carbohydrates": 6.8,
+        "sugar": 6.7,
+        "fat": 0,
+        "protein": 0.01,
+        "salt": 0.01
+      }
     },
     {
       "id": "arizona-pomegranate-green-tea-500",
@@ -13199,10 +13973,19 @@
       "sizeMl": 500,
       "sugarPer100Ml": 4.9,
       "source": "BRACK Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.brack.ch/arizona-pomegranate-6-x-0-5-l-1134272",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 87,
+        "energyKcal": 21,
+        "carbohydrates": 5,
+        "sugar": 4.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "arizona-mucho-mango-500",
@@ -13212,10 +13995,19 @@
       "sizeMl": 500,
       "sugarPer100Ml": 4.8,
       "source": "Five Star Trading Holland Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://fivestartrading-holland.eu/getraenke/saefte/arizona-cowboy-cocktail-mucho-mango/?lang=de",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 95,
+        "energyKcal": 23,
+        "carbohydrates": 5.6,
+        "sugar": 4.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "arizona-watermelon-325",
@@ -13225,10 +14017,10 @@
       "sizeMl": 325,
       "sugarPer100Ml": 10,
       "source": "Sweets.ch Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Die Händlerquelle bestätigt ein 340-ml-Gebinde; das gespeicherte 325-ml-Gebinde muss am Etikett geprüft werden.",
       "sourceUrl": "https://www.sweets.ch/produkt/getraenke/arizona-watermelon-340ml/",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-07-14"
     },
     {
       "id": "granini-trinkgenuss-multivitamin-1000",
@@ -13238,10 +14030,19 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 9.8,
       "source": "Knuspr Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.knuspr.de/31482-granini-trinkgenuss-multivitamin-50-einweg",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 188,
+        "energyKcal": 45,
+        "carbohydrates": 10,
+        "sugar": 9.8,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "granini-trinkgenuss-apfel-kirsch-1000",
@@ -13251,23 +14052,41 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 8.4,
       "source": "Knuspr Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.knuspr.de/31485-granini-trinkgenuss-apfel-kirsch-einweg",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 159,
+        "energyKcal": 38,
+        "carbohydrates": 9,
+        "sugar": 8.4,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "granini-trinkgenuss-apfel-1000",
-      "name": "Granini Trinkgenuss Apfel",
+      "name": "granini Trinkgenuss Apfel naturtrüb",
       "brandId": "granini",
       "categoryId": "juice",
       "sizeMl": 1000,
       "sugarPer100Ml": 10,
-      "source": "EDEKA Foodservice Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://edeka-foodservice.de/eigenmarken/produkte/2863217005/granini-trinkgenuss-apfel-2x5l",
+      "source": "REWE Produktseite",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
+      "sourceUrl": "https://www.rewe.de/shop/p/granini-trinkgenuss-apfel-naturtrueb-100-saft-1l/7872769",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 193,
+        "energyKcal": 46,
+        "carbohydrates": 11,
+        "sugar": 10,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "valensina-mildes-fruehstueck-orange-1000",
@@ -13277,10 +14096,19 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 8.9,
       "source": "REWE Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.rewe.de/shop/p/valensina-mildes-fruehstueck-orange-6x1l/8657095",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 181,
+        "energyKcal": 43,
+        "carbohydrates": 8.9,
+        "sugar": 8.9,
+        "fat": 0.2,
+        "protein": 0.7,
+        "salt": 0.003
+      }
     },
     {
       "id": "valensina-mildes-fruehstueck-multivitamin-1000",
@@ -13290,10 +14118,19 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 10.8,
       "source": "REWE Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.rewe.de/shop/p/valensina-mildes-fruehstueck-multivitamin-6x1l/8656062",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 207,
+        "energyKcal": 49,
+        "carbohydrates": 11.2,
+        "sugar": 10.8,
+        "fat": 0.1,
+        "protein": 0.4,
+        "salt": 0.003
+      }
     },
     {
       "id": "valensina-vitamin-fruehstueck-multivitamin-1000",
@@ -13303,10 +14140,19 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 10.3,
       "source": "REWE Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 1-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.rewe.de/shop/p/valensina-multivitamin-saft-vitamin-fruehstueck-1l/7860742",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 201,
+        "energyKcal": 47,
+        "carbohydrates": 10.6,
+        "sugar": 10.3,
+        "fat": 0.2,
+        "protein": 0.4,
+        "salt": 0.005
+      }
     },
     {
       "id": "28-black-acai-250",
@@ -13316,10 +14162,19 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "28 Black Shop Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,25-l-Dose im Markenshop geprüft.",
       "sourceUrl": "https://28black-shop.com/products/28-black-acai",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 191,
+        "energyKcal": 45,
+        "carbohydrates": 11,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.02
+      }
     },
     {
       "id": "28-black-acai-zero-250",
@@ -13329,10 +14184,19 @@
       "sizeMl": 250,
       "sugarPer100Ml": 0,
       "source": "Globus Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte beim Händler geprüft.",
       "sourceUrl": "https://produkte.globus.de/getraenke/soft-drinks/energydrinks-sportgetraenke/4260160952014/energy-drink-acai-zero",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 10,
+        "energyKcal": 2,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      }
     },
     {
       "id": "booster-energy-drink-500",
@@ -13342,10 +14206,10 @@
       "sizeMl": 500,
       "sugarPer100Ml": 10.4,
       "source": "Das ist drin Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Die Quelle wurde zuletzt 2012 bearbeitet; aktuelle Rezeptur und Werte müssen am Etikett geprüft werden.",
       "sourceUrl": "https://das-ist-drin.de/Booster-Energy-Drink-500-ml--7136/",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-07-14"
     },
     {
       "id": "fritz-kola-mischmasch-330",
@@ -13355,10 +14219,10 @@
       "sizeMl": 330,
       "sugarPer100Ml": 8.9,
       "source": "Getränke Kelemidis Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Die Händlerquelle bestätigt nur das 0,2-l-Gebinde; das gespeicherte 0,33-l-Gebinde muss am Etikett geprüft werden.",
       "sourceUrl": "https://www.kelemidis.de/de/shop/katalog/fritz-mischmasch-24x02l_3602030/",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "needs_label_check",
+      "lastCheckedAt": "2026-07-14"
     },
     {
       "id": "fritz-mate-500",
@@ -13368,10 +14232,19 @@
       "sizeMl": 500,
       "sugarPer100Ml": 5.2,
       "source": "Getränkedienst Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte und 0,5-l-Gebinde beim Händler geprüft.",
       "sourceUrl": "https://www.getraenkedienst.com/softdrinks/mate-eistee-tee/fritz-mate-10-x-0-5l",
       "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 92,
+        "energyKcal": 22,
+        "carbohydrates": 5.2,
+        "sugar": 5.2,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "mio-mio-cola-500",
@@ -13381,10 +14254,19 @@
       "sizeMl": 500,
       "sugarPer100Ml": 11,
       "source": "Mio Mio Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
+      "note": "Nährwerte vom Hersteller; die aktuelle Produktseite bestätigt nur die 0,33-l-Gastroflasche, nicht das gespeicherte 0,5-l-Gebinde.",
       "sourceUrl": "https://www.miomio.com/cola-original/",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "verificationStatus": "manufacturer_verified_needs_field_check",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 181,
+        "energyKcal": 43,
+        "carbohydrates": 11,
+        "sugar": 11,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.03
+      }
     },
     {
       "id": "mio-mio-orange-500",
@@ -13393,11 +14275,20 @@
       "categoryId": "orange-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 6.9,
-      "source": "Mio Mio Shop Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://www.shop.miomio.com/miomio/mio-mio-orange",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "source": "Mio Mio Produktseite",
+      "note": "Nährwerte und koffeinhaltige 0,5-l-Mehrwegflasche vom Hersteller bestätigt.",
+      "sourceUrl": "https://www.miomio.com/orange/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 125,
+        "energyKcal": 30,
+        "carbohydrates": 6.9,
+        "sugar": 6.9,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0
+      }
     },
     {
       "id": "mio-mio-cola-zero-330",
@@ -13406,11 +14297,20 @@
       "categoryId": "cola",
       "sizeMl": 330,
       "sugarPer100Ml": 0,
-      "source": "Getränke BeMo Produktseite",
-      "note": "Quelle nennt Zucker pro 100 ml; weitere Nährwerte können später ergänzt werden. Produktwerte können sich ändern.",
-      "sourceUrl": "https://getraenke-express-eutin.de/de/softdrinks/mio-mio-cola-zero-24x-0-33l",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-07-04"
+      "source": "Mio Mio Produktseite",
+      "note": "Nährwerte und 0,33-l-Mehrwegflasche vom Hersteller bestätigt.",
+      "sourceUrl": "https://www.miomio.com/cola-zero/",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-07-14",
+      "nutritionPer100Ml": {
+        "energyKj": 3,
+        "energyKcal": 1,
+        "carbohydrates": 0,
+        "sugar": 0,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.05
+      }
     }
   ]
 }

@@ -5,7 +5,8 @@ export type VerificationStatus =
   | "retailer_verified"
   | "manufacturer_or_retailer_verified"
   | "manufacturer_verified_needs_field_check"
-  | "needs_label_check";
+  | "needs_label_check"
+  | "open_database_import";
 
 export type DrinkFaq = {
   question: string;
@@ -93,6 +94,17 @@ export function canonicalDrinkId(drink: Drink) {
 
 export function canonicalDrinks(items: Drink[]) {
   return items.filter((drink) => canonicalDrinkId(drink) === drink.id);
+}
+
+export function isIndexableDrink(drink: Drink) {
+  return Boolean(
+    drink.sizeMl
+      && drink.sourceUrl
+      && drink.nutritionPer100Ml
+      && ["manufacturer_verified", "retailer_verified", "manufacturer_or_retailer_verified"].includes(
+        drink.verificationStatus ?? "",
+      ),
+  );
 }
 
 export function productFamilyDrinks(drink: Drink) {

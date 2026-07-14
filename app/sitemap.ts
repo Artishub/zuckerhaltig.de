@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/content/articles";
-import { canonicalDrinks, drinks } from "@/lib/data/drinks";
+import { canonicalDrinks, drinks, isIndexableDrink } from "@/lib/data/drinks";
 import { featuredBrandPages } from "@/lib/featured-brand-pages";
 import { siteUrl } from "@/lib/site";
 
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes.map((route) => ({ url: `${siteUrl}${route}` })),
     ...featuredBrandPages.map((brand) => ({ url: `${siteUrl}/de/marken/${brand.id}` })),
     ...articles.map((article) => ({ url: `${siteUrl}/de/wissen/${article.slug}` })),
-    ...canonicalDrinks(drinks).map((drink) => ({
+    ...canonicalDrinks(drinks).filter(isIndexableDrink).map((drink) => ({
       url: `${siteUrl}/de/getraenke/${drink.id}`,
       ...(drink.lastCheckedAt ? { lastModified: drink.lastCheckedAt } : {}),
     })),
