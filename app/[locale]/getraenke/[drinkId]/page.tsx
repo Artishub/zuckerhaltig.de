@@ -4,7 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowLeft, ArrowRight, ExternalLink, Info } from "lucide-react";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalDrinkId, drinks, isIndexableDrink, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
 import { brandPageHref } from "@/lib/featured-brand-pages";
 import { siteUrl } from "@/lib/site";
 import styles from "./drink-detail.module.css";
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Getränk nicht gefunden" };
   }
 
-  const canonicalId = canonicalDrinkId(drink);
+  const canonicalId = canonicalPackageDrinkId(drink);
   const canonicalDrink = drinks.find((item) => item.id === canonicalId) ?? drink;
   const brandName = brandById[canonicalDrink.brandId]?.name ?? "Unbekannte Marke";
   const family = productFamilyDrinks(canonicalDrink);
@@ -41,12 +41,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/de/getraenke/${canonicalId}`,
     },
-    ...(!isIndexableDrink(canonicalDrink) && {
-      robots: {
-        index: false,
-        follow: true,
-      },
-    }),
     openGraph: {
       title,
       description,
@@ -58,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: `${canonicalDrink.name} Zuckerwerte`,
+          alt: `${canonicalDrink.name} ${sizeLabel(canonicalDrink)} Zuckerwerte`,
         },
       ],
       type: "article",
@@ -78,7 +72,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
 
   if (!drink) notFound();
 
-  const canonicalId = canonicalDrinkId(drink);
+  const canonicalId = canonicalPackageDrinkId(drink);
   if (canonicalId !== drink.id) permanentRedirect(`/de/getraenke/${canonicalId}`);
 
   const brandName = brandById[drink.brandId]?.name ?? "Unbekannte Marke";
@@ -98,7 +92,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         <div className={styles.heroGrid}>
           <div>
             <p className={styles.category}>{categoryName} · {sizeLabel(drink)}</p>
-            <h1>Wie viel Zucker hat {drink.name}?</h1>
+            <h1>Wie viel Zucker hat {drink.name} in {sizeLabel(drink)}?</h1>
             <p className={styles.summary}>{introText(drink, brandName, categoryName, family.length)}</p>
             <p className={styles.sourceLine}><Info size={15} /> Quelle: {drink.source}</p>
           </div>
@@ -149,7 +143,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         <div className={styles.related}>
           {similar.map((item) => {
             const similarBrand = brandById[item.brandId]?.name ?? "Marke";
-            return <Link key={item.id} href={`/de/getraenke/${canonicalDrinkId(item)}`}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
+            return <Link key={item.id} href={`/de/getraenke/${canonicalPackageDrinkId(item)}`}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
           })}
         </div>
       </section>
@@ -209,7 +203,11 @@ function PackageSizes({ drinks }: { drinks: Drink[] }) {
       <ul className={styles.packageGrid}>
         {drinks.map((drink) => (
           <li key={drink.id}>
-            <strong>{sizeLabel(drink)}</strong>
+            <strong>
+              <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                {sizeLabel(drink)}
+              </Link>
+            </strong>
             <span>{formatOptionalGrams(totalSugarGrams(drink))} Zucker</span>
             <span>{formatOptionalNumber(sugarCubes(drink))} Würfel</span>
           </li>
@@ -220,12 +218,12 @@ function PackageSizes({ drinks }: { drinks: Drink[] }) {
 }
 
 function similarDrinks(drink: Drink) {
-  const currentCanonicalId = canonicalDrinkId(drink);
+  const currentCanonicalId = canonicalPackageDrinkId(drink);
 
   return uniqueProductRepresentatives(
     drinks.filter((item) => (
       item.categoryId === drink.categoryId &&
-      canonicalDrinkId(item) !== currentCanonicalId &&
+      canonicalPackageDrinkId(item) !== currentCanonicalId &&
       item.name !== drink.name
     )),
   )
@@ -263,7 +261,7 @@ function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
 
 function metaTitle(drink: Drink) {
   const sugar = `${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml`;
-  return `${shortenTitleName(drink.name)}: ${sugar}`;
+  return `${shortenTitleName(drink.name)} ${sizeLabel(drink)}: ${sugar}`;
 }
 
 function metaDescription(drink: Drink, brandName: string, family: Drink[]) {
@@ -366,7 +364,7 @@ function breadcrumbJsonLd(drink: Drink) {
       {
         "@type": "ListItem",
         position: 3,
-        name: drink.name,
+        name: `${drink.name} ${sizeLabel(drink)}`,
         item: `${siteUrl}/de/getraenke/${drink.id}`,
       },
     ],

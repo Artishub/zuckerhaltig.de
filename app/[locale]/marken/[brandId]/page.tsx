@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Calculator } from "lucide-react";
 import { BrandProductGrid } from "@/components/brand-product-grid";
 import { brandById } from "@/lib/data/brands";
-import { canonicalDrinkId, drinks, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, drinks, uniqueProductRepresentatives } from "@/lib/data/drinks";
 import { featuredBrandPageById, featuredBrandPages } from "@/lib/featured-brand-pages";
 import { formatNumber } from "@/lib/seo-drinks";
 import { pageMetadata, siteUrl } from "@/lib/site";
@@ -52,7 +52,7 @@ export default async function BrandPage({ params }: PageProps) {
     "@type": "ListItem",
     position: index + 1,
     name: drink.name,
-    url: `${siteUrl}/de/getraenke/${canonicalDrinkId(drink)}`,
+    url: `${siteUrl}/de/getraenke/${canonicalPackageDrinkId(drink)}`,
   }));
 
   return (

@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalDrinkId, drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
 import styles from "./test-home.module.css";
 
 export const metadata: Metadata = {
@@ -124,7 +124,7 @@ function DrinkCard({ drink, rank }: { drink: Drink; rank: number }) {
   const cubes = sugarCubes(drink);
 
   return (
-    <Link href={`/de/getraenke/${canonicalDrinkId(drink)}`} className={styles.drinkCard}>
+    <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className={styles.drinkCard}>
       <div className={styles.drinkCardTop}><span>0{rank}</span><span>{categoryById[drink.categoryId]?.name}</span></div>
       <div>
         <p className={styles.brand}>{brandById[drink.brandId]?.name}</p>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { DrinkExplorer } from "@/components/drink-explorer";
 import { categories } from "@/lib/data/categories";
-import { canonicalDrinks, drinks } from "@/lib/data/drinks";
+import { canonicalPackageDrinks, drinks } from "@/lib/data/drinks";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata("Getränke-Datenbank", "Suche Getränke nach Marke, Kategorie, Gebindegröße und Zuckerwerten. Vergleiche Zucker pro 100 ml, Packung, Kalorien, Zuckerwürfel und Quellen.", "/de/getraenke");
@@ -36,7 +36,7 @@ export default function DrinksPage() {
 }
 
 function CrawlLinks() {
-  const canonical = canonicalDrinks(drinks);
+  const canonical = canonicalPackageDrinks(drinks);
 
   return (
     <section className="mt-12 border-t border-ash pt-8">

@@ -1,7 +1,7 @@
 import { BrandSearchGrid } from "@/components/brand-search-grid";
 import { brands } from "@/lib/data/brands";
 import { categories } from "@/lib/data/categories";
-import { canonicalDrinkId, drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
 import { featuredBrandPages } from "@/lib/featured-brand-pages";
 import { pageMetadata } from "@/lib/site";
 
@@ -20,7 +20,7 @@ export default function BrandsPage() {
       uniqueByBrand[brand.id]
         .sort((a, b) => (totalSugarGrams(b) ?? -1) - (totalSugarGrams(a) ?? -1))
         .slice(0, 3)
-        .map((drink) => ({ id: canonicalDrinkId(drink), name: drink.name, sugar: totalSugarGrams(drink) })),
+        .map((drink) => ({ id: canonicalPackageDrinkId(drink), name: drink.name, sugar: totalSugarGrams(drink) })),
     ]),
   );
   const brandSearchData = Object.fromEntries(

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { BarChart3, ChevronDown, ChevronLeft, ChevronRight, LinkIcon, Search, X } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { categories, categoryById } from "@/lib/data/categories";
-import { canonicalDrinkId, Drink, DrinkDisplayItem, drinks, groupedDrinkFamilies, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, canonicalPackageDrinks, Drink, DrinkDisplayItem, drinks, groupedDrinkFamilies, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
 
 type SortKey = "total-desc" | "total-asc" | "per100-desc" | "per100-asc" | "name-asc" | "name-desc";
 
@@ -57,7 +57,7 @@ export function DrinkExplorer() {
 
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
-    const matching = drinks
+    const matching = canonicalPackageDrinks(drinks)
       .filter((drink) => {
         const brandName = brands.find((item) => item.id === drink.brandId)?.name ?? "";
         const haystack = `${drink.name} ${brandName}`.toLowerCase();
@@ -251,7 +251,7 @@ export function DrinkExplorer() {
                       {item.type === "group" && (
                         <div className="mb-4 flex flex-wrap gap-2">
                           {item.drinks.map((groupDrink) => (
-                            <Link key={groupDrink.id} href={`/de/getraenke/${canonicalDrinkId(groupDrink)}`} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate hover:border-marigold hover:text-ink">
+                            <Link key={groupDrink.id} href={`/de/getraenke/${canonicalPackageDrinkId(groupDrink)}`} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate hover:border-marigold hover:text-ink">
                               {groupDrink.name}
                             </Link>
                           ))}
@@ -275,7 +275,7 @@ export function DrinkExplorer() {
                         >
                           {compareIds.includes(drink.id) ? "Im Vergleich" : "Zum Vergleich"}
                         </button>
-                        <Link href={`/de/getraenke/${canonicalDrinkId(drink)}`} className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
+                        <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
                           Zur Detailseite
                         </Link>
                         {drink.sourceUrl ? (
@@ -427,7 +427,7 @@ function ComparePanel({
                     <CompareValue label="Eiweiß" value={nutrition ? `${formatNumber(nutrition.protein)} g` : "/"} />
                     <CompareValue label="Salz" value={nutrition ? `${formatNumber(nutrition.salt)} g` : "/"} />
                   </dl>
-                  <Link href={`/de/getraenke/${canonicalDrinkId(drink)}`} className="focus-ring mt-4 inline-flex rounded-md text-sm underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                  <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring mt-4 inline-flex rounded-md text-sm underline decoration-ash underline-offset-4 hover:decoration-marigold">
                     Detailseite öffnen
                   </Link>
                 </article>

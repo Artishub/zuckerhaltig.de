@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ExternalLink, Info, Scale } from "lucide-react";
 import { brandById } from "@/lib/data/brands";
-import { canonicalDrinkId, drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
 import styles from "./drink-test.module.css";
 
 const drink = findDrink("coca-cola-classic-500");
@@ -87,7 +87,7 @@ export default function CocaColaTestPage() {
       <section className={styles.compare}>
         <div><Scale size={22} aria-hidden="true" /><h2>Mit anderer Cola vergleichen.</h2></div>
         <div className={styles.related}>
-          {related.map((item) => <Link href={`/de/getraenke/${canonicalDrinkId(item)}`} key={item.id}><span>{brandById[item.brandId]?.name}</span><strong>{item.name.replace(`${brandById[item.brandId]?.name} `, "")}</strong><b>{format(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>)}
+          {related.map((item) => <Link href={`/de/getraenke/${canonicalPackageDrinkId(item)}`} key={item.id}><span>{brandById[item.brandId]?.name}</span><strong>{item.name.replace(`${brandById[item.brandId]?.name} `, "")}</strong><b>{format(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>)}
         </div>
       </section>
     </main>

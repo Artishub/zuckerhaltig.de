@@ -45,17 +45,21 @@ export type Drink = {
 
 export const drinks = seed.drinks as Drink[];
 
-const canonicalDrinkIdsByProductFamily = new Map<string, string>();
+const canonicalPackageDrinkIds = new Map<string, string>();
+const drinksByPackageKey = new Map<string, Drink[]>();
 const drinksByProductFamily = new Map<string, Drink[]>();
 
 for (const drink of drinks) {
+  const packageKey = productPackageKey(drink);
+  drinksByPackageKey.set(packageKey, [...(drinksByPackageKey.get(packageKey) ?? []), drink]);
+
   const key = productFamilyKey(drink);
   drinksByProductFamily.set(key, [...(drinksByProductFamily.get(key) ?? []), drink]);
 }
 
-for (const family of drinksByProductFamily.values()) {
-  const representative = family.find((drink) => drink.sizeMl === 500) ?? family[0];
-  for (const drink of family) canonicalDrinkIdsByProductFamily.set(drink.id, representative.id);
+for (const packageDuplicates of drinksByPackageKey.values()) {
+  const representative = preferredPackageDrink(packageDuplicates);
+  for (const drink of packageDuplicates) canonicalPackageDrinkIds.set(drink.id, representative.id);
 }
 
 export type DrinkDisplayItem =
@@ -88,30 +92,21 @@ export function productKey(drink: Drink) {
   return `${drink.brandId}:${drink.name.trim().toLowerCase()}`;
 }
 
-export function canonicalDrinkId(drink: Drink) {
-  return canonicalDrinkIdsByProductFamily.get(drink.id) ?? drink.id;
+export function canonicalPackageDrinkId(drink: Drink) {
+  return canonicalPackageDrinkIds.get(drink.id) ?? drink.id;
 }
 
-export function canonicalDrinks(items: Drink[]) {
-  return items.filter((drink) => canonicalDrinkId(drink) === drink.id);
-}
-
-export function isIndexableDrink(drink: Drink) {
-  return Boolean(
-    drink.sizeMl
-      && drink.sourceUrl
-      && drink.nutritionPer100Ml
-      && ["manufacturer_verified", "retailer_verified", "manufacturer_or_retailer_verified"].includes(
-        drink.verificationStatus ?? "",
-      ),
-  );
+export function canonicalPackageDrinks(items: Drink[]) {
+  return items.filter((drink) => canonicalPackageDrinkId(drink) === drink.id);
 }
 
 export function productFamilyDrinks(drink: Drink) {
   const bySize = new Map<number | null, Drink>();
 
   for (const item of drinksByProductFamily.get(productFamilyKey(drink)) ?? [drink]) {
-    if (!bySize.has(item.sizeMl)) bySize.set(item.sizeMl, item);
+    if (canonicalPackageDrinkId(item) === item.id && !bySize.has(item.sizeMl)) {
+      bySize.set(item.sizeMl, item);
+    }
   }
 
   return Array.from(bySize.values()).sort((a, b) => (a.sizeMl ?? Number.MAX_SAFE_INTEGER) - (b.sizeMl ?? Number.MAX_SAFE_INTEGER));
@@ -120,7 +115,7 @@ export function productFamilyDrinks(drink: Drink) {
 export function uniqueProductRepresentatives(items: Drink[]) {
   const byProduct = new Map<string, Drink>();
 
-  for (const drink of items) {
+  for (const drink of canonicalPackageDrinks(items)) {
     const current = byProduct.get(productKey(drink));
     if (!current || representativeScore(drink) < representativeScore(current)) {
       byProduct.set(productKey(drink), drink);
@@ -168,4 +163,20 @@ function productFamilyKey(drink: Drink) {
     drink.name.trim().toLowerCase(),
     drink.sugarPer100Ml,
   ].join(":");
+}
+
+function productPackageKey(drink: Drink) {
+  return [
+    productFamilyKey(drink),
+    drink.sizeMl,
+  ].join(":");
+}
+
+function preferredPackageDrink(items: Drink[]) {
+  const correctedBionade = items.find((drink) => drink.id === "bionade-naturtruebe-orange-330");
+  if (correctedBionade) return correctedBionade;
+
+  return items.find((drink) => (
+    drink.sizeMl !== null && drink.id.endsWith(`-${drink.sizeMl}`)
+  )) ?? items[0];
 }
