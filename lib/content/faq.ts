@@ -61,7 +61,23 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         question: "Sind Zero-Getränke und Light-Getränke besser als normale Cola?",
-        answer: "Für die reine Zuckerfrage schneiden sie meist niedriger ab. Süßstoffe, Koffein und Gewohnheit sind aber eigene Themen.",
+        answer: "Für die reine Zuckerfrage schneiden sie meist niedriger ab. Das ist kein allgemeines Gesundheitsurteil, denn Süßstoffe, Koffein, Säuren und Trinkgewohnheiten sind eigene Themen.",
+      },
+      {
+        question: "Ist Aspartam krebserregend?",
+        answer: "Die IARC stuft Aspartam als möglicherweise krebserregend ein. Das beschreibt eine mögliche Gefährdung, nicht das Risiko bei einer bestimmten Menge. JECFA und EFSA halten bis zu 40 mg pro Kilogramm Körpergewicht und Tag für die Allgemeinbevölkerung für akzeptabel.",
+      },
+      {
+        question: "Für wen ist Aspartam ungeeignet?",
+        answer: "Menschen mit Phenylketonurie müssen Phenylalanin streng begrenzen. Aspartamhaltige Lebensmittel tragen deshalb einen entsprechenden Hinweis auf dem Etikett.",
+      },
+      {
+        question: "Wo stehen Süßstoffe auf dem Etikett?",
+        answer: "Die Zutatenliste nennt Süßstoffe mit Namen oder E-Nummer, zum Beispiel Aspartam oder E 951. Zuckerhaltig.de erfasst Zutaten derzeit nicht für einzelne Produkte.",
+      },
+      {
+        question: "Helfen Süßstoffe langfristig beim Abnehmen?",
+        answer: "Die WHO empfiehlt, zuckerfreie Süßstoffe nicht als langfristige Strategie zur Gewichtskontrolle zu verwenden. Diese bedingte Empfehlung ist keine Sicherheitsbewertung einzelner Stoffe.",
       },
     ],
   },

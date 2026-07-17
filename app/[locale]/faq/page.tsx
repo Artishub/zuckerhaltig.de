@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaqNav } from "@/components/faq-nav";
 import { faq, faqCategories } from "@/lib/content/faq";
 import { pageMetadata } from "@/lib/site";
@@ -40,6 +41,11 @@ export default function FaqPage() {
                     </article>
                   ))}
                 </div>
+                {category.id === "gesundheit" && (
+                  <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke" className="mt-4 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                    Aspartam und Süßstoffe ausführlich einordnen
+                  </Link>
+                )}
               </section>
             ))}
           </div>

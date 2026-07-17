@@ -4,6 +4,15 @@ export type Article = {
   description: string;
   minutes: number;
   body: string[];
+  quickAnswer?: string;
+  sections?: {
+    heading: string;
+    paragraphs: string[];
+  }[];
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
   sources?: { label: string; url: string }[];
 };
 
@@ -272,6 +281,81 @@ export const articles: Article[] = [
       "Wenig Zucker bedeutet nicht automatisch „beste Wahl“. Süßstoffe, Koffein, Säuren und Gewohnheit bleiben eigene Fragen.",
       "Für die reine Zuckerfrage ist der Filter trotzdem hilfreich. Sortiere nach Zucker pro 100 ml oder setze eine Obergrenze, dann tauchen Zero-Produkte und zuckerärmere Varianten schneller auf.",
       "Gerade Marken mit vielen Sorten profitieren davon. Classic, Light, Zero und Sondergeschmack stehen nicht mehr getrennt im Kopf, sondern direkt nebeneinander.",
+    ],
+  },
+  {
+    slug: "suessstoffe-aspartam-zuckerfreie-getraenke",
+    title: "Aspartam und Süßstoffe: Ist zuckerfrei automatisch gesund?",
+    description: "Was zuckerfrei wirklich bedeutet, wie Aspartam bewertet wird und warum Zero-Getränke kein allgemeines Gesundheitsurteil verdienen.",
+    minutes: 7,
+    body: [],
+    quickAnswer: "Zuckerfrei bedeutet bei Getränken höchstens 0,5 g Zucker pro 100 ml. Die Angabe bewertet weder das ganze Getränk noch die Ernährungsweise. Zero-Getränke können gegenüber zuckergesüßten Varianten Zucker und Kalorien sparen, sind aber nicht mit Wasser oder ungesüßtem Tee gleichzusetzen.",
+    sections: [
+      {
+        heading: "Was „zuckerfrei“ tatsächlich sagt",
+        paragraphs: [
+          "Nach der EU-Verordnung darf ein Getränk als zuckerfrei bezeichnet werden, wenn es höchstens 0,5 g Zucker pro 100 ml enthält. Das ist eine klare Aussage über Zucker. Sie sagt nichts darüber, ob das Getränk Koffein, Säuren, Aromen oder Süßstoffe enthält.",
+          "Wer eine klassische Limo durch eine Zero-Variante ersetzt, nimmt in der Regel deutlich weniger Zucker auf. Daraus folgt aber kein allgemeines Gesundheitsurteil. Menge, Trinkhäufigkeit und die übrige Ernährung bleiben wichtig.",
+        ],
+      },
+      {
+        heading: "Welche Süßstoffe stecken häufig in Getränken?",
+        paragraphs: [
+          "Das BfR nennt für Erfrischungsgetränke vor allem Acesulfam K (E 950), Aspartam (E 951), Cyclamat (E 952), Saccharin (E 954), Sucralose (E 955) und Steviolglykoside (E 960). Hersteller kombinieren Stoffe häufig, weil sie unterschiedlich süßen und schmecken.",
+          "Acesulfam K, Aspartam, Cyclamat, Saccharin und Sucralose sind synthetisch hergestellte Süßstoffe. Steviolglykoside werden aus Bestandteilen der Steviapflanze gewonnen. Für jeden Stoff gelten eigene Bewertungen und Aufnahmewerte; der Aspartam-Wert lässt sich nicht auf andere Süßstoffe übertragen.",
+          "Die Zutatenliste zeigt, welche Stoffe ein konkretes Produkt verwendet, nennt aber meist nicht deren Menge. Zuckerhaltig.de erfasst derzeit keine Zutaten je Getränk. Deshalb behaupten unsere Produktseiten nicht, dass ein bestimmtes Getränk Aspartam oder einen anderen Süßstoff enthält.",
+        ],
+      },
+      {
+        heading: "Aspartam: Gefährdung ist nicht dasselbe wie Risiko",
+        paragraphs: [
+          "Die Krebsforschungsagentur IARC stufte Aspartam 2023 als „möglicherweise krebserregend für Menschen“ ein. Diese Einstufung beschreibt, ob ein Stoff grundsätzlich eine Gefahr verursachen könnte. Sie berechnet nicht das Risiko bei einer bestimmten aufgenommenen Menge.",
+          "Der gemeinsame Sachverständigenausschuss von WHO und FAO prüfte gleichzeitig die tatsächliche Aufnahme und bestätigte den akzeptablen Tageswert von 0 bis 40 mg Aspartam je Kilogramm Körpergewicht. Auch die EFSA betrachtet 40 mg/kg Körpergewicht pro Tag als schützenden Wert für die Allgemeinbevölkerung.",
+          "Für Menschen mit Phenylketonurie (PKU) gilt diese Einordnung nicht. Sie müssen Phenylalanin streng begrenzen. Lebensmittel mit Aspartam tragen deshalb einen entsprechenden Hinweis auf dem Etikett.",
+        ],
+      },
+      {
+        heading: "Helfen Süßstoffe beim Abnehmen?",
+        paragraphs: [
+          "Die WHO rät davon ab, zuckerfreie Süßstoffe als langfristige Strategie zur Gewichtskontrolle oder zur Vorbeugung ernährungsbedingter Krankheiten zu verwenden. Die Empfehlung ist bedingt, weil Beobachtungsdaten durch bestehende Unterschiede zwischen den untersuchten Personen verzerrt sein können.",
+          "Diese WHO-Empfehlung ersetzt keine Sicherheitsbewertung einzelner Stoffe und ändert keine festgelegten Tageswerte. Sie beantwortet eine andere Frage: Ob Süßstoffe langfristig beim Gewichtsmanagement helfen. Das ist nicht dasselbe wie die toxikologische Frage, welche Menge als akzeptabel gilt.",
+        ],
+      },
+      {
+        heading: "So liest du ein Zero-Getränk",
+        paragraphs: [
+          "Prüfe zuerst Zucker pro 100 ml und danach die Zutatenliste. Bei koffeinhaltigen Getränken gehört auch der Koffeinhinweis dazu. Die Packungsgröße zeigt, wie viel du tatsächlich trinkst.",
+          "Für den täglichen Durst empfehlen DGE und andere Fachstellen Wasser oder ungesüßten Tee. Ein Zero-Getränk kann eine zuckerreiche Variante ersetzen, muss deshalb aber nicht zum Standardgetränk werden.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Ist Aspartam in üblichen Mengen gefährlich?",
+        answer: "JECFA und EFSA halten einen täglichen Wert bis 40 mg pro Kilogramm Körpergewicht für die Allgemeinbevölkerung für akzeptabel. Menschen mit Phenylketonurie müssen Aspartam beziehungsweise Phenylalanin meiden oder streng begrenzen.",
+      },
+      {
+        question: "Bedeutet die IARC-Einstufung, dass Aspartam Krebs verursacht?",
+        answer: "Nein. Die Einstufung „möglicherweise krebserregend“ beschreibt eine mögliche Gefährdung. Das persönliche Risiko hängt unter anderem von der aufgenommenen Menge ab; die Evidenz beim Menschen wurde als begrenzt bewertet.",
+      },
+      {
+        question: "Sind Zero-Getränke gesünder als zuckerhaltige Getränke?",
+        answer: "Sie enthalten meist deutlich weniger Zucker und Kalorien. Das macht sie für die Zuckerfrage günstiger, aber nicht automatisch zu einem empfehlenswerten Alltagsgetränk.",
+      },
+      {
+        question: "Wo sehe ich, welcher Süßstoff enthalten ist?",
+        answer: "In der Zutatenliste stehen Süßstoffe mit ihrem Namen oder ihrer E-Nummer. Zuckerhaltig.de erfasst diese Angaben derzeit nicht für einzelne Produkte.",
+      },
+    ],
+    sources: [
+      { label: "EU-Verordnung: Bedingungen für die Angabe „zuckerfrei“", url: "https://eur-lex.europa.eu/eli/reg/2006/1924/oj?locale=de" },
+      { label: "IARC und WHO: Bewertung von Aspartam, 14. Juli 2023", url: "https://www.iarc.who.int/news-events/aspartame-hazard-and-risk-assessment-results-released/" },
+      { label: "WHO/JECFA: Aspartam und akzeptable tägliche Aufnahmemenge", url: "https://apps.who.int/food-additives-contaminants-jecfa-database/Home/Chemical/62" },
+      { label: "EFSA: Aspartam", url: "https://www.efsa.europa.eu/en/topics/topic/aspartame" },
+      { label: "WHO-Leitlinie zu zuckerfreien Süßstoffen", url: "https://www.who.int/publications/i/item/9789240073616" },
+      { label: "BfR: Süßungsmittel in Lebensmitteln", url: "https://www.bfr.bund.de/fragen-und-antworten/thema/suessungsmittel-in-lebensmitteln-ausgewaehlte-fragen-und-antworten/" },
+      { label: "DGE: Getränke", url: "https://www.dge.de/gesunde-ernaehrung/gut-essen-und-trinken/dge-ernaehrungskreis/getraenke/" },
+      { label: "EU-Kennzeichnung für Aspartam und Süßstoffe", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32011R1169" },
     ],
   },
 ];

@@ -73,6 +73,18 @@ export default function TestHomePage() {
         <Link href="/de/rankings/zuckerreichste-getraenke"><span>Ranking</span><ArrowRight size={18} /></Link>
       </section>
 
+      <section className={styles.sweetenerNotice} aria-labelledby="sweetener-title">
+        <CircleHelp size={24} aria-hidden="true" />
+        <div>
+          <p className={styles.kicker}>Zero und Light einordnen</p>
+          <h2 id="sweetener-title">Zuckerfrei heißt nicht automatisch gesund.</h2>
+          <p>Ein niedriger Zuckerwert beantwortet nur einen Teil der Frage. Erfahre, wie Aspartam und andere Süßstoffe bewertet werden.</p>
+        </div>
+        <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke" className={styles.textButton}>
+          Süßstoffe verstehen <ArrowRight size={17} />
+        </Link>
+      </section>
+
       <section className={styles.snapshot} id="zuckerkarte">
         <div className={styles.sectionIntro}>
           <p className={styles.kicker}><Droplets size={14} aria-hidden="true" /> Die Zuckerkarte</p>

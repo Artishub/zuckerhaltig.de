@@ -37,12 +37,45 @@ export default async function ArticlePage({ params }: Props) {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{article.title}</h1>
       <p className="mt-5 text-lg leading-8 text-slate">{article.description}</p>
       {article.slug === "cola-zucker-pro-100ml" && <ColaAnswer />}
-      <div className="mt-10 space-y-5 border-t border-ash pt-8 text-lg leading-8 text-ink">
-        {article.body.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
+      {article.quickAnswer && (
+        <section className="mt-8 rounded-lg border border-ash bg-mist p-5">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
+          <p className="mt-2 text-lg leading-8">{article.quickAnswer}</p>
+        </section>
+      )}
+      {!!article.body.length && (
+        <div className="mt-10 space-y-5 border-t border-ash pt-8 text-lg leading-8 text-ink">
+          {article.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      )}
+      {!!article.sections?.length && (
+        <div className="mt-10 space-y-10 border-t border-ash pt-8">
+          {article.sections.map((section) => (
+            <section key={section.heading}>
+              <h2 className="text-2xl font-semibold tracking-tight">{section.heading}</h2>
+              <div className="mt-4 space-y-5 text-lg leading-8 text-ink">
+                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
       {article.slug === "cola-zucker-pro-100ml" && <ColaComparison />}
+      {!!article.faq?.length && (
+        <section className="mt-10 border-t border-ash pt-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Häufige Fragen</h2>
+          <div className="mt-4 divide-y divide-ash border-y border-ash">
+            {article.faq.map((item) => (
+              <article key={item.question} className="py-5">
+                <h3 className="font-semibold">{item.question}</h3>
+                <p className="mt-2 leading-7 text-slate">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
       {!!article.sources?.length && (
         <section className="mt-10 border-t border-ash pt-8">
           <h2 className="text-2xl font-semibold tracking-tight">Quellen</h2>
@@ -68,6 +101,22 @@ export default async function ArticlePage({ params }: Props) {
           ))}
         </div>
       </section>
+      {!!article.faq?.length && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: article.faq.map((item) => ({
+                "@type": "Question",
+                name: item.question,
+                acceptedAnswer: { "@type": "Answer", text: item.answer },
+              })),
+            }),
+          }}
+        />
+      )}
     </main>
   );
 }
@@ -176,6 +225,10 @@ function relatedLinks(slug: string) {
     "zuckerfreie-getraenke-in-der-datenbank": [
       { href: "/de/getraenke", label: "Zuckerarme Getränke finden", description: "Filtere nach niedrigen Zuckerwerten und Zero-Produkten." },
       { href: "/de/wissen/cola-zero-light-und-klassisch", label: "Cola Zero und Light", description: "Was sich bei Zuckerwerten und Varianten unterscheidet." },
+    ],
+    "suessstoffe-aspartam-zuckerfreie-getraenke": [
+      { href: "/de/rankings/zuckerfreie-getraenke", label: "Zuckerfreie Getränke vergleichen", description: "Zero- und Light-Produkte ausschließlich nach ihrem Zuckerwert vergleichen." },
+      { href: "/de/wissen/getraenkeetiketten-naehrwerttabelle-verstehen", label: "Getränkeetiketten lesen", description: "Zutatenliste, Nährwerte und Packungsgröße richtig einordnen." },
     ],
   };
 

@@ -6,6 +6,8 @@ import { pageMetadata } from "@/lib/site";
 export const metadata = pageMetadata("Zucker in Getränken: Wissen und Vergleiche", "Zucker in Getränken nachschlagen: Cola Zucker pro 100 ml, Zuckerwürfel, Energy Drink Zucker pro Dose, Eistee Zucker und Saft im Vergleich.", "/de/wissen");
 
 export default function KnowledgePage() {
+  const sweetenerArticle = articles.find((article) => article.slug === "suessstoffe-aspartam-zuckerfreie-getraenke");
+
   return (
     <main className="mx-auto max-w-page px-4 py-10">
       <h1 className="text-4xl font-semibold tracking-tight">Wie viel Zucker ist in Getränken?</h1>
@@ -25,6 +27,19 @@ export default function KnowledgePage() {
           </p>
         </div>
       </div>
+      {sweetenerArticle && (
+        <Link
+          href={`/de/wissen/${sweetenerArticle.slug}`}
+          className="mt-8 grid gap-5 rounded-lg border border-ash bg-mist p-5 hover:border-marigold md:grid-cols-[1fr_auto] md:items-end"
+        >
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Zero und Light</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight">Zuckerfrei heißt nicht automatisch gesund</h2>
+            <p className="mt-3 max-w-2xl leading-7 text-slate">Aspartam, andere Süßstoffe und die Aussage „zuckerfrei“ sachlich einordnen.</p>
+          </div>
+          <span className="inline-flex items-center gap-2 text-sm font-medium">Artikel lesen <ArrowRight size={15} /></span>
+        </Link>
+      )}
       <section className="mt-10 rounded-lg border border-ash bg-mist p-5">
         <h2 className="text-2xl font-semibold tracking-tight">Häufig gesucht</h2>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -38,6 +53,7 @@ export default function KnowledgePage() {
             { href: "/de/zuckerrechner", label: "Zucker pro Flasche berechnen" },
             { href: "/de/getraenke?category=cola", label: "Cola-Produkte vergleichen" },
             { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola Zucker" },
+            { href: "/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke", label: "Aspartam und Süßstoffe" },
           ].map((item) => (
             <Link key={item.label} href={item.href} className="focus-ring rounded-md border border-ash bg-paper px-3 py-2 text-sm hover:border-marigold">
               {item.label}
@@ -47,7 +63,7 @@ export default function KnowledgePage() {
       </section>
       <h2 className="mt-10 text-2xl font-semibold tracking-tight">Weiter informieren</h2>
       <div className="mt-4 divide-y divide-ash border-y border-ash">
-        {articles.map((article) => (
+        {articles.filter((article) => article.slug !== sweetenerArticle?.slug).map((article) => (
           <Link key={article.slug} href={`/de/wissen/${article.slug}`} className="grid gap-4 py-5 hover:bg-mist md:grid-cols-[1fr_auto] md:px-3">
             <div>
               <h2 className="text-xl font-semibold tracking-tight">{article.title}</h2>

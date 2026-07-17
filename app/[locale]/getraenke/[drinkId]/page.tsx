@@ -114,6 +114,19 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         <Nutrient label="Energie pro Packung" value={energy === null ? "/" : `${formatNumber(energy)} kcal`} />
       </section>
 
+      {drink.sugarPer100Ml <= 0.5 && (
+        <aside className={styles.sweetenerNotice}>
+          <div>
+            <p className={styles.category}>Zuckerfrei einordnen</p>
+            <h2>Ein niedriger Zuckerwert ist kein Gesundheitsurteil.</h2>
+            <p>Die Datenbank bewertet hier nur Zucker. Ob dieses Produkt Süßstoffe enthält und falls ja, welche, steht in der aktuellen Zutatenliste. Zuckerhaltig.de erfasst diese Angaben derzeit nicht.</p>
+          </div>
+          <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke" className={styles.knowledge}>
+            Aspartam und Süßstoffe verstehen <ArrowRight size={16} />
+          </Link>
+        </aside>
+      )}
+
       {family.length > 1 && <PackageSizes drinks={family} />}
 
       <section className={styles.contentGrid}>
