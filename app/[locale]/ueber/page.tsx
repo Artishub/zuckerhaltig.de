@@ -35,7 +35,7 @@ export default function AboutPage() {
       <section className={styles.principles}>
         {principles.map(({ icon: Icon, title, text }) => (
           <article key={title}>
-            <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
+            <Icon size={24} strokeWidth={1.75} aria-hidden="true" />
             <h2>{title}</h2>
             <p>{text}</p>
           </article>
@@ -51,9 +51,9 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.links}>
-        <Link href="/de/getraenke">Getränke ansehen <ArrowRight size={17} /></Link>
-        <Link href="/de/faq">Fragen lesen <ArrowRight size={17} /></Link>
-        <Link href="/de/impressum">Kontakt <ArrowRight size={17} /></Link>
+        <Link href="/de/getraenke">Getränke ansehen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+        <Link href="/de/faq">Fragen lesen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+        <Link href="/de/impressum">Kontakt <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
       </section>
     </main>
   );

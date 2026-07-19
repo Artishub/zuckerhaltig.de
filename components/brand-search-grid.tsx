@@ -76,7 +76,7 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
           const actionHref = hasDetailPage ? `/de/marken/${brand.id}` : `/de/getraenke?brand=${brand.id}`;
 
           return (
-          <article key={brand.id} className="flex min-h-[236px] flex-col rounded-lg border border-ash p-4">
+          <article key={brand.id} className="flex min-h-[236px] flex-col rounded-lg border border-ash bg-mist p-4">
             <div>
               <h2 className="font-semibold">{brand.name}</h2>
               <p className="mt-1 text-sm text-slate">{brand.note}</p>
@@ -86,7 +86,7 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
                 <p className="text-xs font-medium uppercase tracking-wide text-slate">Produkte</p>
                 <div className="mb-5 mt-2 flex flex-col items-start gap-2">
                 {products.map((drink) => (
-                  <Link key={drink.id} href={`/de/getraenke/${drink.id}`} className="focus-ring max-w-full truncate rounded-md bg-mist px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
+                  <Link key={drink.id} href={`/de/getraenke/${drink.id}`} className="focus-ring max-w-full truncate rounded-md bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
                     {drink.name}
                   </Link>
                 ))}

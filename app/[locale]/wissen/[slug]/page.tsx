@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DrinkRows } from "@/components/seo-drink-list";
 import { articleBySlug, articles } from "@/lib/content/articles";
 import { drinks, totalSugarGrams, type Drink } from "@/lib/data/drinks";
 import { formatNumber } from "@/lib/seo-drinks";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, siteUrl } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -23,6 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     metaTitle(article.slug, article.title),
     metaDescription(article.slug, article.description),
     `/de/wissen/${article.slug}`,
+    {
+      type: "article",
+      ...(article.image ? { image: article.image } : {}),
+    },
   );
 }
 
@@ -36,6 +41,20 @@ export default async function ArticlePage({ params }: Props) {
       <p className="text-sm font-medium text-slate">{article.minutes} Minuten Lesezeit</p>
       <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{article.title}</h1>
       <p className="mt-5 text-lg leading-8 text-slate">{article.description}</p>
+      {article.updatedAt && <p className="mt-3 text-sm text-slate">Aktualisiert am {formatArticleDate(article.updatedAt)}</p>}
+      {article.image && (
+        <div className="mt-8 overflow-hidden rounded-lg border border-ash bg-mist">
+          <Image
+            src={article.image.src}
+            alt={article.image.alt}
+            width={article.image.width}
+            height={article.image.height}
+            sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+            className="h-auto w-full"
+            priority
+          />
+        </div>
+      )}
       {article.slug === "cola-zucker-pro-100ml" && <ColaAnswer />}
       {article.quickAnswer && (
         <section className="mt-8 rounded-lg border border-ash bg-mist p-5">
@@ -117,8 +136,29 @@ export default async function ArticlePage({ params }: Props) {
           }}
         />
       )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: article.title,
+            description: article.description,
+            mainEntityOfPage: `${siteUrl}/de/wissen/${article.slug}`,
+            ...(article.image ? { image: `${siteUrl}${article.image.src}` } : {}),
+            author: { "@type": "Organization", name: "Zuckerhaltig.de", url: `${siteUrl}/de/ueber` },
+            publisher: { "@type": "Organization", name: "Zuckerhaltig.de", url: siteUrl },
+            ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+            ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
+          }),
+        }}
+      />
     </main>
   );
+}
+
+function formatArticleDate(value: string) {
+  return new Intl.DateTimeFormat("de-DE", { dateStyle: "long" }).format(new Date(`${value}T00:00:00Z`));
 }
 
 function ColaAnswer() {
@@ -167,6 +207,10 @@ function ColaComparison() {
 
 function metaTitle(slug: string, fallback: string) {
   const titles: Record<string, string> = {
+    "zucker-pro-100ml-verstehen": "Zucker pro 100 ml: Was ist viel?",
+    "zuckerwuerfel-als-orientierung": "Zuckerwürfel in Getränken: Rechner und Beispiele",
+    "cola-zucker-pro-100ml": "Cola: Zucker pro 100 ml, 500 ml und 1 Liter",
+    "energy-drinks-zucker-vergleichen": "Energy Drink: Zucker pro 100 ml und pro Dose",
     "getraenkeetiketten-naehrwerttabelle-verstehen": "Getränkeetiketten: Zucker richtig lesen",
     "saft-zucker-reduzieren-schorle-sirup": "Zucker im Saft senken: Schorle und Sirup",
     "sugar-light-weniger-zucker-natuerlicher-geschmack": "Sugar Light: weniger Zucker, echter Geschmack",
@@ -197,25 +241,25 @@ function relatedLinks(slug: string) {
       { href: "/de/zuckerrechner", label: "Zucker pro Flasche berechnen", description: "Zuckerwert und Füllmenge direkt umrechnen." },
     ],
     "energy-drinks-zucker-vergleichen": [
-      { href: "/de/getraenke?category=energy", label: "Energy Drinks vergleichen", description: "Red Bull, Monster und weitere Energy Drinks nach Zucker filtern." },
+      { href: "/de/energy-drinks-zucker", label: "Energy Drinks vergleichen", description: "Red Bull, Monster und weitere Energy Drinks nach Zucker vergleichen." },
       { href: "/de/getraenke/red-bull-energy-drink-250", label: "Red Bull Energy Drink", description: "Zucker und Nährwerte der 250-ml-Dose ansehen." },
     ],
     "cola-zero-light-und-klassisch": [
-      { href: "/de/getraenke?category=cola", label: "Cola vergleichen", description: "Classic, Zero und Varianten in der Getränkesuche filtern." },
+      { href: "/de/wissen/cola-zucker-pro-100ml", label: "Cola vergleichen", description: "Classic, Zero und weitere Cola-Produkte nach Zucker vergleichen." },
       { href: "/de/getraenke/coca-cola-classic-500", label: "Coca-Cola Classic", description: "Zuckerwerte der 500-ml-Flasche im Detail." },
     ],
     "cola-zucker-pro-100ml": [
-      { href: "/de/getraenke?category=cola", label: "Cola nach Zucker sortieren", description: "Coca-Cola, afri cola und weitere Cola-Produkte nach Zucker pro 100 ml vergleichen." },
+      { href: "/de/marken/coca-cola", label: "Coca-Cola-Produkte", description: "Classic, Zero und weitere Varianten nach Zucker pro 100 ml vergleichen." },
       { href: "/de/getraenke/coca-cola-classic-500", label: "Coca-Cola Classic 500 ml", description: "53 g Zucker pro 500 ml aus dem 100-ml-Wert berechnen." },
       { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola classic", description: "afri cola nach Zucker pro 100 ml und pro Dose einordnen." },
       { href: "/de/wissen/cola-zero-light-und-klassisch", label: "Cola, Zero und Light", description: "Classic-Cola mit Zero- und Light-Varianten vergleichen." },
     ],
     "saft-ist-nicht-automatisch-zuckerarm": [
-      { href: "/de/getraenke?category=juice", label: "Säfte vergleichen", description: "Saft, Nektar und Fruchtsaftgetränke nach Zucker einordnen." },
+      { href: "/de/kategorien/juice", label: "Säfte vergleichen", description: "Saft, Nektar und Fruchtsaftgetränke nach Zucker einordnen." },
       { href: "/de/getraenke/granini-trinkgenuss-orange-1000", label: "granini Trinkgenuss Orange", description: "Ein Beispiel für Zuckerwerte in Saftprodukten." },
     ],
     "eistee-zucker-im-alltag": [
-      { href: "/de/getraenke?category=iced-tea", label: "Eistee vergleichen", description: "Pfirsich, Zitrone und weitere Sorten nach Zucker filtern." },
+      { href: "/de/eistee-zucker", label: "Eistee vergleichen", description: "Pfirsich, Zitrone und weitere Sorten nach Zucker vergleichen." },
       { href: "/de/wissen/packungsgroesse-entscheidet", label: "Packungsgröße prüfen", description: "Warum große Flaschen trotz moderater 100-ml-Werte relevant sind." },
     ],
     "packungsgroesse-entscheidet": [

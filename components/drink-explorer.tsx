@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { BarChart3, ChevronDown, ChevronLeft, ChevronRight, LinkIcon, Search, X } from "lucide-react";
+import { ArrowRight, BarChart3, ChevronDown, ChevronLeft, ChevronRight, LinkIcon, Search, X } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { categories, categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId, canonicalPackageDrinks, Drink, DrinkDisplayItem, drinks, groupedDrinkFamilies, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
@@ -41,8 +41,6 @@ export function DrinkExplorer() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(15);
   const [openId, setOpenId] = useState<string | null>(drinks[0]?.id ?? null);
-  const [compareIds, setCompareIds] = useState(["", "", ""]);
-  const [compareOpen, setCompareOpen] = useState(false);
 
   useEffect(() => {
     const nextQuery = searchParams.get("q") ?? "";
@@ -105,31 +103,13 @@ export function DrinkExplorer() {
     () => (compactGroups ? groupedDrinkFamilies(filtered) : filtered.map((drink) => ({ type: "drink", id: drink.id, drink }) as DrinkDisplayItem)),
     [compactGroups, filtered],
   );
-  const compareDrinkOptions = useMemo(
-    () => uniqueProductRepresentatives(drinks).sort((a, b) => a.name.localeCompare(b.name, "de")),
-    [],
-  );
-  const compareDrinks = compareIds
-    .map((id) => drinks.find((drink) => drink.id === id))
-    .filter(isDrink);
   const showPagination = displayItems.length > 15;
   const pageCount = Math.max(1, Math.ceil(displayItems.length / pageSize));
   const visibleItems = showPagination ? displayItems.slice((page - 1) * pageSize, page * pageSize) : displayItems;
-  const setCompareSlot = (index: number, id: string) => {
-    setCompareIds((current) => current.map((value, slotIndex) => (slotIndex === index ? id : value)));
-  };
-  const addToCompare = (drink: Drink) => {
-    setCompareIds((current) => {
-      if (current.includes(drink.id)) return current;
-      const openSlot = current.findIndex((value) => !value);
-      if (openSlot === -1) return current;
-      return current.map((value, index) => (index === openSlot ? drink.id : value));
-    });
-  };
 
   return (
     <div className="grid min-w-0 gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
-      <aside className="h-fit w-full min-w-0 border border-ash bg-paper lg:sticky lg:top-20">
+      <aside className="h-fit w-full min-w-0 border border-ash bg-mist lg:sticky lg:top-20">
         <div className="flex items-center justify-between border-b border-ash px-4 py-3">
           <h2 className="text-sm font-semibold">Filter</h2>
         </div>
@@ -177,15 +157,22 @@ export function DrinkExplorer() {
       </aside>
 
       <section className="min-w-0">
-        <ComparePanel
-          open={compareOpen}
-          onToggle={() => setCompareOpen((value) => !value)}
-          compareIds={compareIds}
-          compareDrinks={compareDrinks}
-          options={compareDrinkOptions}
-          onSelect={setCompareSlot}
-          onClear={(index) => setCompareSlot(index, "")}
-        />
+        <Link
+          href="/de/getraenke/vergleich"
+          className="focus-ring mb-6 flex flex-col gap-4 rounded-lg border border-ash bg-mist px-4 py-4 hover:border-marigold sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <div className="flex items-center gap-2">
+              <BarChart3 size={18} strokeWidth={1.75} aria-hidden="true" />
+              <h2 className="text-lg font-medium">Getränke vergleichen</h2>
+            </div>
+            <p className="mt-2 text-sm leading-6 text-slate">Stelle bis zu drei Getränke auf einer eigenen Vergleichsseite gegenüber.</p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-2 text-sm font-medium">
+            Vergleich öffnen
+            <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" />
+          </span>
+        </Link>
         <div className="mb-4 flex flex-col gap-3 border-b border-ash pb-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate">
             <strong className="text-ink">{displayItems.length}</strong> {compactGroups ? "Einträge" : "Getränke"} gefunden
@@ -267,14 +254,12 @@ export function DrinkExplorer() {
                       <p><span className="text-ink">{formatOptionalNumber(item.type === "group" ? maxNullable(item.drinks.map(sugarCubes)) : sugarCubes(drink))} Zuckerwürfel</span> bei 3 g pro Würfel.</p>
                       <p>{item.type === "group" ? `Spanne: ${formatNumber(Math.min(...item.drinks.map((groupDrink) => groupDrink.sugarPer100Ml)))} bis ${formatNumber(per100)} g Zucker pro 100 ml.` : calculationLine(drink)}</p>
                       <div className="mt-7 flex flex-col items-start gap-2">
-                        <button
-                          type="button"
-                          onClick={() => addToCompare(drink)}
-                          disabled={compareIds.includes(drink.id) || compareDrinks.length >= 3}
-                          className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ash bg-paper px-4 text-sm font-medium hover:border-marigold disabled:cursor-not-allowed disabled:opacity-45"
+                        <Link
+                          href={`/de/getraenke/vergleich?drink=${canonicalPackageDrinkId(drink)}`}
+                          className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ash bg-paper px-4 text-sm font-medium hover:border-marigold"
                         >
-                          {compareIds.includes(drink.id) ? "Im Vergleich" : "Zum Vergleich"}
-                        </button>
+                          Zum Vergleich
+                        </Link>
                         <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
                           Zur Detailseite
                         </Link>
@@ -333,263 +318,6 @@ export function DrinkExplorer() {
       </section>
     </div>
   );
-}
-
-function ComparePanel({
-  open,
-  onToggle,
-  compareIds,
-  compareDrinks,
-  options,
-  onSelect,
-  onClear,
-}: {
-  open: boolean;
-  onToggle: () => void;
-  compareIds: string[];
-  compareDrinks: Drink[];
-  options: Drink[];
-  onSelect: (index: number, id: string) => void;
-  onClear: (index: number) => void;
-}) {
-  const maxPer100 = Math.max(...compareDrinks.map((drink) => drink.sugarPer100Ml), 1);
-  const maxTotal = Math.max(...compareDrinks.map((drink) => totalSugarGrams(drink) ?? 0), 1);
-
-  return (
-    <section className="mb-6 rounded-lg border border-ash bg-paper">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="focus-ring flex w-full flex-col gap-3 px-4 py-4 text-left sm:flex-row sm:items-center sm:justify-between"
-        aria-expanded={open}
-      >
-        <div>
-          <div className="flex items-center gap-2">
-            <BarChart3 size={18} />
-            <h2 className="text-lg font-semibold">Getränke vergleichen</h2>
-          </div>
-          <p className="mt-2 text-sm leading-6 text-slate">Wähle bis zu drei Getränke und vergleiche Zucker, Kalorien und Nährwerte nebeneinander.</p>
-        </div>
-        <span className="flex items-center gap-3 text-sm text-slate">
-          {compareDrinks.length}/3 ausgewählt
-          <ChevronDown className={`transition ${open ? "rotate-180" : ""}`} size={18} />
-        </span>
-      </button>
-
-      {open && (
-        <div className="border-t border-ash p-4">
-      <div className="grid gap-3 md:grid-cols-3">
-        {compareIds.map((selectedId, index) => (
-          <label key={index} className="block">
-            <span className="text-xs font-medium uppercase tracking-wide text-slate">Getränk {index + 1}</span>
-            <div className="mt-2 flex gap-2">
-              <DrinkCombobox
-                value={selectedId}
-                options={options}
-                disabledIds={compareIds.filter((id) => id && id !== selectedId)}
-                onChange={(id) => onSelect(index, id)}
-              />
-              {selectedId && (
-                <button
-                  type="button"
-                  onClick={() => onClear(index)}
-                  className="focus-ring inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-ash hover:border-marigold"
-                  aria-label={`Getränk ${index + 1} entfernen`}
-                >
-                  <X size={15} />
-                </button>
-              )}
-            </div>
-          </label>
-        ))}
-      </div>
-
-      {compareDrinks.length ? (
-        <>
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
-            {compareDrinks.map((drink) => {
-              const brandName = brands.find((brandItem) => brandItem.id === drink.brandId)?.name ?? "";
-              const categoryName = categoryById[drink.categoryId]?.name ?? "Getränk";
-              const nutrition = drink.nutritionPer100Ml;
-
-              return (
-                <article key={drink.id} className="rounded-lg border border-ash bg-mist p-4">
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate">{categoryName}</p>
-                  <h3 className="mt-2 text-base font-semibold leading-tight">{drink.name}</h3>
-                  <p className="mt-1 text-sm text-slate">{brandName} · {sizeLabel(drink)}</p>
-                  <dl className="mt-4 space-y-2 text-sm">
-                    <CompareValue label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} strong />
-                    <CompareValue label="Zucker gesamt" value={formatOptionalGrams(totalSugarGrams(drink))} strong />
-                    <CompareValue label="Zuckerwürfel" value={formatOptionalNumber(sugarCubes(drink))} />
-                    <CompareValue label="Energie pro 100 ml" value={nutrition ? `${formatNumber(nutrition.energyKcal)} kcal` : "/"} />
-                    <CompareValue label="Kohlenhydrate" value={nutrition ? `${formatNumber(nutrition.carbohydrates)} g` : "/"} />
-                    <CompareValue label="Fett" value={nutrition ? `${formatNumber(nutrition.fat)} g` : "/"} />
-                    <CompareValue label="Eiweiß" value={nutrition ? `${formatNumber(nutrition.protein)} g` : "/"} />
-                    <CompareValue label="Salz" value={nutrition ? `${formatNumber(nutrition.salt)} g` : "/"} />
-                  </dl>
-                  <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring mt-4 inline-flex rounded-md text-sm underline decoration-ash underline-offset-4 hover:decoration-marigold">
-                    Detailseite öffnen
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="mt-5 rounded-lg border border-ash bg-mist p-4">
-            <h3 className="font-semibold">Zuckervergleich als Graph</h3>
-            <div className="mt-4 space-y-5">
-              <SugarBars label="Zucker pro 100 ml" drinks={compareDrinks} max={maxPer100} value={(drink) => drink.sugarPer100Ml} suffix="g" />
-              <SugarBars label="Gesamtzucker pro Gebinde" drinks={compareDrinks} max={maxTotal} value={totalSugarGrams} suffix="g" />
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="mt-4 rounded-lg border border-dashed border-ash bg-mist p-4 text-sm text-slate">
-          Starte mit einem Getränk. Du kannst weitere Produkte über die Auswahlfelder oder über „Zum Vergleich“ in geöffneten Karten hinzufügen.
-        </div>
-      )}
-        </div>
-      )}
-    </section>
-  );
-}
-
-function DrinkCombobox({
-  value,
-  options,
-  disabledIds,
-  onChange,
-}: {
-  value: string;
-  options: Drink[];
-  disabledIds: string[];
-  onChange: (id: string) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
-  const containerRef = useRef<HTMLDivElement>(null);
-  const selected = options.find((drink) => drink.id === value);
-  const filtered = useMemo(() => {
-    const normalized = query.trim().toLowerCase();
-    return options
-      .filter((drink) => {
-        const brandName = brands.find((brand) => brand.id === drink.brandId)?.name ?? "";
-        const haystack = `${drink.name} ${brandName} ${sizeLabel(drink)}`.toLowerCase();
-        return !normalized || haystack.includes(normalized);
-      })
-      .slice(0, 40);
-  }, [options, query]);
-
-  useEffect(() => {
-    if (!open) return;
-    const handlePointerDown = (event: PointerEvent) => {
-      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
-    };
-    document.addEventListener("pointerdown", handlePointerDown);
-    return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [open]);
-
-  return (
-    <div ref={containerRef} className="relative min-w-0 flex-1">
-      <button
-        type="button"
-        onClick={() => setOpen((current) => !current)}
-        className="focus-ring flex h-10 w-full items-center justify-between gap-2 rounded-md border border-ash bg-mist px-3 text-left text-sm outline-none hover:border-smoke"
-        aria-haspopup="listbox"
-        aria-expanded={open}
-      >
-        <span className="min-w-0 truncate">{selected ? `${selected.name} · ${sizeLabel(selected)}` : "Auswählen"}</span>
-        <ChevronDown className={`shrink-0 transition ${open ? "rotate-180" : ""}`} size={16} />
-      </button>
-      {open && (
-        <div className="absolute left-0 right-0 top-12 z-30 rounded-md border border-ash bg-paper p-2 shadow-[0_18px_60px_rgba(26,26,26,0.12)]">
-          <div className="flex h-9 items-center gap-2 rounded-md border border-ash px-2">
-            <Search size={15} />
-            <input
-              autoFocus
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Getränk suchen"
-              className="min-w-0 flex-1 bg-transparent text-sm outline-none"
-            />
-          </div>
-          <div className="mt-2 max-h-64 overflow-y-auto" role="listbox">
-            <button
-              type="button"
-              onClick={() => {
-                onChange("");
-                setQuery("");
-                setOpen(false);
-              }}
-              className="block w-full rounded px-2 py-2 text-left text-sm hover:bg-mist"
-            >
-              Auswählen
-            </button>
-            {filtered.map((drink) => {
-              const disabled = disabledIds.includes(drink.id);
-              return (
-                <button
-                  key={drink.id}
-                  type="button"
-                  disabled={disabled}
-                  onClick={() => {
-                    onChange(drink.id);
-                    setQuery("");
-                    setOpen(false);
-                  }}
-                  className="block w-full rounded px-2 py-2 text-left text-sm hover:bg-mist disabled:cursor-not-allowed disabled:opacity-40"
-                  role="option"
-                  aria-selected={drink.id === value}
-                >
-                  <span className="block truncate font-medium">{drink.name}</span>
-                  <span className="block truncate text-xs text-slate">
-                    {brands.find((brand) => brand.id === drink.brandId)?.name} · {sizeLabel(drink)}
-                  </span>
-                </button>
-              );
-            })}
-            {!filtered.length && <p className="px-2 py-3 text-sm text-slate">Kein Getränk gefunden.</p>}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function CompareValue({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) {
-  return (
-    <div className="flex items-baseline justify-between gap-3 border-b border-ash pb-2 last:border-b-0">
-      <dt className="text-slate">{label}</dt>
-      <dd className={`text-right tabular-nums ${strong ? "font-semibold text-ink" : "text-ink"}`}>{value}</dd>
-    </div>
-  );
-}
-
-function SugarBars({ label, drinks, max, value, suffix }: { label: string; drinks: Drink[]; max: number; value: (drink: Drink) => number | null; suffix: string }) {
-  return (
-    <div>
-      <p className="text-xs font-medium uppercase tracking-wide text-slate">{label}</p>
-      <div className="mt-2 space-y-2">
-        {drinks.map((drink) => {
-          const drinkValue = value(drink);
-          const width = drinkValue === null ? 0 : Math.max(3, (drinkValue / max) * 100);
-          return (
-            <div key={drink.id} className="grid gap-2 sm:grid-cols-[160px_1fr_64px] sm:items-center">
-              <p className="truncate text-sm font-medium">{drink.name}</p>
-              <div className="h-3 overflow-hidden rounded-full bg-paper">
-                <div className="h-full rounded-full bg-marigold" style={{ width: `${width}%` }} />
-              </div>
-              <p className="text-sm tabular-nums text-slate sm:text-right">{drinkValue === null ? "/" : `${formatNumber(drinkValue)} ${suffix}`}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-function isDrink(value: Drink | undefined): value is Drink {
-  return Boolean(value);
 }
 
 function productSentence(drink: Drink, brandName: string, categoryName: string) {

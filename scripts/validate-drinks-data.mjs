@@ -14,7 +14,7 @@ const verificationStatuses = new Set([
   "needs_label_check",
   "open_database_import",
 ]);
-const requiredTextFields = ["id", "name", "brandId", "categoryId", "source", "note"];
+const requiredTextFields = ["id", "name", "brandId", "categoryId", "source", "sourceUrl", "note"];
 const nutritionFields = ["energyKj", "energyKcal", "carbohydrates", "sugar", "fat", "protein", "salt"];
 const sourceSugarPattern = /(\d+(?:[,.]\d+)?)\s*g\s+Zucker\s+pro\s+(\d+)\s*ml/gi;
 
@@ -32,7 +32,7 @@ for (const drink of data.drinks) {
     errors.push(`${drink.id}: unknown verificationStatus ${drink.verificationStatus}`);
   }
   if (!isIsoDate(drink.lastCheckedAt)) errors.push(`${drink.id}: invalid lastCheckedAt ${drink.lastCheckedAt}`);
-  if (drink.sourceUrl && !isHttpUrl(drink.sourceUrl)) errors.push(`${drink.id}: invalid sourceUrl ${drink.sourceUrl}`);
+  if (!isHttpsUrl(drink.sourceUrl)) errors.push(`${drink.id}: invalid sourceUrl ${drink.sourceUrl}`);
   if (!Number.isFinite(drink.sugarPer100Ml) || drink.sugarPer100Ml < 0) {
     errors.push(`${drink.id}: invalid sugarPer100Ml ${drink.sugarPer100Ml}`);
   }
@@ -100,10 +100,10 @@ function isIsoDate(value) {
   return !Number.isNaN(Date.parse(`${value}T00:00:00Z`));
 }
 
-function isHttpUrl(value) {
+function isHttpsUrl(value) {
   try {
     const url = new URL(value);
-    return url.protocol === "https:" || url.protocol === "http:";
+    return url.protocol === "https:";
   } catch {
     return false;
   }

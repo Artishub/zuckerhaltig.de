@@ -60,13 +60,19 @@ export default async function BrandPage({ params }: PageProps) {
       <section className="border-b border-ash bg-mist">
         <div className="mx-auto grid max-w-page gap-10 px-4 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-16">
           <div>
-            <Link href="/de/marken" className="focus-ring inline-flex items-center gap-2 rounded-md text-sm font-medium text-slate hover:text-ink">
+            <nav aria-label="Brotkrumen" className="flex flex-wrap items-center gap-2 text-sm text-slate">
+              <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
+              <Link href="/de/marken">Marken</Link><span aria-hidden="true">/</span>
+              <span aria-current="page">{brand.name}</span>
+            </nav>
+            <Link href="/de/marken" className="focus-ring mt-5 inline-flex items-center gap-2 rounded-md text-sm font-medium text-slate hover:text-ink">
               <ArrowLeft size={16} aria-hidden="true" /> Alle Marken
             </Link>
             <h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[.94] tracking-[-0.06em] md:text-6xl">
               {brand.name}: Zucker vergleichen
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-slate">{page.intro}</p>
+            <p className="mt-4 max-w-xl leading-7">Die hinterlegten Produkte liegen zwischen <strong>{formatNumber(minSugar)} und {formatNumber(maxSugar)} g Zucker pro 100 ml</strong>.</p>
           </div>
           <dl className="grid grid-cols-2 overflow-hidden rounded-lg border border-ash bg-paper">
             <BrandStat label="Produkte" value={String(products.length)} />
@@ -131,7 +137,7 @@ export default async function BrandPage({ params }: PageProps) {
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Start", item: `${siteUrl}/de` },
+                { "@type": "ListItem", position: 1, name: "Startseite", item: `${siteUrl}/de` },
                 { "@type": "ListItem", position: 2, name: "Marken", item: `${siteUrl}/de/marken` },
                 { "@type": "ListItem", position: 3, name: brand.name, item: `${siteUrl}/de/marken/${brandId}` },
               ],

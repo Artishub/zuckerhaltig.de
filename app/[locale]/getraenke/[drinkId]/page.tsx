@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowLeft, ArrowRight, ExternalLink, Info } from "lucide-react";
+import { categoryPageHref } from "@/lib/category-landing-pages";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
@@ -84,10 +85,17 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const similar = similarDrinks(drink);
   const faqs = generatedFaq(drink, brandName);
   const brandHref = brandPageHref(drink.brandId);
+  const categoryHref = categoryPageHref(drink.categoryId);
 
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+        <nav aria-label="Brotkrumen" className="flex flex-wrap items-center gap-2 text-sm text-slate">
+          <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
+          <Link href="/de/getraenke">Getränke</Link><span aria-hidden="true">/</span>
+          {categoryHref ? <><Link href={categoryHref}>{categoryName}</Link><span aria-hidden="true">/</span></> : null}
+          <span aria-current="page">{drink.name}</span>
+        </nav>
         <Link href="/de/getraenke" className={styles.back}><ArrowLeft size={16} /> Zur Getränkesuche</Link>
         <div className={styles.heroGrid}>
           <div>
@@ -147,7 +155,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <h2>Nachprüfbar.</h2>
           <p>{drink.note}</p>
           {drink.lastCheckedAt && <p className={styles.checked}>Zuletzt geprüft: {formatDate(drink.lastCheckedAt)}</p>}
-          {drink.sourceUrl && <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>}
+          <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>
         </aside>
       </section>
 
@@ -169,6 +177,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         </div>
         <div className={styles.knowledgeLinks}>
           <Link href={knowledgeLink(drink)} className={styles.knowledge}>Passendes Wissen lesen <ArrowRight size={16} /></Link>
+          {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
           {brandHref && <Link href={brandHref} className={styles.knowledge}>Alle {brandName}-Getränke <ArrowRight size={16} /></Link>}
         </div>
       </section>
@@ -274,8 +283,17 @@ function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
 
 function metaTitle(drink: Drink) {
   const sugar = `${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml`;
+  if (priorityProductIds.has(drink.id)) return `${shortenTitleName(drink.name)}: ${sugar} (${sizeLabel(drink)})`;
   return `${shortenTitleName(drink.name)} ${sizeLabel(drink)}: ${sugar}`;
 }
+
+const priorityProductIds = new Set([
+  "coca-cola-classic-500",
+  "fanta-orange-500",
+  "paulaner-spezi-500",
+  "sprite-500",
+  "red-bull-energy-drink-250",
+]);
 
 function metaDescription(drink: Drink, brandName: string, family: Drink[]) {
   const totalSugar = totalSugarGrams(drink);
@@ -283,7 +301,7 @@ function metaDescription(drink: Drink, brandName: string, family: Drink[]) {
     ? ` In ${drink.sizeMl} ml stecken rechnerisch ${formatNumber(totalSugar)} g.`
     : "";
   const familyPart = family.length > 1 ? ` Vergleiche ${family.length} Packungsgrößen.` : "";
-  return `${drink.name} von ${brandName} enthält ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.${packagePart}${familyPart} Mit Nährwerten, Zuckerwürfeln und Quelle.`;
+  return `${drink.name} von ${brandName} enthält ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.${packagePart}${familyPart} Mit Nährwerten und Zuckerwürfeln. Quelle: ${drink.source}.`;
 }
 
 function shortenTitleName(name: string) {
@@ -358,29 +376,23 @@ function knowledgeLink(drink: Drink) {
 }
 
 function breadcrumbJsonLd(drink: Drink) {
+  const category = categoryById[drink.categoryId];
+  const categoryHref = categoryPageHref(drink.categoryId);
+  const crumbs = [
+    { name: "Startseite", item: `${siteUrl}/de` },
+    { name: "Getränke", item: `${siteUrl}/de/getraenke` },
+    ...(category && categoryHref ? [{ name: category.name, item: `${siteUrl}${categoryHref}` }] : []),
+    { name: `${drink.name} ${sizeLabel(drink)}`, item: `${siteUrl}/de/getraenke/${canonicalPackageDrinkId(drink)}` },
+  ];
+
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Startseite",
-        item: `${siteUrl}/de`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Getränke",
-        item: `${siteUrl}/de/getraenke`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: `${drink.name} ${sizeLabel(drink)}`,
-        item: `${siteUrl}/de/getraenke/${drink.id}`,
-      },
-    ],
+    itemListElement: crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      ...crumb,
+    })),
   };
 }
 

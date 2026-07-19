@@ -1,8 +1,18 @@
+export type ArticleImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type Article = {
   slug: string;
   title: string;
   description: string;
   minutes: number;
+  image?: ArticleImage;
+  publishedAt?: string;
+  updatedAt?: string;
   body: string[];
   quickAnswer?: string;
   sections?: {
@@ -16,12 +26,33 @@ export type Article = {
   sources?: { label: string; url: string }[];
 };
 
+export const homepageArticleSlugs = [
+  "suessstoffe-aspartam-zuckerfreie-getraenke",
+  "zucker-pro-100ml-verstehen",
+  "getraenkeetiketten-naehrwerttabelle-verstehen",
+] as const;
+
+export const knowledgeFeaturedArticleSlugs = [
+  ...homepageArticleSlugs,
+  "cola-zucker-pro-100ml",
+  "energy-drinks-zucker-vergleichen",
+  "eistee-zucker-im-alltag",
+] as const;
+
 export const articles: Article[] = [
   {
     slug: "zucker-pro-100ml-verstehen",
-    title: "Wie viel Zucker pro 100 ml ist viel?",
-    description: "Zucker pro 100 ml verstehen: Cola, Eistee, Energy Drinks, Saft und Limo fair vergleichen.",
+    title: "Zucker pro 100 ml: Was ist viel?",
+    description: "Zucker pro 100 ml einordnen und Getränke fair vergleichen. Mit Schwellen für zuckerarm und zuckerfrei sowie einer Rechnung für ganze Packungen.",
     minutes: 3,
+    updatedAt: "2026-07-17",
+    image: {
+      src: "/images/wissen/zucker-pro-100ml.webp",
+      alt: "Symbolbild: Markenfreie Getränkeflasche, Messglas und lose Zuckerwürfel",
+      width: 1536,
+      height: 1024,
+    },
+    quickAnswer: "Eine allgemeine Grenze für viel Zucker gibt es nicht. Viele zuckergesüßte Getränke liegen laut DGE bei etwa 8 bis 10 g Zucker pro 100 ml. Für den Vergleich zählt zuerst der 100-ml-Wert, danach die Packungsgröße.",
     body: [
       "Eine allgemeine Grenze dafür, ab wann ein Getränk viel Zucker hat, gibt es nicht. Für Angaben auf Verpackungen gelten aber feste EU-Schwellen: Als zuckerarm darf ein Getränk bis 2,5 g Zucker pro 100 ml bezeichnet werden, als zuckerfrei bis 0,5 g.",
       "Zur Einordnung nennt die Deutsche Gesellschaft für Ernährung für viele zuckergesüßte Getränke etwa 80 bis 100 g Zucker pro Liter. Das entspricht 8 bis 10 g pro 100 ml.",
@@ -36,9 +67,11 @@ export const articles: Article[] = [
   },
   {
     slug: "zuckerwuerfel-als-orientierung",
-    title: "Wie viele Zuckerwürfel sind in Getränken?",
-    description: "Zuckerwürfel in Cola, Saft, Eistee und Energy Drinks berechnen: Gramm Zucker geteilt durch 3.",
+    title: "Zuckerwürfel in Getränken: Rechner und Beispiele",
+    description: "Zuckerwürfel in Cola, Saft, Eistee und Energy Drinks berechnen. Gesamtzucker in Gramm geteilt durch 3 ergibt die Zahl der Zuckerwürfel.",
     minutes: 2,
+    updatedAt: "2026-07-17",
+    quickAnswer: "Zuckerhaltig.de rechnet mit 3 g Zucker pro Würfel. Teile den Gesamtzucker einer Flasche oder Dose durch 3, um die ungefähre Zahl der Zuckerwürfel zu erhalten.",
     body: [
       "35 g Zucker bleiben auf dem Etikett ziemlich abstrakt. Ungefähr 12 Zuckerwürfel versteht man schneller, auch wenn es nur eine Rechenhilfe ist.",
       "Zuckerhaltig.de nutzt 3 g Zucker pro Würfel. Würfel können je nach Hersteller etwas anders ausfallen, aber 3 g ist ein brauchbarer Richtwert für schnelle Vergleiche.",
@@ -49,9 +82,16 @@ export const articles: Article[] = [
   },
   {
     slug: "cola-zucker-pro-100ml",
-    title: "Wie viel Zucker hat Cola pro 100 ml?",
-    description: "Wie viel Zucker hat Cola? Coca-Cola, afri cola und Cola-Mix nach 100 ml, Flasche und Zuckerwürfeln vergleichen.",
+    title: "Cola: Zucker pro 100 ml, 500 ml und 1 Liter",
+    description: "Cola nach Zucker pro 100 ml und pro Flasche vergleichen. Mit Coca-Cola, Pepsi, afri cola, Zero-Produkten und Cola-Mix.",
     minutes: 4,
+    updatedAt: "2026-07-17",
+    image: {
+      src: "/images/wissen/cola-zucker.webp",
+      alt: "Symbolbild: Markenfreie Cola-Flasche und Glas neben losen Zuckerwürfeln",
+      width: 1536,
+      height: 1024,
+    },
     body: [
       "Für einen fairen Cola-Vergleich zählt zuerst der Zuckerwert pro 100 ml. So lassen sich Dose, Flasche und verschiedene Marken auf derselben Basis lesen.",
       "Der zweite Wert ist der Gesamtzucker pro Packung. Eine kleine Dose und eine 1-Liter-Flasche können denselben Wert pro 100 ml haben, enthalten insgesamt aber unterschiedliche Mengen.",
@@ -75,9 +115,17 @@ export const articles: Article[] = [
   },
   {
     slug: "energy-drinks-zucker-vergleichen",
-    title: "Wie viel Zucker hat ein Energy Drink?",
-    description: "Wie viel Zucker hat ein Energy Drink? Red Bull, Monster und Rockstar nach Dose, 500 ml und Zuckerwürfeln vergleichen.",
+    title: "Energy Drink: Zucker pro 100 ml und pro Dose",
+    description: "Energy Drinks nach Zucker pro 100 ml und pro Dose vergleichen. Mit Red Bull, Monster, Rockstar, Packungsgrößen und Zuckerwürfeln.",
     minutes: 3,
+    updatedAt: "2026-07-17",
+    image: {
+      src: "/images/wissen/energy-drinks-zucker.webp",
+      alt: "Symbolbild: Zwei markenfreie Energy-Drink-Dosen in unterschiedlicher Größe",
+      width: 1536,
+      height: 1024,
+    },
+    quickAnswer: "Der Zuckerwert hängt von Marke, Sorte und Dose ab. Bei 11 g Zucker pro 100 ml enthält eine 250-ml-Dose 27,5 g, eine 500-ml-Dose 55 g.",
     body: [
       "Bei Energy Drinks hängt die Antwort stark von Sorte und Dose ab. Original, Mango, Kirsche, Tropical oder Zero können nah beieinander liegen, müssen es aber nicht.",
       "250 ml und 500 ml machen einen großen Unterschied. 11 g Zucker pro 100 ml ergeben bei 500 ml bereits 55 g Zucker pro Dose.",
@@ -104,6 +152,12 @@ export const articles: Article[] = [
     title: "Wie viel Zucker hat Eistee?",
     description: "Wie viel Zucker hat Eistee? Pfirsich, Zitrone und große Flaschen nach Zucker pro 100 ml prüfen.",
     minutes: 3,
+    image: {
+      src: "/images/wissen/eistee-zucker.webp",
+      alt: "Symbolbild: Bernsteinfarbener Eistee mit Eis, Zitrone und Pfirsich",
+      width: 1536,
+      height: 1024,
+    },
     body: [
       "Eistee wird oft nebenbei getrunken, fast wie Wasser. Genau deshalb wird sein Zuckerwert leicht unterschätzt.",
       "Je nach Marke und Sorte schwankt Zucker pro 100 ml deutlich. Manche Eistees liegen niedriger, andere nähern sich klassischen Softdrinks. Zero- und Light-Varianten verändern den Vergleich noch einmal.",
@@ -246,6 +300,12 @@ export const articles: Article[] = [
     title: "Getränkeetiketten verstehen: Zuckerangaben richtig lesen",
     description: "Nährwerttabelle erklärt: Zucker pro 100 ml, Kohlenhydrate, kcal, Portion und Packungsgröße bei Getränken verstehen.",
     minutes: 6,
+    image: {
+      src: "/images/wissen/getraenkeetikett.webp",
+      alt: "Symbolbild: Markenfreie Getränkeflasche mit neutralem Etikett und Lupe",
+      width: 1536,
+      height: 1024,
+    },
     body: [
       "Viele Etiketten wirken komplizierter, als sie sind. Für Zucker in Getränken brauchst du zuerst zwei Zeilen: „Kohlenhydrate“ und darunter „davon Zucker“. Der zweite Wert ist der, den die meisten suchen.",
       "Die Angabe steht fast immer pro 100 ml. Das ist praktisch, weil alle Getränke damit dieselbe Basis haben. Eine Dose mit 250 ml, eine Flasche mit 500 ml und ein Literkarton lassen sich so überhaupt erst vergleichen.",
@@ -288,6 +348,12 @@ export const articles: Article[] = [
     title: "Aspartam und Süßstoffe: Ist zuckerfrei automatisch gesund?",
     description: "Was zuckerfrei wirklich bedeutet, wie Aspartam bewertet wird und warum Zero-Getränke kein allgemeines Gesundheitsurteil verdienen.",
     minutes: 7,
+    image: {
+      src: "/images/wissen/suessstoffe-zero.webp",
+      alt: "Symbolbild: Zwei markenfreie Softdrinks neben Zuckerwürfeln und neutralen Süßstoffpäckchen",
+      width: 1536,
+      height: 1024,
+    },
     body: [],
     quickAnswer: "Zuckerfrei bedeutet bei Getränken höchstens 0,5 g Zucker pro 100 ml. Die Angabe bewertet weder das ganze Getränk noch die Ernährungsweise. Zero-Getränke können gegenüber zuckergesüßten Varianten Zucker und Kalorien sparen, sind aber nicht mit Wasser oder ungesüßtem Tee gleichzusetzen.",
     sections: [

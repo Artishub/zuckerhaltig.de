@@ -9234,6 +9234,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 10.6,
       "source": "afri Produktseite",
+      "sourceUrl": "https://afri.de/produkte/afri-cola-25/",
       "note": "Extra-Koffein-Variante.",
       "verificationStatus": "manufacturer_verified",
       "lastCheckedAt": "2026-06-11",
@@ -9953,7 +9954,8 @@
       "categoryId": "juice-drink",
       "sizeMl": 200,
       "sugarPer100Ml": 8.1,
-      "source": "Fivestar Trading retailer",
+      "source": "REWE Produktseite",
+      "sourceUrl": "https://www.rewe.de/shop/p/capri-sun-multivitamin-200ml/9068277",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 143 kJ / 34 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-28"
@@ -9965,7 +9967,8 @@
       "categoryId": "juice-drink",
       "sizeMl": 200,
       "sugarPer100Ml": 0.6,
-      "source": "Capri-Sun global site",
+      "source": "McGrocer Produktseite",
+      "sourceUrl": "https://de.mcgrocer.com/products/capri-sun-zero-orange-8-x-200ml",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 16 kJ / 4 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-28"
@@ -10079,6 +10082,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 3,
       "source": "Lipton nutrition info",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-pfirsich-geschmack",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 56 kJ / 13 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10104,6 +10108,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 6.2,
       "source": "Veganleben page",
+      "sourceUrl": "https://veganleben.de/pfanner-eistee-pfirsich",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 108 kJ / 25 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-28"
@@ -10129,6 +10134,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 4.8,
       "source": "Rockstar Energy UK page",
+      "sourceUrl": "https://www.rockstarenergy.co.uk/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 91 kJ / 21 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-28"
@@ -10141,6 +10147,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 4.8,
       "source": "Rockstar Energy UK page",
+      "sourceUrl": "https://www.rockstarenergy.co.uk/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 101 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-28"
@@ -10267,6 +10274,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 4.6,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte/pepsi-das-original",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 75 kJ / 18 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10382,7 +10390,8 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 5.6,
-      "source": "Amazon product info",
+      "source": "Canada Dry Produktseite",
+      "sourceUrl": "https://www.canadadry.com/products/ginger-ale",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 101 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10550,7 +10559,8 @@
       "categoryId": "lemon-lime",
       "sizeMl": 330,
       "sugarPer100Ml": 10,
-      "source": "Generic nutritional info",
+      "source": "7UP Frankreich Produktseite",
+      "sourceUrl": "https://www.7up.fr/fr/products/7up-mojito",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 173 kJ / 41 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10562,7 +10572,8 @@
       "categoryId": "lemon-lime",
       "sizeMl": 330,
       "sugarPer100Ml": 10,
-      "source": "Generic nutritional info",
+      "source": "7UP Frankreich Produktseite",
+      "sourceUrl": "https://www.7up.fr/fr/products/7up-saveur-cocktail-exotique",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 173 kJ / 41 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10574,7 +10585,8 @@
       "categoryId": "lemon-lime",
       "sizeMl": 330,
       "sugarPer100Ml": 10,
-      "source": "Generic nutritional info",
+      "source": "7UP Produktseite",
+      "sourceUrl": "https://www.7up.com/en/products/7up-tropical",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 173 kJ / 41 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10612,7 +10624,8 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 12,
-      "source": "Generic nutritional info",
+      "source": "Mountain Dew Produktübersicht",
+      "sourceUrl": "https://www.mountaindew.com/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10624,7 +10637,8 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 13,
-      "source": "Generic nutritional info",
+      "source": "Mountain Dew Produktübersicht",
+      "sourceUrl": "https://www.mountaindew.com/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10636,7 +10650,8 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 12,
-      "source": "Generic nutritional info",
+      "source": "Mountain Dew Produktübersicht",
+      "sourceUrl": "https://www.mountaindew.com/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10648,7 +10663,8 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 13,
-      "source": "Generic nutritional info",
+      "source": "Mountain Dew Produktübersicht",
+      "sourceUrl": "https://www.mountaindew.com/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 218 kJ / 52 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10660,7 +10676,8 @@
       "categoryId": "softdrink",
       "sizeMl": 330,
       "sugarPer100Ml": 12,
-      "source": "Generic nutritional info",
+      "source": "Mountain Dew Produktübersicht",
+      "sourceUrl": "https://www.mountaindew.com/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10699,6 +10716,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10711,6 +10729,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10723,6 +10742,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10735,6 +10755,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10747,6 +10768,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 11,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 180 kJ / 43 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10928,6 +10950,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 12,
       "source": "Fanta nutrition info",
+      "sourceUrl": "https://www.coca-cola.com/jp/ja/brands/fanta",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 201 kJ / 48 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10953,6 +10976,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 0,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -10987,6 +11011,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 0,
       "source": "Club Mate info",
+      "sourceUrl": "https://brauerei-loscher.de/getraenke/erfrischungen/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11021,6 +11046,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 5,
       "source": "Bionade nutrition info",
+      "sourceUrl": "https://www.bionade.de/ueber-bionade-2/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 89 kJ / 21 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11033,6 +11059,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 7,
       "source": "Bionade nutrition info",
+      "sourceUrl": "https://www.bionade.de/ueber-bionade-2/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 130 kJ / 31 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11045,6 +11072,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 5.5,
       "source": "Bionade nutrition info",
+      "sourceUrl": "https://www.bionade.de/ueber-bionade-2/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 103 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11057,6 +11085,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 5.2,
       "source": "Bionade nutrition info",
+      "sourceUrl": "https://www.bionade.de/ueber-bionade-2/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11069,6 +11098,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 5.5,
       "source": "Bionade nutrition info",
+      "sourceUrl": "https://www.bionade.de/ueber-bionade-2/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 103 kJ / 24 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11081,6 +11111,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 5,
       "source": "Bionade nutrition info",
+      "sourceUrl": "https://www.bionade.de/ueber-bionade-2/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 95 kJ / 22 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11105,7 +11136,8 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 6.2,
-      "source": "Generic nutritional info",
+      "source": "Pfanner Produktübersicht Eistee",
+      "sourceUrl": "https://www.pfanner.com/produkte/eistee/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 108 kJ / 25 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11117,7 +11149,8 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 6.2,
-      "source": "Generic nutritional info",
+      "source": "Pfanner Produktübersicht Eistee",
+      "sourceUrl": "https://www.pfanner.com/produkte/eistee/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 108 kJ / 25 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11129,7 +11162,8 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 6.2,
-      "source": "Generic nutritional info",
+      "source": "Pfanner Produktübersicht Eistee",
+      "sourceUrl": "https://www.pfanner.com/produkte/eistee/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 108 kJ / 25 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11141,7 +11175,8 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 6.2,
-      "source": "Generic nutritional info",
+      "source": "Pfanner Produktübersicht Eistee",
+      "sourceUrl": "https://www.pfanner.com/produkte/eistee/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 108 kJ / 25 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11153,7 +11188,8 @@
       "categoryId": "iced-tea",
       "sizeMl": 500,
       "sugarPer100Ml": 6,
-      "source": "Generic nutritional info",
+      "source": "Pfanner Produktübersicht Eistee",
+      "sourceUrl": "https://www.pfanner.com/produkte/eistee/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 105 kJ / 25 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11166,6 +11202,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 4,
       "source": "Lipton nutrition info",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/black-ice-tea/lipton-ice-tea-mango-maracuja-geschmack",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 67 kJ / 16 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11178,6 +11215,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 4,
       "source": "Lipton nutrition info",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 67 kJ / 16 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11190,6 +11228,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 0,
       "source": "Lipton nutrition info",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas/green-ice-tea/lipton-ice-tea-mango-zero-geschmack",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11202,6 +11241,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 0,
       "source": "Lipton nutrition info",
+      "sourceUrl": "https://www.liptonicedtea.com/de/unsere-ice-teas",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11214,6 +11254,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 0,
       "source": "Effect nutrition info",
+      "sourceUrl": "https://effect-energy.com/produkte/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11226,6 +11267,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "Effect nutrition info",
+      "sourceUrl": "https://effect-energy.com/produkte/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11238,6 +11280,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "Effect nutrition info",
+      "sourceUrl": "https://effect-energy.com/produkte/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11404,6 +11447,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 11,
       "source": "Rockstar nutrition info",
+      "sourceUrl": "https://www.rockstarenergy.co.uk/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11416,6 +11460,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 0,
       "source": "Rockstar nutrition info",
+      "sourceUrl": "https://www.rockstarenergy.co.uk/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 10 kJ / 2 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11428,6 +11473,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 11,
       "source": "Rockstar nutrition info",
+      "sourceUrl": "https://www.rockstarenergy.co.uk/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11440,6 +11486,7 @@
       "sizeMl": 500,
       "sugarPer100Ml": 11,
       "source": "Rockstar nutrition info",
+      "sourceUrl": "https://www.rockstarenergy.co.uk/products",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11491,6 +11538,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
+      "sourceUrl": "https://www.redbull.com/de-de/energydrink/products/red-bull-editions-energy-drinks",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11503,6 +11551,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
+      "sourceUrl": "https://www.redbull.com/de-de/energydrink/products/red-bull-editions-energy-drinks",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11515,6 +11564,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
+      "sourceUrl": "https://www.redbull.com/de-de/energydrink/products/red-bull-editions-energy-drinks",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11527,6 +11577,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
+      "sourceUrl": "https://www.redbull.com/de-de/energydrink/products/red-bull-editions-energy-drinks",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11583,6 +11634,7 @@
       "sizeMl": 250,
       "sugarPer100Ml": 11,
       "source": "Red Bull nutrition info",
+      "sourceUrl": "https://www.redbull.com/ch-de/energydrink/products/red-bull-peach-edition-ingredients-list",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 176 kJ / 42 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11793,6 +11845,7 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 6.7,
       "source": "Pfanner nutrition info",
+      "sourceUrl": "https://www.pfanner.com/produkte/eistee/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 112 kJ / 28 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11805,6 +11858,7 @@
       "sizeMl": 1000,
       "sugarPer100Ml": 13,
       "source": "Pfanner nutrition info",
+      "sourceUrl": "https://www.pfanner.com/produkte/fruchtsaefte/",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 242 kJ / 58 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11882,7 +11936,8 @@
       "categoryId": "cola-mix",
       "sizeMl": 330,
       "sugarPer100Ml": 9.7,
-      "source": "Soda nutrition info",
+      "source": "Pepsi Produktübersicht",
+      "sourceUrl": "https://www.pepsi.de/produkte",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 166 kJ / 39 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"
@@ -11895,6 +11950,7 @@
       "sizeMl": 330,
       "sugarPer100Ml": 0,
       "source": "Pepsi nutrition info",
+      "sourceUrl": "https://www.pepsi.de/produkte/pepsi-zero-zucker",
       "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 3 kJ / 0.7 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
       "verificationStatus": "needs_label_check",
       "lastCheckedAt": "2026-06-29"

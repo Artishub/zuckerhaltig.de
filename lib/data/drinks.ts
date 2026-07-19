@@ -22,7 +22,7 @@ export type Drink = {
   sugarPer100Ml: number;
   source: string;
   note: string;
-  sourceUrl?: string;
+  sourceUrl: string;
   verificationStatus?: VerificationStatus;
   lastCheckedAt?: string;
   nutritionPer100Ml?: {

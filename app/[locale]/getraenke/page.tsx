@@ -42,7 +42,7 @@ function CrawlLinks() {
     <section className="mt-12 border-t border-ash pt-8">
       <h2 className="text-2xl font-semibold tracking-tight">Alle Getränke nach Kategorie</h2>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-slate">Öffne eine Kategorie und rufe jedes Getränk direkt auf.</p>
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className="mt-5 grid gap-3">
         {categories.map((category) => {
           const categoryDrinks = canonical
             .filter((drink) => drink.categoryId === category.id)
