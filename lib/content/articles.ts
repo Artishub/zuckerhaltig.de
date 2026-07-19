@@ -47,7 +47,7 @@ export const articles: Article[] = [
     minutes: 3,
     updatedAt: "2026-07-17",
     image: {
-      src: "/images/wissen/zucker-pro-100ml.webp",
+      src: "/images/wissen/zucker-pro-100ml-illustration.webp",
       alt: "Symbolbild: Markenfreie Getränkeflasche, Messglas und lose Zuckerwürfel",
       width: 1536,
       height: 1024,
@@ -87,7 +87,7 @@ export const articles: Article[] = [
     minutes: 4,
     updatedAt: "2026-07-17",
     image: {
-      src: "/images/wissen/cola-zucker.webp",
+      src: "/images/wissen/cola-zucker-illustration.webp",
       alt: "Symbolbild: Markenfreie Cola-Flasche und Glas neben losen Zuckerwürfeln",
       width: 1536,
       height: 1024,
@@ -120,7 +120,7 @@ export const articles: Article[] = [
     minutes: 3,
     updatedAt: "2026-07-17",
     image: {
-      src: "/images/wissen/energy-drinks-zucker.webp",
+      src: "/images/wissen/energy-drinks-zucker-illustration.webp",
       alt: "Symbolbild: Zwei markenfreie Energy-Drink-Dosen in unterschiedlicher Größe",
       width: 1536,
       height: 1024,
@@ -153,7 +153,7 @@ export const articles: Article[] = [
     description: "Wie viel Zucker hat Eistee? Pfirsich, Zitrone und große Flaschen nach Zucker pro 100 ml prüfen.",
     minutes: 3,
     image: {
-      src: "/images/wissen/eistee-zucker.webp",
+      src: "/images/wissen/eistee-zucker-illustration.webp",
       alt: "Symbolbild: Bernsteinfarbener Eistee mit Eis, Zitrone und Pfirsich",
       width: 1536,
       height: 1024,
@@ -301,7 +301,7 @@ export const articles: Article[] = [
     description: "Nährwerttabelle erklärt: Zucker pro 100 ml, Kohlenhydrate, kcal, Portion und Packungsgröße bei Getränken verstehen.",
     minutes: 6,
     image: {
-      src: "/images/wissen/getraenkeetikett.webp",
+      src: "/images/wissen/getraenkeetikett-illustration.webp",
       alt: "Symbolbild: Markenfreie Getränkeflasche mit neutralem Etikett und Lupe",
       width: 1536,
       height: 1024,
@@ -349,7 +349,7 @@ export const articles: Article[] = [
     description: "Was zuckerfrei wirklich bedeutet, wie Aspartam bewertet wird und warum Zero-Getränke kein allgemeines Gesundheitsurteil verdienen.",
     minutes: 7,
     image: {
-      src: "/images/wissen/suessstoffe-zero.webp",
+      src: "/images/wissen/suessstoffe-zero-illustration.webp",
       alt: "Symbolbild: Zwei markenfreie Softdrinks neben Zuckerwürfeln und neutralen Süßstoffpäckchen",
       width: 1536,
       height: 1024,
