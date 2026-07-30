@@ -82,10 +82,10 @@ export const articles: Article[] = [
   },
   {
     slug: "cola-zucker-pro-100ml",
-    title: "Cola: Zucker pro 100 ml, 500 ml und 1 Liter",
-    description: "Cola nach Zucker pro 100 ml und pro Flasche vergleichen. Mit Coca-Cola, Pepsi, afri cola, Zero-Produkten und Cola-Mix.",
+    title: "Cola Zucker: Wie viel steckt in 100 ml, 500 ml und 1 Liter?",
+    description: "Wie viel Zucker hat Cola? Vergleiche Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix pro 100 ml, Flasche und als Zuckerwürfel.",
     minutes: 4,
-    updatedAt: "2026-07-17",
+    updatedAt: "2026-07-30",
     image: {
       src: "/images/wissen/cola-zucker-illustration.webp",
       alt: "Symbolbild: Markenfreie Cola-Flasche und Glas neben losen Zuckerwürfeln",
@@ -93,11 +93,28 @@ export const articles: Article[] = [
       height: 1024,
     },
     body: [
-      "Für einen fairen Cola-Vergleich zählt zuerst der Zuckerwert pro 100 ml. So lassen sich Dose, Flasche und verschiedene Marken auf derselben Basis lesen.",
-      "Der zweite Wert ist der Gesamtzucker pro Packung. Eine kleine Dose und eine 1-Liter-Flasche können denselben Wert pro 100 ml haben, enthalten insgesamt aber unterschiedliche Mengen.",
-      "Classic, Zero und Light sollten getrennt gelesen werden. Der genaue Produktname ist wichtiger als die Marke allein, weil die Rezepturen deutlich voneinander abweichen können.",
-      "Auch Cola-Mix ist eine eigene Gruppe. Spezi und Mezzo Mix verbinden Cola mit Orangenlimonade und müssen nicht denselben Zuckerwert wie klassische Cola haben.",
-      "Die Tabelle verwendet die hinterlegten Nährwertangaben und verlinkt jedes Produkt mit Quelle und Prüfdatum. Zuckerwürfel werden mit 3 g pro Würfel berechnet.",
+      "Coca-Cola Classic enthält in unserer Datenbank 10,6 g Zucker pro 100 ml. Eine 500-ml-Flasche kommt damit auf 53 g Zucker, rechnerisch etwa 17,7 Zuckerwürfel.",
+      "Der 100-ml-Wert zeigt, wie süß ein Getränk ist. Für die tatsächlich getrunkene Menge zählt zusätzlich die Packungsgröße: Eine 1-Liter-Flasche mit demselben Wert enthält doppelt so viel Zucker wie 500 ml.",
+      "Cola ist nicht gleich Cola. Classic, Zero und Light unterscheiden sich deutlich; auch Pepsi, afri cola und Cola-Mix haben eigene Zuckerwerte. Deshalb stehen die Produkte unten nebeneinander, jeweils mit Wert pro 100 ml und pro Packung.",
+      "Die Angaben stammen aus den auf den Produktseiten verlinkten Quellen. Zucker pro Packung und Zuckerwürfel berechnet Zuckerhaltig.de aus dem 100-ml-Wert und der Füllmenge; ein Zuckerwürfel entspricht dabei 3 g.",
+    ],
+    faq: [
+      {
+        question: "Wie viel Zucker hat Cola pro 100 ml?",
+        answer: "Coca-Cola Classic liegt in der Datenbank bei 10,6 g Zucker pro 100 ml. Andere Marken und Varianten können abweichen, deshalb lohnt sich der direkte Vergleich.",
+      },
+      {
+        question: "Wie viel Zucker sind in 500 ml Coca-Cola?",
+        answer: "Bei 10,6 g Zucker pro 100 ml ergeben 500 ml rechnerisch 53 g Zucker. Das entspricht ungefähr 17,7 Zuckerwürfeln bei 3 g pro Würfel.",
+      },
+      {
+        question: "Hat Cola Zero Zucker?",
+        answer: "Coca-Cola Zero Sugar ist in der Datenbank mit 0 g Zucker pro 100 ml erfasst. Prüfe bei anderen Zero- oder Light-Produkten dennoch immer die jeweilige Nährwerttabelle.",
+      },
+      {
+        question: "Warum zählt Zucker pro 100 ml?",
+        answer: "Der Wert macht Getränke mit unterschiedlichen Packungsgrößen vergleichbar. Die Füllmenge zeigt danach, wie viel Zucker die ganze Dose oder Flasche enthält.",
+      },
     ],
   },
   {

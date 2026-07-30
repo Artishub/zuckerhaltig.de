@@ -198,9 +198,21 @@ function ColaComparison() {
 
   return (
     <section className="mt-12 border-t border-ash pt-8">
-      <h2 className="text-3xl font-semibold tracking-tight">Cola-Produkte vergleichen</h2>
-      <p className="mb-5 mt-3 leading-7 text-slate">Beispiele aus der Datenbank, berechnet pro 100 ml und pro Packung.</p>
+      <h2 className="text-3xl font-semibold tracking-tight">Cola Zucker im Vergleich</h2>
+      <p className="mb-5 mt-3 leading-7 text-slate">Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix: Werte pro 100 ml und für die ganze Packung.</p>
       <DrinkRows drinks={comparisonDrinks} />
+      <section className="mt-8">
+        <h3 className="text-xl font-semibold tracking-tight">Quellen zu den Vergleichswerten</h3>
+        <ul className="mt-3 space-y-2 text-sm leading-6">
+          {comparisonDrinks.map((drink) => (
+            <li key={drink.id}>
+              <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                {drink.name}: {drink.source}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     </section>
   );
 }
@@ -209,7 +221,7 @@ function metaTitle(slug: string, fallback: string) {
   const titles: Record<string, string> = {
     "zucker-pro-100ml-verstehen": "Zucker pro 100 ml: Was ist viel?",
     "zuckerwuerfel-als-orientierung": "Zuckerwürfel in Getränken: Rechner und Beispiele",
-    "cola-zucker-pro-100ml": "Cola: Zucker pro 100 ml, 500 ml und 1 Liter",
+    "cola-zucker-pro-100ml": "Cola Zucker: Wie viel steckt in 100 ml, 500 ml und 1 Liter?",
     "energy-drinks-zucker-vergleichen": "Energy Drink: Zucker pro 100 ml und pro Dose",
     "getraenkeetiketten-naehrwerttabelle-verstehen": "Getränkeetiketten: Zucker richtig lesen",
     "saft-zucker-reduzieren-schorle-sirup": "Zucker im Saft senken: Schorle und Sirup",
@@ -222,6 +234,7 @@ function metaTitle(slug: string, fallback: string) {
 
 function metaDescription(slug: string, fallback: string) {
   const descriptions: Record<string, string> = {
+    "cola-zucker-pro-100ml": "Wie viel Zucker hat Cola? Vergleiche Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix pro 100 ml, Flasche und als Zuckerwürfel.",
     "zucker-pro-100ml-verstehen": "Zucker pro 100 ml verstehen: Cola, Eistee, Energy Drinks, Saft und Limo fair vergleichen. Mit Beispielrechnung für Packung, Portion und Zuckerwürfel.",
     "eistee-zucker-im-alltag": "Wie viel Zucker hat Eistee? Pfirsich, Zitrone und große Flaschen nach Zucker pro 100 ml, Packungsgröße und Zuckerwürfeln im Alltag einordnen.",
     "packungsgroesse-entscheidet": "Zucker pro Flasche berechnen: warum 250 ml, 330 ml, 500 ml und 1 Liter bei gleichem 100-ml-Wert sehr unterschiedliche Mengen ergeben.",
