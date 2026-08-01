@@ -21,6 +21,9 @@ export default function SugarFreeRankingPage() {
           </Link>
         </aside>
         <SortableDrinkRows drinks={drinks} defaultSort="brand" />
+        <p className="mt-6 text-sm text-slate">
+          Nicht nur zuckerfreie Varianten ansehen? <Link href="/de/rankings/zuckerarme-softdrinks" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">Softdrinks bis 2,5 g Zucker pro 100 ml vergleichen</Link>.
+        </p>
       </section>
     </main>
   );

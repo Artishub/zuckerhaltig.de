@@ -65,6 +65,7 @@ export default function KnowledgePage() {
             { href: "/de/wissen/cola-zucker-pro-100ml", label: "Cola-Produkte vergleichen" },
             { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola Zucker" },
             { href: "/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke", label: "Aspartam und Süßstoffe" },
+            { href: "/de/rankings/zuckerarme-softdrinks", label: "Zuckerarme Softdrinks" },
           ].map((item) => (
             <Link key={item.label} href={item.href} className="focus-ring rounded-md border border-ash bg-paper px-3 py-2 text-sm hover:border-marigold">
               {item.label}

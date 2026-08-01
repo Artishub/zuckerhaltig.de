@@ -35,6 +35,7 @@ export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = articleBySlug[slug];
   if (!article) notFound();
+  const comparison = articleComparison(article.slug);
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
@@ -69,6 +70,7 @@ export default async function ArticlePage({ params }: Props) {
           ))}
         </div>
       )}
+      {comparison && <ArticleComparison title={comparison.title} intro={comparison.intro} drinks={comparison.drinks} />}
       {!!article.sections?.length && (
         <div className="mt-10 space-y-10 border-t border-ash pt-8">
           {article.sections.map((section) => (
@@ -198,19 +200,78 @@ function ColaComparison() {
 
   return (
     <section className="mt-12 border-t border-ash pt-8">
-      <h2 className="text-3xl font-semibold tracking-tight">Cola-Produkte vergleichen</h2>
-      <p className="mb-5 mt-3 leading-7 text-slate">Beispiele aus der Datenbank, berechnet pro 100 ml und pro Packung.</p>
+      <h2 className="text-3xl font-semibold tracking-tight">Cola Zucker im Vergleich</h2>
+      <p className="mb-5 mt-3 leading-7 text-slate">Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix: Werte pro 100 ml und für die ganze Packung.</p>
       <DrinkRows drinks={comparisonDrinks} />
+      <section className="mt-8">
+        <h3 className="text-xl font-semibold tracking-tight">Quellen zu den Vergleichswerten</h3>
+        <ul className="mt-3 space-y-2 text-sm leading-6">
+          {comparisonDrinks.map((drink) => (
+            <li key={drink.id}>
+              <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                {drink.name}: {drink.source}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     </section>
   );
+}
+
+function ArticleComparison({ title, intro, drinks: comparisonDrinks }: { title: string; intro: string; drinks: Drink[] }) {
+  return (
+    <section className="mt-12 border-t border-ash pt-8">
+      <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>
+      <p className="mb-5 mt-3 leading-7 text-slate">{intro}</p>
+      <DrinkRows drinks={comparisonDrinks} />
+      <ul className="mt-5 space-y-2 text-sm leading-6">
+        {comparisonDrinks.map((drink) => (
+          <li key={drink.id}>
+            <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+              Quelle für {drink.name}: {drink.source}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function articleComparison(slug: string) {
+  const configs: Record<string, { title: string; intro: string; ids: string[] }> = {
+    "zuckerwuerfel-als-orientierung": {
+      title: "Zuckerwürfel im direkten Vergleich",
+      intro: "Beispiele aus der Datenbank. Ein Zuckerwürfel entspricht hier 3 g Zucker.",
+      ids: ["coca-cola-classic-500", "fanta-orange-500", "sprite-500", "red-bull-energy-drink-250"],
+    },
+    "energy-drinks-zucker-vergleichen": {
+      title: "Red Bull und Monster im Vergleich",
+      intro: "Der Zuckerwert pro 100 ml und die Dosenmenge gehören zusammen.",
+      ids: ["red-bull-energy-drink-250", "monster-mango-loco-500"],
+    },
+    "bekannte-softdrinks-im-zuckervergleich": {
+      title: "Bekannte Softdrinks vergleichen",
+      intro: "Coca-Cola, Pepsi, Fanta, Sprite und Cola-Mix mit hinterlegtem Wert pro 100 ml und pro Packung.",
+      ids: ["coca-cola-classic-500", "pepsi-500", "fanta-orange-500", "sprite-500", "paulaner-spezi-500", "mezzo-mix-original-500"],
+    },
+  };
+  const config = configs[slug];
+  if (!config) return null;
+
+  const comparisonDrinks = config.ids
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink): drink is Drink => Boolean(drink));
+
+  return comparisonDrinks.length ? { ...config, drinks: comparisonDrinks } : null;
 }
 
 function metaTitle(slug: string, fallback: string) {
   const titles: Record<string, string> = {
     "zucker-pro-100ml-verstehen": "Zucker pro 100 ml: Was ist viel?",
-    "zuckerwuerfel-als-orientierung": "Zuckerwürfel in Getränken: Rechner und Beispiele",
-    "cola-zucker-pro-100ml": "Cola: Zucker pro 100 ml, 500 ml und 1 Liter",
-    "energy-drinks-zucker-vergleichen": "Energy Drink: Zucker pro 100 ml und pro Dose",
+    "zuckerwuerfel-als-orientierung": "Zuckerwürfel in Getränken: Cola, Fanta, Sprite und Red Bull",
+    "cola-zucker-pro-100ml": "Cola Zucker: Wie viel steckt in 100 ml, 500 ml und 1 Liter?",
+    "energy-drinks-zucker-vergleichen": "Energy Drink Zucker: Red Bull, Monster und 500-ml-Dosen",
     "getraenkeetiketten-naehrwerttabelle-verstehen": "Getränkeetiketten: Zucker richtig lesen",
     "saft-zucker-reduzieren-schorle-sirup": "Zucker im Saft senken: Schorle und Sirup",
     "sugar-light-weniger-zucker-natuerlicher-geschmack": "Sugar Light: weniger Zucker, echter Geschmack",
@@ -222,6 +283,7 @@ function metaTitle(slug: string, fallback: string) {
 
 function metaDescription(slug: string, fallback: string) {
   const descriptions: Record<string, string> = {
+    "cola-zucker-pro-100ml": "Wie viel Zucker hat Cola? Vergleiche Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix pro 100 ml, Flasche und als Zuckerwürfel.",
     "zucker-pro-100ml-verstehen": "Zucker pro 100 ml verstehen: Cola, Eistee, Energy Drinks, Saft und Limo fair vergleichen. Mit Beispielrechnung für Packung, Portion und Zuckerwürfel.",
     "eistee-zucker-im-alltag": "Wie viel Zucker hat Eistee? Pfirsich, Zitrone und große Flaschen nach Zucker pro 100 ml, Packungsgröße und Zuckerwürfeln im Alltag einordnen.",
     "packungsgroesse-entscheidet": "Zucker pro Flasche berechnen: warum 250 ml, 330 ml, 500 ml und 1 Liter bei gleichem 100-ml-Wert sehr unterschiedliche Mengen ergeben.",

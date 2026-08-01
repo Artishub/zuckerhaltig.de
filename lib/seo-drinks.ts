@@ -55,6 +55,15 @@ export function sugarFreeDrinks(limit: number) {
     .slice(0, limit);
 }
 
+export function lowSugarSoftDrinks(limit: number) {
+  const softDrinkCategories = new Set(["softdrink", "cola", "cola-mix", "orange-limo", "lemon-lime", "bio-limo", "fassbrause"]);
+
+  return uniqueProductRepresentatives(drinks)
+    .filter((drink) => softDrinkCategories.has(drink.categoryId) && drink.sugarPer100Ml <= 2.5)
+    .sort((a, b) => a.sugarPer100Ml - b.sugarPer100Ml || brandName(a).localeCompare(brandName(b), "de"))
+    .slice(0, limit);
+}
+
 export function topBySugarPer100(items: Drink[], limit = 12) {
   return [...items].sort((a, b) => b.sugarPer100Ml - a.sugarPer100Ml).slice(0, limit);
 }

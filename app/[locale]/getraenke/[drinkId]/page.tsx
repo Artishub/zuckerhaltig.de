@@ -177,6 +177,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         </div>
         <div className={styles.knowledgeLinks}>
           <Link href={knowledgeLink(drink)} className={styles.knowledge}>Passendes Wissen lesen <ArrowRight size={16} /></Link>
+          {comparisonLink(drink) && <Link href={comparisonLink(drink)!} className={styles.knowledge}>Fanta und Sprite vergleichen <ArrowRight size={16} /></Link>}
           {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
           {brandHref && <Link href={brandHref} className={styles.knowledge}>Alle {brandName}-Getränke <ArrowRight size={16} /></Link>}
         </div>
@@ -373,6 +374,12 @@ function knowledgeLink(drink: Drink) {
   if (drink.categoryId === "iced-tea") return "/de/wissen/eistee-zucker-im-alltag";
   if (drink.sugarPer100Ml <= 1) return "/de/wissen/zuckerfreie-getraenke-in-der-datenbank";
   return "/de/wissen/zucker-pro-100ml-verstehen";
+}
+
+function comparisonLink(drink: Drink) {
+  return drink.brandId === "fanta" || drink.brandId === "sprite"
+    ? "/de/vergleiche/fanta-vs-sprite-zucker"
+    : null;
 }
 
 function breadcrumbJsonLd(drink: Drink) {
