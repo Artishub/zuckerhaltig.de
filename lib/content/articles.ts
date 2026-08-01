@@ -67,10 +67,10 @@ export const articles: Article[] = [
   },
   {
     slug: "zuckerwuerfel-als-orientierung",
-    title: "Zuckerwürfel in Getränken: Rechner und Beispiele",
-    description: "Zuckerwürfel in Cola, Saft, Eistee und Energy Drinks berechnen. Gesamtzucker in Gramm geteilt durch 3 ergibt die Zahl der Zuckerwürfel.",
+    title: "Zuckerwürfel in Getränken: Cola, Fanta, Sprite und Red Bull",
+    description: "Wie viele Zuckerwürfel stecken in Cola, Fanta, Sprite und Red Bull? Gesamtzucker pro Dose oder Flasche durch 3 g rechnen und vergleichen.",
     minutes: 2,
-    updatedAt: "2026-07-17",
+    updatedAt: "2026-07-31",
     quickAnswer: "Zuckerhaltig.de rechnet mit 3 g Zucker pro Würfel. Teile den Gesamtzucker einer Flasche oder Dose durch 3, um die ungefähre Zahl der Zuckerwürfel zu erhalten.",
     body: [
       "35 g Zucker bleiben auf dem Etikett ziemlich abstrakt. Ungefähr 12 Zuckerwürfel versteht man schneller, auch wenn es nur eine Rechenhilfe ist.",
@@ -132,10 +132,10 @@ export const articles: Article[] = [
   },
   {
     slug: "energy-drinks-zucker-vergleichen",
-    title: "Energy Drink: Zucker pro 100 ml und pro Dose",
-    description: "Energy Drinks nach Zucker pro 100 ml und pro Dose vergleichen. Mit Red Bull, Monster, Rockstar, Packungsgrößen und Zuckerwürfeln.",
+    title: "Energy Drink Zucker: Red Bull, Monster und 500-ml-Dosen",
+    description: "Wie viel Zucker haben Red Bull und Monster? Energy Drinks nach Zucker pro 100 ml, Dose und Zuckerwürfeln vergleichen.",
     minutes: 3,
-    updatedAt: "2026-07-17",
+    updatedAt: "2026-07-31",
     image: {
       src: "/images/wissen/energy-drinks-zucker-illustration.webp",
       alt: "Symbolbild: Zwei markenfreie Energy-Drink-Dosen in unterschiedlicher Größe",
@@ -212,9 +212,10 @@ export const articles: Article[] = [
   },
   {
     slug: "bekannte-softdrinks-im-zuckervergleich",
-    title: "10 bekannte Softdrinks im Zuckervergleich",
-    description: "Zuckergehalt von Coca-Cola, Pepsi, Fanta, Spezi und weiteren Softdrinks pro 100 ml und pro Flasche vergleichen.",
+    title: "Softdrinks im Zuckervergleich: Cola, Fanta, Sprite und Spezi",
+    description: "Zuckergehalt von Coca-Cola, Pepsi, Fanta, Sprite und Spezi pro 100 ml und pro Flasche vergleichen. Mit Quellen und Zuckerwürfeln.",
     minutes: 6,
+    updatedAt: "2026-07-31",
     body: [
       "Wer „Zuckergehalt Cola vs. Pepsi“ oder „Zuckervergleich Softdrinks“ sucht, will selten eine Grundsatzrede über Ernährung. Meist geht es um konkrete Zahlen: Wie viel Zucker steckt pro 100 ml drin, und was bedeutet das für die ganze Flasche?",
       "Coca-Cola Classic ist in der Datenbank mit 10,6 g Zucker pro 100 ml hinterlegt. Bei 500 ml sind das rechnerisch 53 g Zucker. Coca-Cola Vanilla liegt mit 11,1 g pro 100 ml etwas höher; eine 500-ml-Flasche kommt auf 55,5 g.",

@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/de/vergleiche/fanta-vs-sprite-zucker",
     "/de/rankings/zuckerreichste-getraenke",
     "/de/rankings/zuckerfreie-getraenke",
+    "/de/rankings/zuckerarme-softdrinks",
     "/de/datenschutz",
     "/de/impressum",
     "/de/nutzungsbedingungen",
