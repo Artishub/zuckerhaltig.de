@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink, Info } from "lucide-react";
 import { categoryPageHref } from "@/lib/category-landing-pages";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, drinks, isIndexableDrink, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
 import { brandPageHref } from "@/lib/featured-brand-pages";
 import { siteUrl } from "@/lib/site";
 import styles from "./drink-detail.module.css";
@@ -42,6 +42,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/de/getraenke/${canonicalId}`,
     },
+    ...(!isIndexableDrink(canonicalDrink) && {
+      robots: {
+        index: false,
+        follow: true,
+      },
+    }),
     openGraph: {
       title,
       description,

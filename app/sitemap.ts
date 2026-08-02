@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/content/articles";
 import { categoryLandingPages } from "@/lib/category-landing-pages";
-import { canonicalPackageDrinks, drinks } from "@/lib/data/drinks";
+import { canonicalPackageDrinks, drinks, isIndexableDrink } from "@/lib/data/drinks";
 import { featuredBrandPages } from "@/lib/featured-brand-pages";
 import { siteUrl } from "@/lib/site";
 
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/de/wissen/${article.slug}`,
       ...(article.updatedAt ? { lastModified: article.updatedAt } : {}),
     })),
-    ...canonicalPackageDrinks(drinks).map((drink) => ({
+    ...canonicalPackageDrinks(drinks).filter(isIndexableDrink).map((drink) => ({
       url: `${siteUrl}/de/getraenke/${drink.id}`,
     })),
   ];

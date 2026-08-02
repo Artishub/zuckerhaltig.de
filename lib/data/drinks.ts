@@ -100,6 +100,17 @@ export function canonicalPackageDrinks(items: Drink[]) {
   return items.filter((drink) => canonicalPackageDrinkId(drink) === drink.id);
 }
 
+export function isIndexableDrink(drink: Drink) {
+  return Boolean(
+    drink.sizeMl
+      && drink.sourceUrl
+      && drink.nutritionPer100Ml
+      && ["manufacturer_verified", "retailer_verified", "manufacturer_or_retailer_verified"].includes(
+        drink.verificationStatus ?? "",
+      ),
+  );
+}
+
 export function productFamilyDrinks(drink: Drink) {
   const bySize = new Map<number | null, Drink>();
 
