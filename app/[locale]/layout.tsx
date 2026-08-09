@@ -57,14 +57,6 @@ export default function LocaleLayout({ children }: { children: React.ReactNode }
             <Link href="/de/datenschutz" className="hover:text-ink">Datenschutz</Link>
             <Link href="/de/nutzungsbedingungen" className="hover:text-ink">Nutzung</Link>
           </div>
-          <nav aria-label="Weitere Projekte" className="border-t border-ash pt-6 md:col-span-2">
-            <h2 className="mb-3 font-medium text-ink">Weitere Projekte</h2>
-            <ul className="flex flex-wrap gap-x-4 gap-y-2">
-              <li><a href="https://aivergleich.de" className="hover:text-ink">AIvergleich.de</a></li>
-              <li>Zuckerhaltig.de</li>
-              <li><a href="https://www.proteinhaltig.de" className="hover:text-ink">Proteinhaltig.de</a></li>
-            </ul>
-          </nav>
         </div>
       </footer>
     </div>

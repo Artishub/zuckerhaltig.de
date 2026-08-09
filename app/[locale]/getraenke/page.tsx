@@ -1,8 +1,5 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import { DrinkExplorer } from "@/components/drink-explorer";
-import { categories } from "@/lib/data/categories";
-import { canonicalPackageDrinks, drinks } from "@/lib/data/drinks";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata("Getränke-Datenbank", "Suche Getränke nach Marke, Kategorie, Gebindegröße und Zuckerwerten. Vergleiche Zucker pro 100 ml, Packung, Kalorien, Zuckerwürfel und Quellen.", "/de/getraenke");
@@ -30,44 +27,6 @@ export default function DrinksPage() {
       <Suspense fallback={<div className="border-t border-ash py-6 text-sm text-slate">Getränke werden geladen...</div>}>
         <DrinkExplorer />
       </Suspense>
-      <CrawlLinks />
     </main>
-  );
-}
-
-function CrawlLinks() {
-  const canonical = canonicalPackageDrinks(drinks);
-
-  return (
-    <section className="mt-12 border-t border-ash pt-8">
-      <h2 className="text-2xl font-semibold tracking-tight">Alle Getränke nach Kategorie</h2>
-      <p className="mt-2 max-w-2xl text-sm leading-6 text-slate">Öffne eine Kategorie und rufe jedes Getränk direkt auf.</p>
-      <div className="mt-5 grid gap-3">
-        {categories.map((category) => {
-          const categoryDrinks = canonical
-            .filter((drink) => drink.categoryId === category.id)
-            .sort((a, b) => a.name.localeCompare(b.name, "de"));
-
-          if (!categoryDrinks.length) return null;
-
-          return (
-            <details key={category.id} className="rounded-lg border border-ash bg-paper px-4 py-3">
-              <summary className="focus-ring cursor-pointer rounded-md font-semibold">
-                {category.name} <span className="font-normal text-slate">({categoryDrinks.length})</span>
-              </summary>
-              <ul className="mt-4 grid gap-x-5 gap-y-2 text-sm sm:grid-cols-2">
-                {categoryDrinks.map((drink) => (
-                  <li key={drink.id}>
-                    <Link href={`/de/getraenke/${drink.id}`} className="focus-ring inline-flex rounded-md underline decoration-ash underline-offset-4 hover:decoration-marigold">
-                      {drink.name}{drink.sizeMl ? `, ${drink.sizeMl} ml` : ""}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          );
-        })}
-      </div>
-    </section>
   );
 }
