@@ -1,5 +1,7 @@
 import { Suspense } from "react";
+import { DrinkRows } from "@/components/seo-drink-list";
 import { DrinkExplorer } from "@/components/drink-explorer";
+import { featuredIndexableDrinks } from "@/lib/seo-drinks";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata("Getränke-Datenbank", "Suche Getränke nach Marke, Kategorie, Gebindegröße und Zuckerwerten. Vergleiche Zucker pro 100 ml, Packung, Kalorien, Zuckerwürfel und Quellen.", "/de/getraenke");
@@ -27,6 +29,17 @@ export default function DrinksPage() {
       <Suspense fallback={<div className="border-t border-ash py-6 text-sm text-slate">Getränke werden geladen...</div>}>
         <DrinkExplorer />
       </Suspense>
+      <section className="mx-auto mt-14 max-w-page border-t border-ash px-4 pt-10">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-tight">Ausgewählte Produktseiten</h2>
+          <p className="mt-3 leading-7 text-slate">
+            Einige häufig verglichene Getränke führen direkt zu ihren Detailseiten mit Quellen und Packungswerten.
+          </p>
+        </div>
+        <div className="mt-6">
+          <DrinkRows drinks={featuredIndexableDrinks()} />
+        </div>
+      </section>
     </main>
   );
 }

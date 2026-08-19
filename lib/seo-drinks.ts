@@ -1,6 +1,6 @@
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalPackageDrinkId, drinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, canonicalPackageDrinks, drinks, isIndexableDrink, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
 
 export function formatNumber(value: number) {
   return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
@@ -39,6 +39,38 @@ export function drinksByBrand(brandId: string, categoryIds?: string[]) {
     if (drink.brandId !== brandId) return false;
     return categoryIds ? categoryIds.includes(drink.categoryId) : true;
   }));
+}
+
+export function featuredIndexableDrinks(limit = 18) {
+  const candidates = uniqueProductRepresentatives(
+    canonicalPackageDrinks(drinks).filter(isIndexableDrink),
+  ).sort((a, b) => (
+    b.sugarPer100Ml - a.sugarPer100Ml
+      || brandName(a).localeCompare(brandName(b), "de")
+      || a.name.localeCompare(b.name, "de")
+  ));
+
+  const selected: Drink[] = [];
+  const selectedBrands = new Set<string>();
+  const selectedCategories = new Set<string>();
+
+  for (const drink of candidates) {
+    if (selected.length >= limit) break;
+    if (selectedBrands.has(drink.brandId) && selectedCategories.has(drink.categoryId)) continue;
+
+    selected.push(drink);
+    selectedBrands.add(drink.brandId);
+    selectedCategories.add(drink.categoryId);
+  }
+
+  if (selected.length < limit) {
+    for (const drink of candidates) {
+      if (selected.length >= limit || selected.some((item) => item.id === drink.id)) continue;
+      selected.push(drink);
+    }
+  }
+
+  return selected;
 }
 
 export function highestSugarDrinks(limit: number) {
