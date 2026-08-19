@@ -7,6 +7,10 @@ import { pageMetadata } from "@/lib/site";
 export const metadata = pageMetadata("Kategorien", "Getränkekategorien von Cola bis Energy Drink: Zucker pro 100 ml, Packungszucker und Zuckerwürfel für Softdrinks, Saft, Eistee und Schorle vergleichen.", "/de/kategorien");
 
 export default function CategoriesPage() {
+  const sugarFreeCount = uniqueProductRepresentatives(
+    drinks.filter((drink) => drink.sugarPer100Ml <= 0.5),
+  ).length;
+
   return (
     <main className="mx-auto max-w-page px-4 py-10">
       <h1 className="text-4xl font-semibold tracking-tight">Kategorien</h1>
@@ -14,6 +18,18 @@ export default function CategoriesPage() {
         Entdecke Zuckerwerte nach Getränketyp: Cola, Energy Drinks, Eistee, Saft, Schorle und weitere Kategorien. Ein Klick öffnet die passende Vergleichsseite.
       </p>
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <article className="flex flex-col rounded-lg border border-[#1f4539] bg-[#1f4539] p-4 text-white">
+          <h2 className="font-semibold">Zuckerfreie Getränke</h2>
+          <p className="mt-2 text-sm leading-6 text-white/80">
+            Zero- und Light-Getränke mit höchstens 0,5 g Zucker pro 100 ml vergleichen.
+          </p>
+          <div className="mt-auto pt-4">
+            <p className="text-sm tabular-nums text-white/80">{sugarFreeCount} Einträge</p>
+            <Link href="/de/rankings/zuckerfreie-getraenke" className="focus-ring mt-3 inline-flex rounded-md text-sm underline decoration-white/70 underline-offset-4 hover:decoration-marigold">
+              Zuckerfreie Getränke vergleichen
+            </Link>
+          </div>
+        </article>
         {categories.map((category) => {
           const categoryDrinks = drinks.filter((drink) => drink.categoryId === category.id);
           const topDrinks = uniqueProductRepresentatives(categoryDrinks)

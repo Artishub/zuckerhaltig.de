@@ -5,6 +5,7 @@
 .kicker { margin:0 0 1rem; color:#486056; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
 .hero h1,.note h2 { margin:0; letter-spacing:-.02em; line-height:.97; }
 .hero h1 { max-width:12ch; font-size:clamp(3.25rem,4vw,4rem); font-weight:650; }
+.heroLine { display:block; }
 .hero > p:last-child { max-width:36rem; margin:1.7rem 0 0; color:#43544d; font-size:1.1rem; line-height:1.6; }
 .principles { display:grid; grid-template-columns:repeat(3,1fr); gap:0; padding-top:0; padding-bottom:7rem; }
 .principles article { min-height:210px; padding:1.5rem 1.25rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:transparent; }

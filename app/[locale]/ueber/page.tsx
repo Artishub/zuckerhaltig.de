@@ -28,7 +28,7 @@ export default function AboutPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <p className={styles.kicker}>Über das Projekt</p>
-        <h1>Zuckerwerte. Klar belegt.</h1>
+        <h1>Zuckerwerte. <span className={styles.heroLine}>Klar belegt.</span></h1>
         <p>Zuckerhaltig.de sammelt Nährwertangaben zu Getränken und macht die Menge pro Packung lesbar.</p>
       </section>
 

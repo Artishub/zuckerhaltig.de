@@ -12,3 +12,14 @@
 .sweetenerNotice p:not(.category) { max-width:48rem; margin:.65rem 0 0; color:#52645b; font-size:.9rem; line-height:1.6; }
 .sweetenerNotice .knowledge { margin:0; white-space:nowrap; }
 @media(max-width:767px) { .sweetenerNotice { grid-template-columns:1fr; gap:1.25rem; margin-top:2rem; } .sweetenerNotice .knowledge { justify-self:start; white-space:normal; } }
+
+/* Keep display headings readable without the previous cramped tracking. */
+.page h1,
+.page h2,
+.page h3 { letter-spacing:0em; }
+
+.hero h1 { font-size:clamp(3rem,5vw,3.5rem); }
+
+@media(max-width:767px) {
+  .hero h1 { font-size:clamp(2.75rem,12vw,3.5rem); }
+}
