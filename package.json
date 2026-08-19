@@ -7,6 +7,7 @@
     "build": "npm run validate:data && next build",
     "start": "next start",
     "typecheck": "npm run validate:data && tsc --noEmit",
+    "seo:check": "node scripts/seo-smoke-test.mjs",
     "validate:data": "node scripts/validate-drinks-data.mjs",
     "social:generate": "tsx scripts/social-generate.ts",
     "social:generate-info": "tsx scripts/social-info-generate.ts",

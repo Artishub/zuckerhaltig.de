@@ -4,6 +4,8 @@ export function middleware(request: NextRequest) {
   if (request.nextUrl.hostname !== "zuckerhaltig.de") return NextResponse.next();
 
   const url = request.nextUrl.clone();
+  url.protocol = "https:";
   url.hostname = "www.zuckerhaltig.de";
-  return NextResponse.redirect(url, 308);
+  if (url.pathname === "/") url.pathname = "/de";
+  return NextResponse.redirect(`https://www.zuckerhaltig.de${url.pathname}${url.search}`, 308);
 }
