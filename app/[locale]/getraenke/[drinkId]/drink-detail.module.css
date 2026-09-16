@@ -20,6 +20,57 @@
 
 .hero h1 { font-size:clamp(3rem,5vw,3.5rem); }
 
+.editorial { display:grid; grid-template-columns:.78fr 1.22fr; gap:4rem; max-width:1280px; margin:0 auto; padding:6rem 1.25rem 0; }
+.editorialLead h2 { max-width:13ch; margin:0; font-size:clamp(2.4rem,4vw,3.8rem); font-weight:650; line-height:.98; }
+.editorialLead>p:not(.category) { max-width:30rem; margin:1.25rem 0 0; color:#52645b; line-height:1.65; }
+.editorialPoints { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem 1.5rem; align-self:start; }
+.editorialPoints article { padding-top:1rem; border-top:1px solid var(--detail-line); }
+.editorialPoints h3 { margin:0; font-size:1.05rem; font-weight:700; letter-spacing:-.02em; }
+.editorialPoints p { max-width:22rem; margin:.65rem 0 0; color:#52645b; font-size:.92rem; line-height:1.65; }
+
 @media(max-width:767px) {
   .hero h1 { font-size:clamp(2.75rem,12vw,3.5rem); }
+  .editorial { grid-template-columns:1fr; gap:2rem; padding-top:4.7rem; }
+  .editorialLead h2 { max-width:16ch; }
+  .editorialPoints { grid-template-columns:1fr; gap:1.5rem; }
+}
+
+.formula { margin-top:1rem!important; padding-top:1rem; border-top:1px solid rgba(255,255,255,.18); font-size:.8rem!important; }
+.formula strong { color:#bbd3c2; }
+
+.packageNote { display:grid; grid-template-columns:minmax(10rem,.42fr) minmax(0,1.58fr); gap:2rem; max-width:1280px; margin:4rem auto 0; padding:1.5rem 1.25rem; border-top:1px solid var(--detail-line); border-bottom:1px solid var(--detail-line); background:rgba(255,255,255,.24); }
+.packageNote .category { margin:0; }
+.packageNoteValue { margin:.35rem 0 0; font-size:clamp(2rem,4vw,3.4rem); font-weight:700; letter-spacing:-.07em; line-height:.9; }
+.packageNote>div:last-child { align-self:center; }
+.packageNote>div:last-child p { max-width:48rem; margin:0; color:#52645b; line-height:1.65; }
+.packageNote a { display:inline-flex; align-items:center; gap:.45rem; margin-top:1rem; color:var(--detail-ink); font-size:.82rem; font-weight:750; text-decoration:underline; text-decoration-color:#a6b9ac; text-underline-offset:4px; }
+
+.editorialComparison { max-width:1280px; margin:6rem auto 0; padding:0 1.25rem; }
+.editorialComparisonLead { max-width:44rem; }
+.editorialComparisonLead h2 { max-width:18ch; margin:0; font-size:clamp(2.3rem,4vw,3.8rem); font-weight:650; line-height:.98; letter-spacing:-.055em; }
+.editorialComparisonLead>p:not(.category) { max-width:42rem; margin:1rem 0 0; color:#52645b; line-height:1.65; }
+.editorialComparisonGrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin:2.4rem 0 0; padding:0; list-style:none; }
+.editorialComparisonCard,.editorialComparisonCardCurrent { display:flex; min-height:235px; flex-direction:column; justify-content:space-between; padding:1.25rem; border:1px solid var(--detail-line); border-radius:17px; background:rgba(255,255,255,.34); }
+.editorialComparisonCardCurrent { border-color:var(--detail-moss); background:var(--detail-lime); }
+.editorialComparisonCard .category,.editorialComparisonCardCurrent .category { margin:0 0 .75rem; }
+.editorialComparisonCard h3,.editorialComparisonCardCurrent h3 { margin:0; font-size:1.1rem; line-height:1.15; letter-spacing:-.025em; }
+.editorialComparisonCard h3 a:hover,.editorialComparisonCardCurrent h3 a:hover { text-decoration:underline; text-underline-offset:4px; }
+.currentLabel { display:inline-block; margin-top:.75rem; color:#4c695c; font-size:.7rem; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
+.editorialComparisonFacts { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin:1.5rem 0 0; }
+.editorialComparisonFacts div { padding-top:.65rem; border-top:1px solid var(--detail-line); }
+.editorialComparisonFacts dt { color:#55665e; font-size:.7rem; }
+.editorialComparisonFacts dd { margin:.25rem 0 0; font-size:1rem; font-weight:700; letter-spacing:-.025em; }
+.editorialComparisonLink { display:inline-flex; align-items:center; gap:.35rem; margin-top:1.25rem; color:#4d6258; font-size:.78rem; font-weight:750; }
+.editorialComparisonLink:hover { color:var(--detail-ink); }
+.editorialComparisonNote { margin:1.25rem 0 0; color:#65756d; font-size:.78rem; line-height:1.55; }
+
+@media(max-width:900px) {
+  .editorialComparisonGrid { grid-template-columns:1fr 1fr; }
+}
+
+@media(max-width:767px) {
+  .packageNote { grid-template-columns:1fr; gap:1rem; margin-top:3.7rem; }
+  .editorialComparison { margin-top:4.7rem; }
+  .editorialComparisonGrid { grid-template-columns:1fr; margin-top:1.8rem; }
+  .editorialComparisonCard,.editorialComparisonCardCurrent { min-height:0; }
 }

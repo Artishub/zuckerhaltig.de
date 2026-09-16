@@ -3851,11 +3851,11 @@
       "categoryId": "orange-limo",
       "sizeMl": 330,
       "sugarPer100Ml": 7.6,
-      "source": "Klauss Getränke Produktseite / Fanta Deutschland Rezepturhinweis",
-      "note": "Reguläre Fanta Orange: Nährwerte aus Händlerangabe; Rezepturhinweis von Coca-Cola DE.",
-      "sourceUrl": "https://shop.klauss.de/products/fanta-orange-0-5-liter",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-06-10",
+      "source": "Coca-Cola Deutschland Produktseite",
+      "note": "Fanta Orange: Nährwerte und Rezepturhinweis direkt auf der Coca-Cola-Produktseite geprüft.",
+      "sourceUrl": "https://www.coca-cola.com/de/de/brands/fanta/fanta",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-09-15",
       "nutritionPer100Ml": {
         "energyKj": 136,
         "energyKcal": 32,
@@ -3897,11 +3897,11 @@
       "categoryId": "orange-limo",
       "sizeMl": 500,
       "sugarPer100Ml": 7.6,
-      "source": "Klauss Getränke Produktseite / Fanta Deutschland Rezepturhinweis",
-      "note": "Reguläre Fanta Orange: Nährwerte aus Händlerangabe; Rezepturhinweis von Coca-Cola DE.",
-      "sourceUrl": "https://shop.klauss.de/products/fanta-orange-0-5-liter",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-06-10",
+      "source": "Coca-Cola Deutschland Produktseite",
+      "note": "Fanta Orange: Nährwerte und Rezepturhinweis direkt auf der Coca-Cola-Produktseite geprüft.",
+      "sourceUrl": "https://www.coca-cola.com/de/de/brands/fanta/fanta",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-09-15",
       "nutritionPer100Ml": {
         "energyKj": 136,
         "energyKcal": 32,
@@ -3943,11 +3943,11 @@
       "categoryId": "orange-limo",
       "sizeMl": 1250,
       "sugarPer100Ml": 7.6,
-      "source": "Klauss Getränke Produktseite / Fanta Deutschland Rezepturhinweis",
-      "note": "Reguläre Fanta Orange: Nährwerte aus Händlerangabe; Rezepturhinweis von Coca-Cola DE.",
-      "sourceUrl": "https://shop.klauss.de/products/fanta-orange-0-5-liter",
-      "verificationStatus": "retailer_verified",
-      "lastCheckedAt": "2026-06-10",
+      "source": "Coca-Cola Deutschland Produktseite",
+      "note": "Fanta Orange: Nährwerte und Rezepturhinweis direkt auf der Coca-Cola-Produktseite geprüft.",
+      "sourceUrl": "https://www.coca-cola.com/de/de/brands/fanta/fanta",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-09-15",
       "nutritionPer100Ml": {
         "energyKj": 136,
         "energyKcal": 32,
@@ -6794,43 +6794,43 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 4.6,
+      "sugarPer100Ml": 7,
       "source": "Pepsi Deutschland Produktseite",
-      "note": "Pepsi DE nennt kcal, Kohlenhydrate, Zucker, Fett und Salz; kJ aus kcal berechnet.",
+      "note": "Pepsi DE nennt 7,0 g Zucker und 28 kcal pro 100 ml; kJ aus kcal berechnet. Produktseite am 15.09.2026 geprüft.",
       "sourceUrl": "https://www.pepsi.de/produkte/pepsi-das-original",
       "verificationStatus": "manufacturer_verified",
-      "lastCheckedAt": "2026-06-10",
+      "lastCheckedAt": "2026-09-15",
       "nutritionPer100Ml": {
-        "energyKj": 75.3,
-        "energyKcal": 18,
-        "carbohydrates": 4.6,
-        "sugar": 4.6,
+        "energyKj": 117,
+        "energyKcal": 28,
+        "carbohydrates": 7,
+        "sugar": 7,
         "fat": 0,
         "protein": 0,
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 15.2,
-        "sugarCubesPerPackage": 5.1,
-        "energyKcalPerPackage": 59.4,
-        "formula": "4.6 g × 330 ml / 100 = 15.2 g Zucker"
+        "sugarPerPackage": 23.1,
+        "sugarCubesPerPackage": 7.7,
+        "energyKcalPerPackage": 92.4,
+        "formula": "7.0 g × 330 ml / 100 = 23.1 g Zucker"
       },
       "faq": [
         {
           "question": "Wie viel Zucker hat Pepsi in 330 ml?",
-          "answer": "Pepsi enthält rechnerisch etwa 15,2 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 4,6 g Zucker pro 100 ml."
+          "answer": "Pepsi enthält rechnerisch etwa 23,1 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 7,0 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viel Zucker hat Pepsi pro 100 ml?",
-          "answer": "Der gespeicherte Wert liegt bei 4,6 g Zucker pro 100 ml."
+          "answer": "Der gespeicherte Wert liegt bei 7,0 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viele Zuckerwürfel sind das bei Pepsi?",
-          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Pepsi ungefähr 5,1 Zuckerwürfeln."
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Pepsi ungefähr 7,7 Zuckerwürfeln."
         },
         {
           "question": "Wie viel Energie hat Pepsi pro 330 ml?",
-          "answer": "Rechnerisch enthält 330 ml etwa 59,4 kcal. Die Basisangabe liegt bei 18 kcal pro 100 ml."
+          "answer": "Rechnerisch enthält 330 ml etwa 92,4 kcal. Die Basisangabe liegt bei 28 kcal pro 100 ml."
         }
       ]
     },
@@ -6840,43 +6840,43 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 500,
-      "sugarPer100Ml": 4.6,
+      "sugarPer100Ml": 7,
       "source": "Pepsi Deutschland Produktseite",
-      "note": "Pepsi DE nennt kcal, Kohlenhydrate, Zucker, Fett und Salz; kJ aus kcal berechnet.",
+      "note": "Pepsi DE nennt 7,0 g Zucker und 28 kcal pro 100 ml; kJ aus kcal berechnet. Produktseite am 15.09.2026 geprüft.",
       "sourceUrl": "https://www.pepsi.de/produkte/pepsi-das-original",
       "verificationStatus": "manufacturer_verified",
-      "lastCheckedAt": "2026-06-10",
+      "lastCheckedAt": "2026-09-15",
       "nutritionPer100Ml": {
-        "energyKj": 75.3,
-        "energyKcal": 18,
-        "carbohydrates": 4.6,
-        "sugar": 4.6,
+        "energyKj": 117,
+        "energyKcal": 28,
+        "carbohydrates": 7,
+        "sugar": 7,
         "fat": 0,
         "protein": 0,
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 23,
-        "sugarCubesPerPackage": 7.7,
-        "energyKcalPerPackage": 90,
-        "formula": "4.6 g × 500 ml / 100 = 23.0 g Zucker"
+        "sugarPerPackage": 35,
+        "sugarCubesPerPackage": 11.7,
+        "energyKcalPerPackage": 140,
+        "formula": "7.0 g × 500 ml / 100 = 35.0 g Zucker"
       },
       "faq": [
         {
           "question": "Wie viel Zucker hat Pepsi in 500 ml?",
-          "answer": "Pepsi enthält rechnerisch etwa 23,0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 4,6 g Zucker pro 100 ml."
+          "answer": "Pepsi enthält rechnerisch etwa 35,0 g Zucker pro 500 ml. Grundlage ist der deklarierte Wert von 7,0 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viel Zucker hat Pepsi pro 100 ml?",
-          "answer": "Der gespeicherte Wert liegt bei 4,6 g Zucker pro 100 ml."
+          "answer": "Der gespeicherte Wert liegt bei 7,0 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viele Zuckerwürfel sind das bei Pepsi?",
-          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Pepsi ungefähr 7,7 Zuckerwürfeln."
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 500 ml Pepsi ungefähr 11,7 Zuckerwürfeln."
         },
         {
           "question": "Wie viel Energie hat Pepsi pro 500 ml?",
-          "answer": "Rechnerisch enthält 500 ml etwa 90,0 kcal. Die Basisangabe liegt bei 18 kcal pro 100 ml."
+          "answer": "Rechnerisch enthält 500 ml etwa 140,0 kcal. Die Basisangabe liegt bei 28 kcal pro 100 ml."
         }
       ]
     },
@@ -6886,43 +6886,43 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 1500,
-      "sugarPer100Ml": 4.6,
+      "sugarPer100Ml": 7,
       "source": "Pepsi Deutschland Produktseite",
-      "note": "Pepsi DE nennt kcal, Kohlenhydrate, Zucker, Fett und Salz; kJ aus kcal berechnet.",
+      "note": "Pepsi DE nennt 7,0 g Zucker und 28 kcal pro 100 ml; kJ aus kcal berechnet. Produktseite am 15.09.2026 geprüft.",
       "sourceUrl": "https://www.pepsi.de/produkte/pepsi-das-original",
       "verificationStatus": "manufacturer_verified",
-      "lastCheckedAt": "2026-06-10",
+      "lastCheckedAt": "2026-09-15",
       "nutritionPer100Ml": {
-        "energyKj": 75.3,
-        "energyKcal": 18,
-        "carbohydrates": 4.6,
-        "sugar": 4.6,
+        "energyKj": 117,
+        "energyKcal": 28,
+        "carbohydrates": 7,
+        "sugar": 7,
         "fat": 0,
         "protein": 0,
         "salt": 0.01
       },
       "computed": {
-        "sugarPerPackage": 69,
-        "sugarCubesPerPackage": 23,
-        "energyKcalPerPackage": 270,
-        "formula": "4.6 g × 1500 ml / 100 = 69.0 g Zucker"
+        "sugarPerPackage": 105,
+        "sugarCubesPerPackage": 35,
+        "energyKcalPerPackage": 420,
+        "formula": "7.0 g × 1500 ml / 100 = 105.0 g Zucker"
       },
       "faq": [
         {
           "question": "Wie viel Zucker hat Pepsi in 1,5 l?",
-          "answer": "Pepsi enthält rechnerisch etwa 69,0 g Zucker pro 1,5 l. Grundlage ist der deklarierte Wert von 4,6 g Zucker pro 100 ml."
+          "answer": "Pepsi enthält rechnerisch etwa 105,0 g Zucker pro 1,5 l. Grundlage ist der deklarierte Wert von 7,0 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viel Zucker hat Pepsi pro 100 ml?",
-          "answer": "Der gespeicherte Wert liegt bei 4,6 g Zucker pro 100 ml."
+          "answer": "Der gespeicherte Wert liegt bei 7,0 g Zucker pro 100 ml."
         },
         {
           "question": "Wie viele Zuckerwürfel sind das bei Pepsi?",
-          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1,5 l Pepsi ungefähr 23,0 Zuckerwürfeln."
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 1,5 l Pepsi ungefähr 35,0 Zuckerwürfeln."
         },
         {
           "question": "Wie viel Energie hat Pepsi pro 1,5 l?",
-          "answer": "Rechnerisch enthält 1,5 l etwa 270,0 kcal. Die Basisangabe liegt bei 18 kcal pro 100 ml."
+          "answer": "Rechnerisch enthält 1,5 l etwa 420,0 kcal. Die Basisangabe liegt bei 28 kcal pro 100 ml."
         }
       ]
     },
@@ -10272,12 +10272,45 @@
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
-      "sugarPer100Ml": 4.6,
-      "source": "Pepsi nutrition info",
+      "sugarPer100Ml": 7,
+      "source": "Pepsi Deutschland Produktseite",
       "sourceUrl": "https://www.pepsi.de/produkte/pepsi-das-original",
-      "note": "Aus Nutzer-CSV importiert; Quelle und Packungsgröße ergänzt. CSV nennt zusätzlich 75 kJ / 18 kcal pro 100 ml; vollständige Nährwerte fehlen noch.",
-      "verificationStatus": "needs_label_check",
-      "lastCheckedAt": "2026-06-29"
+      "note": "Pepsi Original mit 7,0 g Zucker und 28 kcal pro 100 ml laut aktueller Pepsi-Produktseite; kJ aus kcal berechnet.",
+      "verificationStatus": "manufacturer_verified",
+      "lastCheckedAt": "2026-09-15",
+      "nutritionPer100Ml": {
+        "energyKj": 117,
+        "energyKcal": 28,
+        "carbohydrates": 7,
+        "sugar": 7,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.01
+      },
+      "computed": {
+        "sugarPerPackage": 23.1,
+        "sugarCubesPerPackage": 7.7,
+        "energyKcalPerPackage": 92.4,
+        "formula": "7.0 g × 330 ml / 100 = 23.1 g Zucker"
+      },
+      "faq": [
+        {
+          "question": "Wie viel Zucker hat Pepsi Original in 330 ml?",
+          "answer": "Pepsi Original enthält rechnerisch etwa 23,1 g Zucker pro 330 ml. Grundlage ist der deklarierte Wert von 7,0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viel Zucker hat Pepsi Original pro 100 ml?",
+          "answer": "Der gespeicherte Wert liegt bei 7,0 g Zucker pro 100 ml."
+        },
+        {
+          "question": "Wie viele Zuckerwürfel sind das bei Pepsi Original?",
+          "answer": "Bei 3 g pro Zuckerwürfel entspricht 330 ml Pepsi Original ungefähr 7,7 Zuckerwürfeln."
+        },
+        {
+          "question": "Wie viel Energie hat Pepsi Original pro 330 ml?",
+          "answer": "Rechnerisch enthält 330 ml etwa 92,4 kcal. Die Basisangabe liegt bei 28 kcal pro 100 ml."
+        }
+      ]
     },
     {
       "id": "a-w-cream-soda-355",

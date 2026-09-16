@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Calculator } from "lucide-react";
 import { BrandProductGrid } from "@/components/brand-product-grid";
 import { brandById } from "@/lib/data/brands";
-import { canonicalPackageDrinkId, drinks, uniqueProductRepresentatives } from "@/lib/data/drinks";
-import { featuredBrandPageById, featuredBrandPages } from "@/lib/featured-brand-pages";
+import { canonicalPackageDrinkId, drinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
+import { featuredBrandPageById, featuredBrandPages, type FeaturedBrandPage } from "@/lib/featured-brand-pages";
 import { formatNumber } from "@/lib/seo-drinks";
+import { isSearchIndexableBrand } from "@/lib/seo-index";
 import { pageMetadata, siteUrl } from "@/lib/site";
 
 type PageProps = {
@@ -25,11 +26,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = featuredBrandPageById[brandId];
   if (!brand || !page) return {};
 
-  return pageMetadata(
-    `${brand.name}: Zucker und Produkte vergleichen`,
-    `${brand.name} nach Zucker vergleichen: Werte pro 100 ml, pro Packung und als Zuckerwürfel. Mit Produktseiten, Packungsgrößen und Quellen.`,
-    `/de/marken/${brandId}`,
-  );
+  return {
+    ...pageMetadata(
+      `${brand.name}: Zucker und Produkte vergleichen`,
+      `${page.intro} Werte pro 100 ml, pro Packung und als Zuckerwürfel. ${page.editorial?.intro ?? page.comparison?.intro ?? "Mit Produktseiten, Packungsgrößen und Quellen."}`,
+      `/de/marken/${brandId}`,
+    ),
+    ...(!isSearchIndexableBrand(brandId) && {
+      robots: {
+        index: false,
+        follow: true,
+      },
+    }),
+  };
 }
 
 export default async function BrandPage({ params }: PageProps) {
@@ -101,6 +110,28 @@ export default async function BrandPage({ params }: PageProps) {
         )}
       </div>
 
+      {page.editorial && (
+        <section className="border-y border-ash bg-paper">
+          <div className="mx-auto max-w-page px-4 py-12 md:py-16">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Einordnung</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{page.editorial.title}</h2>
+              <p className="mt-4 leading-7 text-slate">{page.editorial.intro}</p>
+            </div>
+            <div className="mt-9 grid gap-8 md:grid-cols-2">
+              {page.editorial.points.map((point) => (
+                <article key={point.title} className="border-t border-ash pt-4">
+                  <h3 className="text-lg font-semibold tracking-tight">{point.title}</h3>
+                  <p className="mt-2 max-w-xl leading-7 text-slate">{point.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {page.comparison && <BrandComparison comparison={page.comparison} />}
+
       <section className="border-y border-ash bg-mist">
         <div className="mx-auto grid max-w-page gap-6 px-4 py-10 md:grid-cols-[1fr_auto] md:items-center">
           <div>
@@ -146,6 +177,52 @@ export default async function BrandPage({ params }: PageProps) {
         }}
       />
     </main>
+  );
+}
+
+function BrandComparison({ comparison }: { comparison: NonNullable<FeaturedBrandPage["comparison"]> }) {
+  const products = comparison.drinkIds
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink): drink is Drink => Boolean(drink))
+    .filter((drink, index, all) => all.findIndex((item) => canonicalPackageDrinkId(item) === canonicalPackageDrinkId(drink)) === index);
+
+  if (!products.length) return null;
+
+  return (
+    <section className="border-y border-ash bg-paper">
+      <div className="mx-auto max-w-page px-4 py-12 md:py-16">
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Ausgewählte Reihe</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{comparison.title}</h2>
+          <p className="mt-4 leading-7 text-slate">{comparison.intro}</p>
+        </div>
+        <ul className="mt-9 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {products.map((drink) => {
+            const totalSugar = totalSugarGrams(drink);
+            const cubes = sugarCubes(drink);
+            return (
+              <li key={drink.id}>
+                <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring group grid h-full gap-5 rounded-lg border border-ash bg-mist p-5 transition hover:border-marigold active:translate-y-px">
+                  <div className="grid grid-cols-[1fr_auto] gap-3">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate">{drink.sizeMl ? `${drink.sizeMl} ml` : "Packung offen"}</p>
+                      <h3 className="mt-2 font-semibold leading-tight tracking-tight">{drink.name}</h3>
+                    </div>
+                    <ArrowRight size={17} className="mt-0.5 text-slate transition group-hover:translate-x-0.5 group-hover:text-ink" aria-hidden="true" />
+                  </div>
+                  <dl className="grid grid-cols-2 gap-3 text-sm tabular-nums">
+                    <div><dt className="text-slate">Pro 100 ml</dt><dd className="mt-1 font-semibold">{formatNumber(drink.sugarPer100Ml)} g</dd></div>
+                    <div><dt className="text-slate">Pro Packung</dt><dd className="mt-1 font-semibold">{totalSugar === null ? "/" : `${formatNumber(totalSugar)} g`}</dd></div>
+                  </dl>
+                  <p className="border-t border-ash pt-3 text-xs leading-5 text-slate">{cubes === null ? "Keine Packungsrechnung hinterlegt." : `${formatNumber(cubes)} Zuckerwürfel · ${drink.source}`}</p>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        {comparison.note && <p className="mt-5 text-sm leading-6 text-slate">{comparison.note}</p>}
+      </div>
+    </section>
   );
 }
 

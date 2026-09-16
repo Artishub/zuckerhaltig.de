@@ -1,6 +1,7 @@
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalPackageDrinkId, canonicalPackageDrinks, drinks, isIndexableDrink, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, canonicalPackageDrinks, drinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
+import { isSearchIndexableDrink } from "@/lib/seo-index";
 
 export function formatNumber(value: number) {
   return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
@@ -41,9 +42,9 @@ export function drinksByBrand(brandId: string, categoryIds?: string[]) {
   }));
 }
 
-export function featuredIndexableDrinks(limit = 18) {
+export function featuredIndexableDrinks(limit = 5) {
   const candidates = uniqueProductRepresentatives(
-    canonicalPackageDrinks(drinks).filter(isIndexableDrink),
+    canonicalPackageDrinks(drinks).filter(isSearchIndexableDrink),
   ).sort((a, b) => (
     b.sugarPer100Ml - a.sugarPer100Ml
       || brandName(a).localeCompare(brandName(b), "de")

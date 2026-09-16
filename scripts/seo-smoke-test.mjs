@@ -67,7 +67,48 @@ try {
       .map((match) => match[1])
       .filter((href) => href !== "/de/getraenke/vergleich"),
   );
-  assert(productLinks.size >= 6, `drink explorer exposes only ${productLinks.size} crawlable product links`);
+  assert(productLinks.size >= 5, `drink explorer exposes only ${productLinks.size} crawlable product links`);
+
+  for (const pathname of ["/de/getraenke/coca-cola-classic-330", "/de/marken/paulaner"]) {
+    const html = await getText(pathname);
+    const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"/i)?.[1] ?? "";
+    assert(/noindex/i.test(robotsMeta), `${pathname} should be noindex`);
+    assert(/follow/i.test(robotsMeta), `${pathname} should keep follow enabled`);
+  }
+
+  const featuredProductChecks = [
+    ["/de/getraenke/coca-cola-classic-500", "Coca-Cola Classic im Vergleich mit anderen Sorten"],
+    ["/de/getraenke/fanta-orange-500", "Fanta Orange gegen Zero und andere Sorten"],
+    ["/de/getraenke/paulaner-spezi-500", "Paulaner Spezi, Zero, Cola und Limo im Vergleich"],
+    ["/de/getraenke/sprite-500", "Sprite Original, Zero und Fanta im Vergleich"],
+    ["/de/getraenke/red-bull-energy-drink-250", "Herstellerangabe"],
+  ];
+
+  for (const [pathname, marker] of featuredProductChecks) {
+    const html = await getText(pathname);
+    const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"/i)?.[1] ?? "";
+    assert(!/noindex/i.test(robotsMeta), `${pathname} should be indexable`);
+    assert(html.includes(marker), `${pathname} is missing its unique editorial marker`);
+    assert(!html.includes('"@type":"FAQPage"'), `${pathname} still emits FAQPage structured data`);
+  }
+
+  const featuredBrandChecks = [
+    ["/de/marken/coca-cola", "Coca-Cola-Produkte in 500 ml verglichen"],
+    ["/de/marken/red-bull", "Red Bull in 250, 355 und 473 ml"],
+    ["/de/marken/fanta", "Fanta Orange gegen Zero und weitere Sorten"],
+    ["/de/marken/monster", "Monster-Dosen mit 500 ml im Vergleich"],
+    ["/de/marken/pepsi", "Pepsi Original neben Zero und Varianten"],
+    ["/de/marken/spezi", "Spezi Original und Light"],
+    ["/de/marken/sprite", "Sprite Original, Zero und Fanta Orange"],
+    ["/de/marken/fuze-tea", "Fuze Tea nach Geschmacksrichtung"],
+  ];
+
+  for (const [pathname, marker] of featuredBrandChecks) {
+    const html = await getText(pathname);
+    const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"/i)?.[1] ?? "";
+    assert(!/noindex/i.test(robotsMeta), `${pathname} should be indexable`);
+    assert(html.includes(marker), `${pathname} is missing its unique comparison marker`);
+  }
 
   const rootResponse = await fetch(`${baseUrl}/`, { headers: requestHeaders, redirect: "manual" });
   assert([301, 308].includes(rootResponse.status), `root route returned ${rootResponse.status} instead of a permanent redirect`);

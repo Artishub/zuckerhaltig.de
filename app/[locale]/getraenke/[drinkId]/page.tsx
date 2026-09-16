@@ -3,10 +3,12 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowLeft, ArrowRight, ExternalLink, Info } from "lucide-react";
 import { categoryPageHref } from "@/lib/category-landing-pages";
+import { featuredDrinkEditorial, type FeaturedDrinkComparison, type FeaturedDrinkPackageNote } from "@/lib/content/featured-drinks";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalPackageDrinkId, drinks, isIndexableDrink, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
+import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
 import { brandPageHref } from "@/lib/featured-brand-pages";
+import { isSearchIndexableDrink } from "@/lib/seo-index";
 import { siteUrl } from "@/lib/site";
 import styles from "./drink-detail.module.css";
 
@@ -42,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/de/getraenke/${canonicalId}`,
     },
-    ...(!isIndexableDrink(canonicalDrink) && {
+    ...(!isSearchIndexableDrink(canonicalDrink) && {
       robots: {
         index: false,
         follow: true,
@@ -88,9 +90,15 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const totalSugar = totalSugarGrams(drink);
   const cubes = sugarCubes(drink);
   const energy = packageEnergyKcal(drink);
-  const similar = similarDrinks(drink);
-  const faqs = generatedFaq(drink, brandName);
+  const editorial = featuredDrinkEditorial[drink.id];
+  const similar = editorial ? [] : similarDrinks(drink);
+  const faqs = editorial?.faq ?? drink.faq ?? generatedFaq(drink, brandName);
   const brandHref = brandPageHref(drink.brandId);
+  const brandLink = drink.id === "paulaner-spezi-500"
+    ? { href: "/de/marken/spezi", label: "Spezi-Produkte vergleichen" }
+    : brandHref
+      ? { href: brandHref, label: `Alle ${brandName}-Getränke` }
+      : null;
   const categoryHref = categoryPageHref(drink.categoryId);
 
   return (
@@ -143,6 +151,28 @@ export default async function DrinkDetailPage({ params }: PageProps) {
 
       {family.length > 1 && <PackageSizes drinks={family} />}
 
+      {editorial && (
+        <section className={styles.editorial} aria-labelledby="featured-editorial-title">
+          <div className={styles.editorialLead}>
+            <p className={styles.category}>Einordnung</p>
+            <h2 id="featured-editorial-title">{editorial.title}</h2>
+            <p>{editorial.intro}</p>
+          </div>
+          <div className={styles.editorialPoints}>
+            {editorial.points.map((point) => (
+              <article key={point.title}>
+                <h3>{point.title}</h3>
+                <p>{point.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {editorial?.packageNote && <PackageNote note={editorial.packageNote} />}
+
+      {editorial?.comparison && <FeaturedDrinkComparison comparison={editorial.comparison} currentDrinkId={drink.id} />}
+
       <section className={styles.contentGrid}>
         <div className={styles.nutrition}>
           <p className={styles.category}>Nährwerte</p>
@@ -160,20 +190,25 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <p className={styles.category}>Datenquelle</p>
           <h2>Nachprüfbar.</h2>
           <p>{drink.note}</p>
+          {drink.computed?.formula && (
+            <p className={styles.formula}><strong>Rechenweg:</strong> {drink.computed.formula}</p>
+          )}
           {drink.lastCheckedAt && <p className={styles.checked}>Zuletzt geprüft: {formatDate(drink.lastCheckedAt)}</p>}
           <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>
         </aside>
       </section>
 
-      <section className={styles.compare}>
-        <div><h2>Ähnliche Getränke.</h2></div>
-        <div className={styles.related}>
-          {similar.map((item) => {
-            const similarBrand = brandById[item.brandId]?.name ?? "Marke";
-            return <Link key={item.id} href={`/de/getraenke/${canonicalPackageDrinkId(item)}`}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
-          })}
-        </div>
-      </section>
+      {similar.length > 0 && (
+        <section className={styles.compare}>
+          <div><h2>Ähnliche Getränke.</h2></div>
+          <div className={styles.related}>
+            {similar.map((item) => {
+              const similarBrand = brandById[item.brandId]?.name ?? "Marke";
+              return <Link key={item.id} href={`/de/getraenke/${canonicalPackageDrinkId(item)}`}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
+            })}
+          </div>
+        </section>
+      )}
 
       <section className={styles.faq}>
         <p className={styles.category}>Fragen und Antworten</p>
@@ -185,28 +220,14 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <Link href={knowledgeLink(drink)} className={styles.knowledge}>Passendes Wissen lesen <ArrowRight size={16} /></Link>
           {comparisonLink(drink) && <Link href={comparisonLink(drink)!} className={styles.knowledge}>Fanta und Sprite vergleichen <ArrowRight size={16} /></Link>}
           {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
-          {brandHref && <Link href={brandHref} className={styles.knowledge}>Alle {brandName}-Getränke <ArrowRight size={16} /></Link>}
+          {brandLink && <Link href={brandLink.href} className={styles.knowledge}>{brandLink.label} <ArrowRight size={16} /></Link>}
         </div>
       </section>
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqs.map((item) => ({
-              "@type": "Question",
-              name: item.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.answer,
-              },
-            })),
-            },
-            breadcrumbJsonLd(drink),
-          ]),
+          __html: JSON.stringify(breadcrumbJsonLd(drink)),
         }}
       />
     </main>
@@ -243,6 +264,61 @@ function PackageSizes({ drinks }: { drinks: Drink[] }) {
         ))}
       </ul>
     </section>
+  );
+}
+
+function FeaturedDrinkComparison({ comparison, currentDrinkId }: { comparison: FeaturedDrinkComparison; currentDrinkId: string }) {
+  const items = comparison.drinkIds
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink): drink is Drink => Boolean(drink))
+    .filter((drink, index, all) => all.findIndex((item) => canonicalPackageDrinkId(item) === canonicalPackageDrinkId(drink)) === index);
+
+  if (!items.length) return null;
+
+  return (
+    <section className={styles.editorialComparison} aria-labelledby="featured-comparison-title">
+      <div className={styles.editorialComparisonLead}>
+        <p className={styles.category}>Direkter Vergleich</p>
+        <h2 id="featured-comparison-title">{comparison.title}</h2>
+        <p>{comparison.intro}</p>
+      </div>
+      <ul className={styles.editorialComparisonGrid}>
+        {items.map((item) => {
+          const itemBrand = brandById[item.brandId]?.name ?? "Marke";
+          const isCurrent = canonicalPackageDrinkId(item) === currentDrinkId;
+          return (
+            <li key={item.id} className={isCurrent ? styles.editorialComparisonCardCurrent : styles.editorialComparisonCard}>
+              <div>
+                <p className={styles.category}>{itemBrand} · {sizeLabel(item)}</p>
+                <h3><Link href={`/de/getraenke/${canonicalPackageDrinkId(item)}`}>{item.name}</Link></h3>
+                {isCurrent && <span className={styles.currentLabel}>Diese Seite</span>}
+              </div>
+              <dl className={styles.editorialComparisonFacts}>
+                <div><dt>Zucker / 100 ml</dt><dd>{formatNumber(item.sugarPer100Ml)} g</dd></div>
+                <div><dt>Pro Packung</dt><dd>{formatOptionalGrams(totalSugarGrams(item))}</dd></div>
+              </dl>
+              <Link href={`/de/getraenke/${canonicalPackageDrinkId(item)}`} className={styles.editorialComparisonLink}>Details <ArrowRight size={15} /></Link>
+            </li>
+          );
+        })}
+      </ul>
+      {comparison.note && <p className={styles.editorialComparisonNote}>{comparison.note}</p>}
+    </section>
+  );
+}
+
+function PackageNote({ note }: { note: FeaturedDrinkPackageNote }) {
+  return (
+    <aside className={styles.packageNote} aria-label={note.label}>
+      <div>
+        <p className={styles.category}>{note.label}</p>
+        <p className={styles.packageNoteValue}>{note.value}</p>
+      </div>
+      <div>
+        <p>{note.text}</p>
+        <a href={note.sourceUrl} target="_blank" rel="noreferrer">Herstellerangabe öffnen <ExternalLink size={15} /></a>
+      </div>
+    </aside>
   );
 }
 
@@ -308,6 +384,8 @@ function metaDescription(drink: Drink, brandName: string, family: Drink[]) {
     ? ` In ${drink.sizeMl} ml stecken rechnerisch ${formatNumber(totalSugar)} g.`
     : "";
   const familyPart = family.length > 1 ? ` Vergleiche ${family.length} Packungsgrößen.` : "";
+  const editorial = featuredDrinkEditorial[drink.id];
+  if (editorial) return `${editorial.metaDescription} Quelle: ${drink.source}.`;
   return `${drink.name} von ${brandName} enthält ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.${packagePart}${familyPart} Mit Nährwerten und Zuckerwürfeln. Quelle: ${drink.source}.`;
 }
 
