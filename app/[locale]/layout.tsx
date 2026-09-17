@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { HeaderNav, type HeaderNavItem } from "@/components/header-nav";
 import { HeaderSearch } from "@/components/header-search";
 import { MobileNav } from "@/components/mobile-nav";
@@ -20,13 +21,16 @@ const nav: HeaderNavItem[] = [
   { href: "/de/ueber", label: "Über" },
 ];
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return [{ locale: "de" }];
 }
 
-export default function LocaleLayout({ children }: { children: React.ReactNode }) {
+export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (locale !== "de") notFound();
+
   return (
     <div className="min-h-screen bg-paper text-ink">
       <header className="sticky top-0 z-30 border-b border-ash/70 bg-paper/85 px-2 py-2 backdrop-blur-xl sm:py-3">

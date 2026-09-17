@@ -20,6 +20,8 @@ export function generateStaticParams() {
   return searchIndexableDrinkIds.map((drinkId) => ({ drinkId }));
 }
 
+export const dynamicParams = true;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { drinkId } = await params;
   const drink = drinks.find((item) => item.id === drinkId);
