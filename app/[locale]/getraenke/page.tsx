@@ -1,8 +1,9 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { DrinkRows } from "@/components/seo-drink-list";
 import { DrinkExplorer } from "@/components/drink-explorer";
 import { featuredIndexableDrinks } from "@/lib/seo-drinks";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, siteUrl } from "@/lib/site";
 
 export const metadata = pageMetadata("Getränke-Datenbank", "Suche Getränke nach Marke, Kategorie, Gebindegröße und Zuckerwerten. Vergleiche Zucker pro 100 ml, Packung, Kalorien, Zuckerwürfel und Quellen.", "/de/getraenke");
 
@@ -11,8 +12,11 @@ export default function DrinksPage() {
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: "Zuckerhaltig.de Getränkedatenbank",
-    description: "Lokale MVP-Datenbank zu Zuckerwerten in Getränken in Deutschland.",
+    description: "Getränkedatenbank mit Zucker- und Nährwertangaben, Packungsgrößen, Berechnungen und Quellen.",
+    url: `${siteUrl}/de/getraenke`,
     inLanguage: "de",
+    creator: { "@type": "Organization", name: "Zuckerhaltig.de", url: siteUrl },
+    publisher: { "@type": "Organization", name: "Zuckerhaltig.de", url: siteUrl },
   };
 
   return (
@@ -25,6 +29,9 @@ export default function DrinksPage() {
           <span className="block">Filtere nach Marke, Kategorie, Gebinde und Zucker.</span>
           <span className="block">Alle Berechnungen passieren lokal im Browser.</span>
         </p>
+        <Link href="/de/ueber" className="mt-5 inline-flex text-sm font-semibold underline decoration-ash underline-offset-4 hover:decoration-marigold">
+          Quellen und Prüfweise ansehen
+        </Link>
       </div>
       <Suspense fallback={<div className="border-t border-ash py-6 text-sm text-slate">Getränke werden geladen...</div>}>
         <DrinkExplorer />

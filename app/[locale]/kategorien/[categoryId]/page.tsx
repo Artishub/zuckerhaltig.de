@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const categoryDrinks = drinksByCategory(categoryId);
   return pageMetadata(
-    `${category.name}: Zucker pro 100 ml vergleichen`,
-    `${categoryDrinks.length} ${category.name}-Produkte nach Zucker pro 100 ml und pro Packung vergleichen. Mit Packungsgrößen, Zuckerwürfeln und Quellen.`,
+    `${category.name}: ${page.editorial.title}`,
+    `${page.intro} ${page.editorial.title} Mit Packungsgrößen, Zuckerwürfeln und Quellen.`,
     `/de/kategorien/${categoryId}`,
   );
 }
@@ -76,6 +76,20 @@ export default async function CategoryPage({ params }: PageProps) {
         <SortableDrinkRows drinks={categoryDrinks} />
       </section>
 
+      <section className="border-y border-ash bg-paper">
+        <div className="mx-auto max-w-page px-4 py-12 md:py-16">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Einordnung</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{page.editorial.title}</h2>
+          </div>
+          <div className="mt-9 grid gap-8 md:grid-cols-3">
+            {page.editorial.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="border-t border-ash pt-4 leading-7 text-slate">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -84,6 +98,7 @@ export default async function CategoryPage({ params }: PageProps) {
               "@context": "https://schema.org",
               "@type": "CollectionPage",
               name: `${category.name}: Zucker pro 100 ml vergleichen`,
+              description: page.intro,
               url: `${siteUrl}/de/kategorien/${categoryId}`,
               mainEntity: { "@type": "ItemList", numberOfItems: categoryDrinks.length, itemListElement: itemList },
             },

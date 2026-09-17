@@ -43,7 +43,54 @@ export type Drink = {
   faq?: DrinkFaq[];
 };
 
-export const drinks = seed.drinks as Drink[];
+const importOnlyDrinkIds = new Set([
+  "a-w-cream-soda-355",
+  "a-w-root-beer-355",
+  "a-w-root-beer-zero-sugar-355",
+  "dr-pepper-cream-swirl-330",
+  "dr-pepper-blackberry-355",
+  "dr-pepper-vanilla-330",
+  "dr-pepper-strawberries-cream-355",
+  "dr-pepper-cherry-vanilla-330",
+  "welch-s-grape-soda-355",
+  "fanta-fruit-twist-330",
+  "fanta-fruit-twist-zero-330",
+  "fanta-shokata-330",
+  "fanta-berry-330",
+  "fanta-grape-330",
+  "fanta-peach-330",
+  "fanta-raspberry-330",
+  "fanta-watermelon-330",
+  "fanta-apple-330",
+  "fanta-green-apple-330",
+  "fanta-mango-330",
+  "fanta-pineapple-330",
+  "fanta-grapefruit-330",
+  "fanta-grape-japan-330",
+  "sprite-cherry-330",
+  "sprite-ginger-330",
+  "7up-mojito-330",
+  "7up-cocktail-exotique-330",
+  "7up-tropical-330",
+  "sunkist-orange-330",
+  "sunkist-grape-330",
+  "mountain-dew-original-330",
+  "mountain-dew-voltage-330",
+  "mountain-dew-code-red-330",
+  "mountain-dew-pitch-black-330",
+  "mountain-dew-baja-blast-330",
+  "coca-cola-cinnamon-330",
+  "coca-cola-raspberry-330",
+  "mirinda-orange-330",
+  "mirinda-strawberry-330",
+  "mirinda-lemon-330",
+  "sarsi-root-beer-330",
+  "poms-apple-330",
+  "kinnie-330",
+  "tahiti-drink-330",
+]);
+
+export const drinks = (seed.drinks as Drink[]).filter((drink) => !importOnlyDrinkIds.has(drink.id));
 
 const canonicalPackageDrinkIds = new Map<string, string>();
 const drinksByPackageKey = new Map<string, Drink[]>();

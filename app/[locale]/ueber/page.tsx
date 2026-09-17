@@ -23,6 +23,21 @@ const principles = [
   },
 ];
 
+const methodology = [
+  {
+    title: "Aufnahme",
+    text: "Ein Getränk braucht eine nachvollziehbare Hersteller-, Händler- oder Etikettquelle. Fehlen wichtige Angaben, wird die Variante nicht als hervorgehobene Produktseite veröffentlicht.",
+  },
+  {
+    title: "Prüfung",
+    text: "Auf der Detailseite stehen Quelle, Prüfstatus und – sofern vorhanden – das Datum der letzten Kontrolle. Nährwerte werden nicht aus ähnlichen Sorten abgeleitet.",
+  },
+  {
+    title: "Aktualisierung",
+    text: "Rezepturen und Verpackungen können sich ändern. Ein Prüfdatum wird deshalb nur bei einer echten Kontrolle erneuert; aktuelle Hinweise mit Quelle oder Etikettfoto sind willkommen.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <main className={styles.page}>
@@ -48,6 +63,22 @@ export default function AboutPage() {
           <h2>Weniger raten.<br />Besser vergleichen.</h2>
         </div>
         <p>Der Wert pro 100 ml macht Getränke vergleichbar. Zucker pro Packung zeigt, was in der ganzen Dose oder Flasche steckt.</p>
+      </section>
+
+      <section className={styles.methodology}>
+        <div className={styles.methodologyHeader}>
+          <p className={styles.kicker}>Arbeitsweise</p>
+          <h2>Wie die Getränkedaten ausgewählt werden.</h2>
+          <p>Die Datenbank darf umfangreich sein. Als eigene Suchseiten stellen wir aber nur ausgewählte, belegte Kernprodukte in den Vordergrund.</p>
+        </div>
+        <div className={styles.methodologyGrid}>
+          {methodology.map(({ title, text }) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className={styles.links}>

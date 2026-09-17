@@ -8,7 +8,7 @@ import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
 import { brandPageHref } from "@/lib/featured-brand-pages";
-import { isSearchIndexableDrink } from "@/lib/seo-index";
+import { isSearchIndexableDrink, searchIndexableDrinkIds } from "@/lib/seo-index";
 import { siteUrl } from "@/lib/site";
 import styles from "./drink-detail.module.css";
 
@@ -17,7 +17,7 @@ type PageProps = {
 };
 
 export function generateStaticParams() {
-  return drinks.map((drink) => ({ drinkId: drink.id }));
+  return searchIndexableDrinkIds.map((drinkId) => ({ drinkId }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -91,8 +91,9 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const cubes = sugarCubes(drink);
   const energy = packageEnergyKcal(drink);
   const editorial = featuredDrinkEditorial[drink.id];
-  const similar = editorial ? [] : similarDrinks(drink);
-  const faqs = editorial?.faq ?? drink.faq ?? generatedFaq(drink, brandName);
+  const isPublicDrink = isSearchIndexableDrink(drink);
+  const similar = isPublicDrink && !editorial ? similarDrinks(drink) : [];
+  const faqs = isPublicDrink ? editorial?.faq ?? drink.faq ?? generatedFaq(drink, brandName) : [];
   const brandHref = brandPageHref(drink.brandId);
   const brandLink = drink.id === "paulaner-spezi-500"
     ? { href: "/de/marken/spezi", label: "Spezi-Produkte vergleichen" }
@@ -115,7 +116,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <div>
             <p className={styles.category}>{categoryName} · {sizeLabel(drink)}</p>
             <h1>Wie viel Zucker hat {drink.name} in {sizeLabel(drink)}?</h1>
-            <p className={styles.summary}>{introText(drink, brandName, categoryName, family.length)}</p>
+            <p className={styles.summary}>{isPublicDrink ? introText(drink, brandName, categoryName, family.length) : compactIntroText(drink)}</p>
             <p className={styles.sourceLine}><Info size={15} /> Quelle: {drink.source}</p>
           </div>
           <div className={styles.sugarPanel}>
@@ -151,7 +152,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
 
       {family.length > 1 && <PackageSizes drinks={family} />}
 
-      {editorial && (
+      {isPublicDrink && editorial && (
         <section className={styles.editorial} aria-labelledby="featured-editorial-title">
           <div className={styles.editorialLead}>
             <p className={styles.category}>Einordnung</p>
@@ -169,9 +170,9 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      {editorial?.packageNote && <PackageNote note={editorial.packageNote} />}
+      {isPublicDrink && editorial?.packageNote && <PackageNote note={editorial.packageNote} />}
 
-      {editorial?.comparison && <FeaturedDrinkComparison comparison={editorial.comparison} currentDrinkId={drink.id} />}
+      {isPublicDrink && editorial?.comparison && <FeaturedDrinkComparison comparison={editorial.comparison} currentDrinkId={drink.id} />}
 
       <section className={styles.contentGrid}>
         <div className={styles.nutrition}>
@@ -193,8 +194,12 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           {drink.computed?.formula && (
             <p className={styles.formula}><strong>Rechenweg:</strong> {drink.computed.formula}</p>
           )}
-          {drink.lastCheckedAt && <p className={styles.checked}>Zuletzt geprüft: {formatDate(drink.lastCheckedAt)}</p>}
+          <p className={styles.checked}>
+            {verificationLabel(drink.verificationStatus)}
+            {drink.lastCheckedAt ? ` · Zuletzt geprüft: ${formatDate(drink.lastCheckedAt)}` : ""}
+          </p>
           <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>
+          <Link href="/de/ueber" className={styles.knowledge}>So prüfen wir die Daten <ArrowRight size={16} /></Link>
         </aside>
       </section>
 
@@ -210,7 +215,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      <section className={styles.faq}>
+      {isPublicDrink && <section className={styles.faq}>
         <p className={styles.category}>Fragen und Antworten</p>
         <h2>FAQ zu {drink.name}</h2>
         <div>
@@ -222,12 +227,15 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
           {brandLink && <Link href={brandLink.href} className={styles.knowledge}>{brandLink.label} <ArrowRight size={16} /></Link>}
         </div>
-      </section>
+      </section>}
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd(drink)),
+          __html: JSON.stringify([
+            breadcrumbJsonLd(drink),
+            ...(isPublicDrink ? [productJsonLd(drink, brandName, categoryName)] : []),
+          ]),
         }}
       />
     </main>
@@ -334,6 +342,15 @@ function similarDrinks(drink: Drink) {
   )
     .sort((a, b) => Math.abs(a.sugarPer100Ml - drink.sugarPer100Ml) - Math.abs(b.sugarPer100Ml - drink.sugarPer100Ml))
     .slice(0, 4);
+}
+
+function compactIntroText(drink: Drink) {
+  const totalSugar = totalSugarGrams(drink);
+  const packageText = totalSugar === null || !drink.sizeMl
+    ? "Eine Packungsrechnung ist nicht hinterlegt."
+    : `Das ${drink.sizeMl}-ml-Gebinde enthält rechnerisch ${formatNumber(totalSugar)} g Zucker.`;
+
+  return `${drink.name}: ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml. ${packageText}`;
 }
 
 function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
@@ -447,6 +464,15 @@ function introText(drink: Drink, brandName: string, categoryName: string, family
   return `${answer}${family} Die Datenbank führt das Produkt als ${categoryName} von ${brandName}. ${base}`;
 }
 
+function verificationLabel(status: Drink["verificationStatus"]) {
+  if (status === "manufacturer_verified") return "Herstellerangabe geprüft";
+  if (status === "retailer_verified") return "Händlerangabe geprüft";
+  if (status === "manufacturer_or_retailer_verified") return "Hersteller- oder Händlerangabe geprüft";
+  if (status === "manufacturer_verified_needs_field_check") return "Herstellerquelle, einzelne Felder offen";
+  if (status === "needs_label_check") return "Quelle vorhanden, Etikett noch prüfen";
+  return "Importquelle, noch nicht verifiziert";
+}
+
 function knowledgeLink(drink: Drink) {
   if (drink.categoryId === "energy") return "/de/wissen/energy-drinks-zucker-vergleichen";
   if (drink.categoryId === "cola" || drink.categoryId === "cola-mix") {
@@ -484,6 +510,32 @@ function breadcrumbJsonLd(drink: Drink) {
       position: index + 1,
       ...crumb,
     })),
+  };
+}
+
+function productJsonLd(drink: Drink, brandName: string, categoryName: string) {
+  const properties = [
+    {
+      "@type": "PropertyValue",
+      name: "Zucker pro 100 ml",
+      value: `${formatNumber(drink.sugarPer100Ml)} g`,
+    },
+    ...(drink.sizeMl && totalSugarGrams(drink) !== null ? [{
+      "@type": "PropertyValue",
+      name: "Zucker pro Packung",
+      value: `${formatNumber(totalSugarGrams(drink)!)} g`,
+    }] : []),
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${drink.name} ${sizeLabel(drink)}`,
+    description: metaDescription(drink, brandName, productFamilyDrinks(drink)),
+    category: categoryName,
+    brand: { "@type": "Brand", name: brandName },
+    url: `${siteUrl}/de/getraenke/${canonicalPackageDrinkId(drink)}`,
+    additionalProperty: properties,
   };
 }
 
