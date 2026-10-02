@@ -6,6 +6,8 @@
 .sugarPanel .cubes i { width:23px; height:23px; }
 .knowledgeLinks { display:flex; flex-wrap:wrap; gap:.65rem; margin-top:2rem; }
 .knowledgeLinks .knowledge { margin-top:0; }
+.nextLinks { display:flex; flex-wrap:wrap; gap:.65rem; max-width:1280px; margin:0 auto; padding:3.5rem 1.25rem 5rem; }
+.nextLinks .knowledge { margin-top:0; }
 .sweetenerNotice { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:2rem; max-width:1280px; margin:2.5rem auto 0; padding:1.5rem 1.25rem; border-bottom:1px solid var(--detail-line); }
 .sweetenerNotice .category { margin-bottom:.55rem; }
 .sweetenerNotice h2 { margin:0; font-size:clamp(1.35rem,2.2vw,2rem); font-weight:650; letter-spacing:-.045em; line-height:1.05; }

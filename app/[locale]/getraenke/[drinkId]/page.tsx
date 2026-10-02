@@ -94,7 +94,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const energy = packageEnergyKcal(drink);
   const editorial = featuredDrinkEditorial[drink.id];
   const isPublicDrink = isSearchIndexableDrink(drink);
-  const similar = isPublicDrink && !editorial ? similarDrinks(drink) : [];
+  const similar = editorial ? [] : similarDrinks(drink);
   const faqs = isPublicDrink ? editorial?.faq ?? drink.faq ?? generatedFaq(drink, brandName) : [];
   const brandHref = brandPageHref(drink.brandId);
   const brandLink = drink.id === "paulaner-spezi-500"
@@ -215,6 +215,14 @@ export default async function DrinkDetailPage({ params }: PageProps) {
             })}
           </div>
         </section>
+      )}
+
+      {!isPublicDrink && (
+        <nav aria-label="Weiter vergleichen" className={styles.nextLinks}>
+          <Link href="/de/getraenke" className={styles.knowledge}>Alle Getränke vergleichen <ArrowRight size={16} /></Link>
+          {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
+          {brandLink && <Link href={brandLink.href} className={styles.knowledge}>{brandLink.label} <ArrowRight size={16} /></Link>}
+        </nav>
       )}
 
       {isPublicDrink && <section className={styles.faq}>

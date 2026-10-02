@@ -36,7 +36,7 @@ export default function TestHomePage() {
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
             <p className={styles.kicker}>Zucker-Check für den Alltag</p>
-            <h1>Wieviel Zucker steckt in unseren Getränken?</h1>
+            <h1>Wie viel Zucker steckt in unseren Getränken?</h1>
             <p className={styles.lede}>Zucker in Getränken, lesbar gemacht. Vergleiche Werte pro 100 ml, pro Packung und als Würfel.</p>
             <div className={styles.heroActions}>
               <Link href="/de/getraenke" className={styles.primaryButton}>Getränk finden <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
