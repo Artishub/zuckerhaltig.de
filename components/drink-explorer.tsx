@@ -40,7 +40,8 @@ export function DrinkExplorer() {
   const [excludeZeroSugar, setExcludeZeroSugar] = useState(false);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(15);
-  const [openId, setOpenId] = useState<string | null>(drinks[0]?.id ?? null);
+  const [openId, setOpenId] = useState<string | null>(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
     const nextQuery = searchParams.get("q") ?? "";
@@ -112,6 +113,16 @@ export function DrinkExplorer() {
       <aside className="h-fit w-full min-w-0 border border-ash bg-mist lg:sticky lg:top-20">
         <div className="flex items-center justify-between border-b border-ash px-4 py-3">
           <h2 className="text-sm font-semibold">Filter</h2>
+          <button
+            type="button"
+            onClick={() => setFiltersOpen((open) => !open)}
+            aria-expanded={filtersOpen}
+            aria-controls="drink-filters"
+            className="focus-ring inline-flex items-center gap-1.5 text-sm font-medium lg:hidden"
+          >
+            {filtersOpen ? "Weniger Filter" : "Alle Filter"}
+            <ChevronDown size={16} className={`transition ${filtersOpen ? "rotate-180" : ""}`} />
+          </button>
         </div>
         <div className="space-y-4 p-4">
           <label className="block">
@@ -126,6 +137,7 @@ export function DrinkExplorer() {
               />
             </div>
           </label>
+          <div id="drink-filters" className={`space-y-4 ${filtersOpen ? "" : "hidden"} lg:block`}>
           <Select label="Marke" value={brand} onChange={setBrand} options={[{ label: "Alle Marken", value: "all" }, ...brands.map((item) => ({ label: item.name, value: item.id }))]} />
           <Select label="Kategorie" value={category} onChange={setCategory} options={[{ label: "Alle Kategorien", value: "all" }, ...categories.map((item) => ({ label: item.name, value: item.id }))]} />
           <Select label="Gebinde" value={size} onChange={setSize} options={sizes} />
@@ -153,6 +165,7 @@ export function DrinkExplorer() {
             <X size={15} />
             Filter Zurücksetzen
           </button>
+          </div>
         </div>
       </aside>
 
@@ -166,7 +179,7 @@ export function DrinkExplorer() {
               <BarChart3 size={18} strokeWidth={1.75} aria-hidden="true" />
               <h2 className="text-lg font-medium">Getränke vergleichen</h2>
             </div>
-            <p className="mt-2 text-sm leading-6 text-slate">Stelle bis zu drei Getränke auf einer eigenen Vergleichsseite gegenüber.</p>
+            <p className="mt-2 hidden text-sm leading-6 text-slate sm:block">Stelle bis zu drei Getränke auf einer eigenen Vergleichsseite gegenüber.</p>
           </div>
           <span className="inline-flex shrink-0 items-center gap-2 text-sm font-medium">
             Vergleich öffnen
@@ -216,22 +229,33 @@ export function DrinkExplorer() {
                 transition={{ duration: 0.2, delay: Math.min(index * 0.02, 0.12) }}
                 className="border-b border-ash bg-mist"
               >
-                <button
-                  onClick={() => setOpenId(isOpen ? null : item.id)}
-                  className="focus-ring grid w-full grid-cols-[1fr_auto_auto] gap-x-3 gap-y-2 p-3 text-left md:grid-cols-[1fr_120px_120px_36px] md:items-center md:p-4"
-                >
+                <div className="relative grid w-full grid-cols-[1fr_auto_auto_auto] gap-x-3 gap-y-2 p-3 text-left md:grid-cols-[1fr_120px_120px_36px] md:items-center md:p-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="h-2 w-2 rounded-full" style={{ background: categoryData?.color ?? "#838383" }} />
                       <span className="text-xs font-medium uppercase tracking-wide text-slate">{categoryData?.name}</span>
                     </div>
-                    <h3 className="mt-2 text-base font-semibold leading-tight tracking-tight md:text-lg">{title}</h3>
+                    <h3 className="mt-2 text-base font-semibold leading-tight tracking-tight md:text-lg">
+                      {item.type === "drink" ? (
+                        <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring after:absolute after:inset-0 hover:underline hover:decoration-marigold hover:underline-offset-4">
+                          {title}
+                        </Link>
+                      ) : title}
+                    </h3>
                     <p className="mt-1 text-sm text-slate">{subtitle}</p>
                   </div>
                   <Metric label="pro 100 ml" value={`${formatNumber(per100)} g`} />
                   <Metric label="gesamt" value={formatOptionalGrams(total)} strong />
-                  <ChevronDown className={`col-start-3 justify-self-end self-end transition md:col-start-auto md:self-center ${isOpen ? "rotate-180" : ""}`} size={18} />
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => setOpenId(isOpen ? null : item.id)}
+                    aria-expanded={isOpen}
+                    aria-label={isOpen ? `Details zu ${title} schließen` : `Details zu ${title} anzeigen`}
+                    className={`focus-ring -m-2 self-center justify-self-end p-2 ${item.type === "group" ? "after:absolute after:inset-0" : "relative z-10"}`}
+                  >
+                    <ChevronDown className={`transition ${isOpen ? "rotate-180" : ""}`} size={18} />
+                  </button>
+                </div>
                 {isOpen && (
                   <div className="grid gap-4 border-t border-ash px-4 py-4 text-sm text-slate md:grid-cols-[1.4fr_0.8fr]">
                     <div>

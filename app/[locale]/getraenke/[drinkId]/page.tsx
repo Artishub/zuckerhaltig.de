@@ -118,7 +118,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <div>
             <p className={styles.category}>{categoryName} · {sizeLabel(drink)}</p>
             <h1>Wie viel Zucker hat {drink.name} in {sizeLabel(drink)}?</h1>
-            <p className={styles.summary}>{isPublicDrink ? introText(drink, brandName, categoryName, family.length) : compactIntroText(drink)}</p>
+            <p className={styles.summary}>{answerText(drink)}</p>
             <p className={styles.sourceLine}><Info size={15} /> Quelle: {drink.source}</p>
           </div>
           <div className={styles.sugarPanel}>
@@ -136,7 +136,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         <Nutrient label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} highlight />
         <Nutrient label={`Zucker pro ${sizeLabel(drink)}`} value={formatOptionalGrams(totalSugar)} highlight />
         <Nutrient label="Zuckerwürfel" value={formatOptionalNumber(cubes)} />
-        <Nutrient label="Energie pro Packung" value={energy === null ? "/" : `${formatNumber(energy)} kcal`} />
+        <Nutrient label="Energie pro Packung" value={energy === null ? "/" : `${formatNumber(Math.round(energy))} kcal`} />
       </section>
 
       {drink.sugarPer100Ml <= 0.5 && (
@@ -151,6 +151,8 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           </Link>
         </aside>
       )}
+
+      <SugarContext drink={drink} categoryName={categoryName} categoryHref={categoryHref} />
 
       {family.length > 1 && <PackageSizes drinks={family} />}
 
@@ -278,6 +280,7 @@ function PackageSizes({ drinks }: { drinks: Drink[] }) {
             </strong>
             <span>{formatOptionalGrams(totalSugarGrams(drink))} Zucker</span>
             <span>{formatOptionalNumber(sugarCubes(drink))} Würfel</span>
+            <span>{formatOptionalKcal(packageEnergyKcal(drink))}</span>
           </li>
         ))}
       </ul>
@@ -354,15 +357,6 @@ function similarDrinks(drink: Drink) {
     .slice(0, 4);
 }
 
-function compactIntroText(drink: Drink) {
-  const totalSugar = totalSugarGrams(drink);
-  const packageText = totalSugar === null || !drink.sizeMl
-    ? "Eine Packungsrechnung ist nicht hinterlegt."
-    : `Das ${drink.sizeMl}-ml-Gebinde enthält rechnerisch ${formatNumber(totalSugar)} g Zucker.`;
-
-  return `${drink.name}: ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml. ${packageText}`;
-}
-
 function generatedFaq(drink: Drink, brandName: string): DrinkFaq[] {
   const totalSugar = totalSugarGrams(drink);
   const cubes = sugarCubes(drink);
@@ -431,47 +425,90 @@ function shortenTitleName(name: string) {
   return wordBoundary >= 22 ? shortened.slice(0, wordBoundary) : shortened.slice(0, maxNameLength);
 }
 
-function introText(drink: Drink, brandName: string, categoryName: string, familySize: number) {
+function answerText(drink: Drink) {
   const totalSugar = totalSugarGrams(drink);
   const cubes = sugarCubes(drink);
-  const answer = `${drink.name} enthält ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.`;
-  const family = familySize > 1 ? ` Auf dieser Seite stehen ${familySize} Packungsgrößen im direkten Vergleich.` : "";
-  const base = totalSugar === null || cubes === null || !drink.sizeMl
-    ? "Eine Packungsgröße ist noch nicht hinterlegt; Gesamtzucker und Zuckerwürfel werden deshalb als / angezeigt."
-    : `Für das ${drink.sizeMl}-ml-Gebinde ergeben sich rechnerisch ${formatNumber(totalSugar)} g Zucker. Das entspricht ungefähr ${formatNumber(cubes)} Zuckerwürfeln bei 3 g pro Würfel.`;
+  const answer = `${drink.name} hat ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.`;
+  if (totalSugar === null || cubes === null || !drink.sizeMl) return answer;
+  return `${answer} Eine ${drink.sizeMl}-ml-Packung enthält ${formatNumber(totalSugar)} g Zucker, das sind etwa ${formatNumber(cubes)} Zuckerwürfel.`;
+}
 
-  if (drink.brandId === "coca-cola" && drink.name.includes("Classic")) {
-    return `${answer}${family} ${base}`;
-  }
-  if (drink.brandId === "red-bull") {
-    return `${answer}${family} Der Gesamtwert hängt von der Dose ab. ${base}`;
-  }
-  if (drink.id === "monster-mango-loco-500") {
-    return `${answer} Die 500-ml-Dose macht den Gesamtzucker besonders sichtbar. ${base}`;
-  }
-  if (drink.brandId === "fanta") {
-    return `${answer}${family} Klassische und zuckerarme Varianten können deutlich auseinanderliegen. ${base}`;
-  }
-  if (drink.brandId === "sprite") {
-    return `${answer}${family} Der Vergleich mit Zero-Varianten zeigt den Unterschied. ${base}`;
-  }
-  if (drink.brandId === "club-mate") {
-    return `${answer}${family} Diese Seite konzentriert sich auf die Nährwertdaten. ${base}`;
-  }
-  if (drink.brandId === "capri-sun") {
-    return `${answer}${family} Das Trinkpäckchen ist kleiner als viele Flaschen. ${base}`;
-  }
-  if (drink.brandId === "granini") {
-    return `${answer}${family} Bei Saft und Nektar bleibt die Nährwerttabelle der feste Vergleichspunkt. ${base}`;
-  }
-  if (drink.brandId === "mueller") {
-    return `${answer}${family} Bei Milchmischgetränken helfen auch Energie und Kohlenhydrate pro 100 ml beim Vergleich. ${base}`;
-  }
-  if (drink.brandId === "fritz-kola") {
-    return `${answer}${family} Cola, Limo und Schorle der Marke können unterschiedliche Zuckerwerte haben. ${base}`;
-  }
+const whoGuidelineUrl = "https://www.who.int/publications/i/item/9789241549028";
+const whoDailyLimitGrams = 50;
+const whoIdealLimitGrams = 25;
 
-  return `${answer}${family} Die Datenbank führt das Produkt als ${categoryName} von ${brandName}. ${base}`;
+function categoryPeers(drink: Drink) {
+  return uniqueProductRepresentatives(drinks.filter((item) => item.categoryId === drink.categoryId));
+}
+
+function lowerSugarAlternative(drink: Drink, peers: Drink[]) {
+  const candidates = peers
+    .filter((item) => item.name !== drink.name && item.sugarPer100Ml <= drink.sugarPer100Ml - 2)
+    .sort((a, b) => (
+      Number(b.brandId === drink.brandId) - Number(a.brandId === drink.brandId)
+        || a.sugarPer100Ml - b.sugarPer100Ml
+        || a.name.localeCompare(b.name, "de")
+    ));
+  return candidates[0] ?? null;
+}
+
+function SugarContext({ drink, categoryName, categoryHref }: { drink: Drink; categoryName: string; categoryHref: string | null }) {
+  const peers = categoryPeers(drink);
+  const average = peers.length ? peers.reduce((sum, item) => sum + item.sugarPer100Ml, 0) / peers.length : null;
+  const rank = peers.filter((item) => item.name !== drink.name && item.sugarPer100Ml > drink.sugarPer100Ml).length + 1;
+  const alternative = lowerSugarAlternative(drink, peers);
+  const alternativeBrand = alternative ? brandById[alternative.brandId]?.name ?? "" : "";
+  const totalSugar = totalSugarGrams(drink);
+  const savedSugar = alternative && drink.sizeMl ? ((drink.sugarPer100Ml - alternative.sugarPer100Ml) * drink.sizeMl) / 100 : null;
+  const showWho = totalSugar !== null && drink.sugarPer100Ml > 0.5 && drink.categoryId !== "milk-drink";
+
+  if (average === null || peers.length < 3) return null;
+
+  const difference = drink.sugarPer100Ml - average;
+  const comparison = Math.abs(difference) < 0.5
+    ? "liegt etwa im Durchschnitt"
+    : difference > 0
+      ? `liegt ${formatNumber(difference)} g über dem Durchschnitt`
+      : `liegt ${formatNumber(Math.abs(difference))} g unter dem Durchschnitt`;
+
+  return (
+    <section className={styles.context} aria-labelledby="sugar-context-title">
+      <div className={styles.contextLead}>
+        <p className={styles.category}>Einordnung</p>
+        <h2 id="sugar-context-title">Wie viel ist das?</h2>
+      </div>
+      <div className={styles.contextGrid}>
+        <article>
+          <h3>Im Vergleich zur Kategorie</h3>
+          <p>
+            {formatNumber(drink.sugarPer100Ml)} g pro 100 ml {comparison} von {peers.length} Produkten der Kategorie {categoryName} ({formatNumber(average)} g).
+            {drink.sugarPer100Ml > 0.5 ? ` Platz ${rank} von ${peers.length}, sortiert nach Zucker pro 100 ml.` : ""}
+          </p>
+          {categoryHref && <Link href={categoryHref}>{categoryName} vergleichen <ArrowRight size={15} /></Link>}
+        </article>
+        {alternative && (
+          <article>
+            <h3>Weniger Zucker in der Kategorie</h3>
+            <p>
+              {alternativeBrand && !alternative.name.startsWith(alternativeBrand) ? `${alternativeBrand} ` : ""}{alternative.name} hat {formatNumber(alternative.sugarPer100Ml)} g pro 100 ml.
+              {savedSugar !== null && drink.sizeMl ? ` Bei ${drink.sizeMl} ml wären das ${formatNumber(savedSugar)} g Zucker weniger.` : ""}
+            </p>
+            <Link href={`/de/getraenke/${canonicalPackageDrinkId(alternative)}`}>Werte ansehen <ArrowRight size={15} /></Link>
+          </article>
+        )}
+        {showWho && totalSugar !== null && (
+          <article>
+            <h3>Bezug zur WHO-Empfehlung</h3>
+            <p>
+              {`Die WHO empfiehlt Erwachsenen höchstens 10\u00a0% der Energie aus freiem Zucker, besser unter 5\u00a0%. Bei 2.000\u00a0kcal sind das etwa ${whoDailyLimitGrams}\u00a0g bzw. ${whoIdealLimitGrams}\u00a0g am Tag.`}
+              {` Eine Packung liefert ${formatNumber(totalSugar)}\u00a0g, also ${formatNumber(Math.round((totalSugar / whoDailyLimitGrams) * 100))}\u00a0% von ${whoDailyLimitGrams}\u00a0g.`}
+            </p>
+            <a href={whoGuidelineUrl} target="_blank" rel="noreferrer">WHO-Leitlinie öffnen <ExternalLink size={15} /></a>
+          </article>
+        )}
+      </div>
+    </section>
+  );
 }
 
 function verificationLabel(status: Drink["verificationStatus"]) {
@@ -555,6 +592,10 @@ function formatNumber(value: number) {
 
 function formatOptionalNumber(value: number | null) {
   return value === null ? "/" : formatNumber(value);
+}
+
+function formatOptionalKcal(value: number | null) {
+  return value === null ? "/" : `${formatNumber(Math.round(value))} kcal`;
 }
 
 function formatOptionalGrams(value: number | null) {

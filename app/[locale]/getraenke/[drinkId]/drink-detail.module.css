@@ -76,3 +76,22 @@
   .editorialComparisonGrid { grid-template-columns:1fr; margin-top:1.8rem; }
   .editorialComparisonCard,.editorialComparisonCardCurrent { min-height:0; }
 }
+
+/* Answer-first hero and data-derived context. */
+.hero h1 { max-width:17ch; }
+.packageGrid li { grid-template-columns:4.5rem 1fr auto auto; }
+.context { display:grid; grid-template-columns:.6fr 1.4fr; gap:4rem; max-width:1280px; margin:0 auto; padding:6rem 1.25rem 0; }
+.contextLead h2 { margin:0; font-size:clamp(2.3rem,4vw,3.6rem); font-weight:650; line-height:.98; }
+.contextGrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1.5rem; }
+.contextGrid article { display:flex; flex-direction:column; padding-top:1rem; border-top:1px solid var(--detail-line); }
+.contextGrid h3 { margin:0; font-size:1rem; font-weight:700; }
+.contextGrid p { margin:.6rem 0 0; color:#52645b; font-size:.9rem; line-height:1.6; }
+.contextGrid a { display:inline-flex; align-items:center; gap:.4rem; margin-top:auto; padding-top:.9rem; font-size:.83rem; font-weight:750; text-decoration:underline; text-decoration-color:var(--detail-line); text-underline-offset:4px; }
+.contextGrid a:hover { text-decoration-color:var(--detail-ink); }
+@media(max-width:767px) {
+  .hero h1 { font-size:clamp(2.1rem,9vw,2.6rem); max-width:none; }
+  .context { grid-template-columns:1fr; gap:1.5rem; padding-top:4.7rem; }
+  .packageGrid li { grid-template-columns:4.2rem 1fr auto auto; gap:.6rem; padding:.8rem .9rem; }
+  .packageGrid strong { white-space:nowrap; font-size:.95rem; }
+  .packageGrid span { font-size:.78rem; white-space:nowrap; }
+}
