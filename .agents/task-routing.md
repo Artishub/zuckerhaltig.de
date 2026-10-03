@@ -1,17 +1,14 @@
 # Task Routing
 
 Data changes:
-- Edit `lib/data/drinks.seed.json`.
-- Never invent nutrition values, package sizes, source URLs, or checked dates.
-- If source text states package sugar, data must match calculated package sugar.
-- Total sugar is `sugarPer100Ml * sizeMl / 100`; sugar cubes use 3 g.
-- Prefer `totalSugarGrams`, `sugarCubes`, and `packageEnergyKcal` from `lib/data/drinks.ts`.
-- Run `npm run validate:data`; for code/data tasks also run typecheck and build.
+- Follow `.claude/skills/drink-data/SKILL.md` (source rules, lookup, validation).
+
+Indexing / sitemap / robots:
+- Follow `.claude/skills/seo-wave/SKILL.md`. Indexing waves stay small; see SEO context in `CLAUDE.md`.
 
 SEO/content:
-- German first. Keep wording direct and search-intent based.
-- Detail pages need concrete values, source context, FAQ, similar drinks, and structured data.
-- Use `anti-ai-slop-writing` for German SEO copy, FAQ, metadata, and article text.
+- German first. Keep wording direct and search-intent based. No filler, no generated paragraphs at scale.
+- Detail pages need concrete values, source context, similar drinks, and structured data. Only allowlisted drinks get FAQ and editorial text (`lib/content/featured-drinks.ts`, written by hand).
 
 UI:
 - Keep the design quiet, modern, SaaS-like, and bright in default light mode.
@@ -19,8 +16,9 @@ UI:
 - Mobile navigation should be a menu, not a scroll row.
 - Use lucide icons where useful.
 - Do not use brand logo images unless legal usage is confirmed.
-- Use `design-taste-frontend` for explorer UI, drink cards, detail pages, or responsive layout work.
-- Use `caveman` only when the user asks for compressed/final-summary style.
+
+Verification:
+- Follow `.claude/skills/verify/SKILL.md`.
 
 Architecture:
 - Static JSON is acceptable now.

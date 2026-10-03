@@ -48,7 +48,11 @@ Social scripts (`social:*`) need credentials. Use `social:preview` or `social:ch
 On 2026-07-27 the domain dropped sitewide overnight (likely a spam update after mass, templated pages and cross-links to sister sites). It recovered on 2026-09-26 after most drink pages were set to noindex. Therefore:
 - No generated filler text at scale. Pages earn value through source-backed numbers and data-derived comparisons.
 - No footer or sitewide links to sister projects.
-- Re-index drink pages in waves of about 15–20 IDs with Search Console demand, spaced several weeks apart.
+- Re-index drink pages only in small waves; the procedure is in the `seo-wave` skill.
+
+## Project skills
+
+`.claude/skills/`: `drink-data` (edit or verify drinks), `seo-wave` (indexing changes), `verify` (checks, local server, screenshots).
 
 ## Token budget
 
@@ -58,5 +62,5 @@ On 2026-07-27 the domain dropped sitewide overnight (likely a spam update after 
 
 ## Gotchas
 
-- Do not rebuild while `next start` is running against the same `.next`. The running server keeps writing on-demand pages and serves stale HTML with broken CSS. Stop it, then `rm -rf .next` and rebuild.
+- Do not rebuild while `next start` is running against the same `.next`; see the `verify` skill.
 - Production URLs use `www.`. Search Console data mixes apex and www URLs.
