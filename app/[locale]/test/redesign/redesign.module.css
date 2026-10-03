@@ -1,0 +1,892 @@
+/* Redesign draft: quiet, label-like, data first. Uses the site theme variables, so light and dark both work. */
+.page {
+  --rule: var(--ink);
+  --hair: var(--ash);
+  --moss: #1f4539;
+  --lime: #d8f36a;
+  --level-free: #d8f36a;
+  --level-low: #a9d27e;
+  --level-sugared: #1f4539;
+  --band-free: rgba(216, 243, 106, 0.45);
+  --band-low: rgba(169, 210, 126, 0.28);
+  --dot: #1f4539;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem 1rem 5rem;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+:global(.dark) .page {
+  --dot: #d8f36a;
+  --band-free: rgba(216, 243, 106, 0.18);
+  --band-low: rgba(169, 210, 126, 0.12);
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.page h2 {
+  font-size: 1.25rem;
+}
+
+.page a {
+  text-underline-offset: 3px;
+}
+
+.draft {
+  margin: 0 0 1.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px dashed var(--smoke);
+  border-radius: 6px;
+  color: var(--slate);
+  font-size: 0.8rem;
+}
+
+.draft a {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  color: var(--slate);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Home hero with search */
+.homeHero {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 6px solid var(--rule);
+}
+
+.homeHero h1 {
+  max-width: 18ch;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.05;
+}
+
+.heroMeta {
+  margin: 0.9rem 0 0;
+  color: var(--slate);
+  font-size: 0.82rem;
+}
+
+.search {
+  position: relative;
+  max-width: 40rem;
+  margin-top: 1.6rem;
+}
+
+.searchField {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 3.6rem;
+  padding: 0 1.1rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--mist);
+}
+
+.searchField input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.searchField:focus-within {
+  box-shadow: 0 0 0 4px var(--band-free);
+}
+
+.searchResults {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  background: var(--mist);
+  box-shadow: 0 18px 40px rgba(23, 32, 29, 0.14);
+}
+
+.searchResults a {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+}
+
+.searchResults a:hover,
+.searchResults a:focus-visible {
+  background: var(--paper);
+}
+
+.searchResults strong,
+.rankName strong,
+.compactList strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.searchResults small,
+.rankName small,
+.rankValue small,
+.compactList small {
+  display: block;
+  color: var(--slate);
+  font-size: 0.78rem;
+}
+
+.searchValue {
+  text-align: right;
+}
+
+.searchEmpty {
+  padding: 0.7rem;
+  color: var(--slate);
+  font-size: 0.9rem;
+}
+
+/* Level badge: text label always carries the meaning, color only supports it */
+.level {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.levelFree {
+  background: var(--level-free);
+  color: #17201d;
+}
+
+.levelLow {
+  background: var(--level-low);
+  color: #17201d;
+}
+
+.levelSugared {
+  background: var(--level-sugared);
+  color: #f5f8f2;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+/* Sections */
+.section {
+  padding-top: 3rem;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--rule);
+}
+
+.sectionHead a,
+.method > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sectionLead {
+  margin: 0.8rem 0 0;
+  color: var(--slate);
+  font-size: 0.9rem;
+}
+
+/* Popular list with package bars */
+.rankList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: rank;
+}
+
+.rankList li {
+  counter-increment: rank;
+  border-bottom: 1px solid var(--hair);
+}
+
+.rankList a {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1.2fr) minmax(0, 1fr) 7rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
+
+.rankList a::before {
+  content: counter(rank);
+  color: var(--graphite);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.rankList a:hover strong {
+  text-decoration: underline;
+}
+
+.rankBar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--hair);
+  overflow: hidden;
+}
+
+.rankBar i {
+  display: block;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  background: var(--dot);
+}
+
+.rankValue {
+  text-align: right;
+}
+
+.rankValue strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+/* Strip plot */
+.strip {
+  position: relative;
+  margin-top: 1.2rem;
+}
+
+.stripLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin-bottom: 0.9rem;
+  color: var(--slate);
+  font-size: 0.78rem;
+}
+
+.stripLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.legendTick {
+  width: 2px;
+  height: 14px;
+  background: var(--ink);
+}
+
+.legendFree,
+.legendLow {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--band-free);
+  box-shadow: inset 0 0 0 1px var(--hair);
+}
+
+.legendLow {
+  background: var(--band-low);
+}
+
+.stripRow {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  align-items: center;
+  border-top: 1px solid var(--hair);
+}
+
+.stripLabel {
+  margin: 0;
+  padding-right: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.stripLabel span {
+  color: var(--graphite);
+  font-weight: 400;
+}
+
+.stripTrack {
+  position: relative;
+  height: 2.6rem;
+}
+
+.bandFree,
+.bandLow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--band-free);
+}
+
+.bandLow {
+  background: var(--band-low);
+}
+
+.stripAverage {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--ink);
+}
+
+.stripDot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--dot);
+  box-shadow: 0 0 0 2px var(--paper);
+  transition: transform 120ms ease;
+}
+
+.stripDot::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+}
+
+.stripDot:hover,
+.stripDot:focus-visible {
+  z-index: 2;
+  transform: scale(1.5);
+  outline: none;
+}
+
+.stripAxis {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  border-top: 1px solid var(--ink);
+}
+
+.stripAxis > div {
+  position: relative;
+  height: 1.6rem;
+}
+
+.stripAxis > div span {
+  position: absolute;
+  top: 0.3rem;
+  transform: translateX(-50%);
+  color: var(--slate);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.stripTooltip {
+  position: absolute;
+  z-index: 30;
+  display: grid;
+  gap: 0.1rem;
+  min-width: 11rem;
+  padding: 0.55rem 0.7rem;
+  transform: translate(-50%, calc(-100% - 10px));
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  background: var(--mist);
+  box-shadow: 0 10px 26px rgba(23, 32, 29, 0.16);
+  pointer-events: none;
+  font-size: 0.8rem;
+}
+
+.stripTooltip strong {
+  font-size: 0.95rem;
+}
+
+.stripTooltip small {
+  color: var(--slate);
+}
+
+/* Tables */
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--hair);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table thead th {
+  color: var(--slate);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.table tbody th {
+  font-weight: 600;
+}
+
+.table a {
+  text-decoration: underline;
+}
+
+.num {
+  text-align: right !important;
+}
+
+.currentRow {
+  background: var(--band-free);
+}
+
+/* Method */
+.method {
+  margin-top: 3.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  background: var(--mist);
+}
+
+.method ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin: 1rem 0 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.method li {
+  color: var(--slate);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.method li strong {
+  display: block;
+  color: var(--ink);
+}
+
+/* Detail page */
+.crumbs {
+  color: var(--slate);
+  font-size: 0.82rem;
+}
+
+.crumbs a {
+  text-decoration: underline;
+}
+
+.factHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 2rem;
+  align-items: end;
+  padding: 1.8rem 0 2rem;
+  border-bottom: 6px solid var(--rule);
+}
+
+.factIntro h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+}
+
+.answer {
+  max-width: 34rem;
+  margin: 0.9rem 0 1rem;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.factCard {
+  padding: 1.3rem 1.4rem;
+  border-radius: 18px;
+  background: var(--moss);
+  color: #f5f8f2;
+}
+
+.factCard > p {
+  margin: 0;
+  color: #b9d4c3;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.factCard > strong {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  font-size: clamp(3.6rem, 9vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.factCard > strong span {
+  color: #d1e3d7;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.cubes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 1rem 0;
+}
+
+.cubes i {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--lime);
+}
+
+.factCard dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.factCard dt {
+  color: #b9d4c3;
+  font-size: 0.72rem;
+}
+
+.factCard dd {
+  margin: 0.15rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Single-drink scale */
+.scale {
+  margin: 1.4rem 0 0;
+}
+
+.scaleTrack {
+  position: relative;
+  height: 3.4rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  background: var(--hair);
+}
+
+.scaleTrack .bandFree,
+.scaleTrack .bandLow {
+  border-radius: 8px 0 0 8px;
+}
+
+.scaleTrack .bandLow {
+  border-radius: 0;
+}
+
+.scaleMarker,
+.scaleAverage {
+  position: absolute;
+  top: -0.4rem;
+  bottom: -0.4rem;
+  width: 4px;
+  margin-left: -2px;
+  border-radius: 4px;
+  background: var(--ink);
+}
+
+.scaleAverage {
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--slate);
+}
+
+.scaleMarker em,
+.scaleAverage em {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.scaleMarker em {
+  bottom: calc(100% + 0.3rem);
+}
+
+.scaleAverage em {
+  top: calc(100% + 0.9rem);
+  color: var(--slate);
+  font-weight: 500;
+}
+
+.scaleAxis {
+  position: relative;
+  height: 2.6rem;
+}
+
+.scaleAxis span {
+  position: absolute;
+  top: 0.35rem;
+  transform: translateX(-50%);
+  color: var(--graphite);
+  font-size: 0.7rem;
+}
+
+.scaleNote {
+  margin: 0;
+  color: var(--slate);
+  font-size: 0.78rem;
+}
+
+.contextList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contextList li {
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--hair);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.contextList strong {
+  display: block;
+}
+
+.contextList span {
+  color: var(--slate);
+}
+
+.contextList a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Nutrition label look */
+.label {
+  padding: 0.9rem 1rem 0.6rem;
+  border: 2px solid var(--rule);
+  background: var(--mist);
+}
+
+.label h2 {
+  font-size: 1.6rem;
+}
+
+.labelSub {
+  margin: 0 0 0.4rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 8px solid var(--rule);
+  font-size: 0.85rem;
+}
+
+.label table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.label th,
+.label td {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  font-weight: 400;
+}
+
+.label td {
+  text-align: right;
+}
+
+.label tr:last-child th,
+.label tr:last-child td {
+  border-bottom: 0;
+}
+
+.labelStrong th,
+.labelStrong td {
+  font-weight: 800 !important;
+  background: var(--band-free);
+}
+
+.labelStrong th {
+  padding-left: 1rem !important;
+}
+
+.source {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+}
+
+.source p {
+  margin: 0;
+  color: var(--slate);
+  font-size: 0.9rem;
+}
+
+.source dl {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.3rem 0;
+  font-size: 0.85rem;
+}
+
+.source dl div {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.5rem;
+}
+
+.source dt {
+  color: var(--slate);
+}
+
+.source dd {
+  margin: 0;
+}
+
+.source a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.compactList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compactList li {
+  border-bottom: 1px solid var(--hair);
+}
+
+.compactList a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  font-size: 0.9rem;
+}
+
+.compactList a:hover strong {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .homeHero {
+    padding-top: 1.2rem;
+  }
+
+  .searchResults a {
+    grid-template-columns: 1fr auto;
+  }
+
+  .searchResults a > :last-child {
+    display: none;
+  }
+
+  .rankList a {
+    grid-template-columns: 1.4rem minmax(0, 1fr) auto;
+    gap: 0.4rem 0.7rem;
+  }
+
+  .rankBar {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    height: 6px;
+  }
+
+  .stripRow,
+  .stripAxis {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stripLabel {
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .stripAxis > span {
+    display: none;
+  }
+
+  .method ol,
+  .factHero,
+  .contextList,
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .factHero {
+    gap: 1.3rem;
+  }
+}

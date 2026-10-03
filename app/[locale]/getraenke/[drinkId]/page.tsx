@@ -10,6 +10,7 @@ import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks
 import { brandPageHref } from "@/lib/featured-brand-pages";
 import { isSearchIndexableDrink, searchIndexableDrinkIds } from "@/lib/seo-index";
 import { siteUrl } from "@/lib/site";
+import { averageSugarPer100Ml, categoryPeers, lowerSugarAlternative, sugarRank, whoDailyLimitGrams, whoGuidelineUrl, whoIdealLimitGrams } from "@/lib/sugar-context";
 import styles from "./drink-detail.module.css";
 
 type PageProps = {
@@ -433,29 +434,10 @@ function answerText(drink: Drink) {
   return `${answer} Eine ${drink.sizeMl}-ml-Packung enthält ${formatNumber(totalSugar)} g Zucker, das sind etwa ${formatNumber(cubes)} Zuckerwürfel.`;
 }
 
-const whoGuidelineUrl = "https://www.who.int/publications/i/item/9789241549028";
-const whoDailyLimitGrams = 50;
-const whoIdealLimitGrams = 25;
-
-function categoryPeers(drink: Drink) {
-  return uniqueProductRepresentatives(drinks.filter((item) => item.categoryId === drink.categoryId));
-}
-
-function lowerSugarAlternative(drink: Drink, peers: Drink[]) {
-  const candidates = peers
-    .filter((item) => item.name !== drink.name && item.sugarPer100Ml <= drink.sugarPer100Ml - 2)
-    .sort((a, b) => (
-      Number(b.brandId === drink.brandId) - Number(a.brandId === drink.brandId)
-        || a.sugarPer100Ml - b.sugarPer100Ml
-        || a.name.localeCompare(b.name, "de")
-    ));
-  return candidates[0] ?? null;
-}
-
 function SugarContext({ drink, categoryName, categoryHref }: { drink: Drink; categoryName: string; categoryHref: string | null }) {
   const peers = categoryPeers(drink);
-  const average = peers.length ? peers.reduce((sum, item) => sum + item.sugarPer100Ml, 0) / peers.length : null;
-  const rank = peers.filter((item) => item.name !== drink.name && item.sugarPer100Ml > drink.sugarPer100Ml).length + 1;
+  const average = averageSugarPer100Ml(peers);
+  const rank = sugarRank(drink, peers);
   const alternative = lowerSugarAlternative(drink, peers);
   const alternativeBrand = alternative ? brandById[alternative.brandId]?.name ?? "" : "";
   const totalSugar = totalSugarGrams(drink);

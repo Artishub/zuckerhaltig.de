@@ -36,6 +36,8 @@ Social scripts (`social:*`) need credentials. Use `social:preview` or `social:ch
 
 **Other routing details:**
 - The homepage `app/[locale]/page.tsx` renders the component from `app/[locale]/test/page.tsx`. The `/de/test` route itself is noindex.
+- `/de/test/redesign` (home) and `/de/test/redesign/<drinkId>` are a noindex redesign draft that uses real data and links only within the draft.
+- Shared sugar context logic (category rank, lower-sugar alternative, EU zuckerfrei/zuckerarm thresholds, WHO 50 g) lives in `lib/sugar-context.ts`.
 - `middleware.ts` 308-redirects the apex domain to `https://www.zuckerhaltig.de`. Only the `de` locale exists.
 
 **Content:**
