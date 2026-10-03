@@ -1177,3 +1177,184 @@
     padding: 1.2rem 1rem 1rem;
   }
 }
+
+/* Category page */
+.categoryHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: end;
+  padding: 2.5rem 0 1rem;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.statCard {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.4rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--hair);
+  border-radius: 20px;
+  background: var(--mist);
+  box-shadow: var(--card-shadow);
+}
+
+.statCard dt {
+  color: var(--slate);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.statCard dd {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.statCard dd small {
+  color: var(--slate);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.statCard a {
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.statSplit {
+  display: grid !important;
+  gap: 0.2rem;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.statSplit b {
+  font-weight: 800;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.sortButton:hover {
+  color: var(--ink);
+}
+
+.tableName strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.tableName small {
+  display: block;
+  color: var(--slate);
+  font-size: 0.76rem;
+  font-weight: 400;
+}
+
+.tableName:hover strong {
+  text-decoration: underline;
+}
+
+.table .tableName {
+  text-decoration: none;
+}
+
+.barCol {
+  width: 28%;
+}
+
+.inlineBar {
+  display: block;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--hair);
+}
+
+.inlineBar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--dot);
+}
+
+.chipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chipList a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: var(--mist);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: border-color 150ms ease;
+}
+
+.chipList a:hover {
+  border-color: var(--ink);
+}
+
+.chipList span {
+  color: var(--slate);
+  font-weight: 500;
+}
+
+.tableLink {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .categoryHero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+    padding-top: 1.6rem;
+  }
+
+  .statCard dd {
+    font-size: 1.7rem;
+  }
+
+  .barCol {
+    display: none;
+  }
+}

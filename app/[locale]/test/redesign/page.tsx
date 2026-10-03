@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { drinks, sugarCubes } from "@/lib/data/drinks";
 import { lowSugarMaxPer100Ml, sugarFreeMaxPer100Ml, sugarLevel } from "@/lib/sugar-context";
-import { categoryStats, formatDate, formatNumber, latestCheckedAt, productSummaries, scaleMax, summarize } from "./data";
+import { categoryStats, formatDate, formatNumber, latestCheckedAt, productSummaries, redesignBase, scaleMax, summarize } from "./data";
 import { LevelBadge } from "./level-badge";
 import { RedesignSearch } from "./redesign-search";
 import { SugarStripPlot } from "./sugar-strip-plot";
@@ -117,7 +117,6 @@ export default function RedesignHomePage() {
             <p className={styles.eyebrow}>Kategorien</p>
             <h2 id="categories-title">Wo steckt am meisten Zucker?</h2>
           </div>
-          <Link href="/de/kategorien">Alle Kategorien <ArrowRight size={15} /></Link>
         </div>
         <div className={`${styles.card} ${styles.tableWrap}`}>
           <table className={styles.table}>
@@ -133,7 +132,7 @@ export default function RedesignHomePage() {
             <tbody>
               {stats.map((category) => (
                 <tr key={category.id}>
-                  <th scope="row">{category.name}</th>
+                  <th scope="row"><Link href={`${redesignBase}/kategorie/${category.id}`} className={styles.tableLink}>{category.name}</Link></th>
                   <td className={styles.num}>{category.count}</td>
                   <td className={styles.num}>{category.average === null ? "/" : `${formatNumber(category.average)} g`}</td>
                   <td className={styles.num}>{category.min === null || category.max === null ? "/" : `${formatNumber(category.min)}–${formatNumber(category.max)} g`}</td>

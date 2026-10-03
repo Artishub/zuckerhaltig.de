@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { categoryPageHref } from "@/lib/category-landing-pages";
 import { categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
 import {
@@ -37,7 +36,7 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
 
   const brand = brandLabel(drink);
   const categoryName = categoryById[drink.categoryId]?.name ?? "Getränk";
-  const categoryHref = categoryPageHref(drink.categoryId);
+  const categoryHref = `${redesignBase}/kategorie/${drink.categoryId}`;
   const total = totalSugarGrams(drink);
   const cubes = sugarCubes(drink);
   const energy = packageEnergyKcal(drink);
@@ -60,7 +59,7 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
       <p className={styles.draft}>Entwurf · nicht indexiert · <Link href={redesignBase}>Zur Entwurfs-Startseite</Link> · <Link href={`/de/getraenke/${drink.id}`}>Live-Version</Link></p>
 
       <nav aria-label="Brotkrumen" className={styles.crumbs}>
-        <Link href={redesignBase}>Start</Link> / {categoryHref ? <Link href={categoryHref}>{categoryName}</Link> : categoryName} / <span>{drink.name}</span>
+        <Link href={redesignBase}>Start</Link> / <Link href={categoryHref}>{categoryName}</Link> / <span>{drink.name}</span>
       </nav>
 
       <section className={styles.factHero}>
@@ -183,7 +182,7 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
         <section className={styles.section} aria-labelledby="similar-title">
           <div className={styles.sectionHead}>
             <div><p className={styles.eyebrow}>Weiter vergleichen</p><h2 id="similar-title">Ähnlich viel Zucker</h2></div>
-            {categoryHref && <Link href={categoryHref}>{categoryName} vergleichen <ArrowRight size={15} /></Link>}
+            <Link href={categoryHref}>{categoryName} vergleichen <ArrowRight size={15} /></Link>
           </div>
           <ul className={`${styles.card} ${styles.compactList}`}>
             {similar.map((item) => (
