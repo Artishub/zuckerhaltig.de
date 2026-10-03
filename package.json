@@ -15,7 +15,8 @@
     "social:buffer": "tsx scripts/social-buffer.ts",
     "social:channels": "tsx scripts/social-buffer.ts --list-channels",
     "social:preview": "tsx scripts/social-generate.ts --date preview --count 5 --allow-repeats",
-    "social:check": "tsx scripts/social-generate.ts --date check --count 5 --dry-run"
+    "social:check": "tsx scripts/social-generate.ts --date check --count 5 --dry-run",
+    "drink": "node scripts/drink-lookup.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.18.1",

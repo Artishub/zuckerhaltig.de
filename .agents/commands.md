@@ -6,6 +6,7 @@ Run from repo root.
 - Data validation: `npm run validate:data`
 - Typecheck: `npm run typecheck`
 - Build: `npm run build`
+- Drink lookup (never read the full seed): `npm run drink -- <term>`, `--full <id>`, `--brand <id>`, `--category <id>`
 
 Social tooling:
 - Generate posts: `npm run social:generate`

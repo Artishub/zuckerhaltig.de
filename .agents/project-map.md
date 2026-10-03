@@ -42,7 +42,7 @@ Social tooling:
 - `scripts/social-buffer.ts` - Buffer publishing and channel lookup.
 
 Useful searches:
-- Drink by id/name: `rg '"drink-id"|Drink Name' lib/data/drinks.seed.json`
+- Drink by id/name: `npm run drink -- <term>` (seed is ~540 KB; never read it whole)
 - Computed sugar usage: `rg 'totalSugarGrams|sugarCubes|packageEnergyKcal'`
 - SEO metadata/schema: `rg 'metadata|jsonLd|FAQ|structured' app lib components`
 - Content by route/topic: `rg 'keyword|heading|title' lib/content app/'[locale]'`
