@@ -35,7 +35,7 @@ export function RedesignSearch({ items }: { items: DrinkSummary[] }) {
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Getränk oder Marke, z. B. Spezi"
+          placeholder="Getränk oder Marke suchen"
           autoComplete="off"
         />
       </label>

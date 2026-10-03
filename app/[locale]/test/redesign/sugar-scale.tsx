@@ -21,6 +21,7 @@ export function SugarScale({ value, average, categoryName, max, freeMax, lowMax 
       <div className={styles.scaleTrack} aria-hidden="true">
         <span className={styles.bandFree} style={{ width: pct(freeMax) }} />
         <span className={styles.bandLow} style={{ left: pct(freeMax), width: `calc(${pct(lowMax)} - ${pct(freeMax)})` }} />
+        <span className={styles.scaleFill} style={{ width: pct(value) }} />
         {average !== null && (
           <span className={styles.scaleAverage} style={{ left: pct(average) }} />
         )}

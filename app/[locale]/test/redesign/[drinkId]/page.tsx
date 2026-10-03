@@ -71,7 +71,7 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
             <strong>{formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.</strong>
             {total !== null && drink.sizeMl ? ` Eine ${drink.sizeMl}-ml-Packung enthält ${formatNumber(total)} g Zucker, etwa ${formatNumber(cubes ?? 0)} Zuckerwürfel.` : ""}
           </p>
-          <LevelBadge level={level} />
+          <p className={styles.heroSource}><LevelBadge level={level} /><span>Quelle: {drink.source}</span></p>
         </div>
         <div className={styles.factCard}>
           <p>{drink.sizeMl ? `${drink.sizeMl} ml` : "Packung"}</p>
@@ -88,8 +88,10 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
       </section>
 
       <section className={styles.section} aria-labelledby="scale-title">
-        <div className={styles.sectionHead}><h2 id="scale-title">Wo liegt {drink.name}?</h2></div>
+        <div className={styles.sectionHead}><div><p className={styles.eyebrow}>Einordnung</p><h2 id="scale-title">Ist das viel?</h2></div></div>
+        <div className={styles.card}>
         <SugarScale value={drink.sugarPer100Ml} average={average} categoryName={categoryName} max={max} freeMax={sugarFreeMaxPer100Ml} lowMax={lowSugarMaxPer100Ml} />
+        </div>
         <ul className={styles.contextList}>
           {average !== null && (
             <li>
@@ -113,8 +115,8 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
 
       {family.length > 0 && (
         <section className={styles.section} aria-labelledby="sizes-title">
-          <div className={styles.sectionHead}><h2 id="sizes-title">Zucker nach Packungsgröße</h2></div>
-          <div className={styles.tableWrap}>
+          <div className={styles.sectionHead}><div><p className={styles.eyebrow}>Packungsgrößen</p><h2 id="sizes-title">Zucker je Packungsgröße</h2></div></div>
+          <div className={`${styles.card} ${styles.tableWrap}`}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -163,7 +165,7 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
             </table>
           </div>
         )}
-        <aside className={styles.source}>
+        <aside className={`${styles.card} ${styles.source}`}>
           <h2>Quelle</h2>
           <p>{drink.source}</p>
           <dl>
@@ -180,10 +182,10 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
       {similar.length > 0 && (
         <section className={styles.section} aria-labelledby="similar-title">
           <div className={styles.sectionHead}>
-            <h2 id="similar-title">Ähnlich viel Zucker</h2>
+            <div><p className={styles.eyebrow}>Weiter vergleichen</p><h2 id="similar-title">Ähnlich viel Zucker</h2></div>
             {categoryHref && <Link href={categoryHref}>{categoryName} vergleichen <ArrowRight size={15} /></Link>}
           </div>
-          <ul className={styles.compactList}>
+          <ul className={`${styles.card} ${styles.compactList}`}>
             {similar.map((item) => (
               <li key={item.id}>
                 <Link href={item.href}>
