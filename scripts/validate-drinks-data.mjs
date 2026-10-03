@@ -50,23 +50,13 @@ for (const drink of data.drinks) {
 
   const hasSize = typeof drink.sizeMl === "number";
   const calculatedSugar = hasSize ? round1(drink.sugarPer100Ml * (drink.sizeMl / 100)) : null;
-  const calculatedCubes = calculatedSugar === null ? null : round1(calculatedSugar / 3);
-  const calculatedEnergy = drink.nutritionPer100Ml && hasSize ? round1(drink.nutritionPer100Ml.energyKcal * (drink.sizeMl / 100)) : null;
 
   if (drink.nutritionPer100Ml && !close(drink.nutritionPer100Ml.sugar, drink.sugarPer100Ml)) {
     errors.push(`${drink.id}: nutritionPer100Ml.sugar ${drink.nutritionPer100Ml.sugar} != sugarPer100Ml ${drink.sugarPer100Ml}`);
   }
 
-  if (drink.computed && calculatedSugar !== null && calculatedCubes !== null) {
-    if (!close(drink.computed.sugarPerPackage, calculatedSugar)) {
-      errors.push(`${drink.id}: computed.sugarPerPackage ${drink.computed.sugarPerPackage} != calculated ${calculatedSugar}`);
-    }
-    if (!close(drink.computed.sugarCubesPerPackage, calculatedCubes)) {
-      errors.push(`${drink.id}: computed.sugarCubesPerPackage ${drink.computed.sugarCubesPerPackage} != calculated ${calculatedCubes}`);
-    }
-    if (calculatedEnergy !== null && !close(drink.computed.energyKcalPerPackage, calculatedEnergy)) {
-      errors.push(`${drink.id}: computed.energyKcalPerPackage ${drink.computed.energyKcalPerPackage} != calculated ${calculatedEnergy}`);
-    }
+  for (const field of ["computed", "faq"]) {
+    if (field in drink) errors.push(`${drink.id}: ${field} is derived at build time; remove it from the seed`);
   }
 
   const sourceText = [drink.source, drink.note].filter(Boolean).join(" ");

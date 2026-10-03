@@ -31,7 +31,7 @@ Social scripts (`social:*`) need credentials. Use `social:preview` or `social:ch
 
 **Drink detail page:** `app/[locale]/getraenke/[drinkId]/page.tsx`.
 - Allowlisted drinks additionally get hand-written editorial content and FAQ from `lib/content/featured-drinks.ts`, plus Product JSON-LD.
-- The `faq` field in the seed is effectively unused, because editorial FAQ wins for every public drink.
+- The seed holds source data only. Derived values (package sugar, cubes, kcal, calculation text) and FAQ are computed at build time; `validate:data` rejects `computed`/`faq` fields in the seed.
 - All pages show an answer sentence, a data-derived context block (category average and rank, lower-sugar alternative, WHO 50 g reference), package sizes and source.
 
 **Other routing details:**
@@ -56,7 +56,7 @@ On 2026-07-27 the domain dropped sitewide overnight (likely a spam update after 
 
 ## Token budget
 
-- `lib/data/drinks.seed.json` is about 540 KB (~150k tokens). Never Read it whole. Use `npm run drink -- <term>`, `--full <id>`, `--brand <id>` or `--category <id>`, or a targeted `rg -n '"id": "…"'`.
+- `lib/data/drinks.seed.json` is about 330 KB (~90k tokens). Never Read it whole. Use `npm run drink -- <term>`, `--full <id>`, `--brand <id>` or `--category <id>`, or a targeted `rg -n '"id": "…"'`.
 - Other large files: `lib/content/articles.ts` (40 KB), the drink detail page (28 KB), `components/drink-explorer.tsx` (23 KB), `scripts/social-*.ts`, and CSS modules that are minified onto single lines. Read them by line range after `rg -n`.
 - Skip `node_modules/`, `.next/`, `package-lock.json`, `public/` media and `social/` output.
 

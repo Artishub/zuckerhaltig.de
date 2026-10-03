@@ -6,7 +6,7 @@ description: Add, correct or verify drinks in lib/data/drinks.seed.json (nutriti
 # Drink data
 
 ## Find before editing
-- Never read `lib/data/drinks.seed.json` whole (~540 KB).
+- Never read `lib/data/drinks.seed.json` whole (~330 KB).
 - `npm run drink -- <term>` gives one line per match. `--full <id>` shows one record, `--brand <id>` and `--category <id>` filter.
 - Edit with a targeted `rg -n '"id": "<id>"' lib/data/drinks.seed.json` and a line-range read.
 
@@ -15,7 +15,7 @@ description: Add, correct or verify drinks in lib/data/drinks.seed.json (nutriti
 - Prefer the manufacturer page over a retailer. Use `retailer_verified` for shop data, `manufacturer_verified` for manufacturer data, and `needs_label_check` if the value is unconfirmed.
 - `nutritionPer100Ml.sugar` must equal `sugarPer100Ml`.
 - If `source` or `note` states a package sugar ("56 g … 500 ml"), it must match `sugarPer100Ml * sizeMl / 100`. The validator checks this.
-- If you keep `computed`, it must match the helpers: package sugar, cubes at 3 g each, and kcal.
+- Store source data only. Do not add `computed` or `faq`: they are derived at build time, and the validator rejects them.
 - A new brand or category needs an entry in `brands` / `categories` in the same file.
 - Sizes of one product share `name` + `brandId`; the app groups them into a family and picks a canonical package ID.
 - Drinks not sold in Germany belong in `importOnlyDrinkIds` (`lib/data/drinks.ts`). They return 404.

@@ -2,7 +2,7 @@
 // Token-friendly lookup for lib/data/drinks.seed.json.
 // Usage:
 //   npm run drink -- <suchbegriff>     one line per match (id, name, brand, size, sugar)
-//   npm run drink -- --full <drink-id> one drink as JSON, without the generated faq
+//   npm run drink -- --full <drink-id> one drink as JSON
 //   npm run drink -- --brand <brand-id> | --category <category-id>
 import { readFileSync } from "node:fs";
 
@@ -21,8 +21,7 @@ if (flag === "--full") {
     console.error(`No drink with id "${term}"`);
     process.exit(1);
   }
-  const { faq, ...rest } = drink;
-  console.log(JSON.stringify({ ...rest, faqCount: faq?.length ?? 0 }, null, 2));
+  console.log(JSON.stringify(drink, null, 2));
   process.exit(0);
 }
 
