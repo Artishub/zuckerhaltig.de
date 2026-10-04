@@ -106,3 +106,12 @@
 .sizeTable tbody tr { scroll-margin-top:6rem; }
 .sizeTable tbody tr:target, .sizeCurrent { background:rgba(216,243,106,.45); }
 @media(max-width:767px) { .sizeTable th, .sizeTable td { padding:.7rem .45rem; font-size:.85rem; } }
+
+/* Drawn cubes, daily share and the swap block under the main number. */
+.cubesGraphic { width:100%; max-width:340px; height:auto; }
+.dailyShare { margin:.2rem 0 0 !important; color:#d8f36a !important; font-size:.82rem !important; font-weight:700; }
+.swap { display:grid; grid-template-columns:.55fr 1.45fr; gap:3rem; max-width:1280px; margin:0 auto; padding:0 1.25rem 4rem; }
+.swapLead h2 { margin:0; font-size:clamp(2rem,3.4vw,3rem); font-weight:650; line-height:1; }
+@media(max-width:767px) { .swap { grid-template-columns:1fr; gap:1.2rem; padding-bottom:3rem; } }
+.sugarPanel { gap:1.4rem; }
+.sugarPanel > p:first-child { margin-bottom:.6rem; }

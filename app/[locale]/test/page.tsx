@@ -26,9 +26,32 @@ const drinkIds = [
   "red-bull-energy-drink-250",
 ];
 
+// "Heute im Blick" rotates daily through drinks people search for (Search Console demand).
+const featuredRotation = [
+  "coca-cola-classic-500",
+  "paulaner-spezi-500",
+  "fanta-orange-500",
+  "mezzo-mix-original-500",
+  "monster-mango-loco-500",
+  "red-bull-energy-drink-250",
+  "sprite-500",
+  "lipton-ice-tea-zitrone-500",
+  "club-mate-500",
+  "almdudler-original-500",
+];
+
+function featuredOfTheDay(date = new Date()) {
+  const berlinDay = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Berlin" }).format(date);
+  const dayNumber = Math.floor(Date.parse(berlinDay) / 86_400_000);
+  return findDrink(featuredRotation[dayNumber % featuredRotation.length]);
+}
+
 export default function TestHomePage() {
   const selected = drinkIds.map(findDrink);
   const [cola, monster, fanta, redBull] = selected;
+  const featured = featuredOfTheDay();
+  const featuredBrand = brandById[featured.brandId]?.name ?? "";
+  const featuredCubes = sugarCubes(featured);
   const [sweetenerArticle, sugarArticle, labelArticle] = homepageArticleSlugs.map(findArticle);
 
   return (
@@ -45,23 +68,23 @@ export default function TestHomePage() {
             </div>
           </div>
 
-          <article className={styles.heroCard} aria-label={`${cola.name}: Zucker pro Flasche`}>
+          <article className={styles.heroCard} aria-label={`${featured.name}: Zucker pro Packung`}>
             <div className={styles.cardTopline}>
               <span>Heute im Blick</span>
-              <span>{formatMl(cola.sizeMl)}</span>
+              <span>{formatMl(featured.sizeMl)}</span>
             </div>
             <div className={styles.heroCardContent}>
-              <p className={styles.brand}>{brandById[cola.brandId]?.name}</p>
-              <h2>{cola.name.replace("Coca-Cola ", "")}</h2>
+              <p className={styles.brand}>{featuredBrand}</p>
+              <h2>{featured.name.startsWith(`${featuredBrand} `) ? featured.name.slice(featuredBrand.length + 1) : featured.name}</h2>
               <div className={styles.sugarNumber}>
-                <strong>{formatNumber(totalSugarGrams(cola))}</strong><span>g Zucker</span>
+                <strong>{formatNumber(totalSugarGrams(featured))}</strong><span>g Zucker</span>
               </div>
-              <p className={styles.cardHint}>pro Flasche · {formatNumber(sugarCubes(cola))} Zuckerwürfel</p>
+              <p className={styles.cardHint}>pro {formatMl(featured.sizeMl)} · {formatNumber(featuredCubes)} Zuckerwürfel</p>
               <div className={styles.cubeField} aria-hidden="true">
-                {Array.from({ length: 18 }).map((_, index) => <i key={index} />)}
+                {Array.from({ length: Math.min(Math.round(featuredCubes ?? 0), 30) }).map((_, index) => <i key={index} />)}
               </div>
             </div>
-            <Link href={drinkPageHref(cola)} className={styles.cardLink}>Detail ansehen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+            <Link href={drinkPageHref(featured)} className={styles.cardLink}>Detail ansehen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
           </article>
         </div>
       </section>
@@ -103,7 +126,7 @@ export default function TestHomePage() {
       <section className={styles.explorer}>
         <div>
           <p className={styles.explorerLabel}><Search size={14} strokeWidth={1.75} aria-hidden="true" /> Durchsuche unsere Getränkedatenbank</p>
-          <h2>Such nicht nach Kalorien.<br />Schau auf die Packung.</h2>
+          <h2>Eine Zahl pro Packung.<br />Mit Quelle und Rechenweg.</h2>
         </div>
         <div className={styles.explorerPanel}>
           <p>Finde Getränke nach Marke, Kategorie oder Zuckerwert. Jede Detailseite zeigt Quelle und Prüfdatum.</p>

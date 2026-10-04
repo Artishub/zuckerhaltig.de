@@ -12,7 +12,9 @@ import { isSearchIndexableDrink, searchIndexableDrinkIds } from "@/lib/seo-index
 import { drinkPageHref, drinkRedirectTarget, removedDrinkRedirects, sizeAnchor } from "@/lib/page-routing";
 import { siteUrl } from "@/lib/site";
 import { drinkFacts, type DrinkFact } from "@/lib/drink-facts";
-import { whoGuidelineUrl } from "@/lib/sugar-context";
+import { dailySugarShare, dgeSugarConsensusUrl, swapAlternatives } from "@/lib/sugar-context";
+import { SugarCubesGraphic } from "@/components/sugar-cubes-graphic";
+import { SwapCalculator, type SwapOption } from "@/components/swap-calculator";
 import styles from "./drink-detail.module.css";
 
 type PageProps = {
@@ -61,21 +63,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: canonicalUrl,
       siteName: "Zuckerhaltig.de",
       locale: "de_DE",
-      images: [
-        {
-          url: "/opengraph-image",
-          width: 1200,
-          height: 630,
-          alt: `${canonicalDrink.name} ${sizeLabel(canonicalDrink)} Zuckerwerte`,
-        },
-      ],
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/opengraph-image"],
     },
   };
 }
@@ -106,6 +99,15 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const similar = editorial ? [] : similarDrinks(drink);
   const faqs = isPublicDrink ? editorial?.faq ?? [] : [];
   const facts = drinkFacts(drink);
+  const dailyShare = totalSugar !== null && drink.sugarPer100Ml > 0.5 && drink.categoryId !== "milk-drink" ? dailySugarShare(totalSugar) : null;
+  const swapOptions: SwapOption[] = drink.sugarPer100Ml > 0.5 ? swapAlternatives(drink).map((item) => ({
+    id: item.id,
+    name: item.name,
+    brand: brandById[item.brandId]?.name ?? "",
+    sugarPer100Ml: item.sugarPer100Ml,
+    href: drinkPageHref(item),
+    compareHref: `/de/getraenke/vergleich?drinks=${drink.id},${canonicalPackageDrinkId(item)}`,
+  })) : [];
   const sizesFact = facts.find((fact) => fact.id === "sizes");
   const brandHref = brandPageHref(drink.brandId);
   const brandLink = drink.id === "paulaner-spezi-500"
@@ -137,11 +139,22 @@ export default async function DrinkDetailPage({ params }: PageProps) {
             <div><strong>{formatOptionalNumber(totalSugar)}</strong><span>g Zucker</span></div>
             <div className={styles.cubeSummary}>
               <p>pro {sizeLabel(drink)} · {formatOptionalNumber(cubes)} Zuckerwürfel</p>
-              <div className={styles.cubes} aria-hidden="true">{Array.from({ length: Math.min(Math.max(Math.round(cubes ?? 0), 1), 24) }).map((_, index) => <i key={index} />)}</div>
+              <SugarCubesGraphic cubes={cubes} sizeMl={drink.sizeMl} className={styles.cubesGraphic} />
+              {dailyShare !== null && <p className={styles.dailyShare}>{dailyShare} % von 50 g, der DGE-Orientierung für freien Zucker am Tag</p>}
             </div>
           </div>
         </div>
       </section>
+
+      {swapOptions.length > 0 && (
+        <section className={styles.swap} aria-labelledby="swap-title">
+          <div className={styles.swapLead}>
+            <p className={styles.category}>Tauschen</p>
+            <h2 id="swap-title">Weniger Zucker, gleicher Geschmack</h2>
+          </div>
+          <SwapCalculator drinkName={drink.name} sugarPer100Ml={drink.sugarPer100Ml} sizeMl={drink.sizeMl} options={swapOptions} />
+        </section>
+      )}
 
       <section className={styles.facts} aria-label={`Werte für ${drink.name}`}>
         <Nutrient label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} highlight />
@@ -185,7 +198,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
             <Nutrient label="Kohlenhydrate" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.carbohydrates)} g` : "/"} />
             <Nutrient label="davon Zucker" value={`${formatNumber(drink.sugarPer100Ml)} g`} />
             <Nutrient label="Fett" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.fat)} g` : "/"} />
-            <Nutrient label="Eiweiss" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.protein)} g` : "/"} />
+            <Nutrient label="Eiweiß" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.protein)} g` : "/"} />
             <Nutrient label="Salz" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.salt)} g` : "/"} />
           </div>
         </div>
@@ -422,7 +435,6 @@ function answerText(drink: Drink) {
 function DrinkFactsBlock({ facts, isSugarFree, categoryName, categoryHref }: { facts: DrinkFact[]; isSugarFree: boolean; categoryName: string; categoryHref: string | null }) {
   const shown = facts.filter((fact) => fact.id !== "sizes");
   if (!shown.length) return null;
-  const hasWho = shown.some((fact) => fact.id === "who");
   const sweetenerLinkFact = shown.some((fact) => fact.id === "original") ? "original" : shown[0].id;
 
   return (
@@ -438,7 +450,7 @@ function DrinkFactsBlock({ facts, isSugarFree, categoryName, categoryHref }: { f
             <p>{fact.text}</p>
             {fact.href && <Link href={fact.href}>{fact.linkLabel} <ArrowRight size={15} /></Link>}
             {fact.id === "category-rank" && categoryHref && <Link href={categoryHref}>{categoryName} vergleichen <ArrowRight size={15} /></Link>}
-            {fact.id === "who" && hasWho && <a href={whoGuidelineUrl} target="_blank" rel="noreferrer">WHO-Leitlinie öffnen <ExternalLink size={15} /></a>}
+            {fact.id === "daily" && <a href={dgeSugarConsensusUrl} target="_blank" rel="noreferrer">Konsensuspapier der DGE öffnen <ExternalLink size={15} /></a>}
             {isSugarFree && fact.id === sweetenerLinkFact && <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke">Süßstoffe einordnen <ArrowRight size={15} /></Link>}
           </article>
         ))}

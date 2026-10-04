@@ -1,3 +1,4 @@
+import { brandById } from "@/lib/data/brands";
 import { drinks, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
 
 // WHO guideline on sugars intake for adults and children (2015): free sugars below 10 % of energy,
@@ -5,6 +6,15 @@ import { drinks, uniqueProductRepresentatives, type Drink } from "@/lib/data/dri
 export const whoGuidelineUrl = "https://www.who.int/publications/i/item/9789241549028";
 export const whoDailyLimitGrams = 50;
 export const whoIdealLimitGrams = 25;
+
+// DGE, DAG and DDG consensus paper (2018) adopts the WHO value: free sugars below 10 % of energy,
+// at 2,000 kcal at most 50 g per day.
+export const dgeSugarConsensusUrl = "https://www.dge.de/fileadmin/dok/wissenschaft/stellungnahmen/EU02_2019_WuF_Zucker_Eng_72.pdf";
+export const dailySugarOrientationGrams = whoDailyLimitGrams;
+
+export function dailySugarShare(totalSugarGrams: number) {
+  return Math.round((totalSugarGrams / dailySugarOrientationGrams) * 100);
+}
 
 // EU Regulation 1924/2006 nutrition claims for drinks: "zuckerfrei" <= 0.5 g/100 ml, "zuckerarm" <= 2.5 g/100 ml.
 export const sugarFreeMaxPer100Ml = 0.5;
@@ -45,4 +55,22 @@ export function lowerSugarAlternative(drink: Drink, peers: Drink[]) {
         || a.name.localeCompare(b.name, "de")
     ));
   return candidates[0] ?? null;
+}
+
+const tasteStopWords = /\b(zero|sugar ?free|sugarfree|sugar|light|ohne|zucker|zuckerfrei|lite|original|classic|the|edition|energy|drink|ice|tea)\b/g;
+
+function tasteWords(drink: Drink) {
+  const brandWords = new Set((brandById[drink.brandId]?.name ?? "").toLowerCase().split(/[^a-zäöüß]+/));
+  return drink.name.toLowerCase().replace(tasteStopWords, " ").split(/[^a-zäöüß]+/).filter((word) => word.length > 3 && !brandWords.has(word));
+}
+
+// Up to three swaps with clearly less sugar in the same category. Same brand first (often the zero variant),
+// then drinks that share a flavor word (Orange, Zitrone, Pfirsich ...), then the lowest sugar value.
+export function swapAlternatives(drink: Drink, limit = 3) {
+  const flavors = new Set(tasteWords(drink));
+  const score = (item: Drink) => (item.brandId === drink.brandId ? 2 : 0) + (tasteWords(item).some((word) => flavors.has(word)) ? 1 : 0);
+  return categoryPeers(drink)
+    .filter((item) => item.name !== drink.name && item.sugarPer100Ml <= drink.sugarPer100Ml - 2)
+    .sort((a, b) => score(b) - score(a) || a.sugarPer100Ml - b.sugarPer100Ml || a.name.localeCompare(b.name, "de"))
+    .slice(0, limit);
 }

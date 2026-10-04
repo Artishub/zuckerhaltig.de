@@ -1,7 +1,7 @@
 import { brandById } from "@/lib/data/brands";
 import { drinks, productFamilyDrinks, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
 import { drinkPageHref } from "@/lib/page-routing";
-import { averageSugarPer100Ml, categoryPeers, lowerSugarAlternative, sugarFreeMaxPer100Ml, sugarRank, whoDailyLimitGrams } from "@/lib/sugar-context";
+import { averageSugarPer100Ml, categoryPeers, dailySugarOrientationGrams, dailySugarShare, sugarFreeMaxPer100Ml, sugarRank } from "@/lib/sugar-context";
 
 // Sentences built only from this drink's data. Each fact appears only when its inputs are complete,
 // so no page carries a filler sentence that reads the same everywhere.
@@ -80,18 +80,6 @@ export function drinkFacts(drink: Drink): DrinkFact[] {
     }
   }
 
-  const alternative = isSugarFree ? null : lowerSugarAlternative(drink, peers);
-  if (alternative && drink.sizeMl) {
-    const saved = ((drink.sugarPer100Ml - alternative.sugarPer100Ml) * drink.sizeMl) / 100;
-    facts.push({
-      id: "alternative",
-      label: "Weniger Zucker",
-      text: `${alternative.name} hat ${format(alternative.sugarPer100Ml)} g pro 100 ml. Bei ${sizeText(drink.sizeMl)} sind das ${format(saved)} g Zucker weniger, rund ${format(saved / 3)} Würfel.`,
-      href: drinkPageHref(alternative),
-      linkLabel: `${alternative.name} ansehen`,
-    });
-  }
-
   const family = productFamilyDrinks(drink).filter((item) => item.sizeMl);
   if (family.length > 1 && !isSugarFree) {
     const smallest = family[0];
@@ -110,9 +98,9 @@ export function drinkFacts(drink: Drink): DrinkFact[] {
   const total = totalSugarGrams(drink);
   if (total !== null && drink.sizeMl && !isSugarFree && drink.categoryId !== "milk-drink") {
     facts.push({
-      id: "who",
+      id: "daily",
       label: "Tagesorientierung",
-      text: `Eine Packung entspricht ${Math.round((total / whoDailyLimitGrams) * 100)} % von ${whoDailyLimitGrams} g, der WHO-Orientierung für freien Zucker bei 2.000 kcal am Tag.`,
+      text: `Eine Packung entspricht ${dailySugarShare(total)} % von ${dailySugarOrientationGrams} g. DGE, DAG und DDG empfehlen höchstens 10 % der Energie aus freiem Zucker, bei 2.000 kcal sind das rund ${dailySugarOrientationGrams} g am Tag.`,
     });
   }
 

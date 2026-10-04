@@ -10,21 +10,20 @@ const byId = (id: string) => {
 const ids = (id: string) => drinkFacts(byId(id)).map((fact) => fact.id);
 
 describe("drinkFacts", () => {
-  it("builds rank, brand, alternative, sizes and WHO facts for a sugared drink", () => {
-    expect(ids("coca-cola-classic-500")).toEqual(["category-rank", "brand-rank", "alternative", "sizes", "who"]);
+  it("builds rank, brand, sizes and daily facts for a sugared drink", () => {
+    expect(ids("coca-cola-classic-500")).toEqual(["category-rank", "brand-rank", "sizes", "daily"]);
   });
 
   it("compares zero drinks with their sugared original instead of an alternative", () => {
     const facts = drinkFacts(byId("coca-cola-zero-sugar-500"));
-    expect(facts.map((fact) => fact.id)).not.toContain("alternative");
-    expect(facts.map((fact) => fact.id)).not.toContain("who");
+    expect(facts.map((fact) => fact.id)).not.toContain("daily");
     expect(facts.find((fact) => fact.id === "original")?.text).toContain("Coca-Cola Classic");
   });
 
-  it("skips the WHO fact for milk drinks", () => {
+  it("skips the daily sugar fact for milk drinks", () => {
     const milk = drinks.find((drink) => drink.categoryId === "milk-drink" && drink.sizeMl && drink.sugarPer100Ml > 0.5);
     expect(milk).toBeDefined();
-    expect(drinkFacts(milk!).map((fact) => fact.id)).not.toContain("who");
+    expect(drinkFacts(milk!).map((fact) => fact.id)).not.toContain("daily");
   });
 
   it("never renders placeholders or broken numbers", () => {
