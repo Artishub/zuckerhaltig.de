@@ -69,7 +69,7 @@ try {
   );
   assert(productLinks.size >= 5, `drink explorer exposes only ${productLinks.size} crawlable product links`);
 
-  for (const pathname of ["/de/getraenke/coca-cola-classic-330", "/de/marken/paulaner"]) {
+  for (const pathname of ["/de/getraenke/coca-cola-classic-330", "/de/marken/gerolsteiner"]) {
     const html = await getText(pathname);
     const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"/i)?.[1] ?? "";
     assert(/noindex/i.test(robotsMeta), `${pathname} should be noindex`);

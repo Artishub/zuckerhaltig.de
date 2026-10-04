@@ -248,7 +248,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         </div>
         <div className={styles.knowledgeLinks}>
           <Link href={knowledgeLink(drink)} className={styles.knowledge}>Passendes Wissen lesen <ArrowRight size={16} /></Link>
-          {comparisonLink(drink) && <Link href={comparisonLink(drink)!} className={styles.knowledge}>Fanta und Sprite vergleichen <ArrowRight size={16} /></Link>}
+          {comparisonLink(drink) && <Link href={comparisonLink(drink)!.href} className={styles.knowledge}>{comparisonLink(drink)!.label} <ArrowRight size={16} /></Link>}
           {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
           {brandLink && <Link href={brandLink.href} className={styles.knowledge}>{brandLink.label} <ArrowRight size={16} /></Link>}
         </div>
@@ -484,9 +484,9 @@ function knowledgeLink(drink: Drink) {
 }
 
 function comparisonLink(drink: Drink) {
-  return drink.brandId === "fanta" || drink.brandId === "sprite"
-    ? "/de/vergleiche/fanta-vs-sprite-zucker"
-    : null;
+  if (drink.brandId === "fanta" || drink.brandId === "sprite") return { href: "/de/vergleiche/fanta-vs-sprite-zucker", label: "Fanta und Sprite vergleichen" };
+  if (drink.categoryId === "cola-mix") return { href: "/de/vergleiche/spezi-vs-mezzo-mix-zucker", label: "Spezi und Mezzo Mix vergleichen" };
+  return null;
 }
 
 function breadcrumbJsonLd(drink: Drink) {
