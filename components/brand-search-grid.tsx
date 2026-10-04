@@ -9,7 +9,7 @@ import type { DrinkCategory } from "@/lib/data/categories";
 type BrandSearchGridProps = {
   brands: Brand[];
   counts: Record<string, number>;
-  topDrinks: Record<string, { id: string; name: string; sugar: number | null }[]>;
+  topDrinks: Record<string, { id: string; href: string; name: string; sugar: number | null }[]>;
   searchData: Record<string, { categories: string[]; text: string }>;
   categories: DrinkCategory[];
   detailBrandIds: string[];
@@ -86,7 +86,7 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
                 <p className="text-xs font-medium uppercase tracking-wide text-slate">Produkte</p>
                 <div className="mb-5 mt-2 flex flex-col items-start gap-2">
                 {products.map((drink) => (
-                  <Link key={drink.id} href={`/de/getraenke/${drink.id}`} className="focus-ring max-w-full truncate rounded-md bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
+                  <Link key={drink.id} href={drink.href} className="focus-ring max-w-full truncate rounded-md bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
                     {drink.name}
                   </Link>
                 ))}
@@ -103,7 +103,7 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
 
       {!filteredBrands.length && (
         <p className="mt-5 rounded-lg border border-ash bg-mist p-4 text-sm text-slate">
-          Keine Marke zu "{query}" gefunden.
+          Keine Marke zu „{query}“ gefunden.
         </p>
       )}
     </section>

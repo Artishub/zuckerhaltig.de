@@ -6,6 +6,8 @@
 .sugarPanel .cubes i { width:23px; height:23px; }
 .knowledgeLinks { display:flex; flex-wrap:wrap; gap:.65rem; margin-top:2rem; }
 .knowledgeLinks .knowledge { margin-top:0; }
+.nextLinks { display:flex; flex-wrap:wrap; gap:.65rem; max-width:1280px; margin:0 auto; padding:3.5rem 1.25rem 5rem; }
+.nextLinks .knowledge { margin-top:0; }
 .sweetenerNotice { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:2rem; max-width:1280px; margin:2.5rem auto 0; padding:1.5rem 1.25rem; border-bottom:1px solid var(--detail-line); }
 .sweetenerNotice .category { margin-bottom:.55rem; }
 .sweetenerNotice h2 { margin:0; font-size:clamp(1.35rem,2.2vw,2rem); font-weight:650; letter-spacing:-.045em; line-height:1.05; }
@@ -74,3 +76,42 @@
   .editorialComparisonGrid { grid-template-columns:1fr; margin-top:1.8rem; }
   .editorialComparisonCard,.editorialComparisonCardCurrent { min-height:0; }
 }
+
+/* Answer-first hero and data-derived context. */
+.hero h1 { max-width:17ch; }
+.packageGrid li { grid-template-columns:4.5rem 1fr auto auto; }
+.context { display:grid; grid-template-columns:.6fr 1.4fr; gap:4rem; max-width:1280px; margin:0 auto; padding:6rem 1.25rem 0; }
+.contextLead h2 { margin:0; font-size:clamp(2.3rem,4vw,3.6rem); font-weight:650; line-height:.98; }
+.contextGrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1.5rem; }
+.contextGrid article { display:flex; flex-direction:column; padding-top:1rem; border-top:1px solid var(--detail-line); }
+.contextGrid h3 { margin:0; font-size:1rem; font-weight:700; }
+.contextGrid p { margin:.6rem 0 0; color:#52645b; font-size:.9rem; line-height:1.6; }
+.contextGrid a { display:inline-flex; align-items:center; gap:.4rem; margin-top:auto; padding-top:.9rem; font-size:.83rem; font-weight:750; text-decoration:underline; text-decoration-color:var(--detail-line); text-underline-offset:4px; }
+.contextGrid a:hover { text-decoration-color:var(--detail-ink); }
+@media(max-width:767px) {
+  .hero h1 { font-size:clamp(2.1rem,9vw,2.6rem); max-width:none; }
+  .context { grid-template-columns:1fr; gap:1.5rem; padding-top:4.7rem; }
+  .packageGrid li { grid-template-columns:4.2rem 1fr auto auto; gap:.6rem; padding:.8rem .9rem; }
+  .packageGrid strong { white-space:nowrap; font-size:.95rem; }
+  .packageGrid span { font-size:.78rem; white-space:nowrap; }
+}
+
+/* Package sizes as a real table with jump anchors (#groesse-500-ml). */
+.sizeTableWrap { overflow-x:auto; }
+.sizeTable { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.sizeTable th, .sizeTable td { padding:.85rem .75rem; border-bottom:1px solid var(--detail-line); text-align:right; white-space:nowrap; font-size:.92rem; }
+.sizeTable th:first-child { text-align:left; }
+.sizeTable thead th { color:#52645b; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+.sizeTable tbody th { font-size:1rem; font-weight:700; }
+.sizeTable tbody tr { scroll-margin-top:6rem; }
+.sizeTable tbody tr:target, .sizeCurrent { background:rgba(216,243,106,.45); }
+@media(max-width:767px) { .sizeTable th, .sizeTable td { padding:.7rem .45rem; font-size:.85rem; } }
+
+/* Drawn cubes, daily share and the swap block under the main number. */
+.cubesGraphic { width:100%; max-width:340px; height:auto; }
+.dailyShare { margin:.2rem 0 0 !important; color:#d8f36a !important; font-size:.82rem !important; font-weight:700; }
+.swap { display:grid; grid-template-columns:.55fr 1.45fr; gap:3rem; max-width:1280px; margin:0 auto; padding:0 1.25rem 4rem; }
+.swapLead h2 { margin:0; font-size:clamp(2rem,3.4vw,3rem); font-weight:650; line-height:1; }
+@media(max-width:767px) { .swap { grid-template-columns:1fr; gap:1.2rem; padding-bottom:3rem; } }
+.sugarPanel { gap:1.4rem; }
+.sugarPanel > p:first-child { margin-bottom:.6rem; }

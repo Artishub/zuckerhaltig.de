@@ -16,8 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/de/wissen",
     "/de/faq",
     "/de/ueber",
-    "/de/energy-drinks-zucker",
-    "/de/eistee-zucker",
     "/de/vergleiche/coca-cola-vs-pepsi-zucker",
     "/de/vergleiche/red-bull-vs-monster-zucker",
     "/de/vergleiche/fanta-vs-sprite-zucker",

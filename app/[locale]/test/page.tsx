@@ -9,8 +9,9 @@ import {
 import { articleBySlug, homepageArticleSlugs, type Article } from "@/lib/content/articles";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalPackageDrinkId, drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
 import styles from "./test-home.module.css";
+import { drinkPageHref } from "@/lib/page-routing";
 
 export const metadata: Metadata = {
   title: "Zucker in Getränken: der schnelle Überblick | Test",
@@ -25,9 +26,32 @@ const drinkIds = [
   "red-bull-energy-drink-250",
 ];
 
+// "Heute im Blick" rotates daily through drinks people search for (Search Console demand).
+const featuredRotation = [
+  "coca-cola-classic-500",
+  "paulaner-spezi-500",
+  "fanta-orange-500",
+  "mezzo-mix-original-500",
+  "monster-mango-loco-500",
+  "red-bull-energy-drink-250",
+  "sprite-500",
+  "lipton-ice-tea-zitrone-500",
+  "club-mate-500",
+  "almdudler-original-500",
+];
+
+function featuredOfTheDay(date = new Date()) {
+  const berlinDay = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Berlin" }).format(date);
+  const dayNumber = Math.floor(Date.parse(berlinDay) / 86_400_000);
+  return findDrink(featuredRotation[dayNumber % featuredRotation.length]);
+}
+
 export default function TestHomePage() {
   const selected = drinkIds.map(findDrink);
   const [cola, monster, fanta, redBull] = selected;
+  const featured = featuredOfTheDay();
+  const featuredBrand = brandById[featured.brandId]?.name ?? "";
+  const featuredCubes = sugarCubes(featured);
   const [sweetenerArticle, sugarArticle, labelArticle] = homepageArticleSlugs.map(findArticle);
 
   return (
@@ -36,7 +60,7 @@ export default function TestHomePage() {
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
             <p className={styles.kicker}>Zucker-Check für den Alltag</p>
-            <h1>Wieviel Zucker steckt in unseren Getränken?</h1>
+            <h1>Wie viel Zucker steckt in unseren Getränken?</h1>
             <p className={styles.lede}>Zucker in Getränken, lesbar gemacht. Vergleiche Werte pro 100 ml, pro Packung und als Würfel.</p>
             <div className={styles.heroActions}>
               <Link href="/de/getraenke" className={styles.primaryButton}>Getränk finden <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
@@ -44,31 +68,31 @@ export default function TestHomePage() {
             </div>
           </div>
 
-          <article className={styles.heroCard} aria-label={`${cola.name}: Zucker pro Flasche`}>
+          <article className={styles.heroCard} aria-label={`${featured.name}: Zucker pro Packung`}>
             <div className={styles.cardTopline}>
               <span>Heute im Blick</span>
-              <span>{formatMl(cola.sizeMl)}</span>
+              <span>{formatMl(featured.sizeMl)}</span>
             </div>
             <div className={styles.heroCardContent}>
-              <p className={styles.brand}>{brandById[cola.brandId]?.name}</p>
-              <h2>{cola.name.replace("Coca-Cola ", "")}</h2>
+              <p className={styles.brand}>{featuredBrand}</p>
+              <h2>{featured.name.startsWith(`${featuredBrand} `) ? featured.name.slice(featuredBrand.length + 1) : featured.name}</h2>
               <div className={styles.sugarNumber}>
-                <strong>{formatNumber(totalSugarGrams(cola))}</strong><span>g Zucker</span>
+                <strong>{formatNumber(totalSugarGrams(featured))}</strong><span>g Zucker</span>
               </div>
-              <p className={styles.cardHint}>pro Flasche · {formatNumber(sugarCubes(cola))} Zuckerwürfel</p>
+              <p className={styles.cardHint}>pro {formatMl(featured.sizeMl)} · {formatNumber(featuredCubes)} Zuckerwürfel</p>
               <div className={styles.cubeField} aria-hidden="true">
-                {Array.from({ length: 18 }).map((_, index) => <i key={index} />)}
+                {Array.from({ length: Math.min(Math.round(featuredCubes ?? 0), 30) }).map((_, index) => <i key={index} />)}
               </div>
             </div>
-            <Link href={`/de/getraenke/${cola.id}`} className={styles.cardLink}>Detail ansehen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+            <Link href={drinkPageHref(featured)} className={styles.cardLink}>Detail ansehen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
           </article>
         </div>
       </section>
 
       <section className={styles.quickNav} aria-label="Schnelleinstieg">
         <Link href="/de/wissen/cola-zucker-pro-100ml"><span>Cola</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
-        <Link href="/de/energy-drinks-zucker"><span>Energy Drinks</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
-        <Link href="/de/eistee-zucker"><span>Eistee</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+        <Link href="/de/wissen/energy-drinks-zucker-vergleichen"><span>Energy Drinks</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+        <Link href="/de/wissen/eistee-zucker-im-alltag"><span>Eistee</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
         <Link href="/de/rankings/zuckerreichste-getraenke"><span>Ranking</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
       </section>
 
@@ -102,7 +126,7 @@ export default function TestHomePage() {
       <section className={styles.explorer}>
         <div>
           <p className={styles.explorerLabel}><Search size={14} strokeWidth={1.75} aria-hidden="true" /> Durchsuche unsere Getränkedatenbank</p>
-          <h2>Such nicht nach Kalorien.<br />Schau auf die Packung.</h2>
+          <h2>Eine Zahl pro Packung.<br />Mit Quelle und Rechenweg.</h2>
         </div>
         <div className={styles.explorerPanel}>
           <p>Finde Getränke nach Marke, Kategorie oder Zuckerwert. Jede Detailseite zeigt Quelle und Prüfdatum.</p>
@@ -161,7 +185,7 @@ function DrinkCard({ drink }: { drink: Drink }) {
   const cubes = sugarCubes(drink);
 
   return (
-    <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className={styles.drinkCard}>
+    <Link href={drinkPageHref(drink)} className={styles.drinkCard}>
       <div className={styles.drinkCardTop}><span>{brandById[drink.brandId]?.name}</span><span>{categoryById[drink.categoryId]?.name}</span></div>
       <div>
         <h3>{drink.name.replace(`${brandById[drink.brandId]?.name} `, "")}</h3>

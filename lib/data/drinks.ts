@@ -34,13 +34,6 @@ export type Drink = {
     protein: number;
     salt: number;
   };
-  computed?: {
-    sugarPerPackage: number;
-    sugarCubesPerPackage: number;
-    energyKcalPerPackage: number;
-    formula: string;
-  };
-  faq?: DrinkFaq[];
 };
 
 const importOnlyDrinkIds = new Set([

@@ -5,8 +5,10 @@ import { notFound } from "next/navigation";
 import { DrinkRows } from "@/components/seo-drink-list";
 import { articleBySlug, articles } from "@/lib/content/articles";
 import { drinks, totalSugarGrams, type Drink } from "@/lib/data/drinks";
-import { formatNumber } from "@/lib/seo-drinks";
+import { averageSugar, drinksByCategory, formatNumber } from "@/lib/seo-drinks";
+import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { pageMetadata, siteUrl } from "@/lib/site";
+import { drinkPageHref } from "@/lib/page-routing";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -84,6 +86,7 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       )}
       {article.slug === "cola-zucker-pro-100ml" && <ColaComparison />}
+      {articleCategoryLists[article.slug] && <CategoryProductList {...articleCategoryLists[article.slug]} />}
       {!!article.faq?.length && (
         <section className="mt-10 border-t border-ash pt-8">
           <h2 className="text-2xl font-semibold tracking-tight">Häufige Fragen</h2>
@@ -175,7 +178,7 @@ function ColaAnswer() {
         {drink.name} liegt in der Datenbank bei <strong>{formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml</strong>.
         {drink.sizeMl && totalSugar !== null ? ` In ${drink.sizeMl} ml sind das rechnerisch ${formatNumber(totalSugar)} g.` : ""}
       </p>
-      <Link href={`/de/getraenke/${drink.id}`} className="mt-3 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
+      <Link href={drinkPageHref(drink)} className="mt-3 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
         Produktdaten und Quelle ansehen
       </Link>
     </section>
@@ -303,7 +306,7 @@ function relatedLinks(slug: string) {
       { href: "/de/zuckerrechner", label: "Zucker pro Flasche berechnen", description: "Zuckerwert und Füllmenge direkt umrechnen." },
     ],
     "energy-drinks-zucker-vergleichen": [
-      { href: "/de/energy-drinks-zucker", label: "Energy Drinks vergleichen", description: "Red Bull, Monster und weitere Energy Drinks nach Zucker vergleichen." },
+      { href: "/de/vergleiche/red-bull-vs-monster-zucker", label: "Red Bull vs. Monster", description: "Die beiden größten Marken direkt nach Zucker gegenüberstellen." },
       { href: "/de/getraenke/red-bull-energy-drink-250", label: "Red Bull Energy Drink", description: "Zucker und Nährwerte der 250-ml-Dose ansehen." },
     ],
     "cola-zero-light-und-klassisch": [
@@ -321,7 +324,7 @@ function relatedLinks(slug: string) {
       { href: "/de/getraenke/granini-trinkgenuss-orange-1000", label: "granini Trinkgenuss Orange", description: "Ein Beispiel für Zuckerwerte in Saftprodukten." },
     ],
     "eistee-zucker-im-alltag": [
-      { href: "/de/eistee-zucker", label: "Eistee vergleichen", description: "Pfirsich, Zitrone und weitere Sorten nach Zucker vergleichen." },
+      { href: "/de/marken/fuze-tea", label: "Fuze Tea vergleichen", description: "Sorten und Packungsgrößen der Marke nach Zucker ansehen." },
       { href: "/de/wissen/packungsgroesse-entscheidet", label: "Packungsgröße prüfen", description: "Warum große Flaschen trotz moderater 100-ml-Werte relevant sind." },
     ],
     "packungsgroesse-entscheidet": [
@@ -342,4 +345,32 @@ function relatedLinks(slug: string) {
     { href: "/de/getraenke", label: "Getränkedatenbank öffnen", description: "Alle Produkte nach Marke, Kategorie und Zuckerwerten filtern." },
     { href: "/de/wissen/zucker-pro-100ml-verstehen", label: "Zucker pro 100 ml verstehen", description: "Der wichtigste Vergleichswert für Getränke." },
   ];
+}
+
+// Category product lists merged into articles (the former /de/eistee-zucker and /de/energy-drinks-zucker pages).
+const articleCategoryLists: Record<string, { categoryId: string; title: string; text: string }> = {
+  "eistee-zucker-im-alltag": {
+    categoryId: "iced-tea",
+    title: "Alle Eistees nach Zucker",
+    text: "Sortiert nach Zucker pro 100 ml. Große Flaschen erhöhen den Gesamtzucker schnell.",
+  },
+  "energy-drinks-zucker-vergleichen": {
+    categoryId: "energy",
+    title: "Alle Energy Drinks nach Zucker",
+    text: "Sortiert nach Zucker pro 100 ml. Jede Zeile zeigt auch den Zucker pro Dose.",
+  },
+};
+
+function CategoryProductList({ categoryId, title, text }: { categoryId: string; title: string; text: string }) {
+  const items = drinksByCategory(categoryId);
+  if (!items.length) return null;
+  return (
+    <section id="produkte" className="mt-12 border-t border-ash pt-8">
+      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+      <p className="mt-3 leading-7 text-slate">{items.length} Produkte, Durchschnitt {formatNumber(averageSugar(items))} g Zucker pro 100 ml. {text}</p>
+      <div className="mt-6">
+        <SortableDrinkRows drinks={items} />
+      </div>
+    </section>
+  );
 }

@@ -9,6 +9,7 @@ import { featuredBrandPageById, featuredBrandPages, type FeaturedBrandPage } fro
 import { formatNumber } from "@/lib/seo-drinks";
 import { isSearchIndexableBrand } from "@/lib/seo-index";
 import { pageMetadata, siteUrl } from "@/lib/site";
+import { drinkPageHref, drinkPath, drinkRedirectTarget, flavorLineDrinks, flavorLines, type FlavorLine } from "@/lib/page-routing";
 
 type PageProps = {
   params: Promise<{ brandId: string }>;
@@ -61,7 +62,7 @@ export default async function BrandPage({ params }: PageProps) {
     "@type": "ListItem",
     position: index + 1,
     name: drink.name,
-    url: `${siteUrl}/de/getraenke/${canonicalPackageDrinkId(drink)}`,
+    url: `${siteUrl}${drinkPageHref(drink)}`,
   }));
 
   return (
@@ -109,6 +110,10 @@ export default async function BrandPage({ params }: PageProps) {
           </section>
         )}
       </div>
+
+      {flavorLines.filter((line) => line.brandId === brandId).map((line) => (
+        <FlavorLineTable key={line.id} line={line} />
+      ))}
 
       {page.editorial && (
         <section className="border-y border-ash bg-paper">
@@ -202,7 +207,7 @@ function BrandComparison({ comparison }: { comparison: NonNullable<FeaturedBrand
             const cubes = sugarCubes(drink);
             return (
               <li key={drink.id}>
-                <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring group grid h-full gap-5 rounded-lg border border-ash bg-mist p-5 transition hover:border-marigold active:translate-y-px">
+                <Link href={drinkPageHref(drink)} className="focus-ring group grid h-full gap-5 rounded-lg border border-ash bg-mist p-5 transition hover:border-marigold active:translate-y-px">
                   <div className="grid grid-cols-[1fr_auto] gap-3">
                     <div>
                       <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate">{drink.sizeMl ? `${drink.sizeMl} ml` : "Packung offen"}</p>
@@ -232,5 +237,55 @@ function BrandStat({ label, value }: { label: string; value: string }) {
       <dt className="text-sm text-slate">{label}</dt>
       <dd className="mt-2 text-3xl font-semibold tracking-tight tabular-nums">{value}</dd>
     </div>
+  );
+}
+
+function FlavorLineTable({ line }: { line: FlavorLine }) {
+  const items = flavorLineDrinks(line);
+  if (items.length < 2) return null;
+  const values = new Set(items.map((drink) => drink.sugarPer100Ml));
+  const sameValue = values.size === 1 ? items[0].sugarPer100Ml : null;
+
+  return (
+    <section className="border-t border-ash bg-mist" aria-labelledby={`${line.id}-title`}>
+      <div className="mx-auto max-w-page px-4 py-12 md:py-16">
+        <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Sorten</p>
+        <h2 id={`${line.id}-title`} className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{line.label}: {items.length} Sorten im Vergleich</h2>
+        <p className="mt-4 max-w-2xl leading-7 text-slate">
+          {sameValue !== null
+            ? `Alle Sorten haben laut Quelle ${formatNumber(sameValue)} g Zucker pro 100 ml. Der Unterschied liegt nur im Geschmack und in der Packungsgröße.`
+            : "Die Sorten unterscheiden sich im Zuckerwert pro 100 ml."}
+        </p>
+        <div className="mt-8 overflow-x-auto rounded-lg border border-ash bg-paper">
+          <table className="w-full border-collapse text-sm tabular-nums">
+            <thead>
+              <tr className="text-left text-xs uppercase tracking-wide text-slate">
+                <th scope="col" className="px-4 py-3 font-semibold">Sorte</th>
+                <th scope="col" className="px-4 py-3 text-right font-semibold">Packung</th>
+                <th scope="col" className="px-4 py-3 text-right font-semibold">pro 100 ml</th>
+                <th scope="col" className="px-4 py-3 text-right font-semibold">pro Packung</th>
+                <th scope="col" className="px-4 py-3 text-right font-semibold">Würfel</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((drink) => {
+                const hasOwnPage = drinkRedirectTarget(drink) === null;
+                return (
+                  <tr key={drink.id} id={drink.id} className="scroll-mt-24 border-t border-ash target:bg-cream">
+                    <th scope="row" className="px-4 py-3 text-left font-semibold">
+                      {hasOwnPage ? <Link href={drinkPath(drink.id)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link> : drink.name}
+                    </th>
+                    <td className="px-4 py-3 text-right">{drink.sizeMl ? `${drink.sizeMl} ml` : "/"}</td>
+                    <td className="px-4 py-3 text-right">{formatNumber(drink.sugarPer100Ml)} g</td>
+                    <td className="px-4 py-3 text-right">{totalSugarGrams(drink) === null ? "/" : `${formatNumber(totalSugarGrams(drink) ?? 0)} g`}</td>
+                    <td className="px-4 py-3 text-right">{sugarCubes(drink) === null ? "/" : formatNumber(sugarCubes(drink) ?? 0)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   );
 }

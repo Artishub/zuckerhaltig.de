@@ -5,7 +5,7 @@ Living project plan for Zuckerhaltig.de.
 ## Current State
 
 - Static Next.js site with German routes under `/de`.
-- 200 drinks in `lib/data/drinks.seed.json`.
+- 447 drinks in `lib/data/drinks.seed.json`.
 - One generated SEO detail page per drink.
 - Filters for brand, category, size, variants, sugar-free exclusion, sugar limits, search, sorting, and pagination.
 - Wissen and FAQ pages contain SEO-oriented educational content.

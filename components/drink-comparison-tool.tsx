@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, ChevronDown, Search, X } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Search, Share2, X } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
 import {
-  canonicalPackageDrinkId,
   canonicalPackageDrinks,
   Drink,
   drinks,
@@ -15,6 +14,7 @@ import {
   sugarCubes,
   totalSugarGrams,
 } from "@/lib/data/drinks";
+import { drinkPageHref } from "@/lib/page-routing";
 
 type Metric = {
   label: string;
@@ -66,16 +66,19 @@ export function DrinkComparisonTool() {
             <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate">Auswahl</p>
             <h2 id="selection-title" className="mt-2 text-2xl font-medium tracking-[-0.02em]">Bis zu vier Getränke</h2>
           </div>
+          <div className="flex flex-wrap gap-2 self-start sm:self-auto">
+          {selectedDrinks.length >= 2 && <ShareButton />}
           {selectedDrinks.length > 0 && (
             <button
               type="button"
               onClick={() => setSelectedIds(["", "", "", ""])}
-              className="focus-ring inline-flex h-9 items-center gap-2 self-start rounded-md border border-ash px-3 text-sm hover:border-marigold sm:self-auto"
+              className="focus-ring inline-flex h-9 items-center gap-2 rounded-md border border-ash px-3 text-sm hover:border-marigold"
             >
               <X size={14} strokeWidth={1.75} aria-hidden="true" />
               Auswahl löschen
             </button>
           )}
+          </div>
         </div>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -174,7 +177,7 @@ function DrinkHeading({ drink, compact = false }: { drink: Drink; compact?: bool
       <p className="text-xs font-medium uppercase tracking-wide text-slate">{category}</p>
       <h3 className="mt-2 text-lg font-medium leading-tight">{drink.name}</h3>
       <p className="mt-1 text-sm text-slate">{brand} · {sizeLabel(drink)}</p>
-      <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
+      <Link href={drinkPageHref(drink)} className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
         Details
         <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" />
       </Link>
@@ -291,4 +294,35 @@ function formatKcal(value: number | null) {
 
 function sizeLabel(drink: Drink) {
   return drink.sizeMl ? `${drink.sizeMl} ml` : "Größe offen";
+}
+
+// Shares the current comparison URL (?drinks=a,b,…). Comparison URLs are noindex via middleware.
+function ShareButton() {
+  const [copied, setCopied] = useState(false);
+
+  const share = async () => {
+    const url = window.location.href;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: document.title, url });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Sharing was cancelled or the clipboard is blocked; nothing to do.
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={share}
+      className="focus-ring inline-flex h-9 items-center gap-2 rounded-md border border-ink bg-ink px-3 text-sm text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink"
+    >
+      {copied ? <Check size={14} strokeWidth={2} aria-hidden="true" /> : <Share2 size={14} strokeWidth={1.75} aria-hidden="true" />}
+      {copied ? "Link kopiert" : "Vergleich teilen"}
+    </button>
+  );
 }

@@ -114,6 +114,29 @@ try {
   assert([301, 308].includes(rootResponse.status), `root route returned ${rootResponse.status} instead of a permanent redirect`);
   assert(rootResponse.headers.get("location")?.endsWith("/de"), "root route does not redirect to /de");
 
+  const permanentRedirects = [
+    ["/de/eistee-zucker", "/de/wissen/eistee-zucker-im-alltag"],
+    ["/de/energy-drinks-zucker", "/de/wissen/energy-drinks-zucker-vergleichen"],
+    ["/de/getraenke/coca-cola-classic-2000", "/de/getraenke/coca-cola-classic-500#groesse-2000-ml"],
+    ["/de/getraenke/red-bull-peach-edition-250", "/de/marken/red-bull#red-bull-peach-edition-250"],
+    ["/de/getraenke/fanta-apple-330", "/de/marken/fanta"],
+  ];
+
+  for (const [pathname, target] of permanentRedirects) {
+    const response = await fetch(`${baseUrl}${pathname}`, { headers: requestHeaders, redirect: "manual" });
+    assert([301, 308].includes(response.status), `${pathname} returned ${response.status} instead of a permanent redirect`);
+    const location = response.headers.get("location") ?? "";
+    assert(location.endsWith(target), `${pathname} redirects to ${location} instead of ${target}`);
+  }
+
+  for (const pathname of ["/de/getraenke?brand=coca-cola", "/de/getraenke/vergleich", "/de/getraenke/vergleich?drinks=coca-cola-classic-500,pepsi-1500"]) {
+    const response = await fetch(`${baseUrl}${pathname}`, { headers: requestHeaders });
+    assert(/noindex/i.test(response.headers.get("x-robots-tag") ?? ""), `${pathname} is missing the noindex X-Robots-Tag header`);
+  }
+
+  const plainList = await fetch(`${baseUrl}/de/getraenke`, { headers: requestHeaders });
+  assert(!/noindex/i.test(plainList.headers.get("x-robots-tag") ?? ""), "/de/getraenke without filters must stay indexable");
+
   passed = true;
   console.log(`SEO smoke test passed: ${results.length} sitemap URLs, ${productLinks.size} crawlable explorer product links`);
 } finally {

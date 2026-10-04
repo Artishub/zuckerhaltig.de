@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { categoryPageHref } from "@/lib/category-landing-pages";
 import { categories } from "@/lib/data/categories";
-import { canonicalPackageDrinkId, drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { drinks, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
 import { pageMetadata } from "@/lib/site";
+import { drinkPageHref } from "@/lib/page-routing";
 
 export const metadata = pageMetadata("Kategorien", "Getränkekategorien von Cola bis Energy Drink: Zucker pro 100 ml, Packungszucker und Zuckerwürfel für Softdrinks, Saft, Eistee und Schorle vergleichen.", "/de/kategorien");
 
@@ -49,7 +50,7 @@ export default function CategoriesPage() {
                 <p className="text-xs font-medium uppercase tracking-wide text-slate">Produkte</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                 {topDrinks.map((drink) => (
-                  <Link key={drink.id} href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring rounded-md bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
+                  <Link key={drink.id} href={drinkPageHref(drink)} className="focus-ring rounded-md bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
                     {drink.name}
                   </Link>
                 ))}
