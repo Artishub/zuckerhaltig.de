@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const description =
   "Vergleiche Zucker in Getränken aus Deutschland: pro 100 ml, pro Packung, mit Quellen, Nährwerten und Zuckerwürfeln.";
-const googleAnalyticsId = "G-4W55FH97DW";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -45,15 +43,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de">
       <body>
         {children}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="lazyOnload" />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}');
-          `}
-        </Script>
       </body>
     </html>
   );

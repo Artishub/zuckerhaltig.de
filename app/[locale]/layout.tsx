@@ -4,6 +4,7 @@ import { HeaderNav, type HeaderNavItem } from "@/components/header-nav";
 import { HeaderSearch } from "@/components/header-search";
 import { MobileNav } from "@/components/mobile-nav";
 import { SiteLogo } from "@/components/site-logo";
+import { CookieConsent, CookieSettingsButton } from "@/components/cookie-consent";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const nav: HeaderNavItem[] = [
@@ -91,9 +92,13 @@ export default async function LocaleLayout({ children, params }: { children: Rea
           ))}
         </div>
         <div className="border-t border-hair">
-          <p className="mx-auto max-w-[1180px] px-5 py-5 text-xs text-slate">Unabhängiges Informationsprojekt. Angaben ohne Gewähr, maßgeblich ist das Etikett.</p>
+          <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-slate">
+            <p>Unabhängiges Informationsprojekt. Angaben ohne Gewähr, maßgeblich ist das Etikett.</p>
+            <CookieSettingsButton className="underline decoration-smoke underline-offset-4 hover:text-ink" />
+          </div>
         </div>
       </footer>
+      <CookieConsent />
     </div>
   );
 }

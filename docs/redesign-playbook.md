@@ -244,8 +244,7 @@ So bleiben Claude-Sitzungen günstig und treffsicher:
 ## 10. Offene Punkte (zuckerhaltig.de)
 
 - Indexierungswelle 1 live am 04.10.2026, Release 05.10.2026 mit 10 weiteren URLs, siehe `lib/seo-index.ts`. Nächste Welle frühestens 3 Wochen nach dem Deploy und nur bei stabilen Impressionen.
-- Datenschutzerklärung: Google Analytics ist eingebunden, der Text sagt noch „keine Tracking-Cookies“. Braucht korrekte Erklärung und Einwilligung.
-- Weiterleitungen senden beim ersten, ungecachten Aufruf zwei identische `Location`-Header (Next.js, schon vor dem Redesign).
+- Cookie-Banner und Datenschutzerklärung sind live. Offen: Hosting-Anbieter in der Datenschutzerklärung nennen, Aufbewahrungsfrist in Google Analytics prüfen.
 - Strukturierte Daten `NutritionInformation` auf den indexierten Produktseiten.
 - In der Zuckerskala liegen die Punkte bei 10–11 g sehr dicht.
 - Eigene Etikettenfotos der Top-30-Produkte als Echtheitsnachweis.

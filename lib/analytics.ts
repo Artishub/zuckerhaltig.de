@@ -1,4 +1,4 @@
-// Google Analytics events (gtag is loaded in app/layout.tsx). Safe to call when analytics is blocked.
+// Google Analytics events (gtag loads in components/cookie-consent.tsx after consent). Safe to call when analytics is blocked.
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
