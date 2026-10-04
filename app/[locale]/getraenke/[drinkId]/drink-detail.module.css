@@ -30,14 +30,6 @@
   text-transform: none !important;
 }
 
-.intro {
-  max-width: 44rem;
-  margin: -0.6rem 0 1.4rem;
-  color: var(--slate);
-  font-size: 1rem;
-  line-height: 1.65;
-}
-
 .points {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

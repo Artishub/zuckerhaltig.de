@@ -5,8 +5,7 @@ import { categoryById } from "@/lib/data/categories";
 import { drinks, uniqueProductRepresentatives } from "@/lib/data/drinks";
 import { categoryStats, formatNumber, scaleMax } from "@/lib/drink-summary";
 import { pageMetadata } from "@/lib/site";
-import { sugarFreeMaxPer100Ml, sugarLevel } from "@/lib/sugar-context";
-import { LevelBadge } from "@/components/ui/level-badge";
+import { sugarFreeMaxPer100Ml } from "@/lib/sugar-context";
 import ui from "@/components/ui/ui.module.css";
 
 export const metadata = pageMetadata("Kategorien", "Getränkekategorien von Cola bis Energy Drink: Zucker pro 100 ml, Packungszucker und Zuckerwürfel für Softdrinks, Saft, Eistee und Schorle vergleichen.", "/de/kategorien");
@@ -29,7 +28,7 @@ export default function CategoriesPage() {
           return (
             <li key={category.id}>
               <Link href={href} className={ui.tile}>
-                <span className={ui.tileHead}><strong>{category.name}</strong>{category.average !== null && <LevelBadge level={sugarLevel(category.average)} />}</span>
+                <span className={ui.tileHead}><strong>{category.name}</strong></span>
                 <span className={ui.tileText}>{categoryById[category.id]?.description}</span>
                 <span className={ui.tileValue}>{category.average === null ? "/" : formatNumber(category.average)}<small>g Ø pro 100 ml</small></span>
                 {category.min !== null && category.max !== null && (

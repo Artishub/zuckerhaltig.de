@@ -31,15 +31,6 @@
   text-underline-offset: 3px;
 }
 
-.eyebrow {
-  margin: 0 0 0.7rem;
-  color: var(--slate);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .lead {
   max-width: 34rem;
   margin: 1.2rem 0 0;
@@ -580,6 +571,16 @@
   line-height: 1.6;
 }
 
+/* Rows reached via #anchor (redirected flavors and sizes) */
+.anchorRow {
+  scroll-margin-top: 6rem;
+}
+
+.anchorRow:target th,
+.anchorRow:target td {
+  background: var(--band-free);
+}
+
 /* Running text */
 .prose {
   display: grid;
@@ -890,46 +891,6 @@
 
 .currentRow td:last-child {
   border-radius: 0 10px 10px 0;
-}
-
-/* Method steps */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: step;
-}
-
-.steps li {
-  counter-increment: step;
-  display: grid;
-  gap: 0.5rem;
-  padding: 1.4rem;
-  border: 1px solid var(--hair);
-  border-radius: 22px;
-  background: var(--mist);
-  box-shadow: var(--card-shadow);
-}
-
-.steps li::before {
-  content: "0" counter(step);
-  color: var(--graphite);
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.steps strong {
-  font-size: 1.05rem;
-}
-
-.steps span {
-  color: var(--slate);
-  font-size: 0.9rem;
-  line-height: 1.55;
 }
 
 /* Detail page */
@@ -1311,6 +1272,25 @@
     padding: 1.8rem 0 1.6rem;
   }
 
+  .formula {
+    padding: 1.4rem 1.2rem 1.2rem;
+  }
+
+  .formulaRow {
+    display: grid;
+    grid-template-columns: 1.6rem auto;
+    justify-content: start;
+    gap: 0.9rem 0.6rem;
+  }
+
+  .formulaRow > span:first-child {
+    grid-column: 2;
+  }
+
+  .formulaResult {
+    justify-self: start;
+  }
+
   .homeHero,
   .factHero {
     grid-template-columns: minmax(0, 1fr);
@@ -1382,7 +1362,16 @@
     padding: 0.2rem 0.8rem;
   }
 
-  .steps,
+  .table th,
+  .table td {
+    padding: 0.75rem 0.4rem;
+  }
+
+  .table tbody th {
+    min-width: 8.5rem;
+    white-space: normal;
+  }
+
   .contextList,
   .split {
     grid-template-columns: minmax(0, 1fr);
@@ -1394,6 +1383,11 @@
 }
 
 /* Category page */
+.categoryHero h1 {
+  font-size: clamp(2.3rem, 4.4vw, 3.5rem);
+  line-height: 1.02;
+}
+
 .categoryHero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1423,10 +1417,8 @@
 
 .statCard dt {
   color: var(--slate);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .statCard dd {

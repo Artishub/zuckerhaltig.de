@@ -1,3 +1,4 @@
+import { PageHero } from "@/components/seo-drink-list";
 import { SugarCalculator } from "@/components/sugar-calculator";
 import { pageMetadata, siteUrl } from "@/lib/site";
 
@@ -20,27 +21,22 @@ export const metadata = pageMetadata(
 
 export default function SugarCalculatorPage() {
   return (
-    <main>
-      <section className="border-b border-ash bg-mist">
-        <div className="mx-auto max-w-5xl px-4 py-12 md:py-16">
-          <h1 className="max-w-3xl text-5xl font-semibold leading-[.94] tracking-[-0.06em] md:text-6xl">Zucker pro Flasche berechnen</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate">Zwei Angaben vom Etikett reichen für Gesamtzucker und Zuckerwürfel.</p>
-        </div>
-      </section>
+    <main className="pb-24">
+      <PageHero title="Zucker pro Flasche berechnen" text="Zwei Angaben vom Etikett reichen für Gesamtzucker und Zuckerwürfel." />
 
-      <div className="mx-auto max-w-5xl px-4 py-10 md:py-14">
+      <div className="mx-auto max-w-page px-5 pt-4">
         <SugarCalculator />
 
-        <section className="mt-12 border-t border-ash pt-9">
-          <h2 className="text-3xl font-semibold tracking-tight">Die Formel</h2>
+        <section className="mt-16">
+          <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-[750] leading-tight tracking-[-0.03em]">Die Formel</h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-slate">Zucker pro 100 ml × Füllmenge ÷ 100 ergibt den Zucker in der ganzen Packung. Der Rechner rundet auf eine Nachkommastelle.</p>
         </section>
 
-        <section className="mt-12">
-          <h2 className="text-3xl font-semibold tracking-tight">Fragen zum Zuckerrechner</h2>
+        <section className="mt-16">
+          <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-[750] leading-tight tracking-[-0.03em]">Fragen zum Zuckerrechner</h2>
           <div className="mt-6 grid gap-3 md:grid-cols-2">
             {faq.map((item) => (
-              <details key={item.question} className="rounded-lg border border-ash bg-mist p-5">
+              <details key={item.question} className="rounded-lg border border-hair bg-mist p-6 shadow-card">
                 <summary className="focus-ring cursor-pointer rounded-md font-semibold">{item.question}</summary>
                 <p className="mt-3 leading-7 text-slate">{item.answer}</p>
               </details>

@@ -74,8 +74,8 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       </header>
       {children}
       <footer className="mt-8 border-t border-hair bg-mist">
-        <div className="mx-auto grid max-w-[1180px] gap-10 px-5 py-14 text-sm md:grid-cols-[1.4fr_repeat(3,1fr)]">
-          <div className="max-w-xs">
+        <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-x-6 gap-y-10 px-5 py-14 text-sm md:grid-cols-[1.4fr_repeat(3,1fr)]">
+          <div className="col-span-2 max-w-xs md:col-span-1">
             <SiteLogo />
             <p className="mt-4 leading-6 text-slate">Zucker in Getränken pro 100 ml und pro Packung. Jeder Wert mit Quelle und Prüfdatum.</p>
           </div>

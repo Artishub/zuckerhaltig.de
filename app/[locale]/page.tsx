@@ -5,6 +5,7 @@ import { articleBySlug, homepageArticleSlugs, type Article } from "@/lib/content
 import { drinks, sugarCubes, type Drink } from "@/lib/data/drinks";
 import { categoryStats, formatDate, formatNumber, latestCheckedAt, productSummaries, scaleMax, summarize } from "@/lib/drink-summary";
 import { categoryPageHref } from "@/lib/category-landing-pages";
+import { drinksByCategory } from "@/lib/seo-drinks";
 import { lowSugarMaxPer100Ml, sugarFreeMaxPer100Ml } from "@/lib/sugar-context";
 import { pageMetadata, siteUrl } from "@/lib/site";
 import { HomeSearch } from "@/components/ui/home-search";
@@ -65,7 +66,7 @@ export default function HomePage() {
     id: category.id,
     name: category.name,
     average: category.average,
-    items: products.filter((item) => item.categoryId === category.id),
+    items: drinksByCategory(category.id).map(summarize),
   }));
   const articles = homepageArticleSlugs.map((slug) => articleBySlug[slug]).filter((article): article is Article => Boolean(article));
 

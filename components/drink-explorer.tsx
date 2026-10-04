@@ -111,8 +111,8 @@ export function DrinkExplorer() {
 
   return (
     <div className="grid min-w-0 gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
-      <aside className="h-fit w-full min-w-0 border border-ash bg-mist lg:sticky lg:top-20">
-        <div className="flex items-center justify-between border-b border-ash px-4 py-3">
+      <aside className="h-fit w-full min-w-0 overflow-hidden rounded-lg border border-hair bg-mist shadow-card lg:sticky lg:top-20">
+        <div className="flex items-center justify-between border-b border-hair px-5 py-3.5">
           <h2 className="text-sm font-semibold">Filter</h2>
           <button
             type="button"
@@ -125,10 +125,10 @@ export function DrinkExplorer() {
             <ChevronDown size={16} className={`transition ${filtersOpen ? "rotate-180" : ""}`} />
           </button>
         </div>
-        <div className="space-y-4 p-4">
+        <div className="space-y-4 p-5">
           <label className="block">
-            <span className="text-xs font-medium uppercase tracking-wide text-slate">Suche</span>
-            <div className="mt-2 flex h-10 items-center gap-2 rounded-md border-2 border-ink bg-paper px-3">
+            <span className="text-sm text-slate">Suche</span>
+            <div className="mt-2 flex h-11 items-center gap-2 rounded-full border border-hair bg-paper px-4 focus-within:border-ink">
               <Search size={16} />
               <input
                 value={query}
@@ -162,9 +162,9 @@ export function DrinkExplorer() {
           />
           <Range label="Max. Zucker pro 100 ml" value={maxPer100} max={12} step={0.5} unit="g" onChange={setMaxPer100} />
           <Range label="Max. Gesamtzucker" value={maxTotal} max={110} step={5} unit="g" onChange={setMaxTotal} />
-          <button onClick={reset} className="focus-ring inline-flex h-9 w-full items-center justify-center gap-2 rounded-md border border-ash text-sm hover:border-marigold">
+          <button onClick={reset} className="focus-ring inline-flex h-10 w-full items-center justify-center gap-2 rounded-full border border-hair text-sm font-semibold hover:border-ink">
             <X size={15} />
-            Filter Zurücksetzen
+            Filter zurücksetzen
           </button>
           </div>
         </div>
@@ -173,21 +173,21 @@ export function DrinkExplorer() {
       <section className="min-w-0">
         <Link
           href="/de/getraenke/vergleich"
-          className="focus-ring mb-6 flex flex-col gap-4 rounded-lg border border-ash bg-mist px-4 py-4 hover:border-marigold sm:flex-row sm:items-center sm:justify-between"
+          className="focus-ring mb-6 flex flex-col gap-3 rounded-lg border border-hair bg-mist px-5 py-4 shadow-card transition hover:border-ink sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
             <div className="flex items-center gap-2">
               <BarChart3 size={18} strokeWidth={1.75} aria-hidden="true" />
-              <h2 className="text-lg font-medium">Getränke vergleichen</h2>
+              <h2 className="text-lg font-semibold">Getränke vergleichen</h2>
             </div>
-            <p className="mt-2 hidden text-sm leading-6 text-slate sm:block">Stelle bis zu drei Getränke auf einer eigenen Vergleichsseite gegenüber.</p>
+            <p className="mt-2 hidden text-sm leading-6 text-slate sm:block">Bis zu vier Getränke nebeneinander, pro 100 ml und pro Packung.</p>
           </div>
           <span className="inline-flex shrink-0 items-center gap-2 text-sm font-medium">
             Vergleich öffnen
             <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" />
           </span>
         </Link>
-        <div className="mb-4 flex flex-col gap-3 border-b border-ash pb-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate">
             <strong className="text-ink">{displayItems.length}</strong> {compactGroups ? "Einträge" : "Getränke"} gefunden
           </p>
@@ -208,13 +208,13 @@ export function DrinkExplorer() {
             />
           </div>
         </div>
-        <div className="space-y-3" aria-live="polite">
+        <div className="divide-y divide-hair overflow-hidden rounded-lg border border-hair bg-mist shadow-card" aria-live="polite">
           {visibleItems.map((item, index) => {
             const drink = item.type === "drink" ? item.drink : item.representative;
             const brandName = brands.find((brandItem) => brandItem.id === drink.brandId)?.name ?? "";
             const categoryData = categoryById[drink.categoryId];
             const isOpen = openId === item.id;
-            const title = item.type === "group" ? `${brandName} - Mehrere` : drink.name;
+            const title = item.type === "group" ? `${brandName}, mehrere Sorten` : drink.name;
             const subtitle =
               item.type === "group"
                 ? `${categoryData?.name ?? "Getränk"} · ${item.drinks.length} Produkte`
@@ -228,17 +228,17 @@ export function DrinkExplorer() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: Math.min(index * 0.02, 0.12) }}
-                className="border-b border-ash bg-mist"
+                className="bg-mist"
               >
                 <div className="relative grid w-full grid-cols-[1fr_auto_auto_auto] gap-x-3 gap-y-2 p-3 text-left md:grid-cols-[1fr_120px_120px_36px] md:items-center md:p-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="h-2 w-2 rounded-full" style={{ background: categoryData?.color ?? "#838383" }} />
-                      <span className="text-xs font-medium uppercase tracking-wide text-slate">{categoryData?.name}</span>
+                      <span className="text-sm text-slate">{categoryData?.name}</span>
                     </div>
                     <h3 className="mt-2 text-base font-semibold leading-tight tracking-tight md:text-lg">
                       {item.type === "drink" ? (
-                        <Link href={drinkPageHref(drink)} className="focus-ring after:absolute after:inset-0 hover:underline hover:decoration-marigold hover:underline-offset-4">
+                        <Link href={drinkPageHref(drink)} className="focus-ring after:absolute after:inset-0 hover:underline hover:decoration-ink hover:underline-offset-4">
                           {title}
                         </Link>
                       ) : title}
@@ -258,12 +258,12 @@ export function DrinkExplorer() {
                   </button>
                 </div>
                 {isOpen && (
-                  <div className="grid gap-4 border-t border-ash px-4 py-4 text-sm text-slate md:grid-cols-[1.4fr_0.8fr]">
+                  <div className="grid gap-4 border-t border-hair px-4 py-4 text-sm text-slate md:grid-cols-[1.4fr_0.8fr]">
                     <div>
                       {item.type === "group" && (
                         <div className="mb-4 flex flex-wrap gap-2">
                           {item.drinks.map((groupDrink) => (
-                            <Link key={groupDrink.id} href={drinkPageHref(groupDrink)} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate hover:border-marigold hover:text-ink">
+                            <Link key={groupDrink.id} href={drinkPageHref(groupDrink)} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate hover:border-ink hover:text-ink">
                               {groupDrink.name}
                             </Link>
                           ))}
@@ -281,15 +281,15 @@ export function DrinkExplorer() {
                       <div className="mt-7 flex flex-col items-start gap-2">
                         <Link
                           href={`/de/getraenke/vergleich?drink=${canonicalPackageDrinkId(drink)}`}
-                          className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ash bg-paper px-4 text-sm font-medium hover:border-marigold"
+                          className="focus-ring inline-flex h-10 items-center justify-center rounded-full border border-hair bg-paper px-4 text-sm font-semibold hover:border-ink"
                         >
                           Zum Vergleich
                         </Link>
-                        <Link href={drinkPageHref(drink)} className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
+                        <Link href={drinkPageHref(drink)} className="focus-ring inline-flex h-10 items-center justify-center rounded-full border border-ink bg-ink px-4 text-sm font-semibold text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
                           Zur Detailseite
                         </Link>
                         {drink.sourceUrl ? (
-                          <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm text-ink underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                          <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm text-ink underline decoration-ash underline-offset-4 hover:decoration-ink">
                             <LinkIcon size={14} />
                             Quelle öffnen
                           </a>
@@ -321,7 +321,7 @@ export function DrinkExplorer() {
               <button
                 onClick={() => setPage((value) => Math.max(1, value - 1))}
                 disabled={page === 1}
-                className="focus-ring inline-flex h-9 items-center gap-2 rounded-md border border-ash px-3 disabled:opacity-40"
+                className="focus-ring inline-flex h-9 items-center gap-2 rounded-full border border-hair px-3.5 disabled:opacity-40"
               >
                 <ChevronLeft size={15} />
                 Zurück
@@ -332,7 +332,7 @@ export function DrinkExplorer() {
               <button
                 onClick={() => setPage((value) => Math.min(pageCount, value + 1))}
                 disabled={page === pageCount}
-                className="focus-ring inline-flex h-9 items-center gap-2 rounded-md border border-ash px-3 disabled:opacity-40"
+                className="focus-ring inline-flex h-9 items-center gap-2 rounded-full border border-hair px-3.5 disabled:opacity-40"
               >
                 Weiter
                 <ChevronRight size={15} />
@@ -417,7 +417,7 @@ function Select({
 }) {
   return (
     <label className={compact ? "flex min-w-0 items-center gap-2" : "block"}>
-      <span className={compact ? "whitespace-nowrap text-sm text-slate" : "text-xs font-medium uppercase tracking-wide text-slate"}>{label}</span>
+      <span className={compact ? "whitespace-nowrap text-sm text-slate" : "text-sm text-slate"}>{label}</span>
       <div className={`relative min-w-0 ${compact ? "w-auto" : "mt-2 w-full"}`}>
         <select value={value} onChange={(event) => onChange(event.target.value)} className="focus-ring h-10 w-full appearance-none rounded-md border border-ash bg-paper px-3 pr-10 text-sm outline-none hover:border-smoke">
           {options.map((option) => (
@@ -433,7 +433,7 @@ function Select({
 function Range({ label, value, max, step, unit, onChange }: { label: string; value: number; max: number; step: number; unit: string; onChange: (value: number) => void }) {
   return (
     <label className="block">
-      <span className="flex justify-between text-xs font-medium uppercase tracking-wide text-slate">
+      <span className="flex justify-between text-sm text-slate">
         {label}
         <span>{value} {unit}</span>
       </span>
@@ -445,7 +445,7 @@ function Range({ label, value, max, step, unit, onChange }: { label: string; val
 function Metric({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) {
   return (
     <div className="text-right">
-      <p className="text-xs uppercase tracking-wide text-slate">{label}</p>
+      <p className="text-sm text-slate">{label}</p>
       <p className={`mt-1 tabular-nums ${strong ? "text-lg font-semibold md:text-xl" : "font-medium"}`}>{value}</p>
     </div>
   );

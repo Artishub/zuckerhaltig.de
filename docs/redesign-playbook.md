@@ -121,47 +121,56 @@ Systemschrift, Ziffern mit `font-variant-numeric: tabular-nums`.
 
 ## 5. Komponenten
 
-Alle liegen unter `app/[locale]/test/redesign/`.
+Live seit dem Redesign-Release (Oktober 2026). Gemeinsame Bausteine liegen in `components/ui/`, die Tokens in `app/globals.css` und `tailwind.config.ts` (`hair`, `moss`, `lime`, `shadow-card`, Radien `sm` 6px, `md` 10px, `lg` 18px).
 
 | Komponente | Datei / Klasse | Zweck und Regeln |
 |---|---|---|
-| Suchfeld mit Sofort-Treffern | `redesign-search.tsx` | Suche im Browser über Marke, Name und Kategorie, normalisiert (Umlaute, Sonderzeichen), höchstens 8 Treffer mit Wert und Einstufung. Die Daten kommen als kompakte Liste vom Server. |
-| Einstufungs-Badge | `level-badge.tsx` | Text plus Farbe, Grenzwerte aus `lib/sugar-context.ts`. |
-| Showcase-Karte | `.showcase` | Ein hervorgehobenes Produkt im Hero, mit großer Zahl, Würfeln und Link. |
-| Klassiker-Karten | `.popularGrid` / `.popularCard` | 8 meistgesuchte Produkte laut Search Console, mit Gesamtzucker, Balken und Wert pro 100 ml. 4 Spalten, 2 auf Tablet und Handy. |
-| Zuckerskala (alle Produkte) | `sugar-strip-plot.tsx` | Punktdiagramm, eine Zeile pro Kategorie. Strich für den Kategorie-Durchschnitt, hinterlegte EU-Bereiche. Tooltip bei Hover und Fokus, jeder Punkt ist ein Link mit `aria-label`. Gleich hohe Werte werden fest versetzt (Hash der ID). Steht auf einer dunklen Bühne (`.stage`). |
-| Skala für ein Produkt | `sugar-scale.tsx` | Füllbalken bis zum Wert, Wert als Etikett, Strich für den Durchschnitt, EU-Bereiche, Erklärung darunter. |
-| Faktenkarte | `.factCard` | Packungsgröße, Heldenzahl, Würfel und drei Kennzahlen (Würfel, kcal, Anteil an 50 g). |
-| Kontext-Karten | `.contextList` | Platz in der Kategorie und zuckerärmere Alternative mit „Ansehen“ und „Vergleichen“. |
-| Tabellen | `.table`, `category-table.tsx` | Echte `<table>`. Die Kategorietabelle ist sortierbar (`aria-sort`), mit Balken und Badge. Die aktive Zeile ist hinterlegt. |
-| Nährwert-Etikett | `.label` | Bewusst im Etikett-Stil: 2px Rahmen, 10px Balken unter dem Titel, Zeile „davon Zucker“ hervorgehoben. |
-| Quellenbox | `.source` | Quelle, Status, Prüfdatum, Rechenweg, Links (Quelle, Korrektur, WHO). |
-| Kennzahl-Karten | `.statGrid` / `.statCard` | Kategorie-Hero: Durchschnitt, Höchstwert, Tiefstwert, Verteilung. |
-| Schritte | `.steps` | Methodik in drei nummerierten Karten („01“ usw.). |
-| Chips | `.chipList` | Querverweise auf andere Kategorien mit Durchschnitt. |
+| Seitenstil | `ui.module.css` (`.page`, `.section`, `.sectionHead`, `.card`) | Container 1180px, Abschnitte mit 5rem Abstand, H2 ohne Eyebrow darüber. |
+| Tailwind-Abschnitt | `section.tsx` (`Section`, `cardClass`, `textLinkClass`) | Gleiche Optik für Seiten, die mit Tailwind gebaut sind. |
+| Seitenkopf | `PageHero` in `components/seo-drink-list.tsx` | H1 plus ein Satz. Kein Kicker. |
+| Suchfeld mit Sofort-Treffern | `home-search.tsx` | Suche über Marke, Name und Kategorie, normalisiert, höchstens 8 Treffer. |
+| Einstufungs-Badge | `level-badge.tsx` | Nur zeigen, wenn es unterscheidet (Tabellen blenden die Spalte aus, wenn alle Zeilen gleich sind; Klassiker-Karten zeigen nur „zuckerfrei“/„zuckerarm“). |
+| Showcase-Karte | `.showcase` | „Heute im Blick“, tägliche Rotation über Produkte mit Nachfrage. |
+| Klassiker-Karten | `.popularGrid` / `.popularCard` | Kategorie oben, Name, Gesamtzucker, Balken, Wert pro 100 ml. |
+| Zuckerskala (alle Produkte) | `sugar-strip-plot.tsx` | Punktdiagramm auf dunkler Bühne (`.stage`). |
+| Skala für ein Produkt | `sugar-scale.tsx` | Wert, Kategorie-Durchschnitt, EU-Bereiche. |
+| Faktenkarte | `.factCard` | Gesamtzucker, gezeichnete Würfel (`sugar-cubes-graphic.tsx`), pro 100 ml, Würfel, kcal, Anteil an 50 g. |
+| Kontext-Karten | `.contextList` | Fakten aus `lib/drink-facts.ts`, je eine Karte. |
+| Sortierbare Tabelle | `category-table.tsx` (über `SortableDrinkRows`) | Kategorie-, Marken-, Ranking- und Vergleichsseiten. `compact` für zweispaltige Layouts. |
+| Kopf-an-Kopf-Tabelle | `head-to-head.tsx` | Hauptprodukte einer Vergleichsseite: pro 100 ml, Packung, Würfel, kcal. |
+| Nährwert-Etikett | `.label` | Etikett-Stil, „davon Zucker“ hervorgehoben. |
+| Quellenbox | `.source` | Quelle, Status, Prüfdatum, Rechenweg, Korrektur-Link. |
+| Kennzahl-Karten | `.statGrid` / `.statCard` | Kategorie- und Markenseiten. |
+| Kacheln | `.tileGrid` / `.tile` | Kategorie-Übersicht mit Durchschnitt und Spannen-Balken. |
+| Rechenbeispiel | `.formula` | Startseite: 100-ml-Wert × Füllmenge = Packung ÷ 3 g = Würfel, mit echtem Produkt. Ersetzt die „01/02/03“-Schrittkarten. |
+| Artikel-Karten | `.articleGrid` / `.articleCard` | Bild, Lesezeit, Titel. Keine Beschreibung. |
+| Chips | `.chipList` | Querverweise am Seitenende. |
 
 ---
 
 ## 6. Seitenaufbau
 
-**Startseite** (`/de/test/redesign`)
-1. Eyebrow (Anzahl, „jede Zahl mit Quelle“), H1, Lead, Suchfeld, Prüfdatum. Rechts die Showcase-Karte.
-2. „Die Klassiker im Vergleich“ (8 Karten)
-3. Zuckerskala auf dunkler Bühne
-4. Kategorientabelle mit Links auf die Kategorieseiten
-5. Methodik in 3 Schritten
+**Startseite:** H1, Lead, Suche, Meta-Zeile (Anzahl, Quelle, Prüfdatum), Showcase. Dann Klassiker, Zuckerskala, Kategorientabelle mit Spannen-Balken, drei Grundlagen-Artikel, Rechenbeispiel.
 
-**Detailseite** (`/de/test/redesign/<drinkId>`)
-1. Brotkrumen. Links Marke und Kategorie, H1, Antwortsatz, Badge und Quelle. Rechts die Faktenkarte.
-2. „Ist das viel?“: Skala in einer Karte, darunter 2 Kontext-Karten
-3. Packungsgrößen als Tabelle (Zucker, Würfel, kcal, Anteil an 50 g)
-4. Nährwert-Etikett und Quellenbox nebeneinander
-5. „Ähnlich viel Zucker“ als Liste, plus Link zur Kategorie
+**Produktseite:** Brotkrumen, Meta (Marke · Kategorie · Größe), H1 als Frage, Antwortsatz, Badge und Quelle, Faktenkarte. Dann Tausch-Rechner, „Ist das viel?“ (Skala + Fakten), Packungsgrößen mit Ankern, nur bei hervorgehobenen Produkten „Hinweise zum Wert“ und Sortenvergleich, Etikett und Quelle, ähnliche Produkte, FAQ, Chips.
 
-**Kategorieseite** (`/de/test/redesign/kategorie/<categoryId>`)
-1. H1 „<Kategorie>: Zucker im Vergleich“, Lead mit Durchschnitt und Spanne, 4 Kennzahl-Karten
-2. Sortierbare Tabelle aller Produkte
-3. Chips zu den anderen Kategorien
+**Kategorieseite:** H1, Intro, vier Kennzahl-Karten, sortierbare Tabelle, ein Absatz mit kategoriespezifischem Fakt, Chips zu anderen Kategorien.
+
+**Markenseite:** wie Kategorie, dazu Sortenvergleich (Kopf-an-Kopf-Tabelle) und bei Red Bull die Editionen-Tabelle mit Ankern.
+
+**Rankings und Vergleiche:** PageHero mit der datenbasierten Antwort, eine Zeile Hinweis mit Link, Tabelle(n).
+
+### Was als Rauschen entfernt wurde (gilt auch für proteinhaltig.de)
+
+- Großgeschriebene Eyebrows über jeder Überschrift („MEISTGESUCHT“, „EINORDNUNG“, „DATENQUELLE“).
+- Überschriften mit Punkt am Ende („Zuckerwerte vergleichen.“, „Nachprüfbar.“) und Slogan-Paare („Weniger raten. Besser vergleichen.“).
+- Nummerierte Schrittkarten „01 02 03“.
+- Badges, die überall dasselbe sagen (14-mal „mit Zucker“).
+- Textbausteine, die auf jeder Seite die Zahl oder das Prinzip wiederholen („Der Wert je 100 ml macht die Produkte vergleichbar …“, „… werden als eigene Datensätze geführt“, „Mango Loco bleibt Mango Loco“). Kategorien behalten einen Absatz mit eigenem Fakt, Marken nur noch Tabellen.
+- Absicherungs-Sätze unter Tabellen („Eine Bewertung von Geschmack ist nicht enthalten“).
+- FAQ-Fragen ohne echte Suchabsicht („Ist Coca-Cola Zero in den 53 g enthalten?“).
+- Keyword-Linklisten („Häufig gesucht“ mit viermal derselben URL) und Meta-Texte über Suchanfragen auf der Seite selbst.
+- Doppelte Marken in Namen („Paulaner / Paulaner Spezi“).
 
 ---
 
@@ -234,11 +243,9 @@ So bleiben Claude-Sitzungen günstig und treffsicher:
 
 ## 10. Offene Punkte (zuckerhaltig.de)
 
-- Die lokalen Commits auf `claude/admiring-wozniak-vth3wv` pushen. GitHub-Schreibzugriff fehlte in der Arbeitssitzung.
-- Indexierungswelle 1 live am 04.10.2026 (15 Rezeptur-Seiten), Release 05.10.2026 mit 10 weiteren URLs (6 Rezeptur-Seiten, Markenseiten Paulaner und Vita Cola, Vergleich Spezi vs. Mezzo Mix, Kalorien-Ranking), siehe `lib/seo-index.ts`. Nächste Welle frühestens 3 Wochen nach dem Deploy und nur, wenn Impressionen und Position stabil bleiben.
-- Größenvarianten per Canonical oder Weiterleitung auf die Produktseite zusammenführen.
-- Den Artikel `/wissen/cola-zucker-pro-100ml` umbauen (3.941 Impressionen, 0 Klicks): Vergleichstabelle nach oben.
+- Indexierungswelle 1 live am 04.10.2026, Release 05.10.2026 mit 10 weiteren URLs, siehe `lib/seo-index.ts`. Nächste Welle frühestens 3 Wochen nach dem Deploy und nur bei stabilen Impressionen.
+- Datenschutzerklärung: Google Analytics ist eingebunden, der Text sagt noch „keine Tracking-Cookies“. Braucht korrekte Erklärung und Einwilligung.
+- Weiterleitungen senden beim ersten, ungecachten Aufruf zwei identische `Location`-Header (Next.js, schon vor dem Redesign).
 - Strukturierte Daten `NutritionInformation` auf den indexierten Produktseiten.
-- In der Zuckerskala liegen die Punkte bei 10–11 g sehr dicht, dafür braucht es eine Lupe oder eine Liste der nahen Getränke beim Hover.
-- Eine Kontakt-E-Mail für „Wert falsch?“ fehlt. Bis dahin verlinkt die Seite auf das Impressum.
+- In der Zuckerskala liegen die Punkte bei 10–11 g sehr dicht.
 - Eigene Etikettenfotos der Top-30-Produkte als Echtheitsnachweis.

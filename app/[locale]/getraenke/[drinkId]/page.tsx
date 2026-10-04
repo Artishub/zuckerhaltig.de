@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { categoryPageHref } from "@/lib/category-landing-pages";
-import { articleBySlug } from "@/lib/content/articles";
 import { featuredDrinkEditorial, type FeaturedDrinkComparison, type FeaturedDrinkPackageNote } from "@/lib/content/featured-drinks";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
@@ -125,7 +124,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const categoryAverage = averageSugarPer100Ml(categoryPeers(drink));
   const comparison = comparisonLink(drink);
   const nextLinks = [
-    { href: knowledgeLink(drink), label: articleBySlug[knowledgeLink(drink).replace("/de/wissen/", "")]?.title ?? "Wissen" },
+    knowledgeLink(drink),
     ...(comparison ? [comparison] : []),
     ...(categoryHref ? [{ href: categoryHref, label: `${categoryName} vergleichen` }] : []),
     ...(brandLink ? [brandLink] : []),
@@ -475,16 +474,16 @@ function verificationLabel(status: Drink["verificationStatus"]) {
 }
 
 function knowledgeLink(drink: Drink) {
-  if (drink.categoryId === "energy") return "/de/wissen/energy-drinks-zucker-vergleichen";
+  if (drink.categoryId === "energy") return { href: "/de/wissen/energy-drinks-zucker-vergleichen", label: "Zucker in Energy Drinks" };
   if (drink.categoryId === "cola" || drink.categoryId === "cola-mix") {
     return drink.sugarPer100Ml <= 0.5
-      ? "/de/wissen/cola-zero-light-und-klassisch"
-      : "/de/wissen/cola-zucker-pro-100ml";
+      ? { href: "/de/wissen/cola-zero-light-und-klassisch", label: "Cola Zero oder Light" }
+      : { href: "/de/wissen/cola-zucker-pro-100ml", label: "Zucker in Cola" };
   }
-  if (drink.categoryId === "juice") return "/de/wissen/saft-ist-nicht-automatisch-zuckerarm";
-  if (drink.categoryId === "iced-tea") return "/de/wissen/eistee-zucker-im-alltag";
-  if (drink.sugarPer100Ml <= 1) return "/de/wissen/zuckerfreie-getraenke-in-der-datenbank";
-  return "/de/wissen/zucker-pro-100ml-verstehen";
+  if (drink.categoryId === "juice") return { href: "/de/wissen/saft-ist-nicht-automatisch-zuckerarm", label: "Zucker in Saft" };
+  if (drink.categoryId === "iced-tea") return { href: "/de/wissen/eistee-zucker-im-alltag", label: "Zucker in Eistee" };
+  if (drink.sugarPer100Ml <= 1) return { href: "/de/wissen/zuckerfreie-getraenke-in-der-datenbank", label: "Zuckerfreie Getränke" };
+  return { href: "/de/wissen/zucker-pro-100ml-verstehen", label: "Zucker pro 100 ml einordnen" };
 }
 
 function comparisonLink(drink: Drink) {

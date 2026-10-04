@@ -30,7 +30,7 @@ const config: Config = {
         lg: "18px",
       },
       maxWidth: {
-        page: "1200px",
+        page: "1180px",
       },
     },
   },

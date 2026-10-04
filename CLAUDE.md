@@ -16,7 +16,7 @@ npm run seo:check       # needs a prior build; starts its own server on :3210, c
 npm run drink -- <term> # compact drink lookup (see "Token budget")
 ```
 
-Run `typecheck`, `lint`, `test` and `build` after code or data changes, plus `seo:check` after changes to indexing, redirects, sitemap or metadata. CI (`.github/workflows/docker.yml`) runs `build && seo:check` and then builds the Docker image (Next standalone output).
+Run `typecheck`, `lint`, `test` and `build` after code or data changes, plus `seo:check` after changes to indexing, redirects, sitemap or metadata. CI (`.github/workflows/docker.yml`) runs `lint` and `test`, then `build && seo:check`, and then builds the Docker image (Next standalone output).
 
 Social scripts (`social:*`) need credentials. Use `social:preview` or `social:check` for dry runs.
 
@@ -40,15 +40,16 @@ Social scripts (`social:*`) need credentials. Use `social:preview` or `social:ch
 - `/de/eistee-zucker` and `/de/energy-drinks-zucker` redirect to their Wissen articles, which include the category product list.
 
 **Drink detail page:** `app/[locale]/getraenke/[drinkId]/page.tsx`.
-- Allowlisted drinks additionally get hand-written editorial content and FAQ from `lib/content/featured-drinks.ts`, plus Product JSON-LD.
+- Allowlisted drinks additionally get hand-written notes, a variant comparison and FAQ from `lib/content/featured-drinks.ts`, plus Product JSON-LD. Notes only state facts the page does not already show.
 - The seed holds source data only. Derived values (package sugar, cubes, kcal, calculation text) and FAQ are computed at build time; `validate:data` rejects `computed`/`faq` fields in the seed.
 - Under the main number: drawn cubes (`components/sugar-cubes-graphic.tsx`), the share of the DGE 50 g orientation (`dgeSugarConsensusUrl` in `lib/sugar-context.ts`), and the block "Weniger Zucker, gleicher Geschmack" (`swapAlternatives` + `components/swap-calculator.tsx`). Each swap card has a `data-buy-slot` for a later, labelled purchase link.
 - Per-drink OpenGraph image: `app/[locale]/getraenke/[drinkId]/opengraph-image.tsx`.
 - All pages show an answer sentence and data-only facts from `lib/drink-facts.ts` (category rank and distance to average, brand rank, lower-sugar alternative or sugared original for zero drinks, size range, WHO 50 g share). A fact only renders when its data is complete. Do not add template sentences or generic FAQs to product pages; link to a Wissen article instead. The internal `note` field is not shown on pages.
 
 **Other routing details:**
-- The homepage `app/[locale]/page.tsx` renders the component from `app/[locale]/test/page.tsx`. The `/de/test` route itself is noindex.
-- `/de/test/redesign` (home), `/de/test/redesign/<drinkId>` and `/de/test/redesign/kategorie/<categoryId>` are a noindex redesign draft that uses real data and links only within the draft. Design tokens, components, SEO learnings and the porting checklist for proteinhaltig.de are in `docs/redesign-playbook.md`.
+- Shared UI lives in `components/ui/` (`ui.module.css`, tables, scales, `Section`) with tokens in `app/globals.css` and `tailwind.config.ts`; `lib/drink-summary.ts` builds the compact drink view model. Design rules, the list of removed noise patterns and the porting checklist for proteinhaltig.de are in `docs/redesign-playbook.md`.
+- The old drafts under `/de/test` are gone; `/de/test/*` 308-redirects to `/de` (`next.config.ts`).
+- No uppercase eyebrows, no headline periods, no repeated template sentences; see the noise list in the playbook.
 - Shared sugar context logic (category rank, lower-sugar alternative, EU zuckerfrei/zuckerarm thresholds, WHO 50 g) lives in `lib/sugar-context.ts`.
 - `middleware.ts` 308-redirects the apex domain to `https://www.zuckerhaltig.de`. Only the `de` locale exists.
 

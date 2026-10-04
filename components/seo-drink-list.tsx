@@ -1,53 +1,49 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { brandName, categoryName, drinkHref, formatNumber, sizeLabel } from "@/lib/seo-drinks";
-import { sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { brandName, drinkHref, formatNumber, sizeLabel } from "@/lib/seo-drinks";
+import { totalSugarGrams, type Drink } from "@/lib/data/drinks";
 
 export function DrinkRows({ drinks }: { drinks: Drink[] }) {
   return (
-    <div className="divide-y divide-ash overflow-hidden rounded-lg border border-ash bg-paper">
+    <ul className="divide-y divide-hair rounded-lg border border-hair bg-mist px-5 shadow-card">
       {drinks.map((drink) => {
         const total = totalSugarGrams(drink);
-        const cubes = sugarCubes(drink);
-
         return (
-          <Link key={drink.id} href={drinkHref(drink)} className="grid gap-3 px-4 py-4 hover:bg-mist sm:grid-cols-[1fr_auto]">
-            <div>
-              <p className="font-semibold">{drink.name}</p>
-              <p className="mt-1 text-sm text-slate">
-                {brandName(drink)} · {categoryName(drink)} · {sizeLabel(drink)}
-              </p>
-            </div>
-            <div className="text-sm tabular-nums text-slate sm:text-right">
-              <p className="font-semibold text-ink">{formatNumber(drink.sugarPer100Ml)} g/100 ml</p>
-              <p>{total === null ? "Packung offen" : `${formatNumber(total)} g`}{cubes === null ? "" : ` · ${formatNumber(cubes)} Würfel`}</p>
-            </div>
-          </Link>
+          <li key={drink.id}>
+            <Link href={drinkHref(drink)} className="group flex items-center justify-between gap-4 py-3.5">
+              <span className="min-w-0">
+                <span className="block font-semibold group-hover:underline">{drink.name}</span>
+                <span className="block text-xs text-slate">{brandName(drink)} · {sizeLabel(drink)}</span>
+              </span>
+              <span className="shrink-0 text-right text-sm tabular-nums">
+                <span className="block font-semibold">{formatNumber(drink.sugarPer100Ml)} g / 100 ml</span>
+                {total !== null && <span className="block text-xs text-slate">{formatNumber(total)} g pro Packung</span>}
+              </span>
+            </Link>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
-export function PageHero({ kicker, title, text }: { kicker: string; title: string; text: string }) {
+export function PageHero({ title, text, children }: { title: string; text?: string; children?: React.ReactNode }) {
   return (
-    <section className="border-b border-ash bg-mist">
-      <div className="mx-auto max-w-page px-4 py-16 md:py-24">
-        <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">{kicker}</p>
-        <h1 className="mt-4 max-w-3xl text-5xl font-semibold leading-[.94] tracking-[-0.06em] md:text-6xl">{title}</h1>
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">{text}</p>
-      </div>
+    <section className="mx-auto max-w-page px-5 pb-6 pt-12 md:pt-16">
+      {children}
+      <h1 className="max-w-4xl text-[clamp(2.4rem,5vw,3.8rem)] font-[750] leading-[1.02] tracking-[-0.04em] [text-wrap:balance]">{title}</h1>
+      {text && <p className="mt-5 max-w-2xl text-lg leading-8 text-slate">{text}</p>}
     </section>
   );
 }
 
 export function LinkCard({ href, title, text }: { href: string; title: string; text: string }) {
   return (
-    <Link href={href} className="rounded-lg border border-ash bg-paper p-4 hover:border-marigold">
-      <p className="font-semibold">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-slate">{text}</p>
-      <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium">
-        Öffnen <ArrowRight size={15} />
+    <Link href={href} className="group flex flex-col rounded-lg border border-hair bg-mist p-5 shadow-card transition hover:-translate-y-0.5 hover:border-ink">
+      <span className="font-semibold">{title}</span>
+      <span className="mt-1.5 text-sm leading-6 text-slate">{text}</span>
+      <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold">
+        Ansehen <ArrowRight size={15} aria-hidden="true" />
       </span>
     </Link>
   );

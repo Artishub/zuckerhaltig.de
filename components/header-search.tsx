@@ -111,7 +111,7 @@ export function HeaderSearch() {
         <div id="header-search-results" className="absolute right-0 top-11 z-40 w-[min(88vw,320px)] overflow-hidden rounded-2xl border border-ash bg-mist text-sm shadow-[0_24px_50px_-20px_rgba(26,26,26,0.3)]">
           {!query.trim() ? (
             <div className="p-2">
-              <p className="px-2 pb-2 pt-1 text-xs font-medium uppercase tracking-[0.12em] text-slate">Häufig gesucht</p>
+              <p className="px-2 pb-2 pt-1 text-sm font-semibold text-slate">Häufig gesucht</p>
               {frequentSearches.map((term) => (
                 <button
                   key={term}

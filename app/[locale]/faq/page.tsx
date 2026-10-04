@@ -17,23 +17,23 @@ export default function FaqPage() {
   };
 
   return (
-    <main className="mx-auto max-w-page px-4 py-10">
+    <main className="mx-auto max-w-page px-5 pb-24 pt-12 md:pt-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="grid gap-10 lg:grid-cols-[240px_1fr]">
         <FaqNav categories={faqCategories} />
         <div>
-          <h1 className="text-4xl font-semibold tracking-tight">FAQ: Zucker in Getränken</h1>
-          <p className="mt-4 max-w-2xl leading-7 text-slate">
-            Antworten auf Suchfragen wie „Wie viel Zucker hat Cola?“, „Wie viele Zuckerwürfel hat Red Bull?“ und „Wie berechnet man Zucker pro Flasche?“.
+          <h1 className="text-[clamp(2.4rem,5vw,3.8rem)] font-[750] leading-[1.02] tracking-[-0.04em] [text-wrap:balance]">FAQ: Zucker in Getränken</h1>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate">
+            Kurze Antworten zu Zucker pro 100 ml und pro Flasche, Zuckerwürfeln, Zero-Getränken und den Quellen der Werte.
           </p>
           <div className="mt-8 space-y-12">
             {faqCategories.map((category) => (
               <section key={category.id} id={category.id} className="scroll-mt-28">
-                <div className="border-b border-ash pb-4">
-                  <h2 className="text-2xl font-semibold tracking-tight">{category.title}</h2>
+                <div className="border-b border-hair pb-4">
+                  <h2 className="text-[1.6rem] font-[750] leading-tight tracking-[-0.03em]">{category.title}</h2>
                   <p className="mt-2 text-sm leading-6 text-slate">{category.intro}</p>
                 </div>
-                <div className="divide-y divide-ash">
+                <div className="divide-y divide-hair">
                   {category.items.map((item) => (
                     <article key={item.question} className="py-5">
                       <h3 className="font-semibold">{item.question}</h3>
@@ -42,7 +42,7 @@ export default function FaqPage() {
                   ))}
                 </div>
                 {category.id === "gesundheit" && (
-                  <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke" className="mt-4 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                  <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke" className="mt-4 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-ink">
                     Aspartam und Süßstoffe ausführlich einordnen
                   </Link>
                 )}

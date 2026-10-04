@@ -43,7 +43,6 @@ export const featuredDrinkEditorial: Record<string, FeaturedDrinkEditorial> = {
     faq: [
       { question: "Wie viel Zucker hat eine 500-ml-Flasche Coca-Cola Classic?", answer: "Eine 500-ml-Flasche enthält rechnerisch 53 g Zucker. Die Rechnung basiert auf 10,6 g je 100 ml." },
       { question: "Wie viele Zuckerwürfel sind 53 g?", answer: "53 g entsprechen rund 17,7 Zuckerwürfeln, wenn ein Würfel mit 3 g gerechnet wird." },
-      { question: "Ist Coca-Cola Zero Sugar in den 53 g enthalten?", answer: "Nein. Die 53 g beziehen sich ausschließlich auf Coca-Cola Classic. Zero Sugar und Light werden getrennt berechnet." },
     ],
   },
   "fanta-orange-500": {
@@ -64,7 +63,6 @@ export const featuredDrinkEditorial: Record<string, FeaturedDrinkEditorial> = {
     faq: [
       { question: "Wie viel Zucker hat Fanta Orange in 500 ml?", answer: "500 ml Fanta Orange enthalten rechnerisch 38 g Zucker. Der Ausgangswert beträgt 7,6 g je 100 ml." },
       { question: "Wie viel Orangensaft steckt in Fanta Orange?", answer: "Die deutsche Coca-Cola-Produktseite nennt 3 % Orangensaft aus Orangensaftkonzentrat." },
-      { question: "Ist Fanta Orange ohne Zucker dasselbe Getränk?", answer: "Nein. Die zuckerfreie Variante hat eine eigene Rezeptur und steht mit 0,3 g Zucker je 100 ml separat in der Datenbank." },
       { question: "Kann Fanta aus dem Restaurant andere Werte haben?", answer: "Ja. Coca-Cola weist auf mögliche Unterschiede zwischen geschlossenen Packungen und Schankanlagen hin. Für die genaue Portion gilt die Angabe vor Ort." },
     ],
   },
@@ -87,7 +85,6 @@ export const featuredDrinkEditorial: Record<string, FeaturedDrinkEditorial> = {
       { question: "Wie viel Zucker hat Paulaner Spezi in 500 ml?", answer: "500 ml Paulaner Spezi enthalten rechnerisch 46 g Zucker. Die Grundlage sind 9,2 g je 100 ml." },
       { question: "Warum zählt Paulaner Spezi als Cola-Mix?", answer: "Paulaner führt Spezi als Cola-Mix und nennt neben Cola- auch Fruchtkomponenten. Deshalb wird das Getränk nicht als klassische Cola eingeordnet." },
       { question: "Wie viel Zucker stecken in 330 ml Paulaner Spezi?", answer: "Bei 9,2 g je 100 ml enthalten 330 ml rechnerisch rund 30,4 g Zucker." },
-      { question: "Ist Spezi Zero in den 46 g enthalten?", answer: "Nein. Die 46 g beziehen sich ausschließlich auf Paulaner Spezi. Spezi Zero wird mit seinen eigenen Nährwerten berechnet." },
     ],
   },
   "sprite-500": {
@@ -108,7 +105,6 @@ export const featuredDrinkEditorial: Record<string, FeaturedDrinkEditorial> = {
     faq: [
       { question: "Wie viel Zucker hat Sprite in 500 ml?", answer: "Eine 500-ml-Flasche Sprite enthält rechnerisch 39,5 g Zucker. Der Wert je 100 ml beträgt 7,9 g." },
       { question: "Hat Sprite mehr Zucker als Fanta Orange?", answer: "In diesem Datensatz enthält Sprite 7,9 g Zucker je 100 ml, Fanta Orange 7,6 g. Sprite liegt damit leicht darüber." },
-      { question: "Ist Sprite Zero in den 39,5 g enthalten?", answer: "Nein. Die 39,5 g beziehen sich ausschließlich auf Sprite Original in 500 ml. Sprite Zero Sugar steht separat." },
       { question: "Wie viele Zuckerwürfel sind 39,5 g?", answer: "39,5 g geteilt durch 3 g pro Würfel ergeben rund 13,2 Zuckerwürfel." },
     ],
   },
