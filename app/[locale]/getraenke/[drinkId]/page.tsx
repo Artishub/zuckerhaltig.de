@@ -10,7 +10,7 @@ import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks
 import { brandPageHref } from "@/lib/featured-brand-pages";
 import { isSearchIndexableDrink, searchIndexableDrinkIds } from "@/lib/seo-index";
 import { drinkPageHref, drinkRedirectTarget, removedDrinkRedirects, sizeAnchor } from "@/lib/page-routing";
-import { siteUrl } from "@/lib/site";
+import { correctionMailto, siteUrl } from "@/lib/site";
 import { drinkFacts, type DrinkFact } from "@/lib/drink-facts";
 import { dailySugarShare, dgeSugarConsensusUrl, swapAlternatives } from "@/lib/sugar-context";
 import { SugarCubesGraphic } from "@/components/sugar-cubes-graphic";
@@ -215,6 +215,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
             {drink.lastCheckedAt ? ` · Zuletzt geprüft: ${formatDate(drink.lastCheckedAt)}` : ""}
           </p>
           <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>
+          <a href={correctionMailto(`Wert prüfen: ${drink.name} ${sizeLabel(drink)}`)}>Wert falsch? Hinweis senden <ArrowRight size={16} /></a>
           <Link href="/de/ueber" className={styles.knowledge}>So prüfen wir die Daten <ArrowRight size={16} /></Link>
         </aside>
       </section>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export type SwapOption = {
   id: string;
@@ -55,7 +56,10 @@ export function SwapCalculator({ drinkName, sugarPer100Ml, sizeMl, options }: {
                   type="button"
                   role="radio"
                   aria-checked={active}
-                  onClick={() => setSelectedId(option.id)}
+                  onClick={() => {
+                    setSelectedId(option.id);
+                    trackEvent("swap_select", { from: drinkName, to: option.name });
+                  }}
                   className="focus-ring grid gap-1 rounded-md text-left"
                 >
                   <span className="text-xs font-semibold uppercase tracking-wide text-slate">{option.brand}</span>
@@ -64,8 +68,8 @@ export function SwapCalculator({ drinkName, sugarPer100Ml, sizeMl, options }: {
                   {saved !== null && <span className="mt-1 text-lg font-bold tabular-nums">{numberFormat.format(saved)} g weniger pro Packung</span>}
                 </button>
                 <span className="flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold">
-                  <Link href={option.href} className="inline-flex items-center gap-1 underline decoration-ash underline-offset-4 hover:decoration-ink">Werte <ArrowRight size={14} /></Link>
-                  <Link href={option.compareHref} className="inline-flex items-center gap-1 underline decoration-ash underline-offset-4 hover:decoration-ink">Vergleichen <ArrowRight size={14} /></Link>
+                  <Link href={option.href} onClick={() => trackEvent("swap_link", { to: option.name, type: "values" })} className="inline-flex items-center gap-1 underline decoration-ash underline-offset-4 hover:decoration-ink">Werte <ArrowRight size={14} /></Link>
+                  <Link href={option.compareHref} onClick={() => trackEvent("swap_link", { to: option.name, type: "compare" })} className="inline-flex items-center gap-1 underline decoration-ash underline-offset-4 hover:decoration-ink">Vergleichen <ArrowRight size={14} /></Link>
                 </span>
               </div>
             </li>
@@ -84,7 +88,10 @@ export function SwapCalculator({ drinkName, sugarPer100Ml, sizeMl, options }: {
             <span className="text-[#b9d4c3]">Wie oft?</span>
             <select
               value={frequencyId}
-              onChange={(event) => setFrequencyId(event.target.value)}
+              onChange={(event) => {
+                setFrequencyId(event.target.value);
+                trackEvent("swap_frequency", { frequency: event.target.value });
+              }}
               className="focus-ring h-10 rounded-full border border-white/20 bg-[#163328] px-3 text-sm text-white"
             >
               {frequencies.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}

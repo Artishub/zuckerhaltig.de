@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DrinkRows } from "@/components/seo-drink-list";
 import { articleBySlug, articles } from "@/lib/content/articles";
-import { drinks, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { calculatePackageSugar, drinks, type Drink } from "@/lib/data/drinks";
 import { averageSugar, drinksByCategory, formatNumber } from "@/lib/seo-drinks";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { pageMetadata, siteUrl } from "@/lib/site";
@@ -166,21 +166,46 @@ function formatArticleDate(value: string) {
   return new Intl.DateTimeFormat("de-DE", { dateStyle: "long" }).format(new Date(`${value}T00:00:00Z`));
 }
 
+const colaTableSizes = [330, 500, 1000];
+
+// Answer first: the comparison table sits at the top so search snippets can use it.
 function ColaAnswer() {
-  const drink = drinks.find((item) => item.id === "coca-cola-classic-500");
-  if (!drink) return null;
-  const totalSugar = totalSugarGrams(drink);
+  const classic = drinks.find((item) => item.id === "coca-cola-classic-500");
+  const rows = colaComparisonIds
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink): drink is Drink => Boolean(drink));
+  if (!classic || !rows.length) return null;
 
   return (
-    <section className="mt-8 rounded-lg border border-ash bg-mist p-5">
+    <section className="mt-8 rounded-lg border border-ash bg-mist p-5" aria-labelledby="cola-answer-title">
       <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
-      <p className="mt-2 text-lg leading-8">
-        {drink.name} liegt in der Datenbank bei <strong>{formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml</strong>.
-        {drink.sizeMl && totalSugar !== null ? ` In ${drink.sizeMl} ml sind das rechnerisch ${formatNumber(totalSugar)} g.` : ""}
-      </p>
-      <Link href={drinkPageHref(drink)} className="mt-3 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
-        Produktdaten und Quelle ansehen
-      </Link>
+      <h2 id="cola-answer-title" className="mt-2 text-lg font-normal leading-8">
+        {classic.name} hat <strong>{formatNumber(classic.sugarPer100Ml)} g Zucker pro 100 ml</strong>. Eine 330-ml-Dose enthält {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 330))} g, eine 500-ml-Flasche {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 500))} g und ein Liter {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 1000))} g.
+      </h2>
+      <div className="mt-5 overflow-x-auto">
+        <table className="w-full border-collapse text-sm tabular-nums">
+          <caption className="sr-only">Zucker in Cola pro 100 ml, 330 ml, 500 ml und 1 Liter</caption>
+          <thead>
+            <tr className="text-left text-xs uppercase tracking-wide text-slate">
+              <th scope="col" className="py-2 pr-3 font-semibold">Cola</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">pro 100 ml</th>
+              {colaTableSizes.map((size) => <th key={size} scope="col" className="px-3 py-2 text-right font-semibold">{size >= 1000 ? "1 l" : `${size} ml`}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((drink) => (
+              <tr key={drink.id} className="border-t border-ash">
+                <th scope="row" className="py-2.5 pr-3 text-left font-medium">
+                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
+                </th>
+                <td className="px-3 py-2.5 text-right font-semibold">{formatNumber(drink.sugarPer100Ml)} g</td>
+                {colaTableSizes.map((size) => <td key={size} className="px-3 py-2.5 text-right">{formatNumber(calculatePackageSugar(drink.sugarPer100Ml, size))} g</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-3 text-xs leading-5 text-slate">Packungswerte rechnerisch aus dem 100-ml-Wert. Quellen stehen am Ende des Artikels.</p>
     </section>
   );
 }
@@ -203,11 +228,8 @@ function ColaComparison() {
 
   return (
     <section className="mt-12 border-t border-ash pt-8">
-      <h2 className="text-3xl font-semibold tracking-tight">Cola Zucker im Vergleich</h2>
-      <p className="mb-5 mt-3 leading-7 text-slate">Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix: Werte pro 100 ml und für die ganze Packung.</p>
-      <DrinkRows drinks={comparisonDrinks} />
-      <section className="mt-8">
-        <h3 className="text-xl font-semibold tracking-tight">Quellen zu den Vergleichswerten</h3>
+      <section>
+        <h2 className="text-xl font-semibold tracking-tight">Quellen zu den Vergleichswerten</h2>
         <ul className="mt-3 space-y-2 text-sm leading-6">
           {comparisonDrinks.map((drink) => (
             <li key={drink.id}>

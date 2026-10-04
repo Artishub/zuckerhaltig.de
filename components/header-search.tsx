@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { canonicalPackageDrinks, drinks, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { trackEvent } from "@/lib/analytics";
 import { drinkPageHref } from "@/lib/page-routing";
 
 const frequentSearches = ["Coca-Cola", "Energy Drink", "Eistee", "Fanta"];
@@ -45,6 +46,7 @@ export function HeaderSearch() {
   const openSearchPage = (value: string) => {
     const q = value.trim();
     if (!q) return;
+    trackEvent("header_search_submit", { query_length: q.length });
     setOpen(false);
     router.push(`/de/getraenke?q=${encodeURIComponent(q)}`);
   };
@@ -131,7 +133,10 @@ export function HeaderSearch() {
                 <button
                   key={drink.id}
                   type="button"
-                  onClick={() => openDrink(drinkPageHref(drink))}
+                  onClick={() => {
+                    trackEvent("header_search_select", { drink: drink.name });
+                    openDrink(drinkPageHref(drink));
+                  }}
                   className="focus-ring grid w-full grid-cols-[1fr_auto] items-center gap-3 rounded-lg px-2.5 py-2.5 text-left hover:bg-paper"
                 >
                   <span className="min-w-0">
