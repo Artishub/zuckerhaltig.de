@@ -84,7 +84,8 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   }
 
   const canonicalId = canonicalPackageDrinkId(drink);
-  if (canonicalId !== drink.id) permanentRedirect(`/de/getraenke/${canonicalId}`);
+  // Duplicate ids jump straight to the final page (recipe page or size anchor), never through a chain.
+  if (canonicalId !== drink.id) permanentRedirect(drinkPageHref(drink));
   const redirectTarget = drinkRedirectTarget(drink);
   if (redirectTarget) permanentRedirect(redirectTarget);
 
