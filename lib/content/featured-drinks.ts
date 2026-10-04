@@ -55,7 +55,6 @@ export const featuredDrinkEditorial: Record<string, FeaturedDrinkEditorial> = {
       { question: "Wie viel Zucker hat eine 500-ml-Flasche Coca-Cola Classic?", answer: "Eine 500-ml-Flasche enthält rechnerisch 53 g Zucker. Die Rechnung basiert auf 10,6 g je 100 ml." },
       { question: "Wie viele Zuckerwürfel sind 53 g?", answer: "53 g entsprechen rund 17,7 Zuckerwürfeln, wenn ein Würfel mit 3 g gerechnet wird." },
       { question: "Ist Coca-Cola Zero Sugar in den 53 g enthalten?", answer: "Nein. Die 53 g beziehen sich ausschließlich auf Coca-Cola Classic. Zero Sugar und Light werden getrennt berechnet." },
-      { question: "Warum rechnen wir mit 100 ml?", answer: "100 ml sind die gemeinsame Bezugsgröße auf der Nährwerttabelle. Damit lassen sich verschiedene Flaschen und Dosen vergleichen, bevor die Packungsgröße einfließt." },
     ],
   },
   "fanta-orange-500": {
@@ -176,7 +175,6 @@ export const featuredDrinkEditorial: Record<string, FeaturedDrinkEditorial> = {
       { question: "Wie viel Zucker hat eine 250-ml-Dose Red Bull?", answer: "Red Bull nennt 27 g Zucker pro Dose. Die Rechnung mit 11 g je 100 ml ergibt 27,5 g; die Differenz entsteht durch Rundung." },
       { question: "Warum zeigt Zuckerhaltig.de 27,5 g?", answer: "Wir rechnen 11 g × 250 ml ÷ 100. Das ergibt 27,5 g und macht die Rechenbasis nachvollziehbar." },
       { question: "Wie viel Koffein enthält Red Bull in 250 ml?", answer: "Red Bull nennt 80 mg Koffein pro 250 ml. Die Angabe steht getrennt vom Zuckerwert und wird nicht aus ihm berechnet." },
-      { question: "Hat eine größere Red-Bull-Dose mehr Zucker?", answer: "Bei gleicher Rezeptur steigt die Gesamtmenge mit der Füllmenge. Deshalb enthält eine 355- oder 473-ml-Dose mehr Zucker als 250 ml." },
     ],
   },
 };

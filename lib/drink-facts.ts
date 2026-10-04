@@ -1,11 +1,12 @@
 import { brandById } from "@/lib/data/brands";
 import { drinks, productFamilyDrinks, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
+import { drinkPageHref } from "@/lib/page-routing";
 import { averageSugarPer100Ml, categoryPeers, lowerSugarAlternative, sugarFreeMaxPer100Ml, sugarRank, whoDailyLimitGrams } from "@/lib/sugar-context";
 
 // Sentences built only from this drink's data. Each fact appears only when its inputs are complete,
 // so no page carries a filler sentence that reads the same everywhere.
 
-export type DrinkFact = { id: string; label: string; text: string };
+export type DrinkFact = { id: string; label: string; text: string; href?: string; linkLabel?: string };
 
 const categoryPlural: Record<string, string> = {
   softdrink: "Softdrinks",
@@ -86,6 +87,8 @@ export function drinkFacts(drink: Drink): DrinkFact[] {
       id: "alternative",
       label: "Weniger Zucker",
       text: `${alternative.name} hat ${format(alternative.sugarPer100Ml)} g pro 100 ml. Bei ${sizeText(drink.sizeMl)} sind das ${format(saved)} g Zucker weniger, rund ${format(saved / 3)} Würfel.`,
+      href: drinkPageHref(alternative),
+      linkLabel: `${alternative.name} ansehen`,
     });
   }
 
@@ -120,6 +123,8 @@ export function drinkFacts(drink: Drink): DrinkFact[] {
       id: "original",
       label: "Gegenüber dem Original",
       text: `${original.name} hat ${format(original.sugarPer100Ml)} g Zucker pro 100 ml. Bei ${sizeText(drink.sizeMl)} spart ${drink.name} damit ${format(originalTotal)} g Zucker, rund ${format(originalTotal / 3)} Würfel.`,
+      href: drinkPageHref(original),
+      linkLabel: `${original.name} ansehen`,
     });
   }
 

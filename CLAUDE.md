@@ -42,7 +42,7 @@ Social scripts (`social:*`) need credentials. Use `social:preview` or `social:ch
 **Drink detail page:** `app/[locale]/getraenke/[drinkId]/page.tsx`.
 - Allowlisted drinks additionally get hand-written editorial content and FAQ from `lib/content/featured-drinks.ts`, plus Product JSON-LD.
 - The seed holds source data only. Derived values (package sugar, cubes, kcal, calculation text) and FAQ are computed at build time; `validate:data` rejects `computed`/`faq` fields in the seed.
-- All pages show an answer sentence, a data-derived context block (category average and rank, lower-sugar alternative, WHO 50 g reference), package sizes and source.
+- All pages show an answer sentence and data-only facts from `lib/drink-facts.ts` (category rank and distance to average, brand rank, lower-sugar alternative or sugared original for zero drinks, size range, WHO 50 g share). A fact only renders when its data is complete. Do not add template sentences or generic FAQs to product pages; link to a Wissen article instead. The internal `note` field is not shown on pages.
 
 **Other routing details:**
 - The homepage `app/[locale]/page.tsx` renders the component from `app/[locale]/test/page.tsx`. The `/de/test` route itself is noindex.
