@@ -40,13 +40,13 @@ export default async function ArticlePage({ params }: Props) {
   const comparison = articleComparison(article.slug);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
+    <main className="mx-auto max-w-3xl px-5 pb-24 pt-12 md:pt-16">
       <p className="text-sm font-medium text-slate">{article.minutes} Minuten Lesezeit</p>
-      <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{article.title}</h1>
+      <h1 className="mt-3 text-[clamp(2.2rem,4.6vw,3.4rem)] font-[750] leading-[1.04] tracking-[-0.04em] [text-wrap:balance]">{article.title}</h1>
       <p className="mt-5 text-lg leading-8 text-slate">{article.description}</p>
       {article.updatedAt && <p className="mt-3 text-sm text-slate">Aktualisiert am {formatArticleDate(article.updatedAt)}</p>}
       {article.image && (
-        <div className="mt-8 overflow-hidden rounded-lg border border-ash bg-mist">
+        <div className="mt-8 overflow-hidden rounded-lg border border-hair bg-mist shadow-card">
           <Image
             src={article.image.src}
             alt={article.image.alt}
@@ -61,8 +61,8 @@ export default async function ArticlePage({ params }: Props) {
       {article.slug === "cola-zucker-pro-100ml" && <ColaAnswer />}
       {article.slug === "cola-zero-light-und-klassisch" && <ZeroLightAnswer />}
       {article.quickAnswer && (
-        <section className="mt-8 rounded-lg border border-ash bg-mist p-5">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
+        <section className="mt-8 rounded-lg border border-hair bg-mist p-6 shadow-card">
+          <p className="text-sm font-semibold text-slate">Kurzantwort</p>
           <p className="mt-2 text-lg leading-8">{article.quickAnswer}</p>
         </section>
       )}
@@ -78,7 +78,7 @@ export default async function ArticlePage({ params }: Props) {
         <div className="mt-10 space-y-10 border-t border-ash pt-8">
           {article.sections.map((section) => (
             <section key={section.heading}>
-              <h2 className="text-2xl font-semibold tracking-tight">{section.heading}</h2>
+              <h2 className="text-[1.6rem] font-[750] leading-tight tracking-[-0.03em]">{section.heading}</h2>
               <div className="mt-4 space-y-5 text-lg leading-8 text-ink">
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
@@ -90,7 +90,7 @@ export default async function ArticlePage({ params }: Props) {
       {articleCategoryLists[article.slug] && <CategoryProductList {...articleCategoryLists[article.slug]} />}
       {!!article.faq?.length && (
         <section className="mt-10 border-t border-ash pt-8">
-          <h2 className="text-2xl font-semibold tracking-tight">Häufige Fragen</h2>
+          <h2 className="text-[1.6rem] font-[750] leading-tight tracking-[-0.03em]">Häufige Fragen</h2>
           <div className="mt-4 divide-y divide-ash border-y border-ash">
             {article.faq.map((item) => (
               <article key={item.question} className="py-5">
@@ -103,11 +103,11 @@ export default async function ArticlePage({ params }: Props) {
       )}
       {!!article.sources?.length && (
         <section className="mt-10 border-t border-ash pt-8">
-          <h2 className="text-2xl font-semibold tracking-tight">Quellen</h2>
+          <h2 className="text-[1.6rem] font-[750] leading-tight tracking-[-0.03em]">Quellen</h2>
           <ul className="mt-4 space-y-2 text-sm leading-6">
             {article.sources.map((source) => (
               <li key={source.url}>
-                <a href={source.url} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+                <a href={source.url} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-ink">
                   {source.label}
                 </a>
               </li>
@@ -116,10 +116,10 @@ export default async function ArticlePage({ params }: Props) {
         </section>
       )}
       <section className="mt-10 border-t border-ash pt-8">
-        <h2 className="text-2xl font-semibold tracking-tight">Passend dazu</h2>
+        <h2 className="text-[1.6rem] font-[750] leading-tight tracking-[-0.03em]">Passend dazu</h2>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           {relatedLinks(article.slug).map((item) => (
-            <Link key={item.href} href={item.href} className="rounded-lg border border-ash bg-mist p-4 hover:border-marigold">
+            <Link key={item.href} href={item.href} className="rounded-lg border border-hair bg-mist p-5 shadow-card transition hover:border-ink">
               <p className="font-semibold">{item.label}</p>
               <p className="mt-2 text-sm leading-6 text-slate">{item.description}</p>
             </Link>
@@ -178,8 +178,8 @@ function ColaAnswer() {
   if (!classic || !rows.length) return null;
 
   return (
-    <section className="mt-8 rounded-lg border border-ash bg-mist p-5" aria-labelledby="cola-answer-title">
-      <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
+    <section className="mt-8 rounded-lg border border-hair bg-mist p-6 shadow-card" aria-labelledby="cola-answer-title">
+      <p className="text-sm font-semibold text-slate">Kurzantwort</p>
       <h2 id="cola-answer-title" className="mt-2 text-lg font-normal leading-8">
         {classic.name} hat <strong>{formatNumber(classic.sugarPer100Ml)} g Zucker pro 100 ml</strong>. Eine 330-ml-Dose enthält {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 330))} g, eine 500-ml-Flasche {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 500))} g und ein Liter {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 1000))} g.
       </h2>
@@ -187,7 +187,7 @@ function ColaAnswer() {
         <table className="w-full border-collapse text-sm tabular-nums">
           <caption className="sr-only">Zucker in Cola pro 100 ml, 330 ml, 500 ml und 1 Liter</caption>
           <thead>
-            <tr className="text-left text-xs uppercase tracking-wide text-slate">
+            <tr className="text-left text-sm text-slate">
               <th scope="col" className="py-2 pr-3 font-semibold">Cola</th>
               <th scope="col" className="px-3 py-2 text-right font-semibold">pro 100 ml</th>
               {colaTableSizes.map((size) => <th key={size} scope="col" className="px-3 py-2 text-right font-semibold">{size >= 1000 ? "1 l" : `${size} ml`}</th>)}
@@ -197,7 +197,7 @@ function ColaAnswer() {
             {rows.map((drink) => (
               <tr key={drink.id} className="border-t border-ash">
                 <th scope="row" className="py-2.5 pr-3 text-left font-medium">
-                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
+                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-ink">{drink.name}</Link>
                 </th>
                 <td className="px-3 py-2.5 text-right font-semibold">{formatNumber(drink.sugarPer100Ml)} g</td>
                 {colaTableSizes.map((size) => <td key={size} className="px-3 py-2.5 text-right">{formatNumber(calculatePackageSugar(drink.sugarPer100Ml, size))} g</td>)}
@@ -224,8 +224,8 @@ function ZeroLightAnswer() {
   if (!classic || !zero || !light) return null;
 
   return (
-    <section className="mt-8 rounded-lg border border-ash bg-mist p-5" aria-labelledby="zero-light-title">
-      <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
+    <section className="mt-8 rounded-lg border border-hair bg-mist p-6 shadow-card" aria-labelledby="zero-light-title">
+      <p className="text-sm font-semibold text-slate">Kurzantwort</p>
       <h2 id="zero-light-title" className="mt-2 text-lg font-normal leading-8">
         Beim Zucker gibt es keinen Unterschied: {zero.name} und {light.name} haben beide <strong>{formatNumber(zero.sugarPer100Ml)} g Zucker pro 100 ml</strong>. {classic.name} hat {formatNumber(classic.sugarPer100Ml)} g, eine 500-ml-Flasche also {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 500))} g. Zero und Light unterscheiden sich in Rezeptur und Geschmack; welche Süßstoffe enthalten sind, steht in der Zutatenliste.
       </h2>
@@ -233,7 +233,7 @@ function ZeroLightAnswer() {
         <table className="w-full border-collapse text-sm tabular-nums">
           <caption className="sr-only">Zucker und Energie von Cola Classic, Zero und Light pro 100 ml und pro 500 ml</caption>
           <thead>
-            <tr className="text-left text-xs uppercase tracking-wide text-slate">
+            <tr className="text-left text-sm text-slate">
               <th scope="col" className="py-2 pr-3 font-semibold">Cola</th>
               <th scope="col" className="px-3 py-2 text-right font-semibold">Zucker / 100 ml</th>
               <th scope="col" className="px-3 py-2 text-right font-semibold">kcal / 100 ml</th>
@@ -244,7 +244,7 @@ function ZeroLightAnswer() {
             {rows.map((drink) => (
               <tr key={drink.id} className="border-t border-ash">
                 <th scope="row" className="py-2.5 pr-3 text-left font-medium">
-                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
+                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-ink">{drink.name}</Link>
                 </th>
                 <td className="px-3 py-2.5 text-right font-semibold">{formatNumber(drink.sugarPer100Ml)} g</td>
                 <td className="px-3 py-2.5 text-right">{drink.nutritionPer100Ml ? formatNumber(drink.nutritionPer100Ml.energyKcal) : "/"}</td>
@@ -282,7 +282,7 @@ function ColaComparison() {
         <ul className="mt-3 space-y-2 text-sm leading-6">
           {comparisonDrinks.map((drink) => (
             <li key={drink.id}>
-              <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+              <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-ink">
                 {drink.name}: {drink.source}
               </a>
             </li>
@@ -296,13 +296,13 @@ function ColaComparison() {
 function ArticleComparison({ title, intro, drinks: comparisonDrinks }: { title: string; intro: string; drinks: Drink[] }) {
   return (
     <section className="mt-12 border-t border-ash pt-8">
-      <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>
+      <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-[750] leading-tight tracking-[-0.03em]">{title}</h2>
       <p className="mb-5 mt-3 leading-7 text-slate">{intro}</p>
       <DrinkRows drinks={comparisonDrinks} />
       <ul className="mt-5 space-y-2 text-sm leading-6">
         {comparisonDrinks.map((drink) => (
           <li key={drink.id}>
-            <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
+            <a href={drink.sourceUrl} target="_blank" rel="noreferrer" className="underline decoration-ash underline-offset-4 hover:decoration-ink">
               Quelle für {drink.name}: {drink.source}
             </a>
           </li>
@@ -440,7 +440,7 @@ function CategoryProductList({ categoryId, title, text }: { categoryId: string; 
   if (!items.length) return null;
   return (
     <section id="produkte" className="mt-12 border-t border-ash pt-8">
-      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+      <h2 className="text-[1.6rem] font-[750] leading-tight tracking-[-0.03em]">{title}</h2>
       <p className="mt-3 leading-7 text-slate">{items.length} Produkte, Durchschnitt {formatNumber(averageSugar(items))} g Zucker pro 100 ml. {text}</p>
       <div className="mt-6">
         <SortableDrinkRows drinks={items} />

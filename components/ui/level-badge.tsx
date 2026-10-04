@@ -1,5 +1,5 @@
 import { sugarLevelLabel, type SugarLevel } from "@/lib/sugar-context";
-import styles from "./redesign.module.css";
+import styles from "./ui.module.css";
 
 const levelClass: Record<SugarLevel, string> = {
   free: styles.levelFree,

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/seo-drink-list";
+import { Section, cardClass, textLinkClass } from "@/components/ui/section";
+import ui from "@/components/ui/ui.module.css";
 import { drinks, packageEnergyKcal, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
 import { drinkPageHref } from "@/lib/page-routing";
 import { brandName, categoryName, formatNumber } from "@/lib/seo-drinks";
@@ -42,42 +44,39 @@ export default function CalorieRankingPage() {
   const averageShare = caloricShares.length ? Math.round(caloricShares.reduce((sum, share) => sum + share, 0) / caloricShares.length) : null;
 
   return (
-    <main>
+    <main className="pb-24">
       <PageHero
-        kicker="Ranking"
-        title="Kalorien in Getränken."
+        title="Kalorien in Getränken"
         text={`${withEnergy.length} Getränke mit Kalorienangabe. ${zeroCount} davon haben höchstens 4 kcal pro 100 ml.${averageShare !== null ? ` Bei den übrigen stammen im Schnitt ${averageShare} % der Kalorien aus Zucker.` : ""}`}
       />
 
-      <section className="mx-auto max-w-page px-4 py-10" aria-labelledby="known-title">
-        <h2 id="known-title" className="text-3xl font-semibold tracking-tight">Bekannte Getränke auf einen Blick</h2>
+      <Section id="known" title="Bekannte Getränke">
         <CalorieTable drinks={highlights} caption="Kalorien bekannter Getränke pro 100 ml und pro Packung" />
-      </section>
+      </Section>
 
-      <section className="mx-auto max-w-page px-4 pb-10" aria-labelledby="ranking-title">
-        <h2 id="ranking-title" className="text-3xl font-semibold tracking-tight">Die {ranked.length} kalorienreichsten Getränke pro 100 ml</h2>
+      <Section id="ranking" title={`Die ${ranked.length} kalorienreichsten Getränke pro 100 ml`}>
         <CalorieTable drinks={ranked} caption="Getränke sortiert nach Kalorien pro 100 ml" numbered />
-        <p className="mt-4 text-sm text-slate">
-          Der Anteil aus Zucker rechnet 4 kcal pro Gramm Zucker. Fehlende Prozent zu 100 stammen aus anderen Kohlenhydraten, Fett oder Eiweiß.{" "}
-          <Link href="/de/rankings/zuckerreichste-getraenke" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">Getränke nach Zucker pro Packung</Link>
+        <p className="mt-4 text-sm leading-6 text-slate">
+          Der Anteil aus Zucker rechnet 4 kcal pro Gramm Zucker. Der Rest stammt aus anderen Kohlenhydraten, Fett oder Eiweiß.{" "}
+          <Link href="/de/rankings/zuckerreichste-getraenke" className={textLinkClass}>Getränke nach Zucker pro Packung</Link>
         </p>
-      </section>
+      </Section>
     </main>
   );
 }
 
 function CalorieTable({ drinks: items, caption, numbered = false }: { drinks: Drink[]; caption: string; numbered?: boolean }) {
   return (
-    <div className="mt-6 overflow-x-auto rounded-lg border border-ash bg-mist">
-      <table className="w-full border-collapse text-sm tabular-nums">
+    <div className={`${cardClass} ${ui.tableWrap}`}>
+      <table className={ui.table}>
         <caption className="sr-only">{caption}</caption>
         <thead>
-          <tr className="text-left text-xs uppercase tracking-wide text-slate">
-            {numbered && <th scope="col" className="px-4 py-3 font-semibold">#</th>}
-            <th scope="col" className="px-4 py-3 font-semibold">Getränk</th>
-            <th scope="col" className="px-4 py-3 text-right font-semibold">kcal / 100 ml</th>
-            <th scope="col" className="px-4 py-3 text-right font-semibold">kcal pro Packung</th>
-            <th scope="col" className="px-4 py-3 text-right font-semibold">davon aus Zucker</th>
+          <tr>
+            {numbered && <th scope="col">#</th>}
+            <th scope="col">Getränk</th>
+            <th scope="col" className={ui.num}>kcal / 100 ml</th>
+            <th scope="col" className={ui.num}>kcal pro Packung</th>
+            <th scope="col" className={ui.num}>davon aus Zucker</th>
           </tr>
         </thead>
         <tbody>
@@ -85,15 +84,17 @@ function CalorieTable({ drinks: items, caption, numbered = false }: { drinks: Dr
             const share = sugarEnergyShare(drink);
             const packageKcal = packageEnergyKcal(drink);
             return (
-              <tr key={drink.id} className="border-t border-ash">
-                {numbered && <td className="px-4 py-3 text-slate">{index + 1}</td>}
-                <th scope="row" className="px-4 py-3 text-left font-semibold">
-                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
-                  <span className="block text-xs font-normal text-slate">{brandName(drink)} · {categoryName(drink)} · {drink.sizeMl} ml</span>
+              <tr key={drink.id}>
+                {numbered && <td className="text-slate">{index + 1}</td>}
+                <th scope="row">
+                  <Link href={drinkPageHref(drink)} className={ui.tableName}>
+                    <strong>{drink.name}</strong>
+                    <small>{brandName(drink)} · {categoryName(drink)} · {drink.sizeMl} ml</small>
+                  </Link>
                 </th>
-                <td className="px-4 py-3 text-right font-semibold">{formatNumber(kcalPer100(drink) ?? 0)}</td>
-                <td className="px-4 py-3 text-right">{packageKcal === null ? "/" : formatNumber(Math.round(packageKcal))}</td>
-                <td className="px-4 py-3 text-right">{share === null ? "/" : `${share} %`}</td>
+                <td className={ui.num}><b>{formatNumber(kcalPer100(drink) ?? 0)}</b></td>
+                <td className={ui.num}>{packageKcal === null ? "/" : formatNumber(Math.round(packageKcal))}</td>
+                <td className={ui.num}>{share === null ? "/" : `${share} %`}</td>
               </tr>
             );
           })}

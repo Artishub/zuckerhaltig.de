@@ -4,8 +4,8 @@ export const metadata = pageMetadata("Impressum", "Impressum von Zuckerhaltig.de
 
 export default function ImpressumPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="text-4xl font-semibold tracking-tight">Impressum</h1>
+    <main className="mx-auto max-w-3xl px-5 pb-24 pt-12 md:pt-16">
+      <h1 className="text-[clamp(2.4rem,5vw,3.8rem)] font-[750] leading-[1.02] tracking-[-0.04em] [text-wrap:balance]">Impressum</h1>
       <section className="mt-6 space-y-6 leading-7 text-slate">
         <div>
           <h2 className="text-lg font-semibold text-ink">Angaben gemäß § 5 DDG</h2>

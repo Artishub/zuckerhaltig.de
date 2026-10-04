@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SortableDrinkRows } from "@/components/sortable-drink-list";
-import { categoryLandingPageById, categoryLandingPages } from "@/lib/category-landing-pages";
+import { CategoryTable } from "@/components/ui/category-table";
+import { LevelBadge } from "@/components/ui/level-badge";
+import ui from "@/components/ui/ui.module.css";
+import { categoryLandingPageById, categoryLandingPages, categoryPageHref } from "@/lib/category-landing-pages";
+import { categoryStats, scaleMax, summarize } from "@/lib/drink-summary";
+import { sugarLevel } from "@/lib/sugar-context";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalPackageDrinkId } from "@/lib/data/drinks";
 import { averageSugar, drinksByCategory, formatNumber } from "@/lib/seo-drinks";
 import { pageMetadata, siteUrl } from "@/lib/site";
 import { drinkPageHref } from "@/lib/page-routing";
@@ -25,7 +28,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = categoryLandingPageById[categoryId];
   if (!category || !page) return {};
 
-  const categoryDrinks = drinksByCategory(categoryId);
   return pageMetadata(
     `${category.name}: ${page.editorial.title}`,
     `${page.intro} ${page.editorial.title} Mit Packungsgrößen, Zuckerwürfeln und Quellen.`,
@@ -40,9 +42,16 @@ export default async function CategoryPage({ params }: PageProps) {
   if (!category || !page) notFound();
 
   const categoryDrinks = drinksByCategory(categoryId);
-  const values = categoryDrinks.map((drink) => drink.sugarPer100Ml);
-  const minSugar = Math.min(...values);
-  const maxSugar = Math.max(...values);
+  const items = categoryDrinks.map(summarize);
+  const average = averageSugar(categoryDrinks);
+  const highest = [...items].sort((a, b) => b.per100 - a.per100)[0];
+  const lowest = [...items].sort((a, b) => a.per100 - b.per100)[0];
+  const counts = {
+    free: items.filter((item) => item.level === "free").length,
+    low: items.filter((item) => item.level === "low").length,
+    sugared: items.filter((item) => item.level === "sugared").length,
+  };
+  const otherCategories = categoryStats().filter((item) => item.id !== categoryId && categoryPageHref(item.id));
   const itemList = categoryDrinks.map((drink, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -51,45 +60,61 @@ export default async function CategoryPage({ params }: PageProps) {
   }));
 
   return (
-    <main>
-      <section className="border-b border-ash bg-mist">
-        <div className="mx-auto max-w-page px-4 py-12 md:py-16">
-          <nav aria-label="Brotkrumen" className="flex flex-wrap items-center gap-2 text-sm text-slate">
-            <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
-            <Link href="/de/kategorien">Kategorien</Link><span aria-hidden="true">/</span>
-            <span aria-current="page">{category.name}</span>
-          </nav>
-          <h1 className="mt-7 max-w-4xl text-4xl font-semibold leading-tight tracking-[-0.04em] md:text-6xl">
-            {category.name}: Zucker pro 100 ml vergleichen
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate">{page.intro}</p>
-          <p className="mt-5 max-w-2xl leading-7">
-            Der niedrigste hinterlegte Wert liegt bei <strong>{formatNumber(minSugar)} g</strong>, der höchste bei <strong>{formatNumber(maxSugar)} g Zucker pro 100 ml</strong>. Der Durchschnitt beträgt {formatNumber(averageSugar(categoryDrinks))} g.
-          </p>
-        </div>
-      </section>
+    <main className={ui.page}>
+      <nav aria-label="Brotkrumen" className={ui.crumbs}>
+        <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
+        <Link href="/de/kategorien">Kategorien</Link><span aria-hidden="true">/</span>
+        <span aria-current="page">{category.name}</span>
+      </nav>
 
-      <section className="mx-auto max-w-page px-4 py-10 md:py-14">
-        <div className="mb-7 max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight">{categoryDrinks.length} Produkte im Vergleich</h2>
-          <p className="mt-3 leading-7 text-slate">Sortiere nach Zucker pro 100 ml, Packungszucker, Marke oder Produktname. Die Detailseiten zeigen Nährwerte und Quellen.</p>
+      <section className={ui.categoryHero}>
+        <div>
+          <h1>{category.name}: Zucker pro 100 ml vergleichen</h1>
+          <p className={ui.lead}>{page.intro}</p>
         </div>
-        <SortableDrinkRows drinks={categoryDrinks} />
-      </section>
-
-      <section className="border-y border-ash bg-paper">
-        <div className="mx-auto max-w-page px-4 py-12 md:py-16">
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Einordnung</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{page.editorial.title}</h2>
+        <dl className={ui.statGrid}>
+          <div className={ui.statCard}><dt>Durchschnitt</dt><dd>{formatNumber(average)}<small>g / 100 ml</small></dd><LevelBadge level={sugarLevel(average)} /></div>
+          {highest && <div className={ui.statCard}><dt>Am meisten</dt><dd>{formatNumber(highest.per100)}<small>g / 100 ml</small></dd><Link href={highest.href}>{highest.name}</Link></div>}
+          {lowest && <div className={ui.statCard}><dt>Am wenigsten</dt><dd>{formatNumber(lowest.per100)}<small>g / 100 ml</small></dd><Link href={lowest.href}>{lowest.name}</Link></div>}
+          <div className={ui.statCard}>
+            <dt>Verteilung</dt>
+            <dd className={ui.statSplit}>
+              <span><b>{counts.free}</b> zuckerfrei</span>
+              <span><b>{counts.low}</b> zuckerarm</span>
+              <span><b>{counts.sugared}</b> mit Zucker</span>
+            </dd>
           </div>
-          <div className="mt-9 grid gap-8 md:grid-cols-3">
-            {page.editorial.paragraphs.map((paragraph) => (
-              <p key={paragraph} className="border-t border-ash pt-4 leading-7 text-slate">{paragraph}</p>
+        </dl>
+      </section>
+
+      <section className={ui.section} aria-labelledby="list-title">
+        <div className={ui.sectionHead}><h2 id="list-title">{items.length} Produkte im Vergleich</h2></div>
+        <p className={ui.sectionLead}>Spaltenköpfe antippen, um zu sortieren. Der Balken zeigt Zucker pro 100 ml im Verhältnis zum zuckerreichsten Getränk der Datenbank.</p>
+        <CategoryTable items={items} max={scaleMax()} />
+      </section>
+
+      <section className={ui.section} aria-labelledby="editorial-title">
+        <div className={ui.sectionHead}><h2 id="editorial-title">{page.editorial.title}</h2></div>
+        <div className={ui.prose}>
+          {page.editorial.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </div>
+      </section>
+
+      {otherCategories.length > 0 && (
+        <nav className={ui.section} aria-labelledby="other-title">
+          <div className={ui.sectionHead}><h2 id="other-title">Andere Kategorien</h2></div>
+          <ul className={ui.chipList}>
+            {otherCategories.map((item) => (
+              <li key={item.id}>
+                <Link href={categoryPageHref(item.id)!}>
+                  {item.name}
+                  <span>{item.average === null ? "" : `Ø ${formatNumber(item.average)} g`}</span>
+                </Link>
+              </li>
             ))}
-          </div>
-        </div>
-      </section>
+          </ul>
+        </nav>
+      )}
 
       <script
         type="application/ld+json"

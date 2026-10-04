@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Calculator } from "lucide-react";
-import { BrandProductGrid } from "@/components/brand-product-grid";
+import { ArrowRight } from "lucide-react";
+import { SortableDrinkRows } from "@/components/sortable-drink-list";
+import { HeadToHead } from "@/components/ui/head-to-head";
+import ui from "@/components/ui/ui.module.css";
 import { brandById } from "@/lib/data/brands";
 import { canonicalPackageDrinkId, drinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
 import { featuredBrandPageById, featuredBrandPages, type FeaturedBrandPage } from "@/lib/featured-brand-pages";
@@ -30,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     ...pageMetadata(
       `${brand.name}: Zucker und Produkte vergleichen`,
-      `${page.intro} Werte pro 100 ml, pro Packung und als Zuckerwürfel. ${page.editorial?.intro ?? page.comparison?.intro ?? "Mit Produktseiten, Packungsgrößen und Quellen."}`,
+      `${page.intro} Werte pro 100 ml, pro Packung und als Zuckerwürfel. ${page.metaDescription ?? "Mit Produktseiten, Packungsgrößen und Quellen."}`,
       `/de/marken/${brandId}`,
     ),
     ...(!isSearchIndexableBrand(brandId) && {
@@ -66,93 +68,53 @@ export default async function BrandPage({ params }: PageProps) {
   }));
 
   return (
-    <main>
-      <section className="border-b border-ash bg-mist">
-        <div className="mx-auto grid max-w-page gap-10 px-4 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-16">
-          <div>
-            <nav aria-label="Brotkrumen" className="flex flex-wrap items-center gap-2 text-sm text-slate">
-              <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
-              <Link href="/de/marken">Marken</Link><span aria-hidden="true">/</span>
-              <span aria-current="page">{brand.name}</span>
-            </nav>
-            <Link href="/de/marken" className="focus-ring mt-5 inline-flex items-center gap-2 rounded-md text-sm font-medium text-slate hover:text-ink">
-              <ArrowLeft size={16} aria-hidden="true" /> Alle Marken
-            </Link>
-            <h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[.94] tracking-[-0.06em] md:text-6xl">
-              {brand.name}: Zucker vergleichen
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-slate">{page.intro}</p>
-            <p className="mt-4 max-w-xl leading-7">Die hinterlegten Produkte liegen zwischen <strong>{formatNumber(minSugar)} und {formatNumber(maxSugar)} g Zucker pro 100 ml</strong>.</p>
-          </div>
-          <dl className="grid grid-cols-2 overflow-hidden rounded-lg border border-ash bg-paper">
-            <BrandStat label="Produkte" value={String(products.length)} />
-            <BrandStat label="Packungsgrößen" value={String(packageSizes.size)} />
-            <BrandStat label="Niedrigster Wert" value={`${formatNumber(minSugar)} g`} />
-            <BrandStat label="Höchster Wert" value={`${formatNumber(maxSugar)} g`} />
-          </dl>
+    <main className={ui.page}>
+      <nav aria-label="Brotkrumen" className={ui.crumbs}>
+        <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
+        <Link href="/de/marken">Marken</Link><span aria-hidden="true">/</span>
+        <span aria-current="page">{brand.name}</span>
+      </nav>
+
+      <section className={ui.categoryHero}>
+        <div>
+          <h1>{brand.name}: Zucker vergleichen</h1>
+          <p className={ui.lead}>{page.intro}</p>
         </div>
+        <dl className={ui.statGrid}>
+          <div className={ui.statCard}><dt>Produkte</dt><dd>{products.length}</dd></div>
+          <div className={ui.statCard}><dt>Packungsgrößen</dt><dd>{packageSizes.size}</dd></div>
+          <div className={ui.statCard}><dt>Niedrigster Wert</dt><dd>{formatNumber(minSugar)}<small>g / 100 ml</small></dd></div>
+          <div className={ui.statCard}><dt>Höchster Wert</dt><dd>{formatNumber(maxSugar)}<small>g / 100 ml</small></dd></div>
+        </dl>
       </section>
 
-      <div className="mx-auto max-w-page px-4 py-12 md:py-16">
-        {!!productsWithSugar.length && (
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight">Produkte mit mehr als 0,5 g Zucker</h2>
-            <p className="mb-6 mt-3 max-w-2xl leading-7 text-slate">Verglichen werden Zucker pro 100 ml und der rechnerische Wert für die hinterlegte Packung.</p>
-            <BrandProductGrid drinks={productsWithSugar} />
-          </section>
-        )}
+      {!!productsWithSugar.length && (
+        <section className={ui.section} aria-labelledby="sugared-title">
+          <div className={ui.sectionHead}><h2 id="sugared-title">{brand.name} mit Zucker</h2></div>
+          <SortableDrinkRows drinks={productsWithSugar} />
+        </section>
+      )}
 
-        {!!lowSugarProducts.length && (
-          <section className="mt-14">
-            <h2 className="text-3xl font-semibold tracking-tight">Produkte bis 0,5 g Zucker pro 100 ml</h2>
-            <p className="mb-6 mt-3 max-w-2xl leading-7 text-slate">Die genaue Variante steht im Produktnamen. Packungsgrößen und Quellen findest du auf der jeweiligen Detailseite.</p>
-            <BrandProductGrid drinks={lowSugarProducts} />
-          </section>
-        )}
-      </div>
+      {!!lowSugarProducts.length && (
+        <section className={ui.section} aria-labelledby="free-title">
+          <div className={ui.sectionHead}><h2 id="free-title">Bis 0,5 g Zucker pro 100 ml</h2></div>
+          <SortableDrinkRows drinks={lowSugarProducts} defaultSort="name" />
+        </section>
+      )}
 
       {flavorLines.filter((line) => line.brandId === brandId).map((line) => (
         <FlavorLineTable key={line.id} line={line} />
       ))}
 
-      {page.editorial && (
-        <section className="border-y border-ash bg-paper">
-          <div className="mx-auto max-w-page px-4 py-12 md:py-16">
-            <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Einordnung</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{page.editorial.title}</h2>
-              <p className="mt-4 leading-7 text-slate">{page.editorial.intro}</p>
-            </div>
-            <div className="mt-9 grid gap-8 md:grid-cols-2">
-              {page.editorial.points.map((point) => (
-                <article key={point.title} className="border-t border-ash pt-4">
-                  <h3 className="text-lg font-semibold tracking-tight">{point.title}</h3>
-                  <p className="mt-2 max-w-xl leading-7 text-slate">{point.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {page.comparison && <BrandComparison comparison={page.comparison} />}
 
-      <section className="border-y border-ash bg-mist">
-        <div className="mx-auto grid max-w-page gap-6 px-4 py-10 md:grid-cols-[1fr_auto] md:items-center">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight">Packungszucker selbst berechnen</h2>
-            <p className="mt-3 max-w-2xl leading-7 text-slate">Trage Zucker pro 100 ml und die Füllmenge ein. Der Rechner liefert Gesamtzucker und Zuckerwürfel.</p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/de/zuckerrechner" className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-3 text-sm font-semibold text-paper hover:opacity-85 active:translate-y-px">
-              <Calculator size={17} aria-hidden="true" /> Zuckerrechner
-            </Link>
-            <Link href={page.knowledgeHref} className="focus-ring inline-flex items-center gap-2 rounded-md border border-ink px-4 py-3 text-sm font-semibold hover:bg-paper active:translate-y-px">
-              {page.knowledgeLabel} <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <nav aria-label="Weiterlesen" className={ui.section}>
+        <ul className={ui.chipList}>
+          <li><Link href={page.knowledgeHref}>{page.knowledgeLabel} <ArrowRight size={14} aria-hidden="true" /></Link></li>
+          <li><Link href="/de/zuckerrechner">Zuckerrechner <ArrowRight size={14} aria-hidden="true" /></Link></li>
+          <li><Link href="/de/marken">Alle Marken <ArrowRight size={14} aria-hidden="true" /></Link></li>
+        </ul>
+      </nav>
 
       <script
         type="application/ld+json"
@@ -194,49 +156,10 @@ function BrandComparison({ comparison }: { comparison: NonNullable<FeaturedBrand
   if (!products.length) return null;
 
   return (
-    <section className="border-y border-ash bg-paper">
-      <div className="mx-auto max-w-page px-4 py-12 md:py-16">
-        <div className="max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Ausgewählte Reihe</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{comparison.title}</h2>
-          <p className="mt-4 leading-7 text-slate">{comparison.intro}</p>
-        </div>
-        <ul className="mt-9 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-          {products.map((drink) => {
-            const totalSugar = totalSugarGrams(drink);
-            const cubes = sugarCubes(drink);
-            return (
-              <li key={drink.id}>
-                <Link href={drinkPageHref(drink)} className="focus-ring group grid h-full gap-5 rounded-lg border border-ash bg-mist p-5 transition hover:border-marigold active:translate-y-px">
-                  <div className="grid grid-cols-[1fr_auto] gap-3">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate">{drink.sizeMl ? `${drink.sizeMl} ml` : "Packung offen"}</p>
-                      <h3 className="mt-2 font-semibold leading-tight tracking-tight">{drink.name}</h3>
-                    </div>
-                    <ArrowRight size={17} className="mt-0.5 text-slate transition group-hover:translate-x-0.5 group-hover:text-ink" aria-hidden="true" />
-                  </div>
-                  <dl className="grid grid-cols-2 gap-3 text-sm tabular-nums">
-                    <div><dt className="text-slate">Pro 100 ml</dt><dd className="mt-1 font-semibold">{formatNumber(drink.sugarPer100Ml)} g</dd></div>
-                    <div><dt className="text-slate">Pro Packung</dt><dd className="mt-1 font-semibold">{totalSugar === null ? "/" : `${formatNumber(totalSugar)} g`}</dd></div>
-                  </dl>
-                  <p className="border-t border-ash pt-3 text-xs leading-5 text-slate">{cubes === null ? "Keine Packungsrechnung hinterlegt." : `${formatNumber(cubes)} Zuckerwürfel · ${drink.source}`}</p>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        {comparison.note && <p className="mt-5 text-sm leading-6 text-slate">{comparison.note}</p>}
-      </div>
+    <section className={ui.section} aria-labelledby="comparison-title">
+      <div className={ui.sectionHead}><h2 id="comparison-title">{comparison.title}</h2></div>
+      <HeadToHead drinks={products} />
     </section>
-  );
-}
-
-function BrandStat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="min-h-28 border-b border-r border-ash p-4 even:border-r-0 [&:nth-last-child(-n+2)]:border-b-0">
-      <dt className="text-sm text-slate">{label}</dt>
-      <dd className="mt-2 text-3xl font-semibold tracking-tight tabular-nums">{value}</dd>
-    </div>
   );
 }
 
@@ -247,44 +170,39 @@ function FlavorLineTable({ line }: { line: FlavorLine }) {
   const sameValue = values.size === 1 ? items[0].sugarPer100Ml : null;
 
   return (
-    <section className="border-t border-ash bg-mist" aria-labelledby={`${line.id}-title`}>
-      <div className="mx-auto max-w-page px-4 py-12 md:py-16">
-        <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Sorten</p>
-        <h2 id={`${line.id}-title`} className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{line.label}: {items.length} Sorten im Vergleich</h2>
-        <p className="mt-4 max-w-2xl leading-7 text-slate">
-          {sameValue !== null
-            ? `Alle Sorten haben laut Quelle ${formatNumber(sameValue)} g Zucker pro 100 ml. Der Unterschied liegt nur im Geschmack und in der Packungsgröße.`
-            : "Die Sorten unterscheiden sich im Zuckerwert pro 100 ml."}
-        </p>
-        <div className="mt-8 overflow-x-auto rounded-lg border border-ash bg-paper">
-          <table className="w-full border-collapse text-sm tabular-nums">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-slate">
-                <th scope="col" className="px-4 py-3 font-semibold">Sorte</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">Packung</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">pro 100 ml</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">pro Packung</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">Würfel</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((drink) => {
-                const hasOwnPage = drinkRedirectTarget(drink) === null;
-                return (
-                  <tr key={drink.id} id={drink.id} className="scroll-mt-24 border-t border-ash target:bg-cream">
-                    <th scope="row" className="px-4 py-3 text-left font-semibold">
-                      {hasOwnPage ? <Link href={drinkPath(drink.id)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link> : drink.name}
-                    </th>
-                    <td className="px-4 py-3 text-right">{drink.sizeMl ? `${drink.sizeMl} ml` : "/"}</td>
-                    <td className="px-4 py-3 text-right">{formatNumber(drink.sugarPer100Ml)} g</td>
-                    <td className="px-4 py-3 text-right">{totalSugarGrams(drink) === null ? "/" : `${formatNumber(totalSugarGrams(drink) ?? 0)} g`}</td>
-                    <td className="px-4 py-3 text-right">{sugarCubes(drink) === null ? "/" : formatNumber(sugarCubes(drink) ?? 0)}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+    <section className={ui.section} aria-labelledby={`${line.id}-title`}>
+      <div className={ui.sectionHead}><h2 id={`${line.id}-title`}>{line.label}: {items.length} Sorten im Vergleich</h2></div>
+      <p className={ui.sectionLead}>
+        {sameValue !== null
+          ? `Alle Sorten haben laut Quelle ${formatNumber(sameValue)} g Zucker pro 100 ml. Sie unterscheiden sich nur im Geschmack und in der Packungsgröße.`
+          : "Die Sorten unterscheiden sich im Zuckerwert pro 100 ml."}
+      </p>
+      <div className={`${ui.card} ${ui.tableWrap}`}>
+        <table className={ui.table}>
+          <thead>
+            <tr>
+              <th scope="col">Sorte</th>
+              <th scope="col" className={ui.num}>Packung</th>
+              <th scope="col" className={ui.num}>pro 100 ml</th>
+              <th scope="col" className={ui.num}>pro Packung</th>
+              <th scope="col" className={ui.num}>Würfel</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((drink) => {
+              const hasOwnPage = drinkRedirectTarget(drink) === null;
+              return (
+                <tr key={drink.id} id={drink.id} className={ui.anchorRow}>
+                  <th scope="row">{hasOwnPage ? <Link href={drinkPath(drink.id)} className={ui.tableLink}>{drink.name}</Link> : drink.name}</th>
+                  <td className={ui.num}>{drink.sizeMl ? `${drink.sizeMl} ml` : "/"}</td>
+                  <td className={ui.num}>{formatNumber(drink.sugarPer100Ml)} g</td>
+                  <td className={ui.num}>{totalSugarGrams(drink) === null ? "/" : `${formatNumber(totalSugarGrams(drink) ?? 0)} g`}</td>
+                  <td className={ui.num}>{sugarCubes(drink) === null ? "/" : formatNumber(sugarCubes(drink) ?? 0)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </section>
   );

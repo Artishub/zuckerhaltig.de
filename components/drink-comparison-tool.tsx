@@ -61,11 +61,10 @@ export function DrinkComparisonTool() {
 
   return (
     <div>
-      <section className="border border-ash bg-mist p-4 md:p-6" aria-labelledby="selection-title">
+      <section className="rounded-lg border border-hair bg-mist p-5 shadow-card md:p-6" aria-labelledby="selection-title">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate">Auswahl</p>
-            <h2 id="selection-title" className="mt-2 text-2xl font-medium tracking-[-0.02em]">Bis zu vier Getränke</h2>
+            <h2 id="selection-title" className="text-xl font-bold tracking-[-0.02em]">Bis zu vier Getränke</h2>
           </div>
           <div className="flex flex-wrap gap-2 self-start sm:self-auto">
           {selectedDrinks.length >= 2 && <ShareButton />}
@@ -73,7 +72,7 @@ export function DrinkComparisonTool() {
             <button
               type="button"
               onClick={() => setSelectedIds(["", "", "", ""])}
-              className="focus-ring inline-flex h-9 items-center gap-2 rounded-md border border-ash px-3 text-sm hover:border-marigold"
+              className="focus-ring inline-flex h-9 items-center gap-2 rounded-full border border-hair px-3.5 text-sm font-semibold hover:border-ink"
             >
               <X size={14} strokeWidth={1.75} aria-hidden="true" />
               Auswahl löschen
@@ -85,7 +84,7 @@ export function DrinkComparisonTool() {
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {selectedIds.map((selectedId, index) => (
             <div key={index} className="block min-w-0">
-              <p className="text-xs font-medium uppercase tracking-wide text-slate">Getränk {index + 1}</p>
+              <p className="text-sm text-slate">Getränk {index + 1}</p>
               <div className="mt-2 flex gap-2">
                 <DrinkCombobox
                   value={selectedId}
@@ -96,7 +95,7 @@ export function DrinkComparisonTool() {
                   <button
                     type="button"
                     onClick={() => setSlot(index, "")}
-                    className="focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-ash bg-paper hover:border-marigold"
+                    className="focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-ash bg-paper hover:border-ink"
                     aria-label={`Getränk ${index + 1} entfernen`}
                   >
                     <X size={15} strokeWidth={1.75} aria-hidden="true" />
@@ -110,15 +109,14 @@ export function DrinkComparisonTool() {
 
       {selectedDrinks.length ? (
         <section className="mt-8" aria-labelledby="comparison-title">
-          <div className="flex items-end justify-between gap-4 border-b border-ash pb-4">
+          <div className="mb-5 flex items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate">Direkter Vergleich</p>
-              <h2 id="comparison-title" className="mt-2 text-3xl font-medium tracking-[-0.025em]">Werte nebeneinander</h2>
+              <h2 id="comparison-title" className="text-[clamp(1.6rem,3vw,2.2rem)] font-[750] tracking-[-0.03em]">Werte nebeneinander</h2>
             </div>
             <p className="hidden text-sm text-slate sm:block">{selectedDrinks.length}/4 ausgewählt</p>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden overflow-hidden rounded-lg border border-hair bg-mist shadow-card md:block">
             <div className="grid grid-cols-[220px_minmax(0,1fr)] border-b border-ash">
               <div className="border-r border-ash p-4" />
               <div className="grid" style={{ gridTemplateColumns: `repeat(${selectedDrinks.length}, minmax(0, 1fr))` }}>
@@ -143,7 +141,7 @@ export function DrinkComparisonTool() {
 
           <div className="mt-4 space-y-4 md:hidden">
             {selectedDrinks.map((drink) => (
-              <article key={drink.id} className="border border-ash bg-mist p-4">
+              <article key={drink.id} className="rounded-lg border border-hair bg-mist p-5 shadow-card">
                 <DrinkHeading drink={drink} compact />
                 <dl className="mt-4">
                   {metrics.map((metric) => (
@@ -160,7 +158,7 @@ export function DrinkComparisonTool() {
           <p className="mt-5 max-w-3xl text-sm leading-6 text-slate">Packungswerte werden aus dem hinterlegten 100-ml-Wert und der Füllmenge berechnet. Ein Zuckerwürfel entspricht 3 g.</p>
         </section>
       ) : (
-        <section className="mt-8 border-y border-ash py-12 text-center">
+        <section className="mt-8 rounded-lg border border-dashed border-smoke py-12 text-center">
           <p className="text-lg font-medium">Noch kein Getränk ausgewählt.</p>
           <p className="mt-2 text-sm text-slate">Nutze eines der Suchfelder oben.</p>
         </section>
@@ -175,10 +173,10 @@ function DrinkHeading({ drink, compact = false }: { drink: Drink; compact?: bool
 
   return (
     <div className={compact ? "" : "border-r border-ash bg-mist p-4 last:border-r-0"}>
-      <p className="text-xs font-medium uppercase tracking-wide text-slate">{category}</p>
+      <p className="text-sm text-slate">{category}</p>
       <h3 className="mt-2 text-lg font-medium leading-tight">{drink.name}</h3>
       <p className="mt-1 text-sm text-slate">{brand} · {sizeLabel(drink)}</p>
-      <Link href={drinkPageHref(drink)} className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
+      <Link href={drinkPageHref(drink)} className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-ink">
         Details
         <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" />
       </Link>
@@ -213,7 +211,7 @@ function DrinkCombobox({ value, disabledIds, onChange }: { value: string; disabl
       <button
         type="button"
         onClick={() => setOpen((current) => !current)}
-        className="focus-ring flex h-11 w-full items-center justify-between gap-2 rounded-md border border-ash bg-paper px-3 text-left text-sm hover:border-marigold"
+        className="focus-ring flex h-11 w-full items-center justify-between gap-2 rounded-md border border-ash bg-paper px-3 text-left text-sm hover:border-ink"
         aria-haspopup="listbox"
         aria-expanded={open}
       >

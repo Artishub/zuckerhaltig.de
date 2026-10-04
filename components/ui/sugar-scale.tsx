@@ -1,5 +1,5 @@
-import { formatNumber } from "./data";
-import styles from "./redesign.module.css";
+import { formatNumber } from "@/lib/drink-summary";
+import styles from "./ui.module.css";
 
 // Single-drink scale: where does this drink sit between 0 g and the highest value in the database?
 export function SugarScale({ value, average, categoryName, max, freeMax, lowMax }: {

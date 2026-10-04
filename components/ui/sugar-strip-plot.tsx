@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
-import type { DrinkSummary } from "./data";
-import styles from "./redesign.module.css";
+import type { DrinkSummary } from "@/lib/drink-summary";
+import styles from "./ui.module.css";
 
 export type StripRow = {
   id: string;

@@ -35,9 +35,9 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
   );
 
   return (
-    <section className="mt-8">
-      <div className="grid gap-3 rounded-lg border border-ash bg-mist p-3 md:grid-cols-[1fr_260px_auto]">
-        <label className="flex h-11 min-w-0 items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-marigold">
+    <section>
+      <div className="grid gap-3 rounded-lg border border-hair bg-mist p-3 shadow-card md:grid-cols-[1fr_260px_auto]">
+        <label className="flex h-11 min-w-0 items-center gap-2 rounded-md border border-ash bg-paper px-3 transition focus-within:border-ink">
           <Search size={16} />
           <input
             value={query}
@@ -66,7 +66,7 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
         </p>
       </div>
 
-      <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         {filteredBrands.map((brand) => {
           const count = counts[brand.id] ?? 0;
           const products = topDrinks[brand.id] ?? [];
@@ -76,22 +76,21 @@ export function BrandSearchGrid({ brands, counts, topDrinks, searchData, categor
           const actionHref = hasDetailPage ? `/de/marken/${brand.id}` : `/de/getraenke?brand=${brand.id}`;
 
           return (
-          <article key={brand.id} className="flex min-h-[236px] flex-col rounded-lg border border-ash bg-mist p-4">
+          <article key={brand.id} className="flex min-h-[236px] flex-col rounded-lg border border-hair bg-mist p-5 shadow-card">
             <div>
-              <h2 className="font-semibold">{brand.name}</h2>
+              <h2 className="text-lg font-bold tracking-[-0.01em]">{brand.name}</h2>
               <p className="mt-1 text-sm text-slate">{brand.note}</p>
             </div>
             {!!products.length && (
               <div className="mt-4 flex flex-1 flex-col border-t border-ash pt-3">
-                <p className="text-xs font-medium uppercase tracking-wide text-slate">Produkte</p>
-                <div className="mb-5 mt-2 flex flex-col items-start gap-2">
+                <div className="mb-5 flex flex-col items-start gap-1.5">
                 {products.map((drink) => (
-                  <Link key={drink.id} href={drink.href} className="focus-ring max-w-full truncate rounded-md bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-cream">
+                  <Link key={drink.id} href={drink.href} className="focus-ring max-w-full truncate rounded-md text-sm leading-6 underline decoration-smoke underline-offset-4 hover:decoration-ink">
                     {drink.name}
                   </Link>
                 ))}
                 </div>
-                <Link href={actionHref} className="focus-ring mt-auto inline-flex w-fit rounded-md border border-ink bg-paper px-2.5 py-1.5 text-sm leading-5 hover:bg-ink hover:text-white dark:hover:text-black">
+                <Link href={actionHref} className="focus-ring mt-auto inline-flex w-fit rounded-full border border-hair px-3.5 py-1.5 text-sm font-semibold leading-5 transition hover:border-ink">
                   {actionLabel}
                 </Link>
               </div>

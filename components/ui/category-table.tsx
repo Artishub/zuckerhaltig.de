@@ -3,17 +3,20 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
-import type { DrinkSummary } from "./data";
+import type { DrinkSummary } from "@/lib/drink-summary";
 import { LevelBadge } from "./level-badge";
-import styles from "./redesign.module.css";
+import styles from "./ui.module.css";
 
-type SortKey = "per100" | "total" | "name";
+export type SortKey = "per100" | "total" | "name";
 
 const numberFormat = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 });
 
-export function CategoryTable({ items, max }: { items: DrinkSummary[]; max: number }) {
-  const [sort, setSort] = useState<SortKey>("per100");
-  const [descending, setDescending] = useState(true);
+// Sortable drink table used on category, ranking and comparison pages. `compact` drops bar and level columns for narrow layouts.
+export function CategoryTable({ items, max, defaultSort = "per100", ascending, compact = false }: { items: DrinkSummary[]; max: number; defaultSort?: SortKey; ascending?: boolean; compact?: boolean }) {
+  const [sort, setSort] = useState<SortKey>(defaultSort);
+  // The level column only helps when the list mixes sugared and sugar-free drinks.
+  const showLevel = !compact && new Set(items.map((item) => item.level)).size > 1;
+  const [descending, setDescending] = useState(ascending === undefined ? defaultSort !== "name" : !ascending);
 
   const sorted = useMemo(() => {
     const direction = descending ? -1 : 1;
@@ -52,9 +55,9 @@ export function CategoryTable({ items, max }: { items: DrinkSummary[]; max: numb
           <tr>
             {header("name", "Getränk")}
             {header("per100", "pro 100 ml", true)}
-            <th scope="col" className={styles.barCol}><span className="sr-only">Balken</span></th>
+            {!compact && <th scope="col" className={styles.barCol}><span className="sr-only">Balken</span></th>}
             {header("total", "pro Packung", true)}
-            <th scope="col">Einordnung</th>
+            {showLevel && <th scope="col">Einordnung</th>}
           </tr>
         </thead>
         <tbody>
@@ -67,11 +70,13 @@ export function CategoryTable({ items, max }: { items: DrinkSummary[]; max: numb
                 </Link>
               </th>
               <td className={styles.num}>{numberFormat.format(item.per100)} g</td>
-              <td className={styles.barCol} aria-hidden="true">
-                <span className={styles.inlineBar}><i style={{ width: `${(item.per100 / max) * 100}%` }} /></span>
-              </td>
+              {!compact && (
+                <td className={styles.barCol} aria-hidden="true">
+                  <span className={styles.inlineBar}><i style={{ width: `${(item.per100 / max) * 100}%` }} /></span>
+                </td>
+              )}
               <td className={styles.num}>{item.total === null ? "/" : `${numberFormat.format(item.total)} g`}</td>
-              <td><LevelBadge level={item.level} /></td>
+              {showLevel && <td><LevelBadge level={item.level} /></td>}
             </tr>
           ))}
         </tbody>

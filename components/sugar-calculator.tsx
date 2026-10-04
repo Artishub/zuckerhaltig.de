@@ -80,13 +80,13 @@ export function SugarCalculator() {
 
   return (
     <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-      <form className="rounded-lg border border-ash bg-mist p-5 md:p-7" onSubmit={(event) => event.preventDefault()}>
-        <h2 className="text-2xl font-semibold tracking-tight">Werte eingeben</h2>
+      <form className="rounded-lg border border-hair bg-mist p-6 shadow-card md:p-7" onSubmit={(event) => event.preventDefault()}>
+        <h2 className="text-[1.6rem] font-[750] leading-tight tracking-[-0.03em]">Werte eingeben</h2>
         <div className="mt-6 grid gap-5">
           <label className="grid gap-2" htmlFor="sugar-per-100">
             <span className="font-medium">Zucker pro 100 ml</span>
             <span className="text-sm leading-6 text-slate">Den Wert findest du in der Nährwerttabelle.</span>
-            <div className="flex items-center rounded-md border border-ash bg-paper px-3 focus-within:border-marigold">
+            <div className="flex items-center rounded-md border border-ash bg-paper px-3 focus-within:border-ink">
               <input
                 id="sugar-per-100"
                 value={sugarInput}
@@ -107,7 +107,7 @@ export function SugarCalculator() {
           <label className="grid gap-2" htmlFor="package-size">
             <span className="font-medium">Füllmenge</span>
             <span className="text-sm leading-6 text-slate">Dose, Flasche oder Karton in Millilitern.</span>
-            <div className="flex items-center rounded-md border border-ash bg-paper px-3 focus-within:border-marigold">
+            <div className="flex items-center rounded-md border border-ash bg-paper px-3 focus-within:border-ink">
               <input
                 id="package-size"
                 value={sizeInput}
@@ -145,7 +145,7 @@ export function SugarCalculator() {
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               <div className="rounded-lg bg-cream p-4">
                 <p className="text-sm text-slate">Zuckerwürfel</p>
-                <p className="mt-2 text-3xl font-semibold tracking-tight tabular-nums">ca. {formatNumber(calculation.result.cubes)}</p>
+                <p className="mt-2 text-[clamp(1.6rem,3vw,2.2rem)] font-[750] leading-tight tracking-[-0.03em] tabular-nums">ca. {formatNumber(calculation.result.cubes)}</p>
               </div>
               <div className="rounded-lg border border-ash p-4">
                 <p className="text-sm text-slate">Rechnung</p>
@@ -168,7 +168,7 @@ export function SugarCalculator() {
           </div>
         ) : (
           <div className="grid min-h-80 content-center">
-            <p className="text-3xl font-semibold tracking-tight">Noch kein Ergebnis</p>
+            <p className="text-[clamp(1.6rem,3vw,2.2rem)] font-[750] leading-tight tracking-[-0.03em]">Noch kein Ergebnis</p>
             <p className="mt-3 max-w-md leading-7 text-slate">Trage beide Werte ein. Das Ergebnis erscheint sofort und lässt sich als Link kopieren.</p>
           </div>
         )}

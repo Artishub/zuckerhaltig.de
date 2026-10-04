@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
-import { drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { HeadToHead } from "@/components/ui/head-to-head";
+import { Section, cardClass, textLinkClass } from "@/components/ui/section";
+import { drinks, type Drink } from "@/lib/data/drinks";
 import { drinkPageHref } from "@/lib/page-routing";
-import { brandName, drinksByBrand, formatNumber } from "@/lib/seo-drinks";
+import { drinksByBrand, formatNumber } from "@/lib/seo-drinks";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata(
@@ -34,76 +36,43 @@ export default function SpeziMezzoPage() {
   const difference = at500(sweetest) - at500(lightest);
 
   return (
-    <main>
+    <main className="pb-24">
       <PageHero
-        kicker="Spezi vs. Mezzo Mix"
         title="Spezi oder Mezzo Mix: Wo steckt mehr Zucker drin?"
         text={`${sweetest.name} hat mit ${formatNumber(sweetest.sugarPer100Ml)} g pro 100 ml am meisten Zucker, ${lightest.name} mit ${formatNumber(lightest.sugarPer100Ml)} g am wenigsten. Bei 500 ml sind das ${formatNumber(difference)} g Unterschied.`}
       />
 
-      <section className="mx-auto max-w-page px-4 py-10" aria-labelledby="table-title">
-        <h2 id="table-title" className="text-3xl font-semibold tracking-tight">Die drei Cola-Mixe im Vergleich</h2>
-        <div className="mt-6 overflow-x-auto rounded-lg border border-ash bg-mist">
-          <table className="w-full border-collapse text-sm tabular-nums">
-            <caption className="sr-only">Zucker und Kalorien von Paulaner Spezi, Spezi Original und Mezzo Mix</caption>
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-slate">
-                <th scope="col" className="px-4 py-3 font-semibold">Getränk</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">Zucker pro 100 ml</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">Zucker pro 500 ml</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">Würfel</th>
-                <th scope="col" className="px-4 py-3 text-right font-semibold">kcal pro 500 ml</th>
-              </tr>
-            </thead>
-            <tbody>
-              {main.map((drink) => (
-                <tr key={drink.id} className="border-t border-ash">
-                  <th scope="row" className="px-4 py-3 text-left font-semibold">
-                    <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
-                    <span className="block text-xs font-normal text-slate">{brandName(drink)}</span>
-                  </th>
-                  <td className="px-4 py-3 text-right font-semibold">{formatNumber(drink.sugarPer100Ml)} g</td>
-                  <td className="px-4 py-3 text-right">{formatNumber(totalSugarGrams(drink) ?? at500(drink))} g</td>
-                  <td className="px-4 py-3 text-right">{formatNumber(sugarCubes(drink) ?? 0)}</td>
-                  <td className="px-4 py-3 text-right">{packageEnergyKcal(drink) === null ? "/" : formatNumber(Math.round(packageEnergyKcal(drink) ?? 0))}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-3 text-sm text-slate">Alle drei Werte beziehen sich auf die 500-ml-Flasche. Quellen und Prüfdatum stehen auf den Produktseiten.</p>
-      </section>
+      <Section id="table" title="Die drei Cola-Mixe in 500 ml">
+        <HeadToHead drinks={main} caption="Zucker und Kalorien von Paulaner Spezi, Spezi Original und Mezzo Mix" />
+      </Section>
 
       {zero.length > 0 && (
-        <section className="mx-auto max-w-page px-4 pb-10" aria-labelledby="zero-title">
-          <h2 id="zero-title" className="text-2xl font-semibold tracking-tight">Zero-Varianten</h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        <Section id="zero" title="Zero-Varianten">
+          <ul className="grid gap-4 sm:grid-cols-2">
             {zero.map((drink) => (
-              <li key={drink.id} className="rounded-lg border border-ash bg-mist p-4">
-                <Link href={drinkPageHref(drink)} className="font-semibold underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
-                <p className="mt-1 text-sm text-slate">{formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml. Bei 500 ml sind das {formatNumber(at500(drink))} g statt {formatNumber(at500(drink.brandId === "mezzo-mix" ? mezzo : paulaner))} g beim Original.</p>
+              <li key={drink.id} className={`${cardClass} p-5`}>
+                <Link href={drinkPageHref(drink)} className={textLinkClass}>{drink.name}</Link>
+                <p className="mt-2 text-sm leading-6 text-slate">{formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml. Bei 500 ml sind das {formatNumber(at500(drink))} g statt {formatNumber(at500(drink.brandId === "mezzo-mix" ? mezzo : paulaner))} g beim Original.</p>
               </li>
             ))}
           </ul>
-        </section>
+        </Section>
       )}
 
-      <section className="mx-auto grid max-w-page gap-6 px-4 py-10 lg:grid-cols-2">
+      <section className="mx-auto grid max-w-page gap-8 px-5 pt-14 lg:grid-cols-2">
         <div>
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight">Spezi-Sorten</h2>
-          <SortableDrinkRows drinks={spezi} />
+          <h2 className="mb-5 text-[clamp(1.5rem,2.6vw,2rem)] font-[750] tracking-[-0.03em]">Spezi-Sorten</h2>
+          <SortableDrinkRows drinks={spezi} compact />
         </div>
         <div>
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight">Mezzo-Mix-Sorten</h2>
-          <SortableDrinkRows drinks={mezzoMix} />
+          <h2 className="mb-5 text-[clamp(1.5rem,2.6vw,2rem)] font-[750] tracking-[-0.03em]">Mezzo-Mix-Sorten</h2>
+          <SortableDrinkRows drinks={mezzoMix} compact />
         </div>
       </section>
 
-      <section className="border-y border-ash bg-mist">
-        <div className="mx-auto max-w-page px-4 py-10">
-          <p className="text-sm"><Link href="/de/wissen/zucker-pro-100ml-verstehen" className="underline decoration-ash underline-offset-4 hover:decoration-marigold">Zucker pro 100 ml richtig einordnen</Link></p>
-        </div>
-      </section>
+      <p className="mx-auto max-w-page px-5 pt-8 text-sm text-slate">
+        Quellen und Prüfdatum stehen auf den Produktseiten. <Link href="/de/wissen/zucker-pro-100ml-verstehen" className={textLinkClass}>Zucker pro 100 ml einordnen</Link>
+      </p>
     </main>
   );
 }
