@@ -6,7 +6,7 @@ description: Verify code, data or UI changes in this repo - typecheck, build, SE
 # Verify changes
 
 ## Checks
-- Code or data: `npm run typecheck` and `npm run build` (both run `validate:data`).
+- Code or data: `npm run typecheck`, `npm run lint`, `npm run test` and `npm run build` (typecheck and build run `validate:data`).
 - Indexing, sitemap or metadata: also `npm run seo:check`. It needs the build and starts its own standalone server on :3210.
 - The live site is usually unreachable from cloud sessions (egress policy). Verify against a local build instead.
 

@@ -95,3 +95,14 @@
   .packageGrid strong { white-space:nowrap; font-size:.95rem; }
   .packageGrid span { font-size:.78rem; white-space:nowrap; }
 }
+
+/* Package sizes as a real table with jump anchors (#groesse-500-ml). */
+.sizeTableWrap { overflow-x:auto; }
+.sizeTable { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.sizeTable th, .sizeTable td { padding:.85rem .75rem; border-bottom:1px solid var(--detail-line); text-align:right; white-space:nowrap; font-size:.92rem; }
+.sizeTable th:first-child { text-align:left; }
+.sizeTable thead th { color:#52645b; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+.sizeTable tbody th { font-size:1rem; font-weight:700; }
+.sizeTable tbody tr { scroll-margin-top:6rem; }
+.sizeTable tbody tr:target, .sizeCurrent { background:rgba(216,243,106,.45); }
+@media(max-width:767px) { .sizeTable th, .sizeTable td { padding:.7rem .45rem; font-size:.85rem; } }

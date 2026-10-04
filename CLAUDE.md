@@ -10,11 +10,13 @@ Zuckerhaltig.de: a German, SEO-driven database of sugar in drinks (Next.js 15 Ap
 npm run validate:data   # data integrity (IDs, refs, package sugar vs. source text)
 npm run typecheck       # validate:data + tsc --noEmit
 npm run build           # validate:data + next build
-npm run seo:check       # needs a prior build; starts its own server on :3210, checks sitemap/robots/noindex rules
+npm run lint            # ESLint (next/core-web-vitals + typescript)
+npm run test            # Vitest unit tests (*.test.ts)
+npm run seo:check       # needs a prior build; starts its own server on :3210, checks sitemap/robots/noindex/redirect rules
 npm run drink -- <term> # compact drink lookup (see "Token budget")
 ```
 
-There are no lint or unit-test scripts. Run `typecheck` and `build` after code or data changes, plus `seo:check` after changes to indexing, sitemap or metadata. CI (`.github/workflows/docker.yml`) runs `build && seo:check` and then builds the Docker image (Next standalone output).
+Run `typecheck`, `lint`, `test` and `build` after code or data changes, plus `seo:check` after changes to indexing, redirects, sitemap or metadata. CI (`.github/workflows/docker.yml`) runs `build && seo:check` and then builds the Docker image (Next standalone output).
 
 Social scripts (`social:*`) need credentials. Use `social:preview` or `social:check` for dry runs.
 
@@ -28,6 +30,14 @@ Social scripts (`social:*`) need credentials. Use `social:preview` or `social:ch
 - Its drink and brand ID lists control robots `noindex,follow`, sitemap entries and `generateStaticParams` together.
 - Everything not on the list is rendered on demand (`dynamicParams = true`) with `noindex, follow`.
 - `scripts/seo-smoke-test.mjs` asserts this. Adding IDs means re-indexing pages; do it in small waves (see "SEO context").
+
+**One page per recipe:** `lib/page-routing.ts`.
+- Sizes of a recipe share one page (`recipePageDrink`: allowlisted first, then most Search Console impressions, then 500 ml). Other sizes 301 (Next sends 308) to it with `#groesse-<ml>-ml`.
+- Flavor lines with identical values (`flavorLines`, currently Red Bull Editionen) are listed on the brand page; editions 301 to `/de/marken/red-bull#<id>`.
+- A size or flavor URL keeps its own page if it had impressions in `lib/data/search-console-pages.json` (export 2026-10-02). Removed drink URLs with impressions redirect via `removedDrinkRedirects`.
+- Build internal product links with `drinkPageHref()` so they never point at a redirect.
+- Filter URLs (`/de/getraenke?…`) and all `/de/getraenke/vergleich` URLs get `X-Robots-Tag: noindex, follow` from `middleware.ts` (`lib/noindex-urls.ts`).
+- `/de/eistee-zucker` and `/de/energy-drinks-zucker` redirect to their Wissen articles, which include the category product list.
 
 **Drink detail page:** `app/[locale]/getraenke/[drinkId]/page.tsx`.
 - Allowlisted drinks additionally get hand-written editorial content and FAQ from `lib/content/featured-drinks.ts`, plus Product JSON-LD.

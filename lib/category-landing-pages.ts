@@ -124,8 +124,8 @@ export const categoryLandingPageById = Object.fromEntries(
 
 const establishedCategoryRoutes: Record<string, string> = {
   cola: "/de/wissen/cola-zucker-pro-100ml",
-  energy: "/de/energy-drinks-zucker",
-  "iced-tea": "/de/eistee-zucker",
+  energy: "/de/wissen/energy-drinks-zucker-vergleichen",
+  "iced-tea": "/de/wissen/eistee-zucker-im-alltag",
 };
 
 export function categoryPageHref(categoryId: string) {

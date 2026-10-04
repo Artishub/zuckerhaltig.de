@@ -4,11 +4,14 @@ import { ArrowLeft } from "lucide-react";
 import { DrinkComparisonTool } from "@/components/drink-comparison-tool";
 import { pageMetadata } from "@/lib/site";
 
-export const metadata = pageMetadata(
-  "Getränke vergleichen",
-  "Vergleiche bis zu vier Getränke nach Zucker, Kalorien, Füllmenge und weiteren Nährwerten.",
-  "/de/getraenke/vergleich",
-);
+export const metadata = {
+  ...pageMetadata(
+    "Getränke vergleichen",
+    "Vergleiche bis zu vier Getränke nach Zucker, Kalorien, Füllmenge und weiteren Nährwerten.",
+    "/de/getraenke/vergleich",
+  ),
+  robots: { index: false, follow: true },
+};
 
 export default function DrinkComparisonPage() {
   return (

@@ -9,8 +9,9 @@ import {
 import { articleBySlug, homepageArticleSlugs, type Article } from "@/lib/content/articles";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
-import { canonicalPackageDrinkId, drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { drinks, sugarCubes, totalSugarGrams, type Drink } from "@/lib/data/drinks";
 import styles from "./test-home.module.css";
+import { drinkPageHref } from "@/lib/page-routing";
 
 export const metadata: Metadata = {
   title: "Zucker in Getränken: der schnelle Überblick | Test",
@@ -60,15 +61,15 @@ export default function TestHomePage() {
                 {Array.from({ length: 18 }).map((_, index) => <i key={index} />)}
               </div>
             </div>
-            <Link href={`/de/getraenke/${cola.id}`} className={styles.cardLink}>Detail ansehen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+            <Link href={drinkPageHref(cola)} className={styles.cardLink}>Detail ansehen <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
           </article>
         </div>
       </section>
 
       <section className={styles.quickNav} aria-label="Schnelleinstieg">
         <Link href="/de/wissen/cola-zucker-pro-100ml"><span>Cola</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
-        <Link href="/de/energy-drinks-zucker"><span>Energy Drinks</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
-        <Link href="/de/eistee-zucker"><span>Eistee</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+        <Link href="/de/wissen/energy-drinks-zucker-vergleichen"><span>Energy Drinks</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
+        <Link href="/de/wissen/eistee-zucker-im-alltag"><span>Eistee</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
         <Link href="/de/rankings/zuckerreichste-getraenke"><span>Ranking</span><ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" /></Link>
       </section>
 
@@ -161,7 +162,7 @@ function DrinkCard({ drink }: { drink: Drink }) {
   const cubes = sugarCubes(drink);
 
   return (
-    <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className={styles.drinkCard}>
+    <Link href={drinkPageHref(drink)} className={styles.drinkCard}>
       <div className={styles.drinkCardTop}><span>{brandById[drink.brandId]?.name}</span><span>{categoryById[drink.categoryId]?.name}</span></div>
       <div>
         <h3>{drink.name.replace(`${brandById[drink.brandId]?.name} `, "")}</h3>

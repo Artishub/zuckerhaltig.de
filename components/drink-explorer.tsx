@@ -8,6 +8,7 @@ import { ArrowRight, BarChart3, ChevronDown, ChevronLeft, ChevronRight, LinkIcon
 import { brands } from "@/lib/data/brands";
 import { categories, categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId, canonicalPackageDrinks, Drink, DrinkDisplayItem, drinks, groupedDrinkFamilies, packageEnergyKcal, sugarCubes, totalSugarGrams, uniqueProductRepresentatives } from "@/lib/data/drinks";
+import { drinkPageHref } from "@/lib/page-routing";
 
 type SortKey = "total-desc" | "total-asc" | "per100-desc" | "per100-asc" | "name-asc" | "name-desc";
 
@@ -237,7 +238,7 @@ export function DrinkExplorer() {
                     </div>
                     <h3 className="mt-2 text-base font-semibold leading-tight tracking-tight md:text-lg">
                       {item.type === "drink" ? (
-                        <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring after:absolute after:inset-0 hover:underline hover:decoration-marigold hover:underline-offset-4">
+                        <Link href={drinkPageHref(drink)} className="focus-ring after:absolute after:inset-0 hover:underline hover:decoration-marigold hover:underline-offset-4">
                           {title}
                         </Link>
                       ) : title}
@@ -262,7 +263,7 @@ export function DrinkExplorer() {
                       {item.type === "group" && (
                         <div className="mb-4 flex flex-wrap gap-2">
                           {item.drinks.map((groupDrink) => (
-                            <Link key={groupDrink.id} href={`/de/getraenke/${canonicalPackageDrinkId(groupDrink)}`} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate hover:border-marigold hover:text-ink">
+                            <Link key={groupDrink.id} href={drinkPageHref(groupDrink)} className="rounded-md border border-ash bg-paper px-2 py-1 text-xs text-slate hover:border-marigold hover:text-ink">
                               {groupDrink.name}
                             </Link>
                           ))}
@@ -284,7 +285,7 @@ export function DrinkExplorer() {
                         >
                           Zum Vergleich
                         </Link>
-                        <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
+                        <Link href={drinkPageHref(drink)} className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-ink bg-ink px-4 text-sm font-medium text-white hover:bg-paper hover:text-ink dark:text-black dark:hover:text-ink">
                           Zur Detailseite
                         </Link>
                         {drink.sourceUrl ? (

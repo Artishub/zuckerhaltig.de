@@ -9,6 +9,7 @@ import { categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks, sugarCubes, totalSugarGrams, uniqueProductRepresentatives, type Drink, type DrinkFaq } from "@/lib/data/drinks";
 import { brandPageHref } from "@/lib/featured-brand-pages";
 import { isSearchIndexableDrink, searchIndexableDrinkIds } from "@/lib/seo-index";
+import { drinkPageHref, drinkRedirectTarget, removedDrinkRedirects, sizeAnchor } from "@/lib/page-routing";
 import { siteUrl } from "@/lib/site";
 import { averageSugarPer100Ml, categoryPeers, lowerSugarAlternative, sugarRank, whoDailyLimitGrams, whoGuidelineUrl, whoIdealLimitGrams } from "@/lib/sugar-context";
 import styles from "./drink-detail.module.css";
@@ -82,10 +83,16 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   const { drinkId } = await params;
   const drink = drinks.find((item) => item.id === drinkId);
 
-  if (!drink) notFound();
+  if (!drink) {
+    const removedTarget = removedDrinkRedirects[drinkId];
+    if (removedTarget) permanentRedirect(removedTarget);
+    notFound();
+  }
 
   const canonicalId = canonicalPackageDrinkId(drink);
   if (canonicalId !== drink.id) permanentRedirect(`/de/getraenke/${canonicalId}`);
+  const redirectTarget = drinkRedirectTarget(drink);
+  if (redirectTarget) permanentRedirect(redirectTarget);
 
   const brandName = brandById[drink.brandId]?.name ?? "Unbekannte Marke";
   const categoryName = categoryById[drink.categoryId]?.name ?? "Getränk";
@@ -155,7 +162,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
 
       <SugarContext drink={drink} categoryName={categoryName} categoryHref={categoryHref} />
 
-      {family.length > 1 && <PackageSizes drinks={family} />}
+      {family.length > 1 && <PackageSizes drinks={family} currentId={drink.id} />}
 
       {isPublicDrink && editorial && (
         <section className={styles.editorial} aria-labelledby="featured-editorial-title">
@@ -214,7 +221,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
           <div className={styles.related}>
             {similar.map((item) => {
               const similarBrand = brandById[item.brandId]?.name ?? "Marke";
-              return <Link key={item.id} href={`/de/getraenke/${canonicalPackageDrinkId(item)}`}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
+              return <Link key={item.id} href={drinkPageHref(item)}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
             })}
           </div>
         </section>
@@ -264,27 +271,42 @@ function Nutrient({ label, value, highlight = false }: { label: string; value: s
   );
 }
 
-function PackageSizes({ drinks }: { drinks: Drink[] }) {
+function PackageSizes({ drinks, currentId }: { drinks: Drink[]; currentId: string }) {
   return (
     <section className={styles.packages} aria-labelledby="package-sizes-title">
       <div>
         <h2 id="package-sizes-title">Zucker nach Packungsgröße</h2>
         <p>Der Wert pro 100 ml bleibt gleich. Die Packungsgröße verändert die Gesamtmenge.</p>
       </div>
-      <ul className={styles.packageGrid}>
-        {drinks.map((drink) => (
-          <li key={drink.id}>
-            <strong>
-              <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">
-                {sizeLabel(drink)}
-              </Link>
-            </strong>
-            <span>{formatOptionalGrams(totalSugarGrams(drink))} Zucker</span>
-            <span>{formatOptionalNumber(sugarCubes(drink))} Würfel</span>
-            <span>{formatOptionalKcal(packageEnergyKcal(drink))}</span>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.sizeTableWrap}>
+        <table className={styles.sizeTable}>
+          <thead>
+            <tr>
+              <th scope="col">Packung</th>
+              <th scope="col">Zucker</th>
+              <th scope="col">Würfel</th>
+              <th scope="col">Energie</th>
+            </tr>
+          </thead>
+          <tbody>
+            {drinks.map((drink) => {
+              const href = drinkPageHref(drink);
+              const isCurrent = drink.id === currentId;
+              const linksAway = !isCurrent && !href.includes("#");
+              return (
+                <tr key={drink.id} id={sizeAnchor(drink)} className={isCurrent ? styles.sizeCurrent : undefined} aria-current={isCurrent ? "true" : undefined}>
+                  <th scope="row">
+                    {linksAway ? <Link href={href} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{sizeLabel(drink)}</Link> : sizeLabel(drink)}
+                  </th>
+                  <td>{formatOptionalGrams(totalSugarGrams(drink))}</td>
+                  <td>{formatOptionalNumber(sugarCubes(drink))}</td>
+                  <td>{formatOptionalKcal(packageEnergyKcal(drink))}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }
@@ -312,14 +334,14 @@ function FeaturedDrinkComparison({ comparison, currentDrinkId }: { comparison: F
             <li key={item.id} className={isCurrent ? styles.editorialComparisonCardCurrent : styles.editorialComparisonCard}>
               <div>
                 <p className={styles.category}>{itemBrand} · {sizeLabel(item)}</p>
-                <h3><Link href={`/de/getraenke/${canonicalPackageDrinkId(item)}`}>{item.name}</Link></h3>
+                <h3><Link href={drinkPageHref(item)}>{item.name}</Link></h3>
                 {isCurrent && <span className={styles.currentLabel}>Diese Seite</span>}
               </div>
               <dl className={styles.editorialComparisonFacts}>
                 <div><dt>Zucker / 100 ml</dt><dd>{formatNumber(item.sugarPer100Ml)} g</dd></div>
                 <div><dt>Pro Packung</dt><dd>{formatOptionalGrams(totalSugarGrams(item))}</dd></div>
               </dl>
-              <Link href={`/de/getraenke/${canonicalPackageDrinkId(item)}`} className={styles.editorialComparisonLink}>Details <ArrowRight size={15} /></Link>
+              <Link href={drinkPageHref(item)} className={styles.editorialComparisonLink}>Details <ArrowRight size={15} /></Link>
             </li>
           );
         })}
@@ -475,7 +497,7 @@ function SugarContext({ drink, categoryName, categoryHref }: { drink: Drink; cat
               {alternativeBrand && !alternative.name.startsWith(alternativeBrand) ? `${alternativeBrand} ` : ""}{alternative.name} hat {formatNumber(alternative.sugarPer100Ml)} g pro 100 ml.
               {savedSugar !== null && drink.sizeMl ? ` Bei ${drink.sizeMl} ml wären das ${formatNumber(savedSugar)} g Zucker weniger.` : ""}
             </p>
-            <Link href={`/de/getraenke/${canonicalPackageDrinkId(alternative)}`}>Werte ansehen <ArrowRight size={15} /></Link>
+            <Link href={drinkPageHref(alternative)}>Werte ansehen <ArrowRight size={15} /></Link>
           </article>
         )}
         {showWho && totalSugar !== null && (

@@ -7,7 +7,6 @@ import { ArrowRight, ChevronDown, Search, X } from "lucide-react";
 import { brands } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
 import {
-  canonicalPackageDrinkId,
   canonicalPackageDrinks,
   Drink,
   drinks,
@@ -15,6 +14,7 @@ import {
   sugarCubes,
   totalSugarGrams,
 } from "@/lib/data/drinks";
+import { drinkPageHref } from "@/lib/page-routing";
 
 type Metric = {
   label: string;
@@ -174,7 +174,7 @@ function DrinkHeading({ drink, compact = false }: { drink: Drink; compact?: bool
       <p className="text-xs font-medium uppercase tracking-wide text-slate">{category}</p>
       <h3 className="mt-2 text-lg font-medium leading-tight">{drink.name}</h3>
       <p className="mt-1 text-sm text-slate">{brand} · {sizeLabel(drink)}</p>
-      <Link href={`/de/getraenke/${canonicalPackageDrinkId(drink)}`} className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
+      <Link href={drinkPageHref(drink)} className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
         Details
         <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" />
       </Link>

@@ -217,7 +217,7 @@ export const featuredBrandPages: FeaturedBrandPage[] = [
   {
     id: "pfanner",
     intro: "Pfanner Eistee, Saft und weitere Getränke nach Zucker pro 100 ml und pro Packung vergleichen.",
-    knowledgeHref: "/de/eistee-zucker",
+    knowledgeHref: "/de/wissen/eistee-zucker-im-alltag",
     knowledgeLabel: "Eistee vergleichen",
   },
   {
@@ -241,7 +241,7 @@ export const featuredBrandPages: FeaturedBrandPage[] = [
   {
     id: "fuze-tea",
     intro: "Wie viel Zucker hat Fuze Tea? Pfirsich, Zitrone und weitere Teegetränke lassen sich nach Sorte, Zucker je 100 ml und Flaschengröße vergleichen.",
-    knowledgeHref: "/de/eistee-zucker",
+    knowledgeHref: "/de/wissen/eistee-zucker-im-alltag",
     knowledgeLabel: "Eistee vergleichen",
     editorial: {
       title: "Fuze Tea: Zuckerwerte nach Sorte und Flasche",
@@ -269,7 +269,7 @@ export const featuredBrandPages: FeaturedBrandPage[] = [
   {
     id: "lipton",
     intro: "Lipton Ice Tea nach Sorte, Zucker pro 100 ml und Packungsgröße vergleichen.",
-    knowledgeHref: "/de/eistee-zucker",
+    knowledgeHref: "/de/wissen/eistee-zucker-im-alltag",
     knowledgeLabel: "Eistee vergleichen",
   },
   {

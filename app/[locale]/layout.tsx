@@ -54,8 +54,8 @@ export default async function LocaleLayout({ children, params }: { children: Rea
             <Link href="/de/ueber" className="hover:text-ink">Über</Link>
             <Link href="/de/wissen/cola-zucker-pro-100ml" className="hover:text-ink">Cola Zucker</Link>
             <Link href="/de/zuckerrechner" className="hover:text-ink">Zuckerrechner</Link>
-            <Link href="/de/energy-drinks-zucker" className="hover:text-ink">Energy Zucker</Link>
-            <Link href="/de/eistee-zucker" className="hover:text-ink">Eistee Zucker</Link>
+            <Link href="/de/wissen/energy-drinks-zucker-vergleichen" className="hover:text-ink">Energy Zucker</Link>
+            <Link href="/de/wissen/eistee-zucker-im-alltag" className="hover:text-ink">Eistee Zucker</Link>
             <Link href="/de/rankings/zuckerreichste-getraenke" className="hover:text-ink">Ranking</Link>
             <Link href="/de/impressum" className="hover:text-ink">Impressum</Link>
             <Link href="/de/datenschutz" className="hover:text-ink">Datenschutz</Link>

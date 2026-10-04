@@ -7,6 +7,7 @@ import { categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId } from "@/lib/data/drinks";
 import { averageSugar, drinksByCategory, formatNumber } from "@/lib/seo-drinks";
 import { pageMetadata, siteUrl } from "@/lib/site";
+import { drinkPageHref } from "@/lib/page-routing";
 
 type PageProps = {
   params: Promise<{ categoryId: string }>;
@@ -46,7 +47,7 @@ export default async function CategoryPage({ params }: PageProps) {
     "@type": "ListItem",
     position: index + 1,
     name: drink.name,
-    url: `${siteUrl}/de/getraenke/${canonicalPackageDrinkId(drink)}`,
+    url: `${siteUrl}${drinkPageHref(drink)}`,
   }));
 
   return (

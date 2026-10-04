@@ -11,7 +11,8 @@ Background: the site lost almost all visibility on 2026-07-27 and recovered on 2
 - One wave is at most 15–20 drink IDs, with at least 2–3 weeks between waves.
 - Only pick products with Search Console demand (impressions on the old URL or matching queries). Ask the user for a fresh export if none is at hand.
 - Only canonical package IDs (`canonicalPackageDrinkId(drink) === drink.id`) whose drink passes `isIndexableDrink`: size, source, nutrition and a verified status.
-- Prefer one canonical page per product. Size variants stay `noindex`; the canonical page lists all sizes.
+- One page per recipe (`lib/page-routing.ts`). Only the recipe page (`recipePageDrink`) can be indexed; size and flavor pages either redirect or stay `noindex` because they had impressions.
+- Never remove or redirect a URL with impressions in `lib/data/search-console-pages.json` without a 301 target. Refresh that file from a new Search Console export before each wave.
 - No generated paragraphs to "fill" pages. Value comes from the data blocks, and the editorial text in `lib/content/featured-drinks.ts` is hand-written and optional.
 - No sitewide links to sister projects.
 
