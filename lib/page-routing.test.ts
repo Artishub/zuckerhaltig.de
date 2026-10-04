@@ -50,6 +50,13 @@ describe("recipe pages", () => {
   });
 });
 
+describe("duplicate ids", () => {
+  it("send renamed duplicates straight to the final page", () => {
+    expect(drinkPageHref(byId("pepsi-original-330"))).toBe("/de/getraenke/pepsi-1500#groesse-330-ml");
+    expect(drinkPageHref(byId("almdudler-original-350"))).toBe("/de/getraenke/almdudler-das-original-350");
+  });
+});
+
 describe("flavor lines", () => {
   it("lists Red Bull editions without impressions on the brand page", () => {
     expect(drinkRedirectTarget(byId("red-bull-peach-edition-250"))).toBe("/de/marken/red-bull#red-bull-peach-edition-250");

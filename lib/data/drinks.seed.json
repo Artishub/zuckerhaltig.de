@@ -3914,7 +3914,7 @@
     },
     {
       "id": "almdudler-zero-500",
-      "name": "Almdudler Zuckerfrei",
+      "name": "Almdudler Zero",
       "brandId": "almdudler",
       "categoryId": "softdrink",
       "sizeMl": 500,
@@ -5146,7 +5146,7 @@
     },
     {
       "id": "fanta-orange-zero-330",
-      "name": "Fanta Orange Zero",
+      "name": "Fanta Orange ohne Zucker",
       "brandId": "fanta",
       "categoryId": "orange-limo",
       "sizeMl": 330,
@@ -5432,7 +5432,7 @@
     },
     {
       "id": "pepsi-zero-330",
-      "name": "Pepsi Zero",
+      "name": "Pepsi Zero Zucker",
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
@@ -5630,7 +5630,7 @@
     },
     {
       "id": "pepsi-original-330",
-      "name": "Pepsi Original",
+      "name": "Pepsi",
       "brandId": "pepsi",
       "categoryId": "cola",
       "sizeMl": 330,
@@ -6048,7 +6048,7 @@
     },
     {
       "id": "sprite-zero-330",
-      "name": "Sprite Zero",
+      "name": "Sprite Zero Sugar",
       "brandId": "sprite",
       "categoryId": "lemon-lime",
       "sizeMl": 330,
@@ -6862,7 +6862,7 @@
     },
     {
       "id": "monster-energy-ultra-white-500",
-      "name": "Monster Energy Ultra White",
+      "name": "Monster Ultra White",
       "brandId": "monster",
       "categoryId": "energy",
       "sizeMl": 500,
@@ -7544,7 +7544,7 @@
     },
     {
       "id": "club-mate-original-500",
-      "name": "Club-Mate Original",
+      "name": "Club-Mate",
       "brandId": "club-mate",
       "categoryId": "mate",
       "sizeMl": 500,
@@ -7566,7 +7566,7 @@
     },
     {
       "id": "almdudler-das-original-350",
-      "name": "Almdudler Das Original",
+      "name": "Almdudler Original",
       "brandId": "almdudler",
       "categoryId": "softdrink",
       "sizeMl": 350,
@@ -7588,7 +7588,7 @@
     },
     {
       "id": "almdudler-zero-zucker-350",
-      "name": "Almdudler Zero Zucker",
+      "name": "Almdudler Zero",
       "brandId": "almdudler",
       "categoryId": "softdrink",
       "sizeMl": 350,
@@ -7654,7 +7654,7 @@
     },
     {
       "id": "mio-mio-mate-500",
-      "name": "Mio Mio Mate",
+      "name": "Mio Mio Mate Original",
       "brandId": "mio-mio",
       "categoryId": "mate",
       "sizeMl": 500,
@@ -7852,7 +7852,7 @@
     },
     {
       "id": "hohes-c-orange-1500",
-      "name": "Hohes C Orange",
+      "name": "hohes C Orange",
       "brandId": "hohes-c",
       "categoryId": "juice",
       "sizeMl": 1500,

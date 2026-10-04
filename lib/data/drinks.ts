@@ -1,4 +1,7 @@
 import seed from "./drinks.seed.json";
+import searchConsolePages from "./search-console-pages.json";
+
+const searchConsoleImpressions = searchConsolePages.impressionsByPath as Record<string, number>;
 
 export type VerificationStatus =
   | "manufacturer_verified"
@@ -227,7 +230,11 @@ function preferredPackageDrink(items: Drink[]) {
   const correctedBionade = items.find((drink) => drink.id === "bionade-naturtruebe-orange-330");
   if (correctedBionade) return correctedBionade;
 
-  return items.find((drink) => (
-    drink.sizeMl !== null && drink.id.endsWith(`-${drink.sizeMl}`)
-  )) ?? items[0];
+  // Plain size id first (no "-2" copies), then the URL with Search Console impressions, then a manufacturer source.
+  const score = (drink: Drink) => (
+    (drink.sizeMl !== null && drink.id.endsWith(`-${drink.sizeMl}`) ? 4 : 0)
+      + ((searchConsoleImpressions[`/de/getraenke/${drink.id}`] ?? 0) > 0 ? 2 : 0)
+      + (drink.verificationStatus === "manufacturer_verified" ? 1 : 0)
+  );
+  return [...items].sort((a, b) => score(b) - score(a))[0];
 }
