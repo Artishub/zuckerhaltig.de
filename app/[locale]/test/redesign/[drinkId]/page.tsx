@@ -19,6 +19,7 @@ import { brandLabel, formatDate, formatNumber, redesignBase, scaleMax, summarize
 import { LevelBadge } from "../level-badge";
 import { SugarScale } from "../sugar-scale";
 import styles from "../redesign.module.css";
+import { correctionMailto } from "@/lib/site";
 
 type PageProps = { params: Promise<{ drinkId: string }> };
 
@@ -173,7 +174,7 @@ export default async function RedesignDrinkPage({ params }: PageProps) {
             {total !== null && drink.sizeMl && <div><dt>Rechnung</dt><dd>{formatNumber(drink.sugarPer100Ml)} g × {drink.sizeMl} ml / 100 = {formatNumber(total)} g</dd></div>}
           </dl>
           <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={14} /></a>
-          <Link href="/de/impressum">Wert falsch? Kontakt im Impressum</Link>
+          <a href={correctionMailto(`Wert prüfen: ${drink.name} ${drink.sizeMl ?? ""} ml`)}>Wert falsch? Hinweis senden</a>
           <a href={whoGuidelineUrl} target="_blank" rel="noreferrer">WHO-Empfehlung zu Zucker <ExternalLink size={14} /></a>
         </aside>
       </section>

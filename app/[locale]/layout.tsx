@@ -57,6 +57,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
             <Link href="/de/wissen/energy-drinks-zucker-vergleichen" className="hover:text-ink">Energy Zucker</Link>
             <Link href="/de/wissen/eistee-zucker-im-alltag" className="hover:text-ink">Eistee Zucker</Link>
             <Link href="/de/rankings/zuckerreichste-getraenke" className="hover:text-ink">Ranking</Link>
+            <Link href="/de/rankings/kalorien-getraenke" className="hover:text-ink">Kalorien</Link>
             <Link href="/de/impressum" className="hover:text-ink">Impressum</Link>
             <Link href="/de/datenschutz" className="hover:text-ink">Datenschutz</Link>
             <Link href="/de/nutzungsbedingungen" className="hover:text-ink">Nutzung</Link>

@@ -235,7 +235,7 @@ So bleiben Claude-Sitzungen günstig und treffsicher:
 ## 10. Offene Punkte (zuckerhaltig.de)
 
 - Die lokalen Commits auf `claude/admiring-wozniak-vth3wv` pushen. GitHub-Schreibzugriff fehlte in der Arbeitssitzung.
-- Indexierungswelle 1 vorbereitet am 04.10.2026 (15 Rezeptur-Seiten, siehe `lib/seo-index.ts`). Nächste Welle frühestens 3 Wochen nach dem Deploy und nur, wenn Impressionen und Position stabil bleiben.
+- Indexierungswelle 1 live am 04.10.2026 (15 Rezeptur-Seiten), Release 05.10.2026 mit 10 weiteren URLs (6 Rezeptur-Seiten, Markenseiten Paulaner und Vita Cola, Vergleich Spezi vs. Mezzo Mix, Kalorien-Ranking), siehe `lib/seo-index.ts`. Nächste Welle frühestens 3 Wochen nach dem Deploy und nur, wenn Impressionen und Position stabil bleiben.
 - Größenvarianten per Canonical oder Weiterleitung auf die Produktseite zusammenführen.
 - Den Artikel `/wissen/cola-zucker-pro-100ml` umbauen (3.941 Impressionen, 0 Klicks): Vergleichstabelle nach oben.
 - Strukturierte Daten `NutritionInformation` auf den indexierten Produktseiten.

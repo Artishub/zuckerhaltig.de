@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
 export const siteUrl = "https://www.zuckerhaltig.de";
+export const contactEmail = "artjomgasarov@gmail.com";
+
+export function correctionMailto(subject: string) {
+  return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`;
+}
 
 type PageMetadataOptions = {
   image?: {

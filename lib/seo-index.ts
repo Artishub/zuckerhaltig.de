@@ -22,6 +22,13 @@ export const searchIndexableDrinkIds = [
   "lift-apfelschorle-1250",
   "vita-cola-mix-1000",
   "fuze-tea-zitrone-1250",
+  // Release 2026-10-05: next six recipe pages by Search Console impressions.
+  "coca-cola-vanilla-500",
+  "coca-cola-lemon-330",
+  "fuze-tea-pfirsich-330",
+  "fanta-orange-ohne-zucker-500",
+  "paulaner-limo-orange-500",
+  "hohes-c-multivitamin-1500",
 ] as const;
 
 export const searchIndexableBrandIds = [
@@ -33,6 +40,9 @@ export const searchIndexableBrandIds = [
   "pepsi",
   "spezi",
   "fuze-tea",
+  // Release 2026-10-05: brand pages that already had impressions while noindex.
+  "paulaner",
+  "vita-cola",
 ] as const;
 
 const searchIndexableDrinkIdSet = new Set<string>(searchIndexableDrinkIds);

@@ -10,7 +10,7 @@ import { canonicalPackageDrinkId, drinks, packageEnergyKcal, productFamilyDrinks
 import { brandPageHref } from "@/lib/featured-brand-pages";
 import { isSearchIndexableDrink, searchIndexableDrinkIds } from "@/lib/seo-index";
 import { drinkPageHref, drinkRedirectTarget, removedDrinkRedirects, sizeAnchor } from "@/lib/page-routing";
-import { siteUrl } from "@/lib/site";
+import { correctionMailto, siteUrl } from "@/lib/site";
 import { drinkFacts, type DrinkFact } from "@/lib/drink-facts";
 import { dailySugarShare, dgeSugarConsensusUrl, swapAlternatives } from "@/lib/sugar-context";
 import { SugarCubesGraphic } from "@/components/sugar-cubes-graphic";
@@ -215,6 +215,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
             {drink.lastCheckedAt ? ` · Zuletzt geprüft: ${formatDate(drink.lastCheckedAt)}` : ""}
           </p>
           <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>
+          <a href={correctionMailto(`Wert prüfen: ${drink.name} ${sizeLabel(drink)}`)}>Wert falsch? Hinweis senden <ArrowRight size={16} /></a>
           <Link href="/de/ueber" className={styles.knowledge}>So prüfen wir die Daten <ArrowRight size={16} /></Link>
         </aside>
       </section>
@@ -247,7 +248,7 @@ export default async function DrinkDetailPage({ params }: PageProps) {
         </div>
         <div className={styles.knowledgeLinks}>
           <Link href={knowledgeLink(drink)} className={styles.knowledge}>Passendes Wissen lesen <ArrowRight size={16} /></Link>
-          {comparisonLink(drink) && <Link href={comparisonLink(drink)!} className={styles.knowledge}>Fanta und Sprite vergleichen <ArrowRight size={16} /></Link>}
+          {comparisonLink(drink) && <Link href={comparisonLink(drink)!.href} className={styles.knowledge}>{comparisonLink(drink)!.label} <ArrowRight size={16} /></Link>}
           {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
           {brandLink && <Link href={brandLink.href} className={styles.knowledge}>{brandLink.label} <ArrowRight size={16} /></Link>}
         </div>
@@ -483,9 +484,9 @@ function knowledgeLink(drink: Drink) {
 }
 
 function comparisonLink(drink: Drink) {
-  return drink.brandId === "fanta" || drink.brandId === "sprite"
-    ? "/de/vergleiche/fanta-vs-sprite-zucker"
-    : null;
+  if (drink.brandId === "fanta" || drink.brandId === "sprite") return { href: "/de/vergleiche/fanta-vs-sprite-zucker", label: "Fanta und Sprite vergleichen" };
+  if (drink.categoryId === "cola-mix") return { href: "/de/vergleiche/spezi-vs-mezzo-mix-zucker", label: "Spezi und Mezzo Mix vergleichen" };
+  return null;
 }
 
 function breadcrumbJsonLd(drink: Drink) {

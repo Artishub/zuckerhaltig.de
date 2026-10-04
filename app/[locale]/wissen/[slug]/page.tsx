@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DrinkRows } from "@/components/seo-drink-list";
 import { articleBySlug, articles } from "@/lib/content/articles";
-import { drinks, totalSugarGrams, type Drink } from "@/lib/data/drinks";
+import { calculatePackageSugar, drinks, type Drink } from "@/lib/data/drinks";
 import { averageSugar, drinksByCategory, formatNumber } from "@/lib/seo-drinks";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { pageMetadata, siteUrl } from "@/lib/site";
@@ -59,6 +59,7 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       )}
       {article.slug === "cola-zucker-pro-100ml" && <ColaAnswer />}
+      {article.slug === "cola-zero-light-und-klassisch" && <ZeroLightAnswer />}
       {article.quickAnswer && (
         <section className="mt-8 rounded-lg border border-ash bg-mist p-5">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
@@ -166,21 +167,94 @@ function formatArticleDate(value: string) {
   return new Intl.DateTimeFormat("de-DE", { dateStyle: "long" }).format(new Date(`${value}T00:00:00Z`));
 }
 
+const colaTableSizes = [330, 500, 1000];
+
+// Answer first: the comparison table sits at the top so search snippets can use it.
 function ColaAnswer() {
-  const drink = drinks.find((item) => item.id === "coca-cola-classic-500");
-  if (!drink) return null;
-  const totalSugar = totalSugarGrams(drink);
+  const classic = drinks.find((item) => item.id === "coca-cola-classic-500");
+  const rows = colaComparisonIds
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink): drink is Drink => Boolean(drink));
+  if (!classic || !rows.length) return null;
 
   return (
-    <section className="mt-8 rounded-lg border border-ash bg-mist p-5">
+    <section className="mt-8 rounded-lg border border-ash bg-mist p-5" aria-labelledby="cola-answer-title">
       <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
-      <p className="mt-2 text-lg leading-8">
-        {drink.name} liegt in der Datenbank bei <strong>{formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml</strong>.
-        {drink.sizeMl && totalSugar !== null ? ` In ${drink.sizeMl} ml sind das rechnerisch ${formatNumber(totalSugar)} g.` : ""}
-      </p>
-      <Link href={drinkPageHref(drink)} className="mt-3 inline-flex text-sm font-medium underline decoration-ash underline-offset-4 hover:decoration-marigold">
-        Produktdaten und Quelle ansehen
-      </Link>
+      <h2 id="cola-answer-title" className="mt-2 text-lg font-normal leading-8">
+        {classic.name} hat <strong>{formatNumber(classic.sugarPer100Ml)} g Zucker pro 100 ml</strong>. Eine 330-ml-Dose enthält {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 330))} g, eine 500-ml-Flasche {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 500))} g und ein Liter {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 1000))} g.
+      </h2>
+      <div className="mt-5 overflow-x-auto">
+        <table className="w-full border-collapse text-sm tabular-nums">
+          <caption className="sr-only">Zucker in Cola pro 100 ml, 330 ml, 500 ml und 1 Liter</caption>
+          <thead>
+            <tr className="text-left text-xs uppercase tracking-wide text-slate">
+              <th scope="col" className="py-2 pr-3 font-semibold">Cola</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">pro 100 ml</th>
+              {colaTableSizes.map((size) => <th key={size} scope="col" className="px-3 py-2 text-right font-semibold">{size >= 1000 ? "1 l" : `${size} ml`}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((drink) => (
+              <tr key={drink.id} className="border-t border-ash">
+                <th scope="row" className="py-2.5 pr-3 text-left font-medium">
+                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
+                </th>
+                <td className="px-3 py-2.5 text-right font-semibold">{formatNumber(drink.sugarPer100Ml)} g</td>
+                {colaTableSizes.map((size) => <td key={size} className="px-3 py-2.5 text-right">{formatNumber(calculatePackageSugar(drink.sugarPer100Ml, size))} g</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-3 text-xs leading-5 text-slate">Packungswerte rechnerisch aus dem 100-ml-Wert. Quellen stehen am Ende des Artikels.</p>
+    </section>
+  );
+}
+
+const zeroLightIds = ["coca-cola-classic-500", "coca-cola-zero-sugar-500", "coca-cola-light-500", "coca-cola-zero-sugar-zero-koffein-330", "pepsi-zero-330"];
+
+// Cola Zero vs. Light answered from the data: sugar and energy per 100 ml next to Classic.
+function ZeroLightAnswer() {
+  const rows = zeroLightIds
+    .map((id) => drinks.find((drink) => drink.id === id))
+    .filter((drink): drink is Drink => Boolean(drink));
+  const classic = rows.find((drink) => drink.id === "coca-cola-classic-500");
+  const zero = rows.find((drink) => drink.id === "coca-cola-zero-sugar-500");
+  const light = rows.find((drink) => drink.id === "coca-cola-light-500");
+  if (!classic || !zero || !light) return null;
+
+  return (
+    <section className="mt-8 rounded-lg border border-ash bg-mist p-5" aria-labelledby="zero-light-title">
+      <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate">Kurzantwort</p>
+      <h2 id="zero-light-title" className="mt-2 text-lg font-normal leading-8">
+        Beim Zucker gibt es keinen Unterschied: {zero.name} und {light.name} haben beide <strong>{formatNumber(zero.sugarPer100Ml)} g Zucker pro 100 ml</strong>. {classic.name} hat {formatNumber(classic.sugarPer100Ml)} g, eine 500-ml-Flasche also {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 500))} g. Zero und Light unterscheiden sich in Rezeptur und Geschmack; welche Süßstoffe enthalten sind, steht in der Zutatenliste.
+      </h2>
+      <div className="mt-5 overflow-x-auto">
+        <table className="w-full border-collapse text-sm tabular-nums">
+          <caption className="sr-only">Zucker und Energie von Cola Classic, Zero und Light pro 100 ml und pro 500 ml</caption>
+          <thead>
+            <tr className="text-left text-xs uppercase tracking-wide text-slate">
+              <th scope="col" className="py-2 pr-3 font-semibold">Cola</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">Zucker / 100 ml</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">kcal / 100 ml</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">Zucker / 500 ml</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((drink) => (
+              <tr key={drink.id} className="border-t border-ash">
+                <th scope="row" className="py-2.5 pr-3 text-left font-medium">
+                  <Link href={drinkPageHref(drink)} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{drink.name}</Link>
+                </th>
+                <td className="px-3 py-2.5 text-right font-semibold">{formatNumber(drink.sugarPer100Ml)} g</td>
+                <td className="px-3 py-2.5 text-right">{drink.nutritionPer100Ml ? formatNumber(drink.nutritionPer100Ml.energyKcal) : "/"}</td>
+                <td className="px-3 py-2.5 text-right">{formatNumber(calculatePackageSugar(drink.sugarPer100Ml, 500))} g</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-3 text-xs leading-5 text-slate">Werte laut hinterlegter Quelle auf der jeweiligen Produktseite; 500-ml-Werte rechnerisch.</p>
     </section>
   );
 }
@@ -203,11 +277,8 @@ function ColaComparison() {
 
   return (
     <section className="mt-12 border-t border-ash pt-8">
-      <h2 className="text-3xl font-semibold tracking-tight">Cola Zucker im Vergleich</h2>
-      <p className="mb-5 mt-3 leading-7 text-slate">Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix: Werte pro 100 ml und für die ganze Packung.</p>
-      <DrinkRows drinks={comparisonDrinks} />
-      <section className="mt-8">
-        <h3 className="text-xl font-semibold tracking-tight">Quellen zu den Vergleichswerten</h3>
+      <section>
+        <h2 className="text-xl font-semibold tracking-tight">Quellen zu den Vergleichswerten</h2>
         <ul className="mt-3 space-y-2 text-sm leading-6">
           {comparisonDrinks.map((drink) => (
             <li key={drink.id}>
@@ -274,6 +345,7 @@ function metaTitle(slug: string, fallback: string) {
     "zucker-pro-100ml-verstehen": "Zucker pro 100 ml: Was ist viel?",
     "zuckerwuerfel-als-orientierung": "Zuckerwürfel in Getränken: Cola, Fanta, Sprite und Red Bull",
     "cola-zucker-pro-100ml": "Cola Zucker: Wie viel steckt in 100 ml, 500 ml und 1 Liter?",
+    "cola-zero-light-und-klassisch": "Cola Zero oder Light: Unterschied beim Zucker im Vergleich",
     "energy-drinks-zucker-vergleichen": "Energy Drink Zucker: Red Bull, Monster und 500-ml-Dosen",
     "getraenkeetiketten-naehrwerttabelle-verstehen": "Getränkeetiketten: Zucker richtig lesen",
     "saft-zucker-reduzieren-schorle-sirup": "Zucker im Saft senken: Schorle und Sirup",
@@ -287,6 +359,7 @@ function metaTitle(slug: string, fallback: string) {
 function metaDescription(slug: string, fallback: string) {
   const descriptions: Record<string, string> = {
     "cola-zucker-pro-100ml": "Wie viel Zucker hat Cola? Vergleiche Coca-Cola, Pepsi, afri cola, Zero und Cola-Mix pro 100 ml, Flasche und als Zuckerwürfel.",
+    "cola-zero-light-und-klassisch": "Cola Zero oder Light: Was ist der Unterschied? Zucker und Kalorien von Coca-Cola Zero, Light und Classic pro 100 ml und pro 500-ml-Flasche im Vergleich.",
     "zucker-pro-100ml-verstehen": "Zucker pro 100 ml verstehen: Cola, Eistee, Energy Drinks, Saft und Limo fair vergleichen. Mit Beispielrechnung für Packung, Portion und Zuckerwürfel.",
     "eistee-zucker-im-alltag": "Wie viel Zucker hat Eistee? Pfirsich, Zitrone und große Flaschen nach Zucker pro 100 ml, Packungsgröße und Zuckerwürfeln im Alltag einordnen.",
     "packungsgroesse-entscheidet": "Zucker pro Flasche berechnen: warum 250 ml, 330 ml, 500 ml und 1 Liter bei gleichem 100-ml-Wert sehr unterschiedliche Mengen ergeben.",
@@ -318,6 +391,7 @@ function relatedLinks(slug: string) {
       { href: "/de/getraenke/coca-cola-classic-500", label: "Coca-Cola Classic 500 ml", description: "53 g Zucker pro 500 ml aus dem 100-ml-Wert berechnen." },
       { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola classic", description: "afri cola nach Zucker pro 100 ml und pro Dose einordnen." },
       { href: "/de/wissen/cola-zero-light-und-klassisch", label: "Cola, Zero und Light", description: "Classic-Cola mit Zero- und Light-Varianten vergleichen." },
+      { href: "/de/vergleiche/spezi-vs-mezzo-mix-zucker", label: "Spezi vs. Mezzo Mix", description: "Die beiden bekanntesten Cola-Mixe nach Zucker und Kalorien vergleichen." },
     ],
     "saft-ist-nicht-automatisch-zuckerarm": [
       { href: "/de/kategorien/juice", label: "Säfte vergleichen", description: "Saft, Nektar und Fruchtsaftgetränke nach Zucker einordnen." },

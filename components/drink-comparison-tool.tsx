@@ -14,6 +14,7 @@ import {
   sugarCubes,
   totalSugarGrams,
 } from "@/lib/data/drinks";
+import { trackEvent } from "@/lib/analytics";
 import { drinkPageHref } from "@/lib/page-routing";
 
 type Metric = {
@@ -305,9 +306,11 @@ function ShareButton() {
     try {
       if (navigator.share) {
         await navigator.share({ title: document.title, url });
+        trackEvent("compare_share", { method: "share" });
         return;
       }
       await navigator.clipboard.writeText(url);
+      trackEvent("compare_share", { method: "clipboard" });
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {

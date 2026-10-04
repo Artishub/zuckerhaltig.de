@@ -33,6 +33,9 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Lint and unit tests
+        run: npm run lint && npm run test
+
       - name: Build and audit SEO output
         run: npm run build && npm run seo:check
 
