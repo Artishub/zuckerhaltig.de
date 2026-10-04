@@ -14,7 +14,7 @@ export function MobileNav({ items }: { items: HeaderNavItem[] }) {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-ash bg-mist hover:border-marigold"
+        className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-full border border-hair bg-mist hover:border-ink"
         aria-label={open ? "Navigation schließen" : "Navigation öffnen"}
         aria-expanded={open}
       >
@@ -22,7 +22,7 @@ export function MobileNav({ items }: { items: HeaderNavItem[] }) {
       </button>
       {open && (
         <nav
-          className="fixed inset-x-0 top-[72px] z-50 grid gap-3 border-y border-ash bg-paper p-4 text-base shadow-lg"
+          className="fixed inset-x-0 top-16 z-50 grid gap-3 border-y border-ash bg-paper p-4 text-base shadow-lg"
           aria-label="Hauptnavigation"
         >
           {items.map((item) => {

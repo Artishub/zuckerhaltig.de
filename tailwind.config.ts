@@ -17,11 +17,17 @@ const config: Config = {
         marigold: "var(--marigold)",
         buttercream: "var(--buttercream)",
         cream: "var(--cream)",
+        hair: "var(--hair)",
+        moss: "var(--moss)",
+        lime: "var(--lime)",
+      },
+      boxShadow: {
+        card: "var(--card-shadow)",
       },
       borderRadius: {
-        sm: "1px",
-        md: "4px",
-        lg: "8px",
+        sm: "6px",
+        md: "10px",
+        lg: "18px",
       },
       maxWidth: {
         page: "1200px",

@@ -1,9 +1,10 @@
 import { brandById } from "@/lib/data/brands";
 import { categories, categoryById } from "@/lib/data/categories";
 import { canonicalPackageDrinkId, drinks, totalSugarGrams, uniqueProductRepresentatives, type Drink } from "@/lib/data/drinks";
+import { drinkPageHref } from "@/lib/page-routing";
 import { averageSugarPer100Ml, sugarLevel, type SugarLevel } from "@/lib/sugar-context";
 
-export const redesignBase = "/de/test/redesign";
+// Compact drink view model for the shared UI components (search, tables, strip plot).
 
 export type DrinkSummary = {
   id: string;
@@ -26,7 +27,7 @@ export function summarize(drink: Drink): DrinkSummary {
   const id = canonicalPackageDrinkId(drink);
   return {
     id,
-    href: `${redesignBase}/${id}`,
+    href: drinkPageHref(drink),
     name: drink.name,
     brand: brandLabel(drink),
     category: categoryById[drink.categoryId]?.name ?? "Getränk",

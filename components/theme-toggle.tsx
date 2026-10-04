@@ -24,7 +24,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="focus-ring inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-ash bg-paper hover:border-marigold"
+      className="focus-ring inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-hair bg-mist hover:border-ink"
       aria-label={dark ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren"}
       title={dark ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren"}
     >

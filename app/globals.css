@@ -14,6 +14,17 @@
   --marigold: #d8f36a;
   --buttercream: #eaf9a8;
   --cream: #e2f0bd;
+  --hair: var(--ash);
+  --moss: #1f4539;
+  --moss-deep: #163328;
+  --lime: #d8f36a;
+  --level-free: #d8f36a;
+  --level-low: #a9d27e;
+  --level-sugared: #1f4539;
+  --band-free: rgba(216, 243, 106, 0.5);
+  --band-low: rgba(169, 210, 126, 0.3);
+  --dot: #1f4539;
+  --card-shadow: 0 1px 0 rgba(23, 32, 29, 0.04), 0 24px 60px -36px rgba(23, 32, 29, 0.35);
 }
 
 .dark {
@@ -28,6 +39,10 @@
   --marigold: #d8f36a;
   --buttercream: #eaf9a8;
   --cream: #2b442f;
+  --dot: #d8f36a;
+  --band-free: rgba(216, 243, 106, 0.2);
+  --band-low: rgba(169, 210, 126, 0.12);
+  --card-shadow: 0 24px 60px -36px rgba(0, 0, 0, 0.6);
 }
 
 * {

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -11,6 +12,7 @@ export type HeaderNavItem =
 export function HeaderNav({ items }: { items: HeaderNavItem[] }) {
   const [open, setOpen] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!open) return;
@@ -29,11 +31,16 @@ export function HeaderNav({ items }: { items: HeaderNavItem[] }) {
   }, [open]);
 
   return (
-    <nav ref={navRef} className="hidden items-center gap-2 text-sm text-slate lg:flex" aria-label="Hauptnavigation">
+    <nav ref={navRef} className="hidden items-center gap-1 text-sm text-slate lg:flex" aria-label="Hauptnavigation">
       {items.map((item) => {
         if ("href" in item) {
           return (
-            <Link key={item.href} href={item.href} className="focus-ring rounded-full border border-transparent px-3 py-1.5 hover:bg-mist hover:text-ink">
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={isActive(pathname, item.href) ? "page" : undefined}
+              className="focus-ring rounded-full px-3 py-1.5 font-medium hover:bg-mist hover:text-ink aria-[current=page]:bg-mist aria-[current=page]:text-ink"
+            >
               {item.label}
             </Link>
           );
@@ -72,4 +79,10 @@ export function HeaderNav({ items }: { items: HeaderNavItem[] }) {
       })}
     </nav>
   );
+}
+
+// "/de/getraenke" stays active on product pages, but not on the comparison tool, which has its own item.
+function isActive(pathname: string, href: string) {
+  if (href === "/de/getraenke") return pathname === href || (pathname.startsWith(`${href}/`) && !pathname.startsWith(`${href}/vergleich`));
+  return pathname === href || pathname.startsWith(`${href}/`);
 }

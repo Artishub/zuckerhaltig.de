@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
-import type { DrinkSummary } from "./data";
+import type { DrinkSummary } from "@/lib/drink-summary";
 import { LevelBadge } from "./level-badge";
-import styles from "./redesign.module.css";
+import styles from "./ui.module.css";
 
 const numberFormat = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 });
 
@@ -13,7 +13,7 @@ function normalize(value: string) {
   return value.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 }
 
-export function RedesignSearch({ items }: { items: DrinkSummary[] }) {
+export function HomeSearch({ items }: { items: DrinkSummary[] }) {
   const [query, setQuery] = useState("");
   const index = useMemo(() => items.map((item) => ({ item, haystack: normalize(`${item.brand} ${item.name} ${item.category}`) })), [items]);
 

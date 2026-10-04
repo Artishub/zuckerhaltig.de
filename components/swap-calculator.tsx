@@ -51,7 +51,7 @@ export function SwapCalculator({ drinkName, sugarPer100Ml, sizeMl, options }: {
           const active = option.id === selected.id;
           return (
             <li key={option.id} data-buy-slot={option.id}>
-              <div className={`grid h-full gap-3 rounded-2xl border p-4 transition ${active ? "border-ink bg-paper shadow-[0_18px_40px_-28px_rgba(23,32,29,0.5)]" : "border-ash bg-mist"}`}>
+              <div className={`grid h-full gap-3 rounded-[20px] border p-5 transition ${active ? "border-ink bg-mist shadow-card" : "border-hair bg-mist hover:border-slate"}`}>
                 <button
                   type="button"
                   role="radio"
@@ -62,7 +62,7 @@ export function SwapCalculator({ drinkName, sugarPer100Ml, sizeMl, options }: {
                   }}
                   className="focus-ring grid gap-1 rounded-md text-left"
                 >
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate">{option.brand}</span>
+                  {!option.name.startsWith(option.brand) && <span className="text-sm text-slate">{option.brand}</span>}
                   <span className="font-semibold leading-tight">{option.name}</span>
                   <span className="text-sm text-slate">{numberFormat.format(option.sugarPer100Ml)} g Zucker pro 100 ml</span>
                   {saved !== null && <span className="mt-1 text-lg font-bold tabular-nums">{numberFormat.format(saved)} g weniger pro Packung</span>}
@@ -78,9 +78,8 @@ export function SwapCalculator({ drinkName, sugarPer100Ml, sizeMl, options }: {
       </ul>
 
       {savedPerYear !== null && sizeMl && (
-        <div className="grid gap-3 rounded-2xl bg-[#1f4539] p-5 text-[#f5f8f2] md:grid-cols-[1fr_auto] md:items-center">
+        <div className="grid gap-3 rounded-[22px] bg-[radial-gradient(120%_120%_at_100%_0%,#2c5a4a_0%,#1f4539_45%,#163328_100%)] p-6 text-[#f5f8f2] md:grid-cols-[1fr_auto] md:items-center">
           <p className="text-lg leading-7">
-            <span className="text-[#b9d4c3]">Tausch-Rechner: </span>
             {frequency.label === "täglich" ? "Täglich" : frequency.label} eine {sizeMl}-ml-Packung {drinkName} durch {selected.name} ersetzt ={" "}
             <strong className="text-[#d8f36a]">rund {formatMass(savedPerYear)} Zucker weniger im Jahr</strong>.
           </p>

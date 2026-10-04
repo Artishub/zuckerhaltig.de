@@ -8,17 +8,43 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const nav: HeaderNavItem[] = [
   { href: "/de/getraenke", label: "Getränke" },
+  { href: "/de/kategorien", label: "Kategorien" },
+  { href: "/de/marken", label: "Marken" },
   { href: "/de/getraenke/vergleich", label: "Vergleichen" },
-  { href: "/de/marken", label: "Alle Marken" },
-  { href: "/de/kategorien", label: "Getränke nach Kategorie" },
+  { href: "/de/wissen", label: "Wissen" },
+];
+
+const footerColumns = [
   {
-    label: "Ratgeber",
-    children: [
-      { href: "/de/wissen", label: "Wissenswertes" },
-      { href: "/de/faq", label: "FAQ" },
+    title: "Getränke",
+    links: [
+      { href: "/de/getraenke", label: "Alle Getränke" },
+      { href: "/de/kategorien", label: "Kategorien" },
+      { href: "/de/marken", label: "Marken" },
+      { href: "/de/getraenke/vergleich", label: "Vergleichen" },
+      { href: "/de/zuckerrechner", label: "Zuckerrechner" },
     ],
   },
-  { href: "/de/ueber", label: "Über" },
+  {
+    title: "Themen",
+    links: [
+      { href: "/de/wissen/cola-zucker-pro-100ml", label: "Zucker in Cola" },
+      { href: "/de/wissen/energy-drinks-zucker-vergleichen", label: "Zucker in Energy Drinks" },
+      { href: "/de/wissen/eistee-zucker-im-alltag", label: "Zucker in Eistee" },
+      { href: "/de/rankings/zuckerreichste-getraenke", label: "Zuckerreichste Getränke" },
+      { href: "/de/rankings/kalorien-getraenke", label: "Kalorien in Getränken" },
+    ],
+  },
+  {
+    title: "Projekt",
+    links: [
+      { href: "/de/ueber", label: "Über & Methodik" },
+      { href: "/de/faq", label: "FAQ" },
+      { href: "/de/impressum", label: "Impressum" },
+      { href: "/de/datenschutz", label: "Datenschutz" },
+      { href: "/de/nutzungsbedingungen", label: "Nutzungsbedingungen" },
+    ],
+  },
 ];
 
 export const dynamicParams = true;
@@ -33,9 +59,9 @@ export default async function LocaleLayout({ children, params }: { children: Rea
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <header className="sticky top-0 z-30 border-b border-ash/70 bg-paper/85 px-2 py-2 backdrop-blur-xl sm:py-3">
-        <div className="mx-auto flex min-h-12 max-w-[1280px] items-center justify-between gap-2 py-1 sm:gap-3">
-          <Link href="/de" className="focus-ring flex shrink-0 rounded-md">
+      <header className="sticky top-0 z-30 border-b border-hair/70 bg-paper/85 px-3 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between gap-3">
+          <Link href="/de" className="focus-ring flex shrink-0 rounded-md" aria-label="Zuckerhaltig.de Startseite">
             <SiteLogo />
           </Link>
           <HeaderNav items={nav} />
@@ -47,21 +73,25 @@ export default async function LocaleLayout({ children, params }: { children: Rea
         </div>
       </header>
       {children}
-      <footer className="border-t border-ash bg-mist">
-        <div className="mx-auto grid max-w-page gap-6 px-4 py-12 text-sm text-slate md:grid-cols-[1fr_auto]">
-          <p>Zuckerhaltig.de ist ein unabhängiges Informationsprojekt.<br />Angaben ohne Gewähr.</p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/de/ueber" className="hover:text-ink">Über</Link>
-            <Link href="/de/wissen/cola-zucker-pro-100ml" className="hover:text-ink">Cola Zucker</Link>
-            <Link href="/de/zuckerrechner" className="hover:text-ink">Zuckerrechner</Link>
-            <Link href="/de/wissen/energy-drinks-zucker-vergleichen" className="hover:text-ink">Energy Zucker</Link>
-            <Link href="/de/wissen/eistee-zucker-im-alltag" className="hover:text-ink">Eistee Zucker</Link>
-            <Link href="/de/rankings/zuckerreichste-getraenke" className="hover:text-ink">Ranking</Link>
-            <Link href="/de/rankings/kalorien-getraenke" className="hover:text-ink">Kalorien</Link>
-            <Link href="/de/impressum" className="hover:text-ink">Impressum</Link>
-            <Link href="/de/datenschutz" className="hover:text-ink">Datenschutz</Link>
-            <Link href="/de/nutzungsbedingungen" className="hover:text-ink">Nutzung</Link>
+      <footer className="mt-8 border-t border-hair bg-mist">
+        <div className="mx-auto grid max-w-[1180px] gap-10 px-5 py-14 text-sm md:grid-cols-[1.4fr_repeat(3,1fr)]">
+          <div className="max-w-xs">
+            <SiteLogo />
+            <p className="mt-4 leading-6 text-slate">Zucker in Getränken pro 100 ml und pro Packung. Jeder Wert mit Quelle und Prüfdatum.</p>
           </div>
+          {footerColumns.map((column) => (
+            <nav key={column.title} aria-label={column.title}>
+              <p className="font-semibold">{column.title}</p>
+              <ul className="mt-3 grid gap-2 text-slate">
+                {column.links.map((link) => (
+                  <li key={link.href}><Link href={link.href} className="hover:text-ink">{link.label}</Link></li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+        <div className="border-t border-hair">
+          <p className="mx-auto max-w-[1180px] px-5 py-5 text-xs text-slate">Unabhängiges Informationsprojekt. Angaben ohne Gewähr, maßgeblich ist das Etikett.</p>
         </div>
       </footer>
     </div>

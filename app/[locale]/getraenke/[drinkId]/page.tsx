@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink, Info } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { categoryPageHref } from "@/lib/category-landing-pages";
+import { articleBySlug } from "@/lib/content/articles";
 import { featuredDrinkEditorial, type FeaturedDrinkComparison, type FeaturedDrinkPackageNote } from "@/lib/content/featured-drinks";
 import { brandById } from "@/lib/data/brands";
 import { categoryById } from "@/lib/data/categories";
@@ -12,9 +13,13 @@ import { isSearchIndexableDrink, searchIndexableDrinkIds } from "@/lib/seo-index
 import { drinkPageHref, drinkRedirectTarget, removedDrinkRedirects, sizeAnchor } from "@/lib/page-routing";
 import { correctionMailto, siteUrl } from "@/lib/site";
 import { drinkFacts, type DrinkFact } from "@/lib/drink-facts";
-import { dailySugarShare, dgeSugarConsensusUrl, swapAlternatives } from "@/lib/sugar-context";
+import { averageSugarPer100Ml, categoryPeers, dailySugarShare, dgeSugarConsensusUrl, lowSugarMaxPer100Ml, sugarFreeMaxPer100Ml, sugarLevel, swapAlternatives } from "@/lib/sugar-context";
+import { scaleMax } from "@/lib/drink-summary";
 import { SugarCubesGraphic } from "@/components/sugar-cubes-graphic";
 import { SwapCalculator, type SwapOption } from "@/components/swap-calculator";
+import { LevelBadge } from "@/components/ui/level-badge";
+import { SugarScale } from "@/components/ui/sugar-scale";
+import ui from "@/components/ui/ui.module.css";
 import styles from "./drink-detail.module.css";
 
 type PageProps = {
@@ -117,142 +122,156 @@ export default async function DrinkDetailPage({ params }: PageProps) {
       ? { href: brandHref, label: `Alle ${brandName}-Getränke` }
       : null;
   const categoryHref = categoryPageHref(drink.categoryId);
+  const categoryAverage = averageSugarPer100Ml(categoryPeers(drink));
+  const comparison = comparisonLink(drink);
+  const nextLinks = [
+    { href: knowledgeLink(drink), label: articleBySlug[knowledgeLink(drink).replace("/de/wissen/", "")]?.title ?? "Wissen" },
+    ...(comparison ? [comparison] : []),
+    ...(categoryHref ? [{ href: categoryHref, label: `${categoryName} vergleichen` }] : []),
+    ...(brandLink ? [brandLink] : []),
+  ];
 
   return (
-    <main className={styles.page}>
-      <section className={styles.hero}>
-        <nav aria-label="Brotkrumen" className="flex flex-wrap items-center gap-2 text-sm text-slate">
-          <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
-          <Link href="/de/getraenke">Getränke</Link><span aria-hidden="true">/</span>
-          {categoryHref ? <><Link href={categoryHref}>{categoryName}</Link><span aria-hidden="true">/</span></> : null}
-          <span aria-current="page">{drink.name}</span>
-        </nav>
-        <Link href="/de/getraenke" className={styles.back}><ArrowLeft size={16} /> Zur Getränkesuche</Link>
-        <div className={styles.heroGrid}>
-          <div>
-            <p className={styles.category}>{categoryName} · {sizeLabel(drink)}</p>
-            <h1>Wie viel Zucker hat {drink.name} in {sizeLabel(drink)}?</h1>
-            <p className={styles.summary}>{answerText(drink)}</p>
-            <p className={styles.sourceLine}><Info size={15} /> Quelle: {drink.source}</p>
-          </div>
-          <div className={styles.sugarPanel}>
-            <p>{brandName}</p>
-            <div><strong>{formatOptionalNumber(totalSugar)}</strong><span>g Zucker</span></div>
-            <div className={styles.cubeSummary}>
-              <p>pro {sizeLabel(drink)} · {formatOptionalNumber(cubes)} Zuckerwürfel</p>
-              <SugarCubesGraphic cubes={cubes} sizeMl={drink.sizeMl} className={styles.cubesGraphic} />
-              {dailyShare !== null && <p className={styles.dailyShare}>{dailyShare} % von 50 g, der DGE-Orientierung für freien Zucker am Tag</p>}
-            </div>
-          </div>
+    <main className={ui.page}>
+      <nav aria-label="Brotkrumen" className={ui.crumbs}>
+        <Link href="/de">Startseite</Link><span aria-hidden="true">/</span>
+        <Link href="/de/getraenke">Getränke</Link><span aria-hidden="true">/</span>
+        {categoryHref ? <><Link href={categoryHref}>{categoryName}</Link><span aria-hidden="true">/</span></> : null}
+        <span aria-current="page">{drink.name}</span>
+      </nav>
+
+      <section className={ui.factHero}>
+        <div>
+          <p className={styles.meta}>{brandName} · {categoryName} · {sizeLabel(drink)}</p>
+          <h1 className={styles.title}>Wie viel Zucker hat {drink.name} in {sizeLabel(drink)}?</h1>
+          <p className={ui.answer}>{answerText(drink)}</p>
+          <p className={ui.heroSource}><LevelBadge level={sugarLevel(drink.sugarPer100Ml)} /><span>Quelle: {drink.source}</span></p>
+        </div>
+        <div className={ui.factCard}>
+          <p>{sizeLabel(drink)}</p>
+          <strong>{formatOptionalNumber(totalSugar)}<span>g Zucker</span></strong>
+          <SugarCubesGraphic cubes={cubes} sizeMl={drink.sizeMl} className={styles.cubesGraphic} />
+          <dl>
+            <div><dt>pro 100 ml</dt><dd>{formatNumber(drink.sugarPer100Ml)} g</dd></div>
+            <div><dt>Zuckerwürfel</dt><dd>{formatOptionalNumber(cubes)}</dd></div>
+            <div><dt>Energie</dt><dd>{energy === null ? "/" : `${formatNumber(Math.round(energy))} kcal`}</dd></div>
+          </dl>
+          {dailyShare !== null && <p className={styles.dailyShare}>{dailyShare} % von 50 g, der DGE-Orientierung für freien Zucker am Tag</p>}
         </div>
       </section>
 
       {swapOptions.length > 0 && (
-        <section className={styles.swap} aria-labelledby="swap-title">
-          <div className={styles.swapLead}>
-            <p className={styles.category}>Tauschen</p>
-            <h2 id="swap-title">Weniger Zucker, gleicher Geschmack</h2>
-          </div>
+        <section className={ui.section} aria-labelledby="swap-title">
+          <div className={ui.sectionHead}><h2 id="swap-title">Weniger Zucker, gleicher Geschmack</h2></div>
           <SwapCalculator drinkName={drink.name} sugarPer100Ml={drink.sugarPer100Ml} sizeMl={drink.sizeMl} options={swapOptions} />
         </section>
       )}
 
-      <section className={styles.facts} aria-label={`Werte für ${drink.name}`}>
-        <Nutrient label="Zucker pro 100 ml" value={`${formatNumber(drink.sugarPer100Ml)} g`} highlight />
-        <Nutrient label={`Zucker pro ${sizeLabel(drink)}`} value={formatOptionalGrams(totalSugar)} highlight />
-        <Nutrient label="Zuckerwürfel" value={formatOptionalNumber(cubes)} />
-        <Nutrient label="Energie pro Packung" value={energy === null ? "/" : `${formatNumber(Math.round(energy))} kcal`} />
+      <section className={ui.section} aria-labelledby="drink-facts-title">
+        <div className={ui.sectionHead}><h2 id="drink-facts-title">Ist das viel?</h2></div>
+        <div className={ui.card}>
+          <SugarScale value={drink.sugarPer100Ml} average={categoryAverage} categoryName={categoryName} max={scaleMax()} freeMax={sugarFreeMaxPer100Ml} lowMax={lowSugarMaxPer100Ml} />
+        </div>
+        <DrinkFactsList facts={facts} isSugarFree={drink.sugarPer100Ml <= 0.5} categoryName={categoryName} categoryHref={categoryHref} />
       </section>
-
-      <DrinkFactsBlock facts={facts} isSugarFree={drink.sugarPer100Ml <= 0.5} categoryName={categoryName} categoryHref={categoryHref} />
 
       {family.length > 1 && <PackageSizes drinks={family} currentId={drink.id} lead={sizesFact?.text ?? null} />}
 
-      {isPublicDrink && editorial && (
-        <section className={styles.editorial} aria-labelledby="featured-editorial-title">
-          <div className={styles.editorialLead}>
-            <p className={styles.category}>Einordnung</p>
-            <h2 id="featured-editorial-title">{editorial.title}</h2>
-            <p>{editorial.intro}</p>
-          </div>
-          <div className={styles.editorialPoints}>
-            {editorial.points.map((point) => (
-              <article key={point.title}>
-                <h3>{point.title}</h3>
-                <p>{point.text}</p>
-              </article>
-            ))}
-          </div>
+      {isPublicDrink && editorial && (editorial.points.length > 0 || editorial.packageNote) && (
+        <section className={ui.section} aria-labelledby="featured-editorial-title">
+          <div className={ui.sectionHead}><h2 id="featured-editorial-title">Hinweise zum Wert</h2></div>
+          {editorial.packageNote && <PackageNote note={editorial.packageNote} />}
+          {editorial.points.length > 0 && (
+            <div className={styles.points}>
+              {editorial.points.map((point) => (
+                <article key={point.title}>
+                  <h3>{point.title}</h3>
+                  <p>{point.text}</p>
+                </article>
+              ))}
+            </div>
+          )}
         </section>
       )}
 
-      {isPublicDrink && editorial?.packageNote && <PackageNote note={editorial.packageNote} />}
-
       {isPublicDrink && editorial?.comparison && <FeaturedDrinkComparison comparison={editorial.comparison} currentDrinkId={drink.id} />}
 
-      <section className={styles.contentGrid}>
-        <div className={styles.nutrition}>
-          <p className={styles.category}>Nährwerte</p>
-          <h2>Pro 100 ml</h2>
-          <div className={styles.nutrientGrid}>
-            <Nutrient label="Energie" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.energyKcal)} kcal / ${formatNumber(drink.nutritionPer100Ml.energyKj)} kJ` : "/"} />
-            <Nutrient label="Kohlenhydrate" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.carbohydrates)} g` : "/"} />
-            <Nutrient label="davon Zucker" value={`${formatNumber(drink.sugarPer100Ml)} g`} />
-            <Nutrient label="Fett" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.fat)} g` : "/"} />
-            <Nutrient label="Eiweiß" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.protein)} g` : "/"} />
-            <Nutrient label="Salz" value={drink.nutritionPer100Ml ? `${formatNumber(drink.nutritionPer100Ml.salt)} g` : "/"} />
+      <section className={`${ui.section} ${ui.split}`}>
+        {drink.nutritionPer100Ml ? (
+          <div className={ui.label}>
+            <h2>Nährwerte</h2>
+            <p className={ui.labelSub}>pro 100 ml</p>
+            <table>
+              <tbody>
+                <tr><th scope="row">Energie</th><td>{formatNumber(drink.nutritionPer100Ml.energyKj)} kJ / {formatNumber(drink.nutritionPer100Ml.energyKcal)} kcal</td></tr>
+                <tr><th scope="row">Fett</th><td>{formatNumber(drink.nutritionPer100Ml.fat)} g</td></tr>
+                <tr><th scope="row">Kohlenhydrate</th><td>{formatNumber(drink.nutritionPer100Ml.carbohydrates)} g</td></tr>
+                <tr className={ui.labelStrong}><th scope="row">davon Zucker</th><td>{formatNumber(drink.sugarPer100Ml)} g</td></tr>
+                <tr><th scope="row">Eiweiß</th><td>{formatNumber(drink.nutritionPer100Ml.protein)} g</td></tr>
+                <tr><th scope="row">Salz</th><td>{formatNumber(drink.nutritionPer100Ml.salt)} g</td></tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-        <aside className={styles.sourceCard}>
-          <p className={styles.category}>Datenquelle</p>
-          <h2>Nachprüfbar.</h2>
+        ) : (
+          <div className={ui.label}>
+            <h2>Nährwerte</h2>
+            <p className={ui.labelSub}>pro 100 ml</p>
+            <table>
+              <tbody>
+                <tr className={ui.labelStrong}><th scope="row">Zucker</th><td>{formatNumber(drink.sugarPer100Ml)} g</td></tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+        <aside className={`${ui.card} ${ui.source}`} aria-labelledby="source-title">
+          <h2 id="source-title">Quelle</h2>
           <p>{drink.source}</p>
-          {totalSugar !== null && drink.sizeMl && (
-            <p className={styles.formula}><strong>Rechenweg:</strong> {formatNumber(drink.sugarPer100Ml)} g × {drink.sizeMl} ml / 100 = {formatNumber(totalSugar)} g Zucker</p>
-          )}
-          <p className={styles.checked}>
-            {verificationLabel(drink.verificationStatus)}
-            {drink.lastCheckedAt ? ` · Zuletzt geprüft: ${formatDate(drink.lastCheckedAt)}` : ""}
-          </p>
-          <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={16} /></a>
-          <a href={correctionMailto(`Wert prüfen: ${drink.name} ${sizeLabel(drink)}`)}>Wert falsch? Hinweis senden <ArrowRight size={16} /></a>
-          <Link href="/de/ueber" className={styles.knowledge}>So prüfen wir die Daten <ArrowRight size={16} /></Link>
+          <dl>
+            <div><dt>Status</dt><dd>{verificationLabel(drink.verificationStatus)}</dd></div>
+            {drink.lastCheckedAt && <div><dt>Geprüft</dt><dd>{formatDate(drink.lastCheckedAt)}</dd></div>}
+            {totalSugar !== null && drink.sizeMl && <div><dt>Rechenweg</dt><dd>{formatNumber(drink.sugarPer100Ml)} g × {drink.sizeMl} ml / 100 = {formatNumber(totalSugar)} g</dd></div>}
+          </dl>
+          <a href={drink.sourceUrl} target="_blank" rel="noreferrer">Quelle öffnen <ExternalLink size={14} aria-hidden="true" /></a>
+          <a href={correctionMailto(`Wert prüfen: ${drink.name} ${sizeLabel(drink)}`)}>Wert falsch? Hinweis senden</a>
+          <Link href="/de/ueber">So prüfen wir die Daten</Link>
         </aside>
       </section>
 
       {similar.length > 0 && (
-        <section className={styles.compare}>
-          <div><h2>Ähnliche Getränke.</h2></div>
-          <div className={styles.related}>
-            {similar.map((item) => {
-              const similarBrand = brandById[item.brandId]?.name ?? "Marke";
-              return <Link key={item.id} href={drinkPageHref(item)}><span>{similarBrand}</span><strong>{item.name.replace(`${similarBrand} `, "")}</strong><b>{formatNumber(item.sugarPer100Ml)} g / 100 ml</b><ArrowRight size={16} /></Link>;
-            })}
+        <section className={ui.section} aria-labelledby="similar-title">
+          <div className={ui.sectionHead}>
+            <h2 id="similar-title">Ähnlich viel Zucker</h2>
+            {categoryHref && <Link href={categoryHref}>{categoryName} vergleichen <ArrowRight size={15} aria-hidden="true" /></Link>}
+          </div>
+          <ul className={`${ui.card} ${ui.compactList}`}>
+            {similar.map((item) => (
+              <li key={item.id}>
+                <Link href={drinkPageHref(item)}>
+                  <span><strong>{item.name}</strong><small>{brandById[item.brandId]?.name ?? "Marke"} · {sizeLabel(item)}</small></span>
+                  <span className={ui.num}>{formatNumber(item.sugarPer100Ml)} g / 100 ml</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {isPublicDrink && faqs.length > 0 && (
+        <section className={ui.section} aria-labelledby="faq-title">
+          <div className={ui.sectionHead}><h2 id="faq-title">Fragen zu {drink.name}</h2></div>
+          <div className={styles.faq}>
+            {faqs.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
           </div>
         </section>
       )}
 
-      {!isPublicDrink && (
-        <nav aria-label="Weiter vergleichen" className={styles.nextLinks}>
-          <Link href="/de/getraenke" className={styles.knowledge}>Alle Getränke vergleichen <ArrowRight size={16} /></Link>
-          {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
-          {brandLink && <Link href={brandLink.href} className={styles.knowledge}>{brandLink.label} <ArrowRight size={16} /></Link>}
-        </nav>
-      )}
-
-      {isPublicDrink && <section className={styles.faq}>
-        <p className={styles.category}>Fragen und Antworten</p>
-        <h2>FAQ zu {drink.name}</h2>
-        <div>
-          {faqs.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
-        </div>
-        <div className={styles.knowledgeLinks}>
-          <Link href={knowledgeLink(drink)} className={styles.knowledge}>Passendes Wissen lesen <ArrowRight size={16} /></Link>
-          {comparisonLink(drink) && <Link href={comparisonLink(drink)!.href} className={styles.knowledge}>{comparisonLink(drink)!.label} <ArrowRight size={16} /></Link>}
-          {categoryHref && <Link href={categoryHref} className={styles.knowledge}>{categoryName} vergleichen <ArrowRight size={16} /></Link>}
-          {brandLink && <Link href={brandLink.href} className={styles.knowledge}>{brandLink.label} <ArrowRight size={16} /></Link>}
-        </div>
-      </section>}
+      <nav aria-label="Weiter vergleichen" className={ui.section}>
+        <ul className={ui.chipList}>
+          {nextLinks.map((link) => (
+            <li key={link.href}><Link href={link.href}>{link.label} <ArrowRight size={14} aria-hidden="true" /></Link></li>
+          ))}
+        </ul>
+      </nav>
 
       <script
         type="application/ld+json"
@@ -267,30 +286,19 @@ export default async function DrinkDetailPage({ params }: PageProps) {
   );
 }
 
-function Nutrient({ label, value, highlight = false }: { label: string; value: string; highlight?: boolean }) {
-  return (
-    <div className="rounded-md border border-ash bg-paper p-3">
-      <p className="text-xs font-medium uppercase tracking-wide text-slate">{label}</p>
-      <p className={`mt-2 tabular-nums ${highlight ? "text-2xl font-semibold" : "text-lg font-semibold"}`}>{value}</p>
-    </div>
-  );
-}
-
 function PackageSizes({ drinks, currentId, lead }: { drinks: Drink[]; currentId: string; lead: string | null }) {
   return (
-    <section className={styles.packages} aria-labelledby="package-sizes-title">
-      <div>
-        <h2 id="package-sizes-title">Zucker nach Packungsgröße</h2>
-        {lead && <p>{lead}</p>}
-      </div>
-      <div className={styles.sizeTableWrap}>
-        <table className={styles.sizeTable}>
+    <section className={ui.section} aria-labelledby="package-sizes-title">
+      <div className={ui.sectionHead}><h2 id="package-sizes-title">Zucker nach Packungsgröße</h2></div>
+      {lead && <p className={ui.sectionLead}>{lead}</p>}
+      <div className={`${ui.card} ${ui.tableWrap}`}>
+        <table className={ui.table}>
           <thead>
             <tr>
               <th scope="col">Packung</th>
-              <th scope="col">Zucker</th>
-              <th scope="col">Würfel</th>
-              <th scope="col">Energie</th>
+              <th scope="col" className={ui.num}>Zucker</th>
+              <th scope="col" className={ui.num}>Würfel</th>
+              <th scope="col" className={ui.num}>Energie</th>
             </tr>
           </thead>
           <tbody>
@@ -299,13 +307,11 @@ function PackageSizes({ drinks, currentId, lead }: { drinks: Drink[]; currentId:
               const isCurrent = drink.id === currentId;
               const linksAway = !isCurrent && !href.includes("#");
               return (
-                <tr key={drink.id} id={sizeAnchor(drink)} className={isCurrent ? styles.sizeCurrent : undefined} aria-current={isCurrent ? "true" : undefined}>
-                  <th scope="row">
-                    {linksAway ? <Link href={href} className="underline decoration-ash underline-offset-4 hover:decoration-marigold">{sizeLabel(drink)}</Link> : sizeLabel(drink)}
-                  </th>
-                  <td>{formatOptionalGrams(totalSugarGrams(drink))}</td>
-                  <td>{formatOptionalNumber(sugarCubes(drink))}</td>
-                  <td>{formatOptionalKcal(packageEnergyKcal(drink))}</td>
+                <tr key={drink.id} id={sizeAnchor(drink)} className={isCurrent ? ui.currentRow : styles.sizeRow} aria-current={isCurrent ? "true" : undefined}>
+                  <th scope="row">{linksAway ? <Link href={href}>{sizeLabel(drink)}</Link> : sizeLabel(drink)}</th>
+                  <td className={ui.num}>{formatOptionalGrams(totalSugarGrams(drink))}</td>
+                  <td className={ui.num}>{formatOptionalNumber(sugarCubes(drink))}</td>
+                  <td className={ui.num}>{formatOptionalKcal(packageEnergyKcal(drink))}</td>
                 </tr>
               );
             })}
@@ -325,33 +331,35 @@ function FeaturedDrinkComparison({ comparison, currentDrinkId }: { comparison: F
   if (!items.length) return null;
 
   return (
-    <section className={styles.editorialComparison} aria-labelledby="featured-comparison-title">
-      <div className={styles.editorialComparisonLead}>
-        <p className={styles.category}>Direkter Vergleich</p>
-        <h2 id="featured-comparison-title">{comparison.title}</h2>
-        <p>{comparison.intro}</p>
+    <section className={ui.section} aria-labelledby="featured-comparison-title">
+      <div className={ui.sectionHead}><h2 id="featured-comparison-title">{comparison.title}</h2></div>
+      <div className={`${ui.card} ${ui.tableWrap}`}>
+        <table className={ui.table}>
+          <thead>
+            <tr>
+              <th scope="col">Getränk</th>
+              <th scope="col" className={ui.num}>pro 100 ml</th>
+              <th scope="col" className={ui.num}>pro Packung</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((item) => {
+              const isCurrent = canonicalPackageDrinkId(item) === currentDrinkId;
+              return (
+                <tr key={item.id} className={isCurrent ? ui.currentRow : undefined}>
+                  <th scope="row">
+                    {isCurrent
+                      ? <span className={ui.tableName}><strong>{item.name}</strong><small>{brandById[item.brandId]?.name ?? "Marke"} · {sizeLabel(item)} · diese Seite</small></span>
+                      : <Link href={drinkPageHref(item)} className={ui.tableName}><strong>{item.name}</strong><small>{brandById[item.brandId]?.name ?? "Marke"} · {sizeLabel(item)}</small></Link>}
+                  </th>
+                  <td className={ui.num}>{formatNumber(item.sugarPer100Ml)} g</td>
+                  <td className={ui.num}>{formatOptionalGrams(totalSugarGrams(item))}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
-      <ul className={styles.editorialComparisonGrid}>
-        {items.map((item) => {
-          const itemBrand = brandById[item.brandId]?.name ?? "Marke";
-          const isCurrent = canonicalPackageDrinkId(item) === currentDrinkId;
-          return (
-            <li key={item.id} className={isCurrent ? styles.editorialComparisonCardCurrent : styles.editorialComparisonCard}>
-              <div>
-                <p className={styles.category}>{itemBrand} · {sizeLabel(item)}</p>
-                <h3><Link href={drinkPageHref(item)}>{item.name}</Link></h3>
-                {isCurrent && <span className={styles.currentLabel}>Diese Seite</span>}
-              </div>
-              <dl className={styles.editorialComparisonFacts}>
-                <div><dt>Zucker / 100 ml</dt><dd>{formatNumber(item.sugarPer100Ml)} g</dd></div>
-                <div><dt>Pro Packung</dt><dd>{formatOptionalGrams(totalSugarGrams(item))}</dd></div>
-              </dl>
-              <Link href={drinkPageHref(item)} className={styles.editorialComparisonLink}>Details <ArrowRight size={15} /></Link>
-            </li>
-          );
-        })}
-      </ul>
-      {comparison.note && <p className={styles.editorialComparisonNote}>{comparison.note}</p>}
     </section>
   );
 }
@@ -360,12 +368,12 @@ function PackageNote({ note }: { note: FeaturedDrinkPackageNote }) {
   return (
     <aside className={styles.packageNote} aria-label={note.label}>
       <div>
-        <p className={styles.category}>{note.label}</p>
-        <p className={styles.packageNoteValue}>{note.value}</p>
+        <p>{note.label}</p>
+        <strong>{note.value}</strong>
       </div>
       <div>
         <p>{note.text}</p>
-        <a href={note.sourceUrl} target="_blank" rel="noreferrer">Herstellerangabe öffnen <ExternalLink size={15} /></a>
+        <a href={note.sourceUrl} target="_blank" rel="noreferrer">Herstellerangabe öffnen <ExternalLink size={14} aria-hidden="true" /></a>
       </div>
     </aside>
   );
@@ -434,30 +442,26 @@ function answerText(drink: Drink) {
   return `${answer} Eine ${drink.sizeMl}-ml-Packung enthält ${formatNumber(totalSugar)} g Zucker, das sind etwa ${formatNumber(cubes)} Zuckerwürfel.`;
 }
 
-function DrinkFactsBlock({ facts, isSugarFree, categoryName, categoryHref }: { facts: DrinkFact[]; isSugarFree: boolean; categoryName: string; categoryHref: string | null }) {
+function DrinkFactsList({ facts, isSugarFree, categoryName, categoryHref }: { facts: DrinkFact[]; isSugarFree: boolean; categoryName: string; categoryHref: string | null }) {
   const shown = facts.filter((fact) => fact.id !== "sizes");
   if (!shown.length) return null;
   const sweetenerLinkFact = shown.some((fact) => fact.id === "original") ? "original" : shown[0].id;
 
   return (
-    <section className={styles.context} aria-labelledby="drink-facts-title">
-      <div className={styles.contextLead}>
-        <p className={styles.category}>Einordnung</p>
-        <h2 id="drink-facts-title">Wie viel ist das?</h2>
-      </div>
-      <div className={styles.contextGrid}>
-        {shown.map((fact) => (
-          <article key={fact.id}>
-            <h3>{fact.label}</h3>
-            <p>{fact.text}</p>
-            {fact.href && <Link href={fact.href}>{fact.linkLabel} <ArrowRight size={15} /></Link>}
-            {fact.id === "category-rank" && categoryHref && <Link href={categoryHref}>{categoryName} vergleichen <ArrowRight size={15} /></Link>}
-            {fact.id === "daily" && <a href={dgeSugarConsensusUrl} target="_blank" rel="noreferrer">Konsensuspapier der DGE öffnen <ExternalLink size={15} /></a>}
-            {isSugarFree && fact.id === sweetenerLinkFact && <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke">Süßstoffe einordnen <ArrowRight size={15} /></Link>}
-          </article>
-        ))}
-      </div>
-    </section>
+    <ul className={ui.contextList}>
+      {shown.map((fact) => (
+        <li key={fact.id}>
+          <strong>{fact.label}</strong>
+          <span>{fact.text}</span>
+          <span className={styles.factLinks}>
+            {fact.href && <Link href={fact.href}>{fact.linkLabel}</Link>}
+            {fact.id === "category-rank" && categoryHref && <Link href={categoryHref}>{categoryName} vergleichen</Link>}
+            {fact.id === "daily" && <a href={dgeSugarConsensusUrl} target="_blank" rel="noreferrer">DGE-Konsensuspapier <ExternalLink size={13} aria-hidden="true" /></a>}
+            {isSugarFree && fact.id === sweetenerLinkFact && <Link href="/de/wissen/suessstoffe-aspartam-zuckerfreie-getraenke">Süßstoffe einordnen</Link>}
+          </span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -557,5 +561,5 @@ function sizeLabel(drink: Drink) {
 }
 
 function formatDate(value: string) {
-  return new Intl.DateTimeFormat("de-DE").format(new Date(value));
+  return new Intl.DateTimeFormat("de-DE", { day: "numeric", month: "long", year: "numeric" }).format(new Date(value));
 }

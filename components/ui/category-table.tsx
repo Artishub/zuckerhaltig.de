@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
-import type { DrinkSummary } from "./data";
+import type { DrinkSummary } from "@/lib/drink-summary";
 import { LevelBadge } from "./level-badge";
-import styles from "./redesign.module.css";
+import styles from "./ui.module.css";
 
 type SortKey = "per100" | "total" | "name";
 
