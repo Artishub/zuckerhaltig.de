@@ -68,7 +68,7 @@ On 2026-07-27 the domain dropped sitewide overnight (likely a spam update after 
 
 ## Project skills
 
-`.claude/skills/`: `drink-data` (edit or verify drinks), `seo-wave` (indexing changes), `verify` (checks, local server, screenshots).
+`.claude/skills/`: `drink-data` (edit or verify drinks), `seo-wave` (indexing changes), `verify` (checks, local server, screenshots), `short-video` (social videos in the house style).
 
 ## Token budget
 
