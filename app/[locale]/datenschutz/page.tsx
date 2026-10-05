@@ -24,7 +24,7 @@ export default function DatenschutzPage() {
         <section>
           <h2>Aufruf der Website und Server-Logs</h2>
           <p className="mt-3">
-            Die Website läuft auf einem eigenen Server, der mit der Software Coolify betrieben wird. Beim Aufruf einer Seite verarbeitet der Server technisch notwendige Daten: IP-Adresse, Datum und Uhrzeit, aufgerufene Adresse, übertragene Datenmenge, Referrer sowie Browser und Betriebssystem. Das ist nötig, um die Website auszuliefern und vor Missbrauch zu schützen (Art. 6 Abs. 1 lit. f DSGVO). Die Logs werden nicht mit anderen Daten zusammengeführt und nach kurzer Zeit gelöscht.
+            Die Website läuft auf einem Server der Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen. Mit Hetzner besteht ein Vertrag zur Auftragsverarbeitung. Beim Aufruf einer Seite verarbeitet der Server technisch notwendige Daten: IP-Adresse, Datum und Uhrzeit, aufgerufene Adresse, übertragene Datenmenge, Referrer sowie Browser und Betriebssystem. Das ist nötig, um die Website auszuliefern und vor Missbrauch zu schützen (Art. 6 Abs. 1 lit. f DSGVO). Die Logs werden nicht mit anderen Daten zusammengeführt und nach kurzer Zeit gelöscht.
           </p>
         </section>
 
