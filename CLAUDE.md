@@ -18,7 +18,7 @@ npm run drink -- <term> # compact drink lookup (see "Token budget")
 
 Run `typecheck`, `lint`, `test` and `build` after code or data changes, plus `seo:check` after changes to indexing, redirects, sitemap or metadata. CI (`.github/workflows/docker.yml`) runs `lint` and `test`, then `build && seo:check`, and then builds the Docker image (Next standalone output).
 
-Social scripts (`social:*`) need credentials. Use `social:preview` or `social:check` for dry runs.
+Short videos live in `video/` (separate Remotion package, excluded from the app build; see `video/README.md`). Social scripts (`social:*`) need credentials. Use `social:preview` or `social:check` for dry runs.
 
 ## Architecture
 
