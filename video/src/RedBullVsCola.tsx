@@ -11,14 +11,14 @@ const color = {
 
 const font = "'Inter Variable', Inter, system-ui, sans-serif";
 
-// Timeline in frames (30 fps, 24 s).
+// Timeline in frames (30 fps, 30 s). Every text stays at least 3 s on screen.
 const scene = {
-  hook: [0, 75],
-  guess: [75, 150],
-  per100: [150, 300],
-  pack: [300, 510],
-  reveal: [510, 630],
-  outro: [630, 720],
+  hook: [0, 105],
+  guess: [105, 210],
+  per100: [210, 390],
+  pack: [390, 660],
+  reveal: [660, 825],
+  outro: [825, 900],
 } as const;
 
 export const durationInFrames = scene.outro[1];
@@ -48,7 +48,7 @@ function Part({ range, children }: { range: readonly [number, number]; children:
 // Every scene fades in and out briefly, so cuts never jump.
 function Fade({ length, children }: { length: number; children: React.ReactNode }) {
   const frame = useCurrentFrame();
-  const opacity = interpolate(frame, [0, 8, length - 8, length], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const opacity = interpolate(frame, [0, 12, length - 12, length], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return <AbsoluteFill style={{ opacity }}>{children}</AbsoluteFill>;
 }
 
@@ -63,7 +63,7 @@ function Ring() {
 function useSpring(delay = 0, damping = 14) {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  return spring({ frame: frame - delay, fps, config: { damping, mass: 0.8 } });
+  return spring({ frame: frame - delay, fps, config: { damping, mass: 1.1, stiffness: 80 } });
 }
 
 function Stage({ children, justify = "center" }: { children: React.ReactNode; justify?: "center" | "flex-start" }) {
@@ -77,9 +77,9 @@ function Kicker({ children }: { children: React.ReactNode }) {
 }
 
 function Hook() {
-  const left = useSpring(4);
-  const right = useSpring(12);
-  const sub = useSpring(24);
+  const left = useSpring(6);
+  const right = useSpring(20);
+  const sub = useSpring(42);
   return (
     <Stage>
       <div style={{ fontSize: 150, fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.05em" }}>
@@ -95,8 +95,8 @@ function Hook() {
 function Guess() {
   const frame = useCurrentFrame();
   const intro = useSpring(0);
-  const step = Math.min(2, Math.floor(Math.max(0, frame - 10) / 20));
-  const local = (Math.max(0, frame - 10) % 20) / 20;
+  const step = Math.min(2, Math.floor(Math.max(0, frame - 15) / 30));
+  const local = (Math.max(0, frame - 15) % 30) / 30;
   const radius = 170;
   const circumference = 2 * Math.PI * radius;
   return (
@@ -107,7 +107,7 @@ function Guess() {
           <circle cx={200} cy={200} r={radius} fill="none" stroke={color.line} strokeWidth={10} />
           <circle cx={200} cy={200} r={radius} fill="none" stroke={color.lime} strokeWidth={10} strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={circumference * local} />
         </svg>
-        <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", fontSize: 200, fontWeight: 800, letterSpacing: "-0.05em" }}>{frame < 10 ? 3 : 3 - step}</div>
+        <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", fontSize: 200, fontWeight: 800, letterSpacing: "-0.05em" }}>{frame < 15 ? 3 : 3 - step}</div>
       </div>
     </Stage>
   );
@@ -117,14 +117,14 @@ function Per100() {
   const items = [redBull, cola];
   const max = Math.max(...items.map((item) => item.per100));
   const winner = items.reduce((a, b) => (b.per100 > a.per100 ? b : a));
-  const glow = useSpring(85, 20);
+  const glow = useSpring(105, 20);
   return (
     <Stage>
       <Kicker>Runde 1</Kicker>
       <div style={{ fontSize: 110, fontWeight: 800, letterSpacing: "-0.045em", marginTop: 10 }}>pro 100 ml</div>
       <div style={{ marginTop: 110, display: "grid", gap: 80 }}>
         {items.map((item, index) => (
-          <Bar key={item.label} item={item} max={max} delay={20 + index * 14} highlight={item === winner ? glow : 0} />
+          <Bar key={item.label} item={item} max={max} delay={20 + index * 22} highlight={item === winner ? glow : 0} />
         ))}
       </div>
       <div style={{ marginTop: 100, fontSize: 52, fontWeight: 600, opacity: glow }}>
@@ -169,7 +169,7 @@ const PER_ROW = 3;
 function Column({ item, delay }: { item: VideoDrink; delay: number }) {
   const frame = useCurrentFrame();
   const count = Math.round(item.cubes);
-  const perCube = 7;
+  const perCube = 10;
   const done = delay + count * perCube + 10;
   const progress = interpolate(frame, [delay, done], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });
   const rows = Math.ceil(count / PER_ROW);
@@ -195,7 +195,7 @@ function Column({ item, delay }: { item: VideoDrink; delay: number }) {
 function FallingCube({ index, delay }: { index: number; delay: number }) {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const land = spring({ frame: frame - delay, fps, config: { damping: 11, mass: 0.6, stiffness: 140 } });
+  const land = spring({ frame: frame - delay, fps, config: { damping: 13, mass: 0.8, stiffness: 90 } });
   const row = Math.floor(index / PER_ROW);
   const col = index % PER_ROW;
   const x = col * CUBE + (row % 2 ? CUBE * 0.12 : 0);
@@ -240,8 +240,8 @@ function Container({ kind }: { kind: "can" | "bottle" }) {
 
 function Reveal() {
   const title = useSpring(0);
-  const note = useSpring(30);
-  const box = useSpring(60);
+  const note = useSpring(40);
+  const box = useSpring(80);
   const ratio = cola.total / redBull.total;
   return (
     <Stage>
@@ -262,8 +262,8 @@ function Reveal() {
 
 function Outro() {
   const logo = useSpring(0);
-  const line = useSpring(15);
-  const small = useSpring(25);
+  const line = useSpring(18);
+  const small = useSpring(32);
   const checked = latestCheck([redBull.drink, cola.drink]);
   return (
     <Stage>
