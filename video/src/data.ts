@@ -1,19 +1,33 @@
-import { drinks, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink } from "../../lib/data/drinks";
+import { categoryPeers, drinks, lowerSugarAlternative, packageEnergyKcal, sugarCubes, totalSugarGrams, type Drink } from "./site-data";
 
-// Values come from the site data, never typed in by hand. The render fails if a drink is missing.
-function load(id: string) {
+export type ContainerKind = "can" | "bottle" | "pouch";
+
+export type DrinkRef = { id: string; label: string; kind?: ContainerKind };
+
+// Values come from the site data, never typed in by hand. Rendering fails if a drink is missing.
+export function loadDrink({ id, label, kind }: DrinkRef) {
   const drink = drinks.find((item) => item.id === id);
   if (!drink) throw new Error(`Drink ${id} fehlt in lib/data/drinks.ts`);
   const total = totalSugarGrams(drink);
   const cubes = sugarCubes(drink);
   if (total === null || cubes === null || !drink.sizeMl) throw new Error(`Drink ${id} hat keine Packungswerte`);
-  return { drink, per100: drink.sugarPer100Ml, total, cubes, sizeMl: drink.sizeMl, kcal: packageEnergyKcal(drink) };
+  return {
+    drink,
+    label,
+    kind: kind ?? (drink.sizeMl <= 355 ? "can" : "bottle"),
+    per100: drink.sugarPer100Ml,
+    total,
+    cubes,
+    sizeMl: drink.sizeMl,
+    kcal: packageEnergyKcal(drink),
+  };
 }
 
-export type VideoDrink = ReturnType<typeof load> & { label: string; kind: "can" | "bottle" };
+export type VideoDrink = ReturnType<typeof loadDrink>;
 
-export const redBull: VideoDrink = { ...load("red-bull-energy-drink-250"), label: "Red Bull", kind: "can" };
-export const cola: VideoDrink = { ...load("coca-cola-classic-500"), label: "Coca-Cola", kind: "bottle" };
+export function alternativeFor(drink: Drink) {
+  return lowerSugarAlternative(drink, categoryPeers(drink));
+}
 
 export const dailySugarGrams = 50;
 
@@ -24,4 +38,13 @@ export function latestCheck(items: Drink[]) {
 
 export function format(value: number) {
   return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 }).format(value);
+}
+
+export function sizeLabel(ml: number) {
+  return ml >= 1000 ? `${format(ml / 1000)} l` : `${ml} ml`;
+}
+
+// "Flasche", "Dose" or "Packung" with the right article, used in hooks and reveals.
+export function packageWord(kind: ContainerKind) {
+  return kind === "can" ? "Dose" : kind === "pouch" ? "Packung" : "Flasche";
 }
