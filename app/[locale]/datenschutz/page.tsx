@@ -24,7 +24,14 @@ export default function DatenschutzPage() {
         <section>
           <h2>Aufruf der Website und Server-Logs</h2>
           <p className="mt-3">
-            Beim Aufruf einer Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten: IP-Adresse, Datum und Uhrzeit, aufgerufene Adresse, übertragene Datenmenge, Referrer sowie Browser und Betriebssystem. Das ist nötig, um die Website auszuliefern und vor Missbrauch zu schützen (Art. 6 Abs. 1 lit. f DSGVO). Die Logs werden nicht mit anderen Daten zusammengeführt und nach kurzer Zeit gelöscht.
+            Die Website läuft auf einem Server der Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen. Mit Hetzner besteht ein Vertrag zur Auftragsverarbeitung. Beim Aufruf einer Seite verarbeitet der Server technisch notwendige Daten: IP-Adresse, Datum und Uhrzeit, aufgerufene Adresse, übertragene Datenmenge, Referrer sowie Browser und Betriebssystem. Das ist nötig, um die Website auszuliefern und vor Missbrauch zu schützen (Art. 6 Abs. 1 lit. f DSGVO). Die Logs werden nicht mit anderen Daten zusammengeführt und nach kurzer Zeit gelöscht.
+          </p>
+        </section>
+
+        <section>
+          <h2>Cloudflare</h2>
+          <p className="mt-3">
+            Alle Aufrufe laufen über das Netzwerk der Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Cloudflare leitet die Anfragen an unseren Server weiter, liefert Inhalte schneller aus und wehrt Angriffe ab. Dabei verarbeitet Cloudflare die oben genannten Zugriffsdaten einschließlich der IP-Adresse und kann technisch notwendige Cookies zur Abwehr von Bots setzen. Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und schnellen Website (Art. 6 Abs. 1 lit. f DSGVO). Mit Cloudflare besteht ein Vertrag zur Auftragsverarbeitung. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noreferrer" className="underline decoration-smoke underline-offset-4 hover:decoration-ink">Datenschutzerklärung von Cloudflare</a>.
           </p>
         </section>
 
