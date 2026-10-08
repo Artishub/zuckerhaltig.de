@@ -1,6 +1,6 @@
 # Kurzvideos (Remotion)
 
-Hochformat 1080 × 1920, 30 fps, 30 Sekunden. Alle Zahlen und Bildunterschriften kommen aus `lib/data/drinks.ts` und den Helfern der Website. Nichts wird abgetippt.
+Hochformat 1080 × 1920, 30 fps. Standard ist die helle Vorlage `fill` (23,5 s) im Design der Website; `duel`, `cubes` und `ranking` (30 s, dunkel) sind der alte Stil. Alle Zahlen und Bildunterschriften kommen aus `lib/data/drinks.ts` und den Helfern der Website. Nichts wird abgetippt.
 
 ## Vorlagen
 

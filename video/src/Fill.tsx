@@ -6,13 +6,13 @@ import { LightFrame, Logo, Mark, Pill, Safe, Scene, cardShadow, rise, tone, useI
 // One drink, one statement: guess the grams, see 100 ml fill the screen, then the whole package against the 50 g day limit.
 export type FillProps = { drink: DrinkRef; answer?: 0 | 1 | 2 };
 
-export const fillDuration = 630;
+export const fillDuration = 705;
 
 const scene: Record<"hook" | "per100" | "pack" | "outro", Range> = {
   hook: [0, 165],
   per100: [165, 330],
   pack: [330, 525],
-  outro: [525, 630],
+  outro: [525, 705],
 };
 
 const letters = ["A", "B", "C"];

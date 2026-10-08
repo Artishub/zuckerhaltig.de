@@ -14,7 +14,7 @@ const only = args.filter((arg) => !arg.startsWith("--"));
 const browserExecutable = process.env.REMOTION_CHROMIUM ?? null;
 // Frames used for the cover and for the preview stills.
 const coverFrame = { duel: 630, cubes: 480, ranking: 660, fill: 480 } as const;
-const previewFrames = { duel: [60, 160, 330, 560, 760, 870], cubes: [60, 160, 330, 560, 760, 870], ranking: [60, 160, 330, 560, 760, 870], fill: [40, 140, 230, 300, 400, 500, 590] } as const;
+const previewFrames = { duel: [60, 160, 330, 560, 760, 870], cubes: [60, 160, 330, 560, 760, 870], ranking: [60, 160, 330, 560, 760, 870], fill: [40, 140, 230, 300, 400, 500, 620] } as const;
 
 const serveUrl = await bundle({
   entryPoint: path.join(root, "src/index.ts"),
