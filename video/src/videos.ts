@@ -2,13 +2,15 @@ import type { CubesProps } from "./Cubes";
 import type { DuelProps } from "./Duel";
 import type { FillProps } from "./Fill";
 import type { RankingProps } from "./Ranking";
+import type { SplitProps } from "./Split";
 import { format, loadDrink, sizeLabel } from "./data";
 
 export type VideoConfig =
   | { id: string; template: "duel"; props: DuelProps; tags: string[] }
   | { id: string; template: "cubes"; props: CubesProps; tags: string[] }
   | { id: string; template: "ranking"; props: RankingProps; tags: string[] }
-  | { id: string; template: "fill"; props: FillProps; tags: string[] };
+  | { id: string; template: "fill"; props: FillProps; tags: string[] }
+  | { id: string; template: "split"; props: SplitProps; tags: string[] };
 
 // Drinks are referenced by id only; every number in the videos and captions is read from the site data.
 export const videos: VideoConfig[] = [
@@ -57,6 +59,17 @@ export const videos: VideoConfig[] = [
     tags: ["eistee", "icetea"],
   },
   { id: "12-cola-fill", template: "fill", props: { drink: { id: "coca-cola-classic-500", label: "Cola" }, answer: 2 }, tags: ["cola", "cocacola"] },
+  {
+    id: "13-osaft-vs-cola",
+    template: "split",
+    props: {
+      a: { id: "hohes-c-orange-1000", label: "O‑Saft" },
+      b: { id: "coca-cola-classic-500", label: "Cola" },
+      note: "Für die WHO zählt auch der Zucker aus Saft zum freien Zucker, genau wie der in Cola.",
+      ask: "Was trinkst du zum Frühstück?",
+    },
+    tags: ["orangensaft", "saft", "cola"],
+  },
 ];
 
 const footer = (tags: string[]) => `\n\nAlle Werte mit Quelle auf zuckerhaltig.de\n\n${["zucker", ...tags, "ernährung", "wissen"].map((tag) => `#${tag}`).join(" ")}`;
@@ -78,6 +91,12 @@ export function caption(video: VideoConfig) {
     const item = loadDrink(video.props.drink);
     const share = Math.round((item.total / 50) * 100);
     return `Hättest du's gewusst? In ${sizeLabel(item.sizeMl)} ${item.label} stecken ${format(item.total)} g Zucker, rund ${format(Math.round(item.cubes))} Zuckerwürfel. Das sind ${share} % der 50 g, die die WHO als Obergrenze für einen ganzen Tag nennt. Was war dein Tipp?${footer(video.tags)}`;
+  }
+  if (video.template === "split") {
+    const a = loadDrink(video.props.a);
+    const b = loadDrink(video.props.b);
+    const [more, less] = a.per100 >= b.per100 ? [a, b] : [b, a];
+    return `${a.label} oder ${b.label}, was hat mehr Zucker? Pro 100 ml: ${more.label} ${format(more.per100)} g, ${less.label} ${format(less.per100)} g. ${video.props.note ?? ""} ${video.props.ask ?? ""}`.replace(/\s+/g, " ").trim() + footer(video.tags);
   }
   const items = video.props.items.map(loadDrink).sort((x, y) => y.per100 - x.per100);
   return `${video.props.question} Zucker pro 100 ml: ${items.map((item) => `${item.label} ${format(item.per100)} g`).join(", ")}.${footer(video.tags)}`;
