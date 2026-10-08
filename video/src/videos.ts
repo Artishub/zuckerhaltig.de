@@ -1,12 +1,14 @@
 import type { CubesProps } from "./Cubes";
 import type { DuelProps } from "./Duel";
+import type { FillProps } from "./Fill";
 import type { RankingProps } from "./Ranking";
 import { format, loadDrink, sizeLabel } from "./data";
 
 export type VideoConfig =
   | { id: string; template: "duel"; props: DuelProps; tags: string[] }
   | { id: string; template: "cubes"; props: CubesProps; tags: string[] }
-  | { id: string; template: "ranking"; props: RankingProps; tags: string[] };
+  | { id: string; template: "ranking"; props: RankingProps; tags: string[] }
+  | { id: string; template: "fill"; props: FillProps; tags: string[] };
 
 // Drinks are referenced by id only; every number in the videos and captions is read from the site data.
 export const videos: VideoConfig[] = [
@@ -54,6 +56,7 @@ export const videos: VideoConfig[] = [
     },
     tags: ["eistee", "icetea"],
   },
+  { id: "12-cola-fill", template: "fill", props: { drink: { id: "coca-cola-classic-500", label: "Cola" }, answer: 2 }, tags: ["cola", "cocacola"] },
 ];
 
 const footer = (tags: string[]) => `\n\nAlle Werte mit Quelle auf zuckerhaltig.de\n\n${["zucker", ...tags, "ernährung", "wissen"].map((tag) => `#${tag}`).join(" ")}`;
@@ -70,6 +73,11 @@ export function caption(video: VideoConfig) {
   if (video.template === "cubes") {
     const item = loadDrink(video.props.drink);
     return `${item.label}, ${sizeLabel(item.sizeMl)}: ${format(item.total)} g Zucker, rund ${format(item.cubes)} Zuckerwürfel. Das sind ${Math.round((item.total / 50) * 100)} % der 50 g, die WHO und DGE Erwachsenen als Obergrenze am Tag nennen.${footer(video.tags)}`;
+  }
+  if (video.template === "fill") {
+    const item = loadDrink(video.props.drink);
+    const share = Math.round((item.total / 50) * 100);
+    return `Hättest du's gewusst? In ${sizeLabel(item.sizeMl)} ${item.label} stecken ${format(item.total)} g Zucker, rund ${format(Math.round(item.cubes))} Zuckerwürfel. Das sind ${share} % der 50 g, die die WHO als Obergrenze für einen ganzen Tag nennt. Was war dein Tipp?${footer(video.tags)}`;
   }
   const items = video.props.items.map(loadDrink).sort((x, y) => y.per100 - x.per100);
   return `${video.props.question} Zucker pro 100 ml: ${items.map((item) => `${item.label} ${format(item.per100)} g`).join(", ")}.${footer(video.tags)}`;
