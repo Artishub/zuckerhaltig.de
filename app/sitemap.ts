@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/de/getraenke",
     "/de/marken",
     "/de/zuckerrechner",
+    "/de/zuckersteuer",
     "/de/kategorien",
     "/de/wissen",
     "/de/faq",

@@ -50,6 +50,7 @@ Short videos live in `video/` (separate Remotion package, excluded from the app 
 - Shared UI lives in `components/ui/` (`ui.module.css`, tables, scales, `Section`) with tokens in `app/globals.css` and `tailwind.config.ts`; `lib/drink-summary.ts` builds the compact drink view model. Design rules, the list of removed noise patterns and the porting checklist for proteinhaltig.de are in `docs/redesign-playbook.md`.
 - The old drafts under `/de/test` are gone; `/de/test/*` 308-redirects to `/de` (`next.config.ts`).
 - No uppercase eyebrows, no headline periods, no repeated template sentences; see the noise list in the playbook.
+- Planned sugar tax (`/de/zuckersteuer`): all rules, status date and sources live in `lib/sugar-tax.ts`; tables in `lib/sugar-tax-data.ts` (server only). When the law changes, update only `lib/sugar-tax.ts`.
 - Shared sugar context logic (category rank, lower-sugar alternative, EU zuckerfrei/zuckerarm thresholds, WHO 50 g) lives in `lib/sugar-context.ts`.
 - `middleware.ts` 308-redirects the apex domain to `https://www.zuckerhaltig.de` and answers all drink redirects (sizes, flavors, duplicate ids, removed drinks) from `lib/drink-redirects.ts`, so they never go through a page render. Only the `de` locale exists.
 - Google Analytics loads only after consent (`components/cookie-consent.tsx`, footer link „Cookie-Einstellungen“). Keep `app/[locale]/datenschutz/page.tsx` in sync when tracking changes.
