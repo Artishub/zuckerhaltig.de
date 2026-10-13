@@ -3,6 +3,8 @@ import type { DuelProps } from "./Duel";
 import type { FillProps } from "./Fill";
 import type { RankingProps } from "./Ranking";
 import type { SplitProps } from "./Split";
+import type { TaxProps } from "./Tax";
+import { sugarTax, sugarTaxCentsPerLiter, sugarTaxPerPackageCents } from "@/lib/sugar-tax";
 import { format, loadDrink, sizeLabel } from "./data";
 
 export type VideoConfig =
@@ -10,7 +12,8 @@ export type VideoConfig =
   | { id: string; template: "cubes"; props: CubesProps; tags: string[] }
   | { id: string; template: "ranking"; props: RankingProps; tags: string[] }
   | { id: string; template: "fill"; props: FillProps; tags: string[] }
-  | { id: string; template: "split"; props: SplitProps; tags: string[] };
+  | { id: string; template: "split"; props: SplitProps; tags: string[] }
+  | { id: string; template: "tax"; props: TaxProps; tags: string[] };
 
 // Drinks are referenced by id only; every number in the videos and captions is read from the site data.
 export const videos: VideoConfig[] = [
@@ -70,6 +73,7 @@ export const videos: VideoConfig[] = [
     },
     tags: ["orangensaft", "saft", "cola"],
   },
+  { id: "14-zuckersteuer-cola", template: "tax", props: { drink: { id: "coca-cola-classic-500", label: "Cola" } }, tags: ["zuckersteuer", "cola", "steuer"] },
 ];
 
 const footer = (tags: string[]) => `\n\nAlle Werte mit Quelle auf zuckerhaltig.de\n\n${["zucker", ...tags, "ernährung", "wissen"].map((tag) => `#${tag}`).join(" ")}`;
@@ -91,6 +95,12 @@ export function caption(video: VideoConfig) {
     const item = loadDrink(video.props.drink);
     const share = Math.round((item.total / 50) * 100);
     return `Hättest du's gewusst? In ${sizeLabel(item.sizeMl)} ${item.label} stecken ${format(item.total)} g Zucker, rund ${format(Math.round(item.cubes))} Zuckerwürfel. Das sind ${share} % der 50 g, die die WHO als Obergrenze für einen ganzen Tag nennt. Was war dein Tipp?${footer(video.tags)}`;
+  }
+  if (video.template === "tax") {
+    const item = loadDrink(video.props.drink);
+    const cents = sugarTaxPerPackageCents(item.per100, item.sizeMl);
+    const tier = sugarTax.tiers.find((entry) => item.per100 >= entry.minPer100Ml);
+    return `Wie viel Zuckersteuer käme auf ${sizeLabel(item.sizeMl)} ${item.label}? Geplant sind ${sugarTaxCentsPerLiter(item.per100)} ct pro Liter ab ${tier?.minPer100Ml ?? 0} g Zucker pro 100 ml. ${item.label} hat ${format(item.per100)} g, also ${format(cents)} ct pro Flasche. Noch ist es kein Gesetz. ${video.props.ask ?? "Würdest du deshalb weniger kaufen?"} Rechner für jedes Getränk auf zuckerhaltig.de/de/zuckersteuer${footer(video.tags)}`;
   }
   if (video.template === "split") {
     const a = loadDrink(video.props.a);
