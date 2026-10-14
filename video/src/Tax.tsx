@@ -143,7 +143,7 @@ function Outro({ ask }: { ask: string }) {
       <div style={{ marginTop: 160, ...rise(brand, 20) }}>
         <Logo size={70} />
         <div style={{ marginTop: 26, fontSize: 34, color: tone.muted, lineHeight: 1.4 }}>Rechner für jedes Getränk: zuckerhaltig.de/de/zuckersteuer</div>
-        <div style={{ marginTop: 8, fontSize: 30, color: tone.muted, lineHeight: 1.4 }}>Stand {status}: Einigung der Koalition, Gesetz noch nicht beschlossen.</div>
+        <div style={{ marginTop: 8, fontSize: 30, color: tone.muted, lineHeight: 1.4 }}>Stand {status}: Gesetz noch nicht beschlossen.</div>
       </div>
     </Safe>
   );

@@ -3,8 +3,8 @@ import type { Drink } from "@/lib/data/drinks";
 // Planned German sugar tax on drinks. Every rule lives here; the page, the calculator and the tables read from it.
 // Update `status`, `statusDate` and `sources` whenever the legislative process moves on.
 export const sugarTax = {
-  statusDate: "2026-10-13",
-  status: "Union und SPD haben sich geeinigt. Das Kabinett soll den Entwurf am 14. Oktober beschließen, danach entscheiden Bundestag und Bundesrat. Ein Gesetz gibt es noch nicht.",
+  statusDate: "2026-10-14",
+  status: "Das Kabinett hat die Zuckersteuer am 14. Oktober als Formulierungshilfe für die Koalitionsfraktionen beschlossen. Jetzt berät der Bundestag. Ein Gesetz gibt es noch nicht.",
   startDate: "2027-07-01",
   // Ordered from the highest threshold down.
   tiers: [
@@ -21,9 +21,11 @@ export const sugarTax = {
     "reine Frucht- und Obstsäfte",
     "alkoholfreies Bier, alkoholfreie Biermischgetränke, alkoholfreier Wein und Sekt",
     "Drinks auf Basis von Soja, Nüssen, Samen oder Getreide",
-    "Hersteller mit weniger als 1 Million Litern zuckerhaltiger Getränke im Jahr",
+    "kleine Hersteller (berichtet werden bis 1 Million Liter im Jahr; die Befreiung braucht noch eine Genehmigung der EU)",
   ],
   sources: [
+    { label: "Pharmazeutische Zeitung: Kabinett beschließt Zuckersteuer", url: "https://www.pharmazeutische-zeitung.de/kabinett-beschliesst-zuckersteuer-171099/" },
+    { label: "Dr. Web: Kabinett beschließt 26 und 32 Cent je Liter", url: "https://www.drweb.de/zuckersteuer-kabinett-26-32-cent-befreiung/" },
     { label: "ZDFheute: Bundesregierung einigt sich", url: "https://www.zdfheute.de/politik/deutschland/zuckersteuer-einigung-bundesregierung-100.html" },
     { label: "Handelsblatt: Koalition legt Streit um Zuckersteuer bei", url: "https://www.handelsblatt.com/politik/deutschland/bundespolitik-koalition-legt-streit-um-zuckersteuer-bei/100137034.html" },
     { label: "dpa-AFX via onvista: Koalition legt Streit über Zuckersteuer bei", url: "https://www.onvista.de/news/2026/10-13-roundup-koalition-legt-streit-ueber-zuckersteuer-bei-0-10-26563718" },
@@ -56,7 +58,7 @@ export function sugarTaxCaveat(drink: Pick<Drink, "categoryId">): SugarTaxCaveat
 }
 
 export const sugarTaxCaveatText: Record<Exclude<SugarTaxCaveat, null>, string> = {
-  juice: "Reiner Saft ist ausgenommen, Nektar und Fruchtsaftgetränke nicht. Für reinen Saft fiele also keine Steuer an.",
+  juice: "Reiner Saft ist ausgenommen. Fruchtnektar und Fruchtsaftgetränke mit Zuckerzusatz fallen unter die Steuer.",
   milk: "Ob Milchgetränke betroffen sind, nennen die Berichte bisher nicht.",
 };
 

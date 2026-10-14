@@ -13,7 +13,7 @@ const start = formatDate(sugarTax.startDate);
 const faq = [
   {
     question: "Ab wann gilt die Zuckersteuer?",
-    answer: `Geplant ist der ${start}. Beschlossen ist das noch nicht: Nach dem Kabinett müssen Bundestag und Bundesrat zustimmen.`,
+    answer: `Geplant ist der ${start}. Beschlossen ist das noch nicht: Das Kabinett hat den Vorschlag am 14. Oktober 2026 an die Koalitionsfraktionen gegeben, jetzt entscheidet der Bundestag.`,
   },
   {
     question: "Wie hoch ist die Zuckersteuer?",
@@ -25,7 +25,7 @@ const faq = [
   },
   {
     question: "Wird Saft besteuert?",
-    answer: "Reine Frucht- und Obstsäfte sind ausgenommen. Nektar und Fruchtsaftgetränke werden in den Berichten nicht als Ausnahme genannt.",
+    answer: "Reine Frucht- und Obstsäfte sind ausgenommen. Fruchtnektar und Fruchtsaftgetränke mit Zuckerzusatz fallen nach dem Kabinettsbeschluss unter die Steuer.",
   },
   {
     question: "Wer zahlt die Zuckersteuer?",
@@ -109,7 +109,7 @@ export default function SugarTaxPage() {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm leading-6 text-slate">Saft fehlt hier: Reiner Saft ist ausgenommen, Nektar nicht, und unsere Kategorie unterscheidet das nicht. Kleine Hersteller unter 1 Million Litern pro Jahr wären ausgenommen; ihre Mengen kennen wir nicht.</p>
+        <p className="mt-4 text-sm leading-6 text-slate">Saft fehlt hier: Reiner Saft ist ausgenommen, Nektar nicht, und unsere Kategorie unterscheidet das nicht. Kleine Hersteller wären ausgenommen; ihre Mengen kennen wir nicht.</p>
       </Section>
 
       <Section id="fragen" title="Fragen zur Zuckersteuer">
@@ -125,7 +125,7 @@ export default function SugarTaxPage() {
 
       <Section id="methodik" title="So rechnen wir">
         <div className="max-w-3xl space-y-4 leading-7 text-slate">
-          <p>Grundlage ist der Zucker pro 100 ml aus der Nährwerttabelle, wie auf allen Seiten von zuckerhaltig.de. Ob das Gesetz nur zugesetzten Zucker zählt, steht im Entwurf, der uns noch nicht vorliegt. Die Steuer pro Packung ist Steuersatz × Füllmenge, gerundet auf 0,1 Cent.</p>
+          <p>Grundlage ist der Zucker pro 100 ml aus der Nährwerttabelle, wie auf allen Seiten von zuckerhaltig.de. Auch die Steuer soll am Gesamtzucker pro 100 ml ansetzen. Die Steuer pro Packung ist Steuersatz × Füllmenge, gerundet auf 0,1 Cent.</p>
           <p>
             Quellen:{" "}
             {sugarTax.sources.map((source, index) => (
