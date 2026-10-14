@@ -3,6 +3,7 @@ import { PageHero } from "@/components/seo-drink-list";
 import { SugarTaxCalculator } from "@/components/sugar-tax-calculator";
 import { Section, cardClass, textLinkClass } from "@/components/ui/section";
 import { formatDate, formatNumber } from "@/lib/drink-summary";
+import { drinks } from "@/lib/data/drinks";
 import { pageMetadata, siteUrl } from "@/lib/site";
 import { formatCents, sugarTax, sugarTaxPerPackageCents } from "@/lib/sugar-tax";
 import { calculatorItems, categoryTaxShares, nearThreshold, popularTaxRows, tierCounts, type TaxRow } from "@/lib/sugar-tax-data";
@@ -10,7 +11,14 @@ import { calculatorItems, categoryTaxShares, nearThreshold, popularTaxRows, tier
 const [high, low] = sugarTax.tiers;
 const start = formatDate(sugarTax.startDate);
 
+// Reference drink for the most searched question; values come from the data.
+const cola = drinks.find((drink) => drink.id === "coca-cola-classic-500");
+
 const faq = [
+  ...(cola ? [{
+    question: "Wie viel teurer wird Cola durch die Zuckersteuer?",
+    answer: `Coca-Cola Classic hat ${formatNumber(cola.sugarPer100Ml)} g Zucker pro 100 ml und fiele damit unter den Satz von ${high.centsPerLiter} Cent pro Liter. Auf eine 0,5-l-Flasche kämen ${formatCents(sugarTaxPerPackageCents(cola.sugarPer100Ml, 500))} Steuer, auf 1 Liter ${formatCents(sugarTaxPerPackageCents(cola.sugarPer100Ml, 1000))}. Ob und wie stark der Handel das an die Preise weitergibt, ist offen.`,
+  }] : []),
   {
     question: "Ab wann gilt die Zuckersteuer?",
     answer: `Geplant ist der ${start}. Beschlossen ist das noch nicht: Das Kabinett hat den Vorschlag am 14. Oktober 2026 an die Koalitionsfraktionen gegeben, jetzt entscheidet der Bundestag.`,
@@ -34,9 +42,10 @@ const faq = [
 ];
 
 export const metadata = pageMetadata(
-  "Zuckersteuer 2027: Welche Getränke betroffen sind, mit Rechner",
+  "Zuckersteuer 2027: Rechner und betroffene Getränke",
   `Die geplante Zuckersteuer: ${low.centsPerLiter} ct pro Liter ab ${low.minPer100Ml} g, ${high.centsPerLiter} ct ab ${high.minPer100Ml} g Zucker pro 100 ml. Rechner und Liste, welche Getränke betroffen wären.`,
   "/de/zuckersteuer",
+  { image: { src: "/de/zuckersteuer/opengraph-image", alt: "Zuckersteuer: Steuersätze nach Zucker pro 100 ml", width: 1200, height: 630 } },
 );
 
 export default function SugarTaxPage() {

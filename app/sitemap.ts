@@ -5,6 +5,7 @@ import { canonicalPackageDrinks, drinks } from "@/lib/data/drinks";
 import { featuredBrandPages } from "@/lib/featured-brand-pages";
 import { isSearchIndexableBrand, isSearchIndexableDrink } from "@/lib/seo-index";
 import { siteUrl } from "@/lib/site";
+import { sugarTax } from "@/lib/sugar-tax";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -12,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/de/getraenke",
     "/de/marken",
     "/de/zuckerrechner",
-    "/de/zuckersteuer",
     "/de/kategorien",
     "/de/wissen",
     "/de/faq",
@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes.map((route) => ({ url: `${siteUrl}${route}` })),
+    { url: `${siteUrl}/de/zuckersteuer`, lastModified: sugarTax.statusDate },
     ...featuredBrandPages
       .filter((brand) => isSearchIndexableBrand(brand.id))
       .map((brand) => ({ url: `${siteUrl}/de/marken/${brand.id}` })),

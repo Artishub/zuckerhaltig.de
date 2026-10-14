@@ -379,6 +379,7 @@ function relatedLinks(slug: string) {
       { href: "/de/zuckerrechner", label: "Zucker pro Flasche berechnen", description: "Zuckerwert und Füllmenge direkt umrechnen." },
     ],
     "energy-drinks-zucker-vergleichen": [
+      { href: "/de/zuckersteuer", label: "Zuckersteuer auf Energy Drinks", description: "Welcher Steuersatz ab Juli 2027 auf welche Dose käme." },
       { href: "/de/vergleiche/red-bull-vs-monster-zucker", label: "Red Bull vs. Monster", description: "Die beiden größten Marken direkt nach Zucker gegenüberstellen." },
       { href: "/de/getraenke/red-bull-energy-drink-250", label: "Red Bull Energy Drink", description: "Zucker und Nährwerte der 250-ml-Dose ansehen." },
     ],
@@ -387,6 +388,7 @@ function relatedLinks(slug: string) {
       { href: "/de/getraenke/coca-cola-classic-500", label: "Coca-Cola Classic", description: "Zuckerwerte der 500-ml-Flasche im Detail." },
     ],
     "cola-zucker-pro-100ml": [
+      { href: "/de/zuckersteuer", label: "Zuckersteuer auf Cola", description: "Wie viel Steuer auf eine Flasche Cola käme, mit Rechner." },
       { href: "/de/marken/coca-cola", label: "Coca-Cola-Produkte", description: "Classic, Zero und weitere Varianten nach Zucker pro 100 ml vergleichen." },
       { href: "/de/getraenke/coca-cola-classic-500", label: "Coca-Cola Classic 500 ml", description: "53 g Zucker pro 500 ml aus dem 100-ml-Wert berechnen." },
       { href: "/de/getraenke/afri-cola-classic-330", label: "afri cola classic", description: "afri cola nach Zucker pro 100 ml und pro Dose einordnen." },
@@ -394,10 +396,12 @@ function relatedLinks(slug: string) {
       { href: "/de/vergleiche/spezi-vs-mezzo-mix-zucker", label: "Spezi vs. Mezzo Mix", description: "Die beiden bekanntesten Cola-Mixe nach Zucker und Kalorien vergleichen." },
     ],
     "saft-ist-nicht-automatisch-zuckerarm": [
+      { href: "/de/zuckersteuer", label: "Zuckersteuer und Saft", description: "Reiner Saft ist ausgenommen, Nektar nicht." },
       { href: "/de/kategorien/juice", label: "Säfte vergleichen", description: "Saft, Nektar und Fruchtsaftgetränke nach Zucker einordnen." },
       { href: "/de/getraenke/granini-trinkgenuss-orange-1000", label: "granini Trinkgenuss Orange", description: "Ein Beispiel für Zuckerwerte in Saftprodukten." },
     ],
     "eistee-zucker-im-alltag": [
+      { href: "/de/zuckersteuer", label: "Zuckersteuer auf Eistee", description: "Welche Eistees über 5 oder 8 g Zucker pro 100 ml liegen." },
       { href: "/de/marken/fuze-tea", label: "Fuze Tea vergleichen", description: "Sorten und Packungsgrößen der Marke nach Zucker ansehen." },
       { href: "/de/wissen/packungsgroesse-entscheidet", label: "Packungsgröße prüfen", description: "Warum große Flaschen trotz moderater 100-ml-Werte relevant sind." },
     ],
@@ -410,6 +414,7 @@ function relatedLinks(slug: string) {
       { href: "/de/wissen/cola-zero-light-und-klassisch", label: "Cola Zero und Light", description: "Was sich bei Zuckerwerten und Varianten unterscheidet." },
     ],
     "suessstoffe-aspartam-zuckerfreie-getraenke": [
+      { href: "/de/zuckersteuer", label: "Zuckersteuer und Zero-Getränke", description: "Warum Getränke mit Süßungsmitteln nicht besteuert werden sollen." },
       { href: "/de/rankings/zuckerfreie-getraenke", label: "Zuckerfreie Getränke vergleichen", description: "Zero- und Light-Produkte ausschließlich nach ihrem Zuckerwert vergleichen." },
       { href: "/de/wissen/getraenkeetiketten-naehrwerttabelle-verstehen", label: "Getränkeetiketten lesen", description: "Zutatenliste, Nährwerte und Packungsgröße richtig einordnen." },
     ],
