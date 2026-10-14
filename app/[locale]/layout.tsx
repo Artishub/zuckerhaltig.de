@@ -13,6 +13,7 @@ const nav: HeaderNavItem[] = [
   { href: "/de/marken", label: "Marken" },
   { href: "/de/getraenke/vergleich", label: "Vergleichen" },
   { href: "/de/wissen", label: "Wissen" },
+  { href: "/de/zuckersteuer", label: "Zuckersteuer" },
 ];
 
 const footerColumns = [
@@ -34,6 +35,7 @@ const footerColumns = [
       { href: "/de/wissen/eistee-zucker-im-alltag", label: "Zucker in Eistee" },
       { href: "/de/rankings/zuckerreichste-getraenke", label: "Zuckerreichste Getränke" },
       { href: "/de/rankings/kalorien-getraenke", label: "Kalorien in Getränken" },
+      { href: "/de/zuckersteuer", label: "Zuckersteuer" },
     ],
   },
   {
