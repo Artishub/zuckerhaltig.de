@@ -78,6 +78,7 @@ export default function HomePage() {
           <p className={styles.lead}>Werte pro 100 ml und pro Packung, umgerechnet in Zuckerwürfel und eingeordnet.</p>
           <HomeSearch items={products} />
           <p className={styles.heroMeta}>{products.length} Getränke · jede Zahl mit Quelle · zuletzt geprüft am {formatDate(latestCheckedAt())}</p>
+          <p className={styles.heroMeta}><Link href="/de/zuckersteuer" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>Neu: Zuckersteuer-Rechner für jedes Getränk</Link></p>
         </div>
         {featured && (
           <Link href={featured.href} className={styles.showcase}>
