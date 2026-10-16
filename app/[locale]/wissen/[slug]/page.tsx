@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { articleSnippet } from "@/lib/search-snippets";
 import { notFound } from "next/navigation";
 import { DrinkRows } from "@/components/seo-drink-list";
 import { articleBySlug, articles } from "@/lib/content/articles";
@@ -22,15 +23,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = articleBySlug[slug];
   if (!article) return {};
-  return pageMetadata(
-    metaTitle(article.slug, article.title),
-    metaDescription(article.slug, article.description),
+  const snippet = articleSnippet(article.slug);
+  const metadata = pageMetadata(
+    snippet?.title ?? metaTitle(article.slug, article.title),
+    snippet?.description ?? metaDescription(article.slug, article.description),
     `/de/wissen/${article.slug}`,
     {
       type: "article",
       ...(article.image ? { image: article.image } : {}),
     },
   );
+  // Snippet titles are written to fit 60 characters; the site suffix would push them over.
+  return snippet ? { ...metadata, title: { absolute: snippet.title } } : metadata;
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -38,12 +42,13 @@ export default async function ArticlePage({ params }: Props) {
   const article = articleBySlug[slug];
   if (!article) notFound();
   const comparison = articleComparison(article.slug);
+  const lead = articleSnippet(article.slug)?.lead ?? article.description;
 
   return (
     <main className="mx-auto max-w-3xl px-5 pb-24 pt-12 md:pt-16">
       <p className="text-sm font-medium text-slate">{article.minutes} Minuten Lesezeit</p>
       <h1 className="mt-3 text-[clamp(2.2rem,4.6vw,3.4rem)] font-[750] leading-[1.04] tracking-[-0.04em] [text-wrap:balance]">{article.title}</h1>
-      <p className="mt-5 text-lg leading-8 text-slate">{article.description}</p>
+      <p className="mt-5 text-lg leading-8 text-slate">{lead}</p>
       {article.updatedAt && <p className="mt-3 text-sm text-slate">Aktualisiert am {formatArticleDate(article.updatedAt)}</p>}
       {article.image && (
         <div className="mt-8 overflow-hidden rounded-lg border border-hair bg-mist shadow-card">
@@ -227,7 +232,7 @@ function ZeroLightAnswer() {
     <section className="mt-8 rounded-lg border border-hair bg-mist p-6 shadow-card" aria-labelledby="zero-light-title">
       <p className="text-sm font-semibold text-slate">Kurzantwort</p>
       <h2 id="zero-light-title" className="mt-2 text-lg font-normal leading-8">
-        Beim Zucker gibt es keinen Unterschied: {zero.name} und {light.name} haben beide <strong>{formatNumber(zero.sugarPer100Ml)} g Zucker pro 100 ml</strong>. {classic.name} hat {formatNumber(classic.sugarPer100Ml)} g, eine 500-ml-Flasche also {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 500))} g. Zero und Light unterscheiden sich in Rezeptur und Geschmack; welche Süßstoffe enthalten sind, steht in der Zutatenliste.
+        Beim Zucker gibt es zwischen {zero.name} und {light.name} keinen Unterschied. Sie unterscheiden sich in Rezeptur und Geschmack; welche Süßstoffe enthalten sind, steht in der Zutatenliste.
       </h2>
       <div className="mt-5 overflow-x-auto">
         <table className="w-full border-collapse text-sm tabular-nums">
