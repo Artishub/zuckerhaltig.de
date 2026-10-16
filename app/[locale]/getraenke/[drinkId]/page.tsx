@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { drinkSnippet } from "@/lib/search-snippets";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { categoryPageHref } from "@/lib/category-landing-pages";
 import { featuredDrinkEditorial, type FeaturedDrinkComparison, type FeaturedDrinkPackageNote } from "@/lib/content/featured-drinks";
@@ -43,8 +44,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonicalDrink = drinks.find((item) => item.id === canonicalId) ?? drink;
   const brandName = brandById[canonicalDrink.brandId]?.name ?? "Unbekannte Marke";
   const family = productFamilyDrinks(canonicalDrink);
-  const title = metaTitle(canonicalDrink);
-  const description = metaDescription(canonicalDrink, brandName, family);
+  const snippet = drinkSnippet(canonicalDrink.id);
+  const title = snippet?.title ?? metaTitle(canonicalDrink);
+  const description = snippet?.description ?? metaDescription(canonicalDrink, brandName, family);
   const canonicalUrl = `${siteUrl}/de/getraenke/${canonicalId}`;
 
   return {

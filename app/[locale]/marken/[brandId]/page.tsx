@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { brandSnippet } from "@/lib/search-snippets";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
@@ -29,12 +30,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = featuredBrandPageById[brandId];
   if (!brand || !page) return {};
 
+  const snippet = brandSnippet(brandId);
   return {
     ...pageMetadata(
-      `${brand.name}: Zucker und Produkte vergleichen`,
-      `${page.intro} Werte pro 100 ml, pro Packung und als Zuckerwürfel. ${page.metaDescription ?? "Mit Produktseiten, Packungsgrößen und Quellen."}`,
+      snippet?.title ?? `${brand.name}: Zucker und Produkte vergleichen`,
+      snippet?.description ?? `${page.intro} Werte pro 100 ml, pro Packung und als Zuckerwürfel. ${page.metaDescription ?? "Mit Produktseiten, Packungsgrößen und Quellen."}`,
       `/de/marken/${brandId}`,
     ),
+    ...(snippet && { title: { absolute: snippet.title } }),
     ...(!isSearchIndexableBrand(brandId) && {
       robots: {
         index: false,
@@ -78,7 +81,7 @@ export default async function BrandPage({ params }: PageProps) {
       <section className={ui.categoryHero}>
         <div>
           <h1>{brand.name}: Zucker vergleichen</h1>
-          <p className={ui.lead}>{page.intro}</p>
+          <p className={ui.lead}>{brandSnippet(brandId)?.lead ?? page.intro}</p>
         </div>
         <dl className={ui.statGrid}>
           <div className={ui.statCard}><dt>Produkte</dt><dd>{products.length}</dd></div>

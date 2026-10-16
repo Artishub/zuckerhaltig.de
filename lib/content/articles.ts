@@ -219,7 +219,7 @@ export const articles: Article[] = [
     body: [
       "Wer „Zuckergehalt Cola vs. Pepsi“ oder „Zuckervergleich Softdrinks“ sucht, will selten eine Grundsatzrede über Ernährung. Meist geht es um konkrete Zahlen: Wie viel Zucker steckt pro 100 ml drin, und was bedeutet das für die ganze Flasche?",
       "Coca-Cola Classic ist in der Datenbank mit 10,6 g Zucker pro 100 ml hinterlegt. Bei 500 ml sind das rechnerisch 53 g Zucker. Coca-Cola Vanilla liegt mit 11,1 g pro 100 ml etwas höher; eine 500-ml-Flasche kommt auf 55,5 g.",
-      "Pepsi Original ist hier mit 4,6 g Zucker pro 100 ml und 330 ml erfasst. Das zeigt schon, warum man nicht nur nach der Marke gehen sollte. Rezepturen unterscheiden sich je nach Markt, Sorte und Quelle; der konkrete Datensatz zählt.",
+      "Pepsi ist mit 7 g Zucker pro 100 ml erfasst, eine 500-ml-Flasche kommt auf 35 g. Rezepturen unterscheiden sich je nach Markt, Sorte und Quelle; der konkrete Datensatz zählt.",
       "Fanta Orange liegt in den hinterlegten deutschen Angaben bei 7,6 g pro 100 ml. Bei 500 ml ergeben sich 38 g Zucker. Fanta Exotic, Fanta Grape oder Fanta Pineapple können anders ausfallen, vor allem wenn Daten aus internationalen Produkten oder Händlerinformationen stammen.",
       "Spezi und Cola-Mix sind keine kleine Randkategorie. Paulaner Spezi ist mit 9,2 g Zucker pro 100 ml erfasst, Mezzo Mix Original mit 7,9 g. Bei großen Flaschen wächst der Abstand zwischen 100-ml-Wert und Gesamtzucker schnell.",
       "Sprite, 7UP, Sinalco, Orangina und Mountain Dew zeigen dasselbe Muster: Der Name sagt weniger als die Nährwerttabelle. Manche Sorten liegen nahe an klassischen Softdrinks, andere sind als Zero- oder Light-Variante fast ohne Zucker hinterlegt.",
