@@ -5,9 +5,11 @@ import { HeadToHead } from "@/components/ui/head-to-head";
 import { Section, textLinkClass } from "@/components/ui/section";
 import { drinksByBrand, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
 import { drinks, totalSugarGrams } from "@/lib/data/drinks";
+import { comparisonSnippet } from "@/lib/search-snippets";
 import { pageMetadata } from "@/lib/site";
 
-export const metadata = pageMetadata("Fanta vs. Sprite: Zucker pro 100 ml und pro Flasche", "Fanta Orange und Sprite nach Zucker vergleichen: Werte pro 100 ml, 500-ml-Flasche und Zuckerwürfel. Mit Produktseiten und Quellen.", "/de/vergleiche/fanta-vs-sprite-zucker");
+const snippet = comparisonSnippet("fanta-vs-sprite-zucker")!;
+export const metadata = { ...pageMetadata(snippet.title, snippet.description, "/de/vergleiche/fanta-vs-sprite-zucker"), title: { absolute: snippet.title } };
 
 export default function FantaSpritePage() {
   const fanta = topBySugarPer100(drinksByBrand("fanta", ["orange-limo", "softdrink"]), 8);
