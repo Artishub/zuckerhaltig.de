@@ -20,7 +20,7 @@ describe("search snippets", () => {
     const snippet = articleSnippet("cola-zero-light-und-klassisch")!;
     expect(snippet.title).toContain("0 g Zucker");
     expect(snippet.description).toContain("Classic 10,6 g");
-    expect(snippet.lead).toMatch(/^Coca-Cola Zero und Coca-Cola Light haben 0 g Zucker pro 100 ml/);
+    expect(snippet.lead).toMatch(/^Coca-Cola Zero und Coca-Cola Light haben 0 g Zucker pro 100 ml, auch ein Liter Cola Zero enthält 0 g/);
   });
 
   it("answers the cubes-per-litre question for cola", () => {

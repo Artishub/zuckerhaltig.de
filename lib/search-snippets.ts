@@ -35,7 +35,7 @@ const articleSnippets: Record<string, () => SearchSnippet> = {
     return {
       title: `Cola Zero: ${g(zero.sugarPer100Ml)} Zucker. Light und Classic im Vergleich`,
       description: `Coca-Cola Zero und Light haben ${g(zero.sugarPer100Ml)} Zucker pro 100 ml, Classic ${g(classic.sugarPer100Ml)}. In 500 ml Classic stecken ${g(per500(classic))}, rund ${cubes(per500(classic))} Zuckerwürfel.`,
-      lead: `Coca-Cola Zero und Coca-Cola Light haben ${g(zero.sugarPer100Ml)} Zucker pro 100 ml${light.sugarPer100Ml === zero.sugarPer100Ml ? "" : ` und ${g(light.sugarPer100Ml)}`}. Coca-Cola Classic hat ${g(classic.sugarPer100Ml)}, eine 500-ml-Flasche also ${g(per500(classic))}.`,
+      lead: `Coca-Cola Zero und Coca-Cola Light haben ${g(zero.sugarPer100Ml)} Zucker pro 100 ml${light.sugarPer100Ml === zero.sugarPer100Ml ? "" : ` und ${g(light.sugarPer100Ml)}`}, auch ein Liter Cola Zero enthält ${g(perSize(zero, 1000))}. Coca-Cola Classic hat ${g(classic.sugarPer100Ml)}, eine 500-ml-Flasche also ${g(per500(classic))}.`,
     };
   },
   "bekannte-softdrinks-im-zuckervergleich": () => {
