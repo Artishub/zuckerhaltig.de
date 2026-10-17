@@ -1,21 +1,21 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { drinkRedirectFor } from "@/lib/drink-redirects";
+import { apexRedirectTarget, canonicalOrigin, requestHost } from "@/lib/host-redirects";
 import { isNoindexUrl } from "@/lib/noindex-urls";
 
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.hostname === "zuckerhaltig.de") {
-    const url = request.nextUrl.clone();
-    url.protocol = "https:";
-    url.hostname = "www.zuckerhaltig.de";
-    if (url.pathname === "/") url.pathname = "/de";
-    return NextResponse.redirect(`https://www.zuckerhaltig.de${url.pathname}${url.search}`, 308);
+  const { pathname, search } = request.nextUrl;
+
+  if (requestHost(request.headers) === "zuckerhaltig.de") {
+    return NextResponse.redirect(apexRedirectTarget(pathname, search), 308);
   }
 
-  const drinkTarget = drinkRedirectFor(request.nextUrl.pathname);
-  if (drinkTarget) return NextResponse.redirect(new URL(drinkTarget, request.url), 308);
+  // Absolute canonical target: the request URL behind the proxy can carry the internal host and port.
+  const drinkTarget = drinkRedirectFor(pathname);
+  if (drinkTarget) return NextResponse.redirect(`${canonicalOrigin}${drinkTarget}`, 308);
 
   const response = NextResponse.next();
-  if (isNoindexUrl(request.nextUrl.pathname, request.nextUrl.search)) {
+  if (isNoindexUrl(pathname, search)) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
   }
   return response;
