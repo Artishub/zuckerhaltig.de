@@ -13,6 +13,7 @@ npm run build           # validate:data + next build
 npm run lint            # ESLint (next/core-web-vitals + typescript)
 npm run test            # Vitest unit tests (*.test.ts)
 npm run seo:check       # needs a prior build; starts its own server on :3210, checks sitemap/robots/noindex/redirect rules
+npm run seo:check-urls -- <Seiten.csv>  # needs a prior build; every URL of a Search Console page export must answer 200 or redirect once to a 200 page
 npm run drink -- <term> # compact drink lookup (see "Token budget")
 ```
 
@@ -52,7 +53,7 @@ Short videos live in `video/` (separate Remotion package, excluded from the app 
 - No uppercase eyebrows, no headline periods, no repeated template sentences; see the noise list in the playbook.
 - Planned sugar tax (`/de/zuckersteuer`): all rules, status date and sources live in `lib/sugar-tax.ts`; tables in `lib/sugar-tax-data.ts` (server only). When the law changes, update only `lib/sugar-tax.ts`.
 - Shared sugar context logic (category rank, lower-sugar alternative, EU zuckerfrei/zuckerarm thresholds, WHO 50 g) lives in `lib/sugar-context.ts`.
-- `middleware.ts` 308-redirects the apex domain to `https://www.zuckerhaltig.de` and answers all drink redirects (sizes, flavors, duplicate ids, removed drinks) from `lib/drink-redirects.ts`, so they never go through a page render. Only the `de` locale exists.
+- `middleware.ts` 308-redirects the apex domain to `https://www.zuckerhaltig.de` (host from the `Host`/`X-Forwarded-Host` header, drink redirects resolved in the same hop, `lib/host-redirects.ts`) and answers all drink redirects with absolute canonical URLs (sizes, flavors, duplicate ids, removed drinks) from `lib/drink-redirects.ts`, so they never go through a page render. Only the `de` locale exists.
 - Google Analytics loads only after consent (`components/cookie-consent.tsx`, footer link „Cookie-Einstellungen“). Keep `app/[locale]/datenschutz/page.tsx` in sync when tracking changes.
 
 **Content:**
