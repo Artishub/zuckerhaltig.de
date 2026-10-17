@@ -395,10 +395,19 @@ function similarDrinks(drink: Drink) {
 }
 
 
+// Answers both searched numbers (per 100 ml and per package) when the title stays within 60 characters.
 function metaTitle(drink: Drink) {
+  const name = shortenTitleName(drink.name);
   const sugar = `${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml`;
-  if (priorityProductIds.has(drink.id)) return `${shortenTitleName(drink.name)}: ${sugar} (${sizeLabel(drink)})`;
-  return `${shortenTitleName(drink.name)} ${sizeLabel(drink)}: ${sugar}`;
+  const total = totalSugarGrams(drink);
+  const withPackage = total && drink.sizeMl ? `${name}: ${sugar}, ${formatNumber(total)} g in ${packageLabel(drink.sizeMl)}` : null;
+  if (withPackage && withPackage.length <= 60) return withPackage;
+  if (priorityProductIds.has(drink.id)) return `${name}: ${sugar} (${sizeLabel(drink)})`;
+  return `${name} ${sizeLabel(drink)}: ${sugar}`;
+}
+
+function packageLabel(ml: number) {
+  return ml >= 1000 || ml === 500 ? `${formatNumber(ml / 1000)} l` : `${ml} ml`;
 }
 
 const priorityProductIds = new Set([
@@ -409,15 +418,25 @@ const priorityProductIds = new Set([
   "red-bull-energy-drink-250",
 ]);
 
+// First candidate within 160 characters wins, so search results show the whole sentence.
 function metaDescription(drink: Drink, brandName: string, family: Drink[]) {
   const totalSugar = totalSugarGrams(drink);
-  const packagePart = drink.sizeMl && totalSugar !== null
-    ? ` In ${drink.sizeMl} ml stecken rechnerisch ${formatNumber(totalSugar)} g.`
+  const cubes = sugarCubes(drink);
+  const source = ` Quelle: ${drink.source}.`;
+  const packagePart = drink.sizeMl && totalSugar
+    ? ` In ${drink.sizeMl} ml stecken ${formatNumber(totalSugar)} g${cubes ? `, rund ${Math.round(cubes)} Zuckerwürfel` : ""}.`
     : "";
   const familyPart = family.length > 1 ? ` Vergleiche ${family.length} Packungsgrößen.` : "";
-  const editorial = featuredDrinkEditorial[drink.id];
-  if (editorial) return `${editorial.metaDescription} Quelle: ${drink.source}.`;
-  return `${drink.name} von ${brandName} enthält ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.${packagePart}${familyPart} Mit Nährwerten und Zuckerwürfeln. Quelle: ${drink.source}.`;
+  const base = `${drink.name} von ${brandName} enthält ${formatNumber(drink.sugarPer100Ml)} g Zucker pro 100 ml.${packagePart}`;
+  const editorial = featuredDrinkEditorial[drink.id]?.metaDescription;
+  const candidates = [
+    // Hand-written descriptions already name the source.
+    editorial,
+    `${base}${familyPart}${source}`,
+    `${base}${source}`,
+    base,
+  ].filter((text): text is string => Boolean(text));
+  return candidates.find((text) => text.length <= 160) ?? base;
 }
 
 function shortenTitleName(name: string) {

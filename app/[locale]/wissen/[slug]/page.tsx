@@ -186,7 +186,7 @@ function ColaAnswer() {
     <section className="mt-8 rounded-lg border border-hair bg-mist p-6 shadow-card" aria-labelledby="cola-answer-title">
       <p className="text-sm font-semibold text-slate">Kurzantwort</p>
       <h2 id="cola-answer-title" className="mt-2 text-lg font-normal leading-8">
-        {classic.name} hat <strong>{formatNumber(classic.sugarPer100Ml)} g Zucker pro 100 ml</strong>. Eine 330-ml-Dose enthält {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 330))} g, eine 500-ml-Flasche {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 500))} g und ein Liter {formatNumber(calculatePackageSugar(classic.sugarPer100Ml, 1000))} g.
+        Zucker in {classic.name} und anderen Colas pro 100 ml, pro Dose, pro Flasche und pro Liter:
       </h2>
       <div className="mt-5 overflow-x-auto">
         <table className="w-full border-collapse text-sm tabular-nums">

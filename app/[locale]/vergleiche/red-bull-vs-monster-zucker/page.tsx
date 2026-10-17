@@ -2,9 +2,11 @@ import { PageHero } from "@/components/seo-drink-list";
 import { SortableDrinkRows } from "@/components/sortable-drink-list";
 import { drinks, totalSugarGrams } from "@/lib/data/drinks";
 import { drinksByBrand, formatNumber, topBySugarPer100 } from "@/lib/seo-drinks";
+import { comparisonSnippet } from "@/lib/search-snippets";
 import { pageMetadata } from "@/lib/site";
 
-export const metadata = pageMetadata("Red Bull vs. Monster: Zucker im Vergleich", "Red Bull und Monster Energy Drinks nach Zucker vergleichen: Sorten pro 100 ml, pro Dose und als Zuckerwürfel mit Packungswerten und Produktdetails.", "/de/vergleiche/red-bull-vs-monster-zucker");
+const snippet = comparisonSnippet("red-bull-vs-monster-zucker")!;
+export const metadata = { ...pageMetadata(snippet.title, snippet.description, "/de/vergleiche/red-bull-vs-monster-zucker"), title: { absolute: snippet.title } };
 
 export default function RedBullMonsterPage() {
   const redBull = topBySugarPer100(drinksByBrand("red-bull", ["energy"]), 8);
