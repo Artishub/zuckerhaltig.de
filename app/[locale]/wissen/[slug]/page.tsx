@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { articleSnippet } from "@/lib/search-snippets";
+import { per100Benchmarks } from "@/lib/sugar-benchmarks";
+import { lowSugarMaxPer100Ml, whoDailyLimitGrams } from "@/lib/sugar-context";
 import { notFound } from "next/navigation";
 import { DrinkRows } from "@/components/seo-drink-list";
 import { articleBySlug, articles } from "@/lib/content/articles";
@@ -71,6 +73,7 @@ export default async function ArticlePage({ params }: Props) {
           <p className="mt-2 text-lg leading-8">{article.quickAnswer}</p>
         </section>
       )}
+      {article.slug === "zucker-pro-100ml-verstehen" && <Per100Benchmarks />}
       {!!article.body.length && (
         <div className="mt-10 space-y-5 border-t border-ash pt-8 text-lg leading-8 text-ink">
           {article.body.map((paragraph) => (
@@ -454,6 +457,44 @@ function CategoryProductList({ categoryId, title, text }: { categoryId: string; 
       <p className="mt-3 leading-7 text-slate">{items.length} Produkte, Durchschnitt {formatNumber(averageSugar(items))} g Zucker pro 100 ml. {text}</p>
       <div className="mt-6">
         <SortableDrinkRows drinks={items} />
+      </div>
+    </section>
+  );
+}
+
+// Search Console shows questions like "sind 5 g zucker auf 100 ml viel"; the answer comes from the drink data.
+function Per100Benchmarks() {
+  const rows = per100Benchmarks();
+  const five = rows.find((row) => row.value === 5);
+  if (!five) return null;
+  return (
+    <section className="mt-8 rounded-lg border border-hair bg-mist p-6 shadow-card" aria-labelledby="per100-benchmarks-title">
+      <h2 id="per100-benchmarks-title" className="text-[1.4rem] font-[750] leading-tight tracking-[-0.02em]">Ist 5 g Zucker pro 100 ml viel?</h2>
+      <p className="mt-3 text-lg leading-8">
+        5 g liegt doppelt so hoch wie die Grenze für „zuckerarm“ ({formatNumber(lowSugarMaxPer100Ml)} g). {five.lessShare} % der Getränke in unserer Datenbank haben weniger. Eine 500-ml-Flasche mit 5 g pro 100 ml enthält {formatNumber(five.per500)} g Zucker, die Hälfte der {whoDailyLimitGrams} g, die die WHO als Obergrenze für einen Tag nennt.
+      </p>
+      <div className="mt-5 overflow-x-auto">
+        <table className="w-full border-collapse text-sm tabular-nums">
+          <caption className="sr-only">Zuckerwerte pro 100 ml eingeordnet: pro 500 ml, Anteil an 50 g und Anteil der Getränke mit weniger Zucker</caption>
+          <thead>
+            <tr className="text-left text-sm text-slate">
+              <th scope="col" className="py-2 pr-3 font-semibold">pro 100 ml</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">in 500 ml</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">von {whoDailyLimitGrams} g</th>
+              <th scope="col" className="px-3 py-2 text-right font-semibold">Getränke mit weniger</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.value} className="border-t border-ash">
+                <th scope="row" className="py-2.5 pr-3 text-left font-semibold">{formatNumber(row.value)} g</th>
+                <td className="px-3 py-2.5 text-right">{formatNumber(row.per500)} g</td>
+                <td className="px-3 py-2.5 text-right">{row.dailyShare} %</td>
+                <td className="px-3 py-2.5 text-right">{row.lessShare} %</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
   );
